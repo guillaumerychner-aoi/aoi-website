@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidature - AOI - Alliance des Opérateurs Immobiliers</title>
+    <meta name="description" content="Rejoignez le réseau AOI - Déposez votre candidature pour intégrer l'Alliance des Opérateurs Immobiliers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root{--orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;--orange-300:#fdba74;--orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;--orange-700:#c2410c;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827;--blue-500:#3b82f6;--blue-600:#2563eb;--green-500:#22c55e;--green-600:#16a34a}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-800);line-height:1.6;overflow-x:hidden;background:var(--gray-50)}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
+        h1{font-size:clamp(2rem,4vw,3rem)}h2{font-size:clamp(1.5rem,3vw,2rem)}h3{font-size:1.25rem}
+        p{color:var(--gray-600)}
+        a{color:var(--orange-600);text-decoration:none}a:hover{text-decoration:underline}
+        
+        /* Header */
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gray-900)}
+        .logo-box{width:48px;height:48px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:12px;display:flex;align-items:center;justify-content:center}
+        .logo-aoi{color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.5px}
+        .logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+        nav{display:flex;align-items:center;gap:8px}nav a{text-decoration:none;color:var(--gray-600);font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s ease}nav a:hover{color:var(--orange-600);background:var(--orange-50)}
+        .nav-extranet{background:var(--gray-900)!important;color:#fff!important;margin-left:8px}.nav-extranet:hover{background:var(--gray-700)!important;color:#fff!important}
+        
+        /* Page Header */
+        .page-header{background:linear-gradient(180deg,var(--orange-50) 0%,var(--gray-50) 100%);padding:140px 0 60px;text-align:center}
+        .page-header h1{color:var(--gray-900);margin-bottom:16px}
+        .page-header h1 span{color:var(--orange-600)}
+        .page-header p{font-size:1.125rem;max-width:600px;margin:0 auto}
+        
+        /* Main Content */
+        .main-content{padding:60px 0 100px}
+        .form-layout{display:grid;grid-template-columns:1fr 380px;gap:48px;align-items:start}
+        
+        /* Form Card */
+        .form-card{background:#fff;border-radius:24px;padding:48px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid var(--gray-200)}
+        .form-section{margin-bottom:40px}
+        .form-section:last-child{margin-bottom:0}
+        .form-section-title{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--orange-100)}
+        .form-section-title .icon{width:40px;height:40px;background:var(--orange-100);border-radius:10px;display:flex;align-items:center;justify-content:center}
+        .form-section-title .icon i{width:20px;height:20px;color:var(--orange-600)}
+        .form-section-title h3{font-family:'Inter',sans-serif;font-weight:600;font-size:1.1rem;color:var(--gray-900)}
+        
+        /* Form Fields */
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+        .form-row.single{grid-template-columns:1fr}
+        .form-group{display:flex;flex-direction:column;gap:8px}
+        .form-group label{font-weight:500;font-size:0.9rem;color:var(--gray-700)}
+        .form-group label .required{color:var(--orange-600)}
+        .form-group input,.form-group select,.form-group textarea{padding:14px 16px;border:2px solid var(--gray-200);border-radius:12px;font-size:1rem;font-family:'Inter',sans-serif;transition:all .2s ease;background:#fff}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--orange-500);box-shadow:0 0 0 4px rgba(249,115,22,.1)}
+        .form-group input::placeholder,.form-group textarea::placeholder{color:var(--gray-400)}
+        .form-group textarea{resize:vertical;min-height:120px}
+        .form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:20px;padding-right:44px}
+        .form-group .hint{font-size:0.8rem;color:var(--gray-500);margin-top:4px}
+        
+        /* Profile Type Selection */
+        .profile-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        .profile-type-card{position:relative;cursor:pointer}
+        .profile-type-card input{position:absolute;opacity:0;pointer-events:none}
+        .profile-type-card .card-content{padding:24px;border:2px solid var(--gray-200);border-radius:16px;transition:all .2s ease;text-align:center}
+        .profile-type-card:hover .card-content{border-color:var(--gray-300)}
+        .profile-type-card input:checked + .card-content{border-color:var(--orange-500);background:var(--orange-50)}
+        .profile-type-card .card-content .icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+        .profile-type-card.operateur .card-content .icon{background:var(--orange-100)}
+        .profile-type-card.operateur .card-content .icon i{color:var(--orange-600)}
+        .profile-type-card.prestataire .card-content .icon{background:#dbeafe}
+        .profile-type-card.prestataire .card-content .icon i{color:var(--blue-500)}
+        .profile-type-card .card-content h4{font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:var(--gray-900);margin-bottom:4px}
+        .profile-type-card .card-content p{font-size:0.85rem;color:var(--gray-500);margin:0}
+        .profile-type-card input:checked + .card-content h4{color:var(--orange-700)}
+        
+        /* Checkbox */
+        .checkbox-group{display:flex;align-items:flex-start;gap:12px;margin-top:24px}
+        .checkbox-group input[type="checkbox"]{width:20px;height:20px;accent-color:var(--orange-600);cursor:pointer;flex-shrink:0;margin-top:2px}
+        .checkbox-group label{font-size:0.9rem;color:var(--gray-600);cursor:pointer}
+        .checkbox-group label a{color:var(--orange-600)}
+        
+        /* Submit Button */
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 32px;font-size:1rem;font-weight:600;text-decoration:none;border-radius:12px;transition:all .3s ease;cursor:pointer;border:none;font-family:'Inter',sans-serif}
+        .btn-primary{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;box-shadow:0 4px 14px rgba(249,115,22,.4)}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(249,115,22,.5)}
+        .btn-primary:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+        .btn-block{width:100%}
+        .btn i{width:20px;height:20px}
+        
+        /* Sidebar */
+        .sidebar{position:sticky;top:120px}
+        .sidebar-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid var(--gray-200);margin-bottom:24px}
+        .sidebar-card h3{font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:var(--gray-900);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+        .sidebar-card h3 i{width:20px;height:20px;color:var(--orange-500)}
+        .benefit-list{list-style:none}
+        .benefit-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-100)}
+        .benefit-list li:last-child{border-bottom:none}
+        .benefit-list li i{width:18px;height:18px;color:var(--green-500);flex-shrink:0;margin-top:3px}
+        .benefit-list li span{font-size:0.9rem;color:var(--gray-700)}
+        
+        .contact-card{background:var(--gray-900);border-radius:20px;padding:32px;color:#fff}
+        .contact-card h3{color:#fff;margin-bottom:8px}
+        .contact-card p{color:var(--gray-400);font-size:0.9rem;margin-bottom:20px}
+        .contact-card .contact-link{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;padding:12px 0;border-top:1px solid rgba(255,255,255,.1);transition:color .2s}
+        .contact-card .contact-link:first-of-type{border-top:none}
+        .contact-card .contact-link:hover{color:var(--orange-400)}
+        .contact-card .contact-link i{width:20px;height:20px;color:var(--orange-400)}
+        
+        /* Success Message */
+        .success-message{display:none;text-align:center;padding:60px 40px}
+        .success-message.show{display:block}
+        .success-message .icon{width:80px;height:80px;background:var(--green-500);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+        .success-message .icon i{width:40px;height:40px;color:#fff}
+        .success-message h2{color:var(--gray-900);margin-bottom:16px;font-size:1.75rem}
+        .success-message p{font-size:1.1rem;margin-bottom:24px}
+        .success-message .btn{margin-top:16px}
+        
+        .form-content{display:block}
+        .form-content.hide{display:none}
+        
+        /* Footer */
+        footer{background:var(--gray-900);color:#fff;padding:80px 0 32px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+        .footer-brand .logo{margin-bottom:16px}
+        .footer-brand .logo-text{color:#fff}
+        .footer-brand p{color:var(--gray-400);font-size:.9rem}
+        .footer-social{display:flex;gap:12px;margin-top:20px}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .2s ease;text-decoration:none}
+        .footer-social a:hover{background:var(--orange-500);color:#fff}
+        .footer-column h5{color:#fff;font-size:1rem;font-weight:600;margin-bottom:20px}
+        .footer-column ul{list-style:none}
+        .footer-column li{margin-bottom:12px}
+        .footer-column a{color:var(--gray-400);text-decoration:none;font-size:.9rem;transition:color .2s ease}
+        .footer-column a:hover{color:var(--orange-400)}
+        .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-bottom p{color:var(--gray-500);font-size:.85rem;margin:0}
+        .footer-legal{display:flex;gap:24px}
+        .footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.85rem}
+        .footer-legal a:hover{color:var(--orange-400)}
+        
+        /* Responsive */
+        @media(max-width:1024px){
+            .form-layout{grid-template-columns:1fr}
+            .sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+        }
+        @media(max-width:768px){
+            nav{display:none}
+            .page-header{padding:120px 0 40px}
+            .form-card{padding:32px 24px}
+            .form-row{grid-template-columns:1fr}
+            .profile-type-grid{grid-template-columns:1fr}
+            .sidebar{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr;gap:32px}
+            .footer-bottom{flex-direction:column;text-align:center}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                    <span class="logo-text">Alliance</span>
+                </a>
+                <nav>
+                    <a href="/#origine">Notre histoire</a>
+                    <a href="/#offres">Qui peut rejoindre</a>
+                    <a href="/#tarifs">Tarifs</a>
+                    <a href="/#faq">FAQ</a>
+                    <a href="#" class="nav-extranet">Extranet</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Rejoignez <span>l'Alliance</span></h1>
+            <p>Complétez ce formulaire pour déposer votre candidature. Notre équipe vous recontactera sous 48h pour un échange téléphonique.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="form-layout">
+                <!-- Form -->
+                <div class="form-card">
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <div class="icon"><i data-lucide="check"></i></div>
+                        <h2>Candidature envoyée !</h2>
+                        <p>Merci pour votre intérêt. Notre équipe examine votre candidature et vous recontactera sous 48h pour un échange téléphonique.</p>
+                        <a href="/" class="btn btn-primary"><i data-lucide="arrow-left"></i>Retour à l'accueil</a>
+                    </div>
+                    
+                    <!-- Form Content -->
+                    <form class="form-content" id="candidatureForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        
+                        <!-- Section 1: Type de profil -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="user-check"></i></div>
+                                <h3>Votre profil</h3>
+                            </div>
+                            <p style="margin-bottom:20px;font-size:0.95rem;">Vous êtes :</p>
+                            <div class="profile-type-grid">
+                                <label class="profile-type-card operateur">
+                                    <input type="radio" name="profile_type" value="operateur" required>
+                                    <div class="card-content">
+                                        <div class="icon"><i data-lucide="building-2"></i></div>
+                                        <h4>Opérateur</h4>
+                                        <p>Promoteur, marchand de biens, lotisseur, aménageur</p>
+                                    </div>
+                                </label>
+                                <label class="profile-type-card prestataire">
+                                    <input type="radio" name="profile_type" value="prestataire" required>
+                                    <div class="card-content">
+                                        <div class="icon"><i data-lucide="briefcase"></i></div>
+                                        <h4>Partenaire Métier</h4>
+                                        <p>Architecte, MOE, notaire, géomètre, avocat...</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Section 2: Informations personnelles -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="user"></i></div>
+                                <h3>Vos coordonnées</h3>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Prénom <span class="required">*</span></label>
+                                    <input type="text" name="prenom" placeholder="Votre prénom" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nom <span class="required">*</span></label>
+                                    <input type="text" name="nom" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Email professionnel <span class="required">*</span></label>
+                                    <input type="email" name="email" placeholder="vous@entreprise.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Téléphone <span class="required">*</span></label>
+                                    <input type="tel" name="telephone" placeholder="06 00 00 00 00" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Informations professionnelles -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="building"></i></div>
+                                <h3>Votre entreprise</h3>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Raison sociale <span class="required">*</span></label>
+                                    <input type="text" name="societe" placeholder="Nom de votre société" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>SIRET <span class="required">*</span></label>
+                                    <input type="text" name="siret" placeholder="123 456 789 00012" required pattern="[0-9\s]{14,17}">
+                                    <span class="hint">14 chiffres</span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Votre fonction <span class="required">*</span></label>
+                                    <input type="text" name="fonction" placeholder="ex: Gérant, Directeur..." required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ville <span class="required">*</span></label>
+                                    <input type="text" name="ville" placeholder="Ville du siège social" required>
+                                </div>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Activité principale <span class="required">*</span></label>
+                                    <select name="activite" required>
+                                        <option value="">Sélectionnez votre activité</option>
+                                        <optgroup label="Opérateurs">
+                                            <option value="marchand_biens">Marchand de biens</option>
+                                            <option value="promoteur">Promoteur immobilier</option>
+                                            <option value="lotisseur">Lotisseur / Aménageur foncier</option>
+                                            <option value="investisseur">Investisseur immobilier</option>
+                                        </optgroup>
+                                        <optgroup label="Partenaires Métier">
+                                            <option value="architecte">Architecte</option>
+                                            <option value="moe">Maître d'œuvre</option>
+                                            <option value="geometre">Géomètre-expert</option>
+                                            <option value="notaire">Notaire</option>
+                                            <option value="avocat">Avocat</option>
+                                            <option value="expert_comptable">Expert-comptable</option>
+                                            <option value="bureau_etudes">Bureau d'études</option>
+                                            <option value="constructeur">Constructeur / Entreprise générale</option>
+                                            <option value="agent_immobilier">Agent immobilier</option>
+                                            <option value="courtier">Courtier (crédit, assurance)</option>
+                                            <option value="autre_prestataire">Autre prestataire</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Site web <span style="color:var(--gray-400)">(optionnel)</span></label>
+                                    <input type="url" name="site_web" placeholder="https://www.votresite.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 4: Niveau souhaité -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="layers"></i></div>
+                                <h3>Niveau d'adhésion souhaité</h3>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Niveau <span class="required">*</span></label>
+                                    <select name="niveau" required>
+                                        <option value="">Sélectionnez un niveau</option>
+                                        <option value="niveau_1">Niveau 1 - Accès Initial (Gratuit)</option>
+                                        <option value="niveau_2">Niveau 2 - Partenaire Métier (490€/an)</option>
+                                        <option value="niveau_3">Niveau 3 - Co-Opérateur (1 490€/an)</option>
+                                        <option value="indecis">Je ne sais pas encore</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 5: Motivations -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="message-square"></i></div>
+                                <h3>Votre motivation</h3>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Comment avez-vous connu AOI ? <span class="required">*</span></label>
+                                    <select name="source" required>
+                                        <option value="">Sélectionnez une option</option>
+                                        <option value="linkedin">LinkedIn</option>
+                                        <option value="google">Recherche Google</option>
+                                        <option value="recommandation">Recommandation / Bouche à oreille</option>
+                                        <option value="reseau_pro">Réseau professionnel</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Présentez-vous en quelques lignes <span class="required">*</span></label>
+                                    <textarea name="presentation" placeholder="Parlez-nous de votre activité, de vos projets, et de ce que vous recherchez en rejoignant AOI..." required></textarea>
+                                    <span class="hint">Expérience, types de projets, zone géographique, attentes...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CGV Checkbox -->
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="acceptCGV" name="accept_cgv" required>
+                            <label for="acceptCGV">J'accepte les <a href="/cgv.html" target="_blank">Conditions Générales</a> et la <a href="/mentions-legales.html" target="_blank">Politique de Confidentialité</a> d'AOI. <span class="required">*</span></label>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-primary btn-block" style="margin-top:32px;">
+                            <i data-lucide="send"></i>
+                            Envoyer ma candidature
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="sidebar-card">
+                        <h3><i data-lucide="gift"></i>Pourquoi rejoindre AOI ?</h3>
+                        <ul class="benefit-list">
+                            <li><i data-lucide="check"></i><span>Accès à un réseau qualifié de professionnels</span></li>
+                            <li><i data-lucide="check"></i><span>Opportunités de co-investissement en SEP</span></li>
+                            <li><i data-lucide="check"></i><span>Commissions réduites (4.5% vs 15-20% crowdfunding)</span></li>
+                            <li><i data-lucide="check"></i><span>Bibliothèque de documents et modèles</span></li>
+                            <li><i data-lucide="check"></i><span>Masterclass et formations exclusives</span></li>
+                            <li><i data-lucide="check"></i><span>Confidentialité garantie</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <h3>Une question ?</h3>
+                        <p>Notre équipe est disponible pour échanger sur votre projet.</p>
+                        <a href="tel:+33763782041" class="contact-link">
+                            <i data-lucide="phone"></i>
+                            07 63 78 20 41
+                        </a>
+                        <a href="https://wa.me/33763782041" class="contact-link" target="_blank">
+                            <i data-lucide="message-circle"></i>
+                            WhatsApp
+                        </a>
+                        <a href="mailto:contact@aoi-network.com" class="contact-link">
+                            <i data-lucide="mail"></i>
+                            contact@aoi-network.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                        <span class="logo-text">Alliance</span>
+                    </a>
+                    <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="/#origine">Notre histoire</a></li>
+                        <li><a href="/#offres">Qui peut rejoindre</a></li>
+                        <li><a href="/#solution">La Solution</a></li>
+                        <li><a href="/#tarifs">Tarifs</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Niveaux</h5>
+                    <ul>
+                        <li><a href="/#tarifs">Partenaire Métier</a></li>
+                        <li><a href="/#tarifs">Opérateur</a></li>
+                        <li><a href="/#tarifs">Co-Opérateur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="tel:+33763782041">07 63 78 20 41</a></li>
+                        <li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li>
+                        <li><a href="/candidature.html">Candidater</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SAS AOI HOLDING (en cours de constitution) - 3 rue Hébert, 92140 Clamart</p>
+                <div class="footer-legal">
+                    <a href="/mentions-legales.html">Mentions légales</a>
+                    <a href="/cgv.html">CGV</a>
+                    <a href="/mentions-legales.html#cookies">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Form submission handling
+        document.getElementById('candidatureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i data-lucide="loader-2" class="animate-spin"></i> Envoi en cours...';
+            submitBtn.disabled = true;
+            lucide.createIcons();
+            
+            // Send form data
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    form.classList.add('hide');
+                    lucide.createIcons();
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Erreur lors de l\'envoi');
+                }
+            })
+            .catch(error => {
+                alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                lucide.createIcons();
+            });
+        });
+    </script>
+</body>
+</html>
