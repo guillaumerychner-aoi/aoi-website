@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - AOI - Alliance des Opérateurs Immobiliers</title>
+    <meta name="description" content="Mentions légales du site AOI - Alliance des Opérateurs Immobiliers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root{--orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;--orange-300:#fdba74;--orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;--orange-700:#c2410c;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-800);line-height:1.6;overflow-x:hidden}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
+        h1{font-size:clamp(2rem,4vw,3rem)}h2{font-size:clamp(1.5rem,3vw,2rem);color:var(--orange-600);margin:2.5rem 0 1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--orange-200)}h3{font-size:1.25rem;color:var(--gray-800);margin:1.5rem 0 0.75rem}
+        p{color:var(--gray-600);margin-bottom:1rem;text-align:justify}
+        ul{margin:0.5rem 0 1rem 1.5rem}li{margin-bottom:0.5rem;color:var(--gray-600)}
+        strong{color:var(--gray-800)}
+        a{color:var(--orange-600);text-decoration:none}a:hover{text-decoration:underline}
+        
+        /* Header */
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gray-900)}
+        .logo-box{width:48px;height:48px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:12px;display:flex;align-items:center;justify-content:center}
+        .logo-aoi{color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.5px}
+        .logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+        nav{display:flex;align-items:center;gap:8px}nav a{text-decoration:none;color:var(--gray-600);font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s ease}nav a:hover{color:var(--orange-600);background:var(--orange-50)}
+        .nav-extranet{background:var(--gray-900)!important;color:#fff!important;margin-left:8px}.nav-extranet:hover{background:var(--gray-700)!important;color:#fff!important}
+        
+        /* Content */
+        .page-content{padding-top:120px;padding-bottom:80px;min-height:calc(100vh - 200px)}
+        .page-header{background:linear-gradient(180deg,var(--orange-50) 0%,#fff 100%);padding:60px 0 40px;margin-bottom:40px}
+        .page-header h1{color:var(--gray-900);margin-bottom:8px}
+        .page-header p{color:var(--gray-500);font-size:0.95rem;margin:0}
+        .content-card{background:#fff;border-radius:16px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,.05);border:1px solid var(--gray-200);margin-bottom:24px}
+        .info-box{background:var(--orange-50);border-left:4px solid var(--orange-500);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .info-box p{margin:0;color:var(--gray-700)}
+        .warning-box{background:#fef3c7;border-left:4px solid #f59e0b;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .warning-box p{margin:0;color:var(--gray-700)}
+        .contact-card{background:var(--gray-50);padding:1.25rem;border-radius:8px;margin:1rem 0}
+        .contact-card p{margin-bottom:0.5rem}
+        .contact-card p:last-child{margin-bottom:0}
+        
+        /* Footer */
+        footer{background:var(--gray-900);color:#fff;padding:80px 0 32px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+        .footer-brand .logo{margin-bottom:16px}
+        .footer-brand .logo-text{color:#fff}
+        .footer-brand p{color:var(--gray-400);font-size:.9rem}
+        .footer-social{display:flex;gap:12px;margin-top:20px}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .2s ease}
+        .footer-social a:hover{background:var(--orange-500);color:#fff}
+        .footer-column h5{color:#fff;font-size:1rem;font-weight:600;margin-bottom:20px}
+        .footer-column ul{list-style:none}
+        .footer-column li{margin-bottom:12px}
+        .footer-column a{color:var(--gray-400);text-decoration:none;font-size:.9rem;transition:color .2s ease}
+        .footer-column a:hover{color:var(--orange-400)}
+        .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-bottom p{color:var(--gray-500);font-size:.85rem;margin:0}
+        .footer-legal{display:flex;gap:24px}
+        .footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.85rem}
+        .footer-legal a:hover{color:var(--orange-400)}
+        
+        @media(max-width:768px){
+            .page-content{padding-top:100px}
+            .content-card{padding:24px}
+            .footer-grid{grid-template-columns:1fr;gap:32px}
+            .footer-bottom{flex-direction:column;text-align:center}
+            nav{display:none}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                    <span class="logo-text">Alliance</span>
+                </a>
+                <nav>
+                    <a href="/#origine">Notre histoire</a>
+                    <a href="/#offres">Qui peut rejoindre</a>
+                    <a href="/#tarifs">Tarifs</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="#" class="nav-extranet">Extranet</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <div class="container">
+                <h1>Mentions Légales</h1>
+                <p>AOI - Alliance des Opérateurs Immobiliers | Dernière mise à jour : Janvier 2026</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-card">
+                <h2>1. Éditeur du site</h2>
+                
+                <div class="contact-card">
+                    <p><strong>Raison sociale :</strong> AOI - Alliance des Opérateurs Immobiliers</p>
+                    <p><strong>Forme juridique :</strong> SAS (Société par Actions Simplifiée)</p>
+                    <p><strong>SIRET :</strong> En cours d'immatriculation</p>
+                    <p><strong>Capital social :</strong> 1 000 euros</p>
+                    <p><strong>Siège social :</strong> 3, Rue Hébert - 92140 Clamart, France</p>
+                    <p><strong>Numéro de TVA intracommunautaire :</strong> En cours d'attribution</p>
+                </div>
+
+                <h3>Représentant légal</h3>
+                <div class="contact-card">
+                    <p><strong>Directeur de la publication :</strong> Guillaume RYCHNER, Président</p>
+                    <p><strong>Email :</strong> contact@aoi-network.com</p>
+                </div>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ Note :</strong> La société AOI est en cours de constitution. Les numéros SIRET et TVA seront communiqués dès leur obtention auprès des autorités compétentes.</p>
+                </div>
+
+                <h2>2. Hébergement</h2>
+                
+                <h3>Site vitrine (www.aoi-network.com)</h3>
+                <div class="contact-card">
+                    <p><strong>Hébergeur :</strong> Vercel Inc.</p>
+                    <p><strong>Adresse :</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA</p>
+                    <p><strong>Site web :</strong> <a href="https://vercel.com" target="_blank">https://vercel.com</a></p>
+                </div>
+
+                <h3>Nom de domaine</h3>
+                <div class="contact-card">
+                    <p><strong>Registrar :</strong> IONOS SE (1&1 IONOS)</p>
+                    <p><strong>Adresse :</strong> Elgendorfer Str. 57, 56410 Montabaur, Allemagne</p>
+                    <p><strong>Site web :</strong> <a href="https://www.ionos.fr" target="_blank">https://www.ionos.fr</a></p>
+                </div>
+
+                <h2>3. Objet du site</h2>
+                
+                <p>Le site <strong>www.aoi-network.com</strong> a pour objet :</p>
+                <ul>
+                    <li>La présentation des services proposés par AOI</li>
+                    <li>L'information des professionnels de l'immobilier sur les solutions de mise en relation et de co-production</li>
+                    <li>La promotion du réseau AOI et de ses avantages</li>
+                    <li>L'accès à l'espace membre (extranet) pour les utilisateurs inscrits</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>Important :</strong> AOI agit exclusivement en qualité d'intermédiaire de mise en relation entre professionnels de l'immobilier. AOI n'est partie à aucune opération immobilière réalisée entre ses membres.</p>
+                </div>
+
+                <h2>4. Propriété intellectuelle</h2>
+                
+                <p>L'ensemble des éléments composant le site www.aoi-network.com (textes, graphismes, images, logos, icônes, sons, logiciels, structure, base de données, etc.) est la propriété exclusive d'AOI ou fait l'objet d'une autorisation d'utilisation.</p>
+
+                <p>Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle, de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable d'AOI.</p>
+
+                <p>Toute exploitation non autorisée du site ou de l'un des éléments qu'il contient sera considérée comme constitutive d'une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la Propriété Intellectuelle.</p>
+
+                <h3>Marques</h3>
+                <p>La marque « AOI - Alliance des Opérateurs Immobiliers » et le logo associé sont des marques déposées. Toute reproduction ou représentation, totale ou partielle, de ces marques sans autorisation expresse est prohibée.</p>
+
+                <h2>5. Protection des données personnelles (RGPD)</h2>
+                
+                <h3>5.1 Responsable du traitement</h3>
+                <p>Le responsable du traitement des données personnelles collectées sur ce site est :</p>
+                <div class="contact-card">
+                    <p><strong>AOI - Alliance des Opérateurs Immobiliers</strong></p>
+                    <p><strong>Email DPO :</strong> dpo@aoi-network.com</p>
+                </div>
+
+                <h3>5.2 Données collectées</h3>
+                <p>Les données personnelles susceptibles d'être collectées sont :</p>
+                <ul>
+                    <li><strong>Données d'identification :</strong> nom, prénom, email, téléphone</li>
+                    <li><strong>Données professionnelles :</strong> nom de société, fonction, SIRET, adresse professionnelle</li>
+                    <li><strong>Données de connexion :</strong> adresse IP, logs de connexion, données de navigation</li>
+                    <li><strong>Données de paiement :</strong> traitées via notre prestataire Stripe (AOI ne stocke pas les données bancaires)</li>
+                </ul>
+
+                <h3>5.3 Finalités du traitement</h3>
+                <p>Les données collectées sont utilisées pour :</p>
+                <ul>
+                    <li>La gestion des inscriptions et des comptes membres</li>
+                    <li>La fourniture des services de mise en relation</li>
+                    <li>La facturation et le suivi des paiements</li>
+                    <li>L'envoi de communications relatives aux services (newsletters si consentement)</li>
+                    <li>L'amélioration de nos services et de l'expérience utilisateur</li>
+                    <li>Le respect de nos obligations légales et réglementaires</li>
+                </ul>
+
+                <h3>5.4 Base légale du traitement</h3>
+                <p>Les traitements sont fondés sur :</p>
+                <ul>
+                    <li>L'exécution du contrat (CGU acceptées lors de l'inscription)</li>
+                    <li>Le consentement de l'utilisateur (newsletters, cookies non essentiels)</li>
+                    <li>L'intérêt légitime d'AOI (amélioration des services, sécurité)</li>
+                    <li>Le respect d'obligations légales (conservation des factures)</li>
+                </ul>
+
+                <h3>5.5 Durée de conservation</h3>
+                <ul>
+                    <li><strong>Données de compte actif :</strong> durée de la relation contractuelle + 5 ans</li>
+                    <li><strong>Données de facturation :</strong> 10 ans (obligation comptable)</li>
+                    <li><strong>Données de connexion :</strong> 1 an</li>
+                    <li><strong>Données de prospection :</strong> 3 ans après le dernier contact</li>
+                </ul>
+
+                <h3>5.6 Destinataires des données</h3>
+                <p>Les données peuvent être transmises à :</p>
+                <ul>
+                    <li>Nos prestataires techniques (hébergement, paiement, emailing)</li>
+                    <li>Les autorités compétentes en cas d'obligation légale</li>
+                </ul>
+                <p><strong>Aucune donnée n'est vendue ou cédée à des tiers à des fins commerciales.</strong></p>
+
+                <h3>5.7 Transferts hors UE</h3>
+                <p>Certaines données peuvent être transférées vers des serveurs situés aux États-Unis (hébergement Vercel, paiement Stripe). Ces transferts sont encadrés par des garanties appropriées (Clauses Contractuelles Types de la Commission Européenne).</p>
+
+                <h3>5.8 Vos droits</h3>
+                <p>Conformément au RGPD, vous disposez des droits suivants :</p>
+                <ul>
+                    <li><strong>Droit d'accès :</strong> obtenir une copie de vos données</li>
+                    <li><strong>Droit de rectification :</strong> corriger des données inexactes</li>
+                    <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données</li>
+                    <li><strong>Droit à la limitation :</strong> geler le traitement de vos données</li>
+                    <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré</li>
+                    <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données</li>
+                    <li><strong>Droit de retrait du consentement :</strong> à tout moment, sans affecter la licéité du traitement antérieur</li>
+                </ul>
+
+                <div class="info-box">
+                    <p><strong>Exercer vos droits :</strong> Adressez votre demande par email à <a href="mailto:dpo@aoi-network.com">dpo@aoi-network.com</a> en joignant une copie de votre pièce d'identité. Réponse sous 30 jours maximum.</p>
+                </div>
+
+                <h3>5.9 Réclamation</h3>
+                <p>En cas de difficulté, vous pouvez introduire une réclamation auprès de la CNIL :</p>
+                <div class="contact-card">
+                    <p><strong>CNIL - Commission Nationale de l'Informatique et des Libertés</strong></p>
+                    <p>3 Place de Fontenoy, TSA 80715, 75334 PARIS CEDEX 07</p>
+                    <p><a href="https://www.cnil.fr" target="_blank">www.cnil.fr</a></p>
+                </div>
+
+                <h2>6. Cookies</h2>
+                
+                <h3>6.1 Qu'est-ce qu'un cookie ?</h3>
+                <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, tablette, smartphone) lors de la visite d'un site web. Il permet de stocker des informations relatives à votre navigation.</p>
+
+                <h3>6.2 Cookies utilisés sur ce site</h3>
+                <ul>
+                    <li><strong>Cookies strictement nécessaires :</strong> authentification, session, sécurité (pas de consentement requis)</li>
+                    <li><strong>Cookies de performance :</strong> analyse du trafic, amélioration du site (consentement requis)</li>
+                    <li><strong>Cookies de fonctionnalité :</strong> préférences de l'utilisateur (consentement requis)</li>
+                </ul>
+
+                <h3>6.3 Gestion des cookies</h3>
+                <p>Vous pouvez à tout moment choisir de désactiver les cookies via les paramètres de votre navigateur. Toutefois, cette désactivation pourrait empêcher l'utilisation de certaines fonctionnalités du site.</p>
+
+                <h2>7. Limitation de responsabilité</h2>
+                
+                <p><strong>AOI s'efforce d'assurer au mieux l'exactitude et la mise à jour des informations diffusées sur ce site.</strong> Toutefois, AOI ne peut garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.</p>
+
+                <p>En conséquence, AOI décline toute responsabilité :</p>
+                <ul>
+                    <li>Pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site</li>
+                    <li>Pour tous dommages résultant d'une intrusion frauduleuse d'un tiers</li>
+                    <li>Pour tous dommages, directs ou indirects, quelles qu'en soient les causes, origines, nature ou conséquences, provoqués par l'accès au site ou l'impossibilité d'y accéder</li>
+                    <li>Pour l'utilisation qui pourrait être faite des informations et contenus présents sur le site</li>
+                </ul>
+
+                <div class="warning-box">
+                    <p><strong>⚠️ Important :</strong> Le contenu du site est fourni à titre informatif. Il ne constitue en aucun cas un conseil juridique, fiscal, financier ou professionnel. Pour toute décision importante, consultez un professionnel qualifié.</p>
+                </div>
+
+                <h2>8. Liens hypertextes</h2>
+                
+                <h3>Liens sortants</h3>
+                <p>Le site peut contenir des liens vers des sites tiers. AOI n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu, leur fonctionnement ou leur politique de confidentialité.</p>
+
+                <h3>Liens entrants</h3>
+                <p>Tout lien vers le site www.aoi-network.com doit faire l'objet d'une autorisation préalable d'AOI. Aucun lien ne pourra être créé depuis un site dont le contenu serait contraire à l'ordre public, aux bonnes mœurs, ou susceptible de porter atteinte à l'image d'AOI.</p>
+
+                <h2>9. Droit applicable et juridiction compétente</h2>
+                
+                <p>Les présentes mentions légales sont régies par le droit français.</p>
+                
+                <p>En cas de litige relatif à l'interprétation ou l'exécution des présentes, et après échec de toute tentative de recherche d'une solution amiable, les tribunaux de Paris seront seuls compétents.</p>
+
+                <h2>10. Contact</h2>
+                
+                <p>Pour toute question relative aux présentes mentions légales ou au site www.aoi-network.com :</p>
+                
+                <div class="contact-card">
+                    <p><strong>Email :</strong> <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></p>
+                    <p><strong>Site web :</strong> <a href="https://www.aoi-network.com">www.aoi-network.com</a></p>
+                </div>
+
+                <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);text-align:center;color:var(--gray-500);font-size:0.85rem;">
+                    <p style="margin:0;text-align:center;"><strong>AOI - Alliance des Opérateurs Immobiliers</strong></p>
+                    <p style="margin:0.25rem 0 0;text-align:center;">Mentions légales - Version 1.0 - Janvier 2026 - Document contractuel</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                        <span class="logo-text">Alliance</span>
+                    </a>
+                    <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="/#origine">Notre histoire</a></li>
+                        <li><a href="/#offres">Qui peut rejoindre</a></li>
+                        <li><a href="/#solution">La Solution</a></li>
+                        <li><a href="/#tarifs">Tarifs</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Niveaux</h5>
+                    <ul>
+                        <li><a href="/#tarifs">Partenaire Métier</a></li>
+                        <li><a href="/#tarifs">Opérateur</a></li>
+                        <li><a href="/#tarifs">Co-Opérateur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="tel:+33763782041">07 63 78 20 41</a></li>
+                        <li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li>
+                        <li><a href="/#contact">Candidater</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SAS AOI HOLDING (en cours de constitution) - 3 rue Hébert, 92140 Clamart</p>
+                <div class="footer-legal">
+                    <a href="/mentions-legales.html">Mentions légales</a>
+                    <a href="/cgv.html">CGV</a>
+                    <a href="/mentions-legales.html#cookies">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

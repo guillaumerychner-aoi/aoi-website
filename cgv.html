@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Générales de Vente et d'Utilisation - AOI</title>
+    <meta name="description" content="CGV et CGU de la plateforme AOI - Alliance des Opérateurs Immobiliers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root{--orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;--orange-300:#fdba74;--orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;--orange-700:#c2410c;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#1f2937;--gray-900:#111827}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--gray-800);line-height:1.6;overflow-x:hidden}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
+        h1{font-size:clamp(2rem,4vw,3rem)}h2{font-size:clamp(1.3rem,2.5vw,1.75rem);color:var(--orange-600);margin:2.5rem 0 1rem;padding:0.75rem 1rem;background:var(--orange-50);border-left:4px solid var(--orange-500);border-radius:0 8px 8px 0}h3{font-size:1.1rem;color:var(--gray-800);margin:1.5rem 0 0.75rem}h4{font-size:1rem;color:var(--gray-700);margin:1rem 0 0.5rem;font-family:'Inter',sans-serif}
+        p{color:var(--gray-600);margin-bottom:1rem;text-align:justify}
+        ul,ol{margin:0.5rem 0 1rem 1.5rem}li{margin-bottom:0.5rem;color:var(--gray-600)}
+        strong{color:var(--gray-800)}
+        a{color:var(--orange-600);text-decoration:none}a:hover{text-decoration:underline}
+        table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem}th,td{border:1px solid var(--gray-200);padding:0.75rem;text-align:left}th{background:var(--gray-100);font-weight:600;color:var(--gray-800)}
+        
+        /* Header */
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+        .header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gray-900)}
+        .logo-box{width:48px;height:48px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:12px;display:flex;align-items:center;justify-content:center}
+        .logo-aoi{color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.5px}
+        .logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+        nav{display:flex;align-items:center;gap:8px}nav a{text-decoration:none;color:var(--gray-600);font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s ease}nav a:hover{color:var(--orange-600);background:var(--orange-50)}
+        .nav-extranet{background:var(--gray-900)!important;color:#fff!important;margin-left:8px}.nav-extranet:hover{background:var(--gray-700)!important;color:#fff!important}
+        
+        /* Content */
+        .page-content{padding-top:120px;padding-bottom:80px;min-height:calc(100vh - 200px)}
+        .page-header{background:linear-gradient(180deg,var(--orange-50) 0%,#fff 100%);padding:60px 0 40px;margin-bottom:40px}
+        .page-header h1{color:var(--gray-900);margin-bottom:8px}
+        .page-header p{color:var(--gray-500);font-size:0.95rem;margin:0}
+        .content-card{background:#fff;border-radius:16px;padding:40px;box-shadow:0 4px 20px rgba(0,0,0,.05);border:1px solid var(--gray-200);margin-bottom:24px}
+        .alert-box{background:#fef2f2;border:2px solid #dc2626;padding:1.25rem;margin:1.5rem 0;border-radius:8px}
+        .alert-box h3{color:#dc2626;margin:0 0 0.5rem;font-size:1rem;font-family:'Inter',sans-serif}
+        .alert-box p{margin:0;color:var(--gray-700)}
+        .info-box{background:var(--orange-50);border-left:4px solid var(--orange-500);padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .info-box p{margin:0;color:var(--gray-700)}
+        .warning-box{background:#fef3c7;border-left:4px solid #f59e0b;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .warning-box p,.warning-box ul{margin:0;color:var(--gray-700)}
+        .warning-box ul{margin-top:0.5rem}
+        .critical-box{background:#fef2f2;border-left:4px solid #dc2626;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .critical-box p,.critical-box ul{color:var(--gray-700)}
+        .critical-box ul{margin-top:0.5rem}
+        .green-box{background:#f0fdf4;border-left:4px solid #16a34a;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0}
+        .green-box p,.green-box ul{color:var(--gray-700)}
+        .green-box ul{margin-top:0.5rem}
+        .toc{background:var(--gray-50);padding:1.5rem;border-radius:8px;margin:1.5rem 0}
+        .toc h3{margin:0 0 1rem;font-size:1rem;font-family:'Inter',sans-serif}
+        .toc ul{columns:2;column-gap:2rem;list-style:none;margin:0;padding:0}
+        .toc li{break-inside:avoid;font-size:0.85rem;padding:0.25rem 0;color:var(--gray-600)}
+        
+        /* Footer */
+        footer{background:var(--gray-900);color:#fff;padding:80px 0 32px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+        .footer-brand .logo{margin-bottom:16px}
+        .footer-brand .logo-text{color:#fff}
+        .footer-brand p{color:var(--gray-400);font-size:.9rem}
+        .footer-social{display:flex;gap:12px;margin-top:20px}
+        .footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--gray-400);transition:all .2s ease}
+        .footer-social a:hover{background:var(--orange-500);color:#fff}
+        .footer-column h5{color:#fff;font-size:1rem;font-weight:600;margin-bottom:20px}
+        .footer-column ul{list-style:none}
+        .footer-column li{margin-bottom:12px}
+        .footer-column a{color:var(--gray-400);text-decoration:none;font-size:.9rem;transition:color .2s ease}
+        .footer-column a:hover{color:var(--orange-400)}
+        .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .footer-bottom p{color:var(--gray-500);font-size:.85rem;margin:0}
+        .footer-legal{display:flex;gap:24px}
+        .footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.85rem}
+        .footer-legal a:hover{color:var(--orange-400)}
+        
+        @media(max-width:768px){
+            .page-content{padding-top:100px}
+            .content-card{padding:24px}
+            .footer-grid{grid-template-columns:1fr;gap:32px}
+            .footer-bottom{flex-direction:column;text-align:center}
+            .toc ul{columns:1}
+            nav{display:none}
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">
+                    <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                    <span class="logo-text">Alliance</span>
+                </a>
+                <nav>
+                    <a href="/#origine">Notre histoire</a>
+                    <a href="/#offres">Qui peut rejoindre</a>
+                    <a href="/#tarifs">Tarifs</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="#" class="nav-extranet">Extranet</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="page-content">
+        <div class="page-header">
+            <div class="container">
+                <h1>Conditions Générales de Vente et d'Utilisation</h1>
+                <p>AOI - Alliance des Opérateurs Immobiliers | Version 2.0 - Janvier 2026</p>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="content-card">
+                
+                <!-- ALERTE IMPORTANTE -->
+                <div class="alert-box">
+                    <h3>⚠️ DOCUMENT CONTRACTUEL - LISEZ ATTENTIVEMENT AVANT TOUTE UTILISATION</h3>
+                    <p>En vous inscrivant et en utilisant la plateforme AOI, vous reconnaissez avoir lu, compris et accepté <strong>sans réserve</strong> l'intégralité des présentes Conditions Générales de Vente et d'Utilisation. Cette acceptation constitue un <strong>engagement contractuel ferme et définitif</strong>.</p>
+                </div>
+
+                <!-- SOMMAIRE -->
+                <div class="toc">
+                    <h3>📋 Sommaire</h3>
+                    <ul>
+                        <li>Article 1 - Objet et champ d'application</li>
+                        <li>Article 2 - Définitions</li>
+                        <li>Article 3 - Conditions d'accès et inscription</li>
+                        <li>Article 4 - Description des services</li>
+                        <li>Article 5 - Tarification et paiement</li>
+                        <li>Article 6 - Obligations des membres</li>
+                        <li>Article 7 - Confidentialité</li>
+                        <li>Article 8 - Clause anti-contournement</li>
+                        <li>Article 9 - Limitation de responsabilité d'AOI</li>
+                        <li>Article 10 - Exclusions de garantie</li>
+                        <li>Article 11 - Dysfonctionnements techniques</li>
+                        <li>Article 12 - Relations entre membres</li>
+                        <li>Article 13 - Force majeure</li>
+                        <li>Article 14 - Propriété intellectuelle</li>
+                        <li>Article 15 - Protection des données</li>
+                        <li>Article 16 - Résiliation</li>
+                        <li>Article 17 - Dispositions finales</li>
+                    </ul>
+                </div>
+
+                <!-- PRÉAMBULE -->
+                <h2>PRÉAMBULE</h2>
+                <p>AOI - Alliance des Opérateurs Immobiliers est une plateforme numérique de mise en relation entre professionnels de l'immobilier. AOI permet à des opérateurs immobiliers (promoteurs, marchands de biens, lotisseurs, aménageurs) de rencontrer des partenaires financiers ou des prestataires de services.</p>
+                
+                <div class="critical-box">
+                    <p><strong>QUALIFICATION JURIDIQUE :</strong> AOI agit <strong>exclusivement</strong> en qualité d'intermédiaire technique et commercial facilitant la mise en relation. AOI n'est <strong>jamais</strong> partie aux opérations, contrats, accords ou partenariats conclus entre les membres. AOI ne fournit <strong>aucun</strong> conseil juridique, fiscal, financier ou d'investissement.</p>
+                </div>
+
+                <!-- ARTICLE 1 -->
+                <h2>Article 1 - Objet et champ d'application</h2>
+                
+                <h3>1.1 Objet</h3>
+                <p>Les présentes Conditions Générales ont pour objet de définir les modalités et conditions d'accès, d'utilisation et de vente des services proposés par AOI via le site www.aoi-network.com et l'extranet associé.</p>
+                
+                <h3>1.2 Acceptation</h3>
+                <p>L'utilisation de la Plateforme implique l'acceptation pleine, entière et sans réserve des présentes Conditions Générales. En cochant la case « J'accepte les Conditions Générales » lors de l'inscription, le membre reconnaît expressément :</p>
+                <ul>
+                    <li>Avoir lu et compris l'intégralité des présentes Conditions Générales</li>
+                    <li>Accepter d'être lié par toutes leurs stipulations</li>
+                    <li>Renoncer à se prévaloir de tout document contradictoire</li>
+                </ul>
+                
+                <h3>1.3 Opposabilité</h3>
+                <p>Les présentes Conditions Générales sont opposables au membre dès leur acceptation. Elles prévalent sur toute autre condition générale ou particulière non expressément agréée par AOI.</p>
+                
+                <h3>1.4 Évolution des conditions</h3>
+                <p>AOI se réserve le droit de modifier les présentes Conditions Générales à tout moment. Les membres seront informés de toute modification par email et/ou notification sur la Plateforme. La poursuite de l'utilisation de la Plateforme après notification vaut acceptation des nouvelles conditions.</p>
+
+                <!-- ARTICLE 2 -->
+                <h2>Article 2 - Définitions</h2>
+                
+                <p>Pour l'application des présentes Conditions Générales, les termes ci-dessous ont la signification suivante :</p>
+                
+                <table>
+                    <tr><th>Terme</th><th>Définition</th></tr>
+                    <tr><td><strong>AOI</strong></td><td>La société AOI - Alliance des Opérateurs Immobiliers, éditeur et exploitant de la Plateforme</td></tr>
+                    <tr><td><strong>Plateforme</strong></td><td>L'ensemble des services accessibles via le site web www.aoi-network.com et l'extranet associé</td></tr>
+                    <tr><td><strong>Membre</strong></td><td>Toute personne physique ou morale inscrite sur la Plateforme et ayant accepté les présentes Conditions Générales</td></tr>
+                    <tr><td><strong>Opérateur</strong></td><td>Professionnel de l'immobilier (promoteur, marchand de biens, lotisseur, aménageur) porteur de projets</td></tr>
+                    <tr><td><strong>Co-Opérateur</strong></td><td>Membre de niveau 3 habilité à publier des projets SEP et opportunités</td></tr>
+                    <tr><td><strong>Prestataire</strong></td><td>Professionnel offrant des services aux opérateurs (architecte, MOE, géomètre, avocat, notaire, bureau d'études, etc.)</td></tr>
+                    <tr><td><strong>SEP</strong></td><td>Société en Participation, structure juridique de co-investissement entre opérateurs</td></tr>
+                    <tr><td><strong>Commission</strong></td><td>Rémunération due à AOI pour les services de mise en relation</td></tr>
+                </table>
+
+                <!-- ARTICLE 3 -->
+                <h2>Article 3 - Conditions d'accès et inscription</h2>
+                
+                <h3>3.1 Conditions d'éligibilité</h3>
+                <p>L'inscription sur la Plateforme est <strong>strictement réservée</strong> aux professionnels remplissant les conditions cumulatives suivantes :</p>
+                <ul>
+                    <li>Être une personne morale (société) ou une personne physique exerçant à titre professionnel</li>
+                    <li>Disposer d'une immatriculation valide (RCS, SIRET)</li>
+                    <li>Exercer une activité en lien avec l'immobilier</li>
+                    <li>Avoir la capacité juridique de s'engager au nom de la structure représentée</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <p><strong>⚠️ Exclusion :</strong> La Plateforme n'est pas destinée aux particuliers, aux investisseurs non-professionnels ou aux personnes physiques agissant à titre personnel. Toute inscription par une personne non éligible sera annulée.</p>
+                </div>
+                
+                <h3>3.2 Niveaux d'accès</h3>
+                <table>
+                    <tr><th>Niveau</th><th>Dénomination</th><th>Accès et fonctionnalités</th></tr>
+                    <tr><td>1</td><td>Accès Initial</td><td>Bibliothèque documentaire, masterclass, forum</td></tr>
+                    <tr><td>2</td><td>Partenaire Métier</td><td>Niveau 1 + Annuaire, opportunités, possibilité de postuler</td></tr>
+                    <tr><td>3</td><td>Co-Opérateur</td><td>Niveau 2 + Publication de projets SEP et opportunités</td></tr>
+                </table>
+                
+                <h3>3.3 Véracité des informations</h3>
+                <p>Le membre garantit l'exactitude, la sincérité et la mise à jour des informations communiquées. Toute fausse déclaration constitue une <strong>faute contractuelle grave</strong> justifiant la résiliation immédiate du compte sans indemnité ni remboursement.</p>
+
+                <!-- ARTICLE 4 -->
+                <h2>Article 4 - Description des services</h2>
+                
+                <h3>4.1 Services fournis par AOI</h3>
+                <p>AOI fournit <strong>exclusivement</strong> les services suivants :</p>
+                <ul>
+                    <li>Mise à disposition d'une plateforme technique de mise en relation</li>
+                    <li>Annuaire des membres avec système de recherche et filtres</li>
+                    <li>Publication et consultation de projets SEP et d'opportunités</li>
+                    <li>Système de messagerie interne sécurisé</li>
+                    <li>Outils de gestion et de suivi des partenariats</li>
+                    <li>Bibliothèque documentaire et formation en ligne</li>
+                </ul>
+                
+                <h3>4.2 Services NON fournis par AOI</h3>
+                <div class="critical-box">
+                    <p><strong>AOI ne fournit AUCUN des services suivants et décline toute responsabilité à cet égard :</strong></p>
+                    <ul>
+                        <li>Conseil juridique, fiscal, financier, patrimonial ou d'investissement</li>
+                        <li>Vérification approfondie de l'identité, de la solvabilité ou de la qualification des membres</li>
+                        <li>Due diligence sur les projets publiés</li>
+                        <li>Garantie de bonne fin des opérations</li>
+                        <li>Garantie de résultat ou de rentabilité des investissements</li>
+                        <li>Médiation, arbitrage ou résolution des litiges entre membres</li>
+                        <li>Recouvrement de créances</li>
+                        <li>Assurance ou garantie financière de quelque nature que ce soit</li>
+                    </ul>
+                </div>
+
+                <!-- ARTICLE 5 -->
+                <h2>Article 5 - Tarification et paiement</h2>
+                
+                <h3>5.1 Commissions sur partenariats</h3>
+                <table>
+                    <tr><th>Type de partenariat</th><th>Commission AOI</th></tr>
+                    <tr><td>Co-opération SEP (associé investisseur)</td><td><strong>4.5% HT</strong> du prix de revient de l'opération<br><em>Minimum : 5 000€ HT</em></td></tr>
+                    <tr><td>Prestation de service (architecte, MOE, etc.)</td><td><strong>Forfait : 500€ HT</strong></td></tr>
+                </table>
+                
+                <h3>5.2 Exigibilité</h3>
+                <p>La commission est due par le membre ayant publié le projet. Elle est exigible dès la confirmation du partenariat. Le paiement doit intervenir sous <strong>15 jours</strong>.</p>
+                
+                <h3>5.3 Retard de paiement</h3>
+                <p>Tout retard de paiement entraîne de plein droit :</p>
+                <ul>
+                    <li>Des pénalités de retard au taux légal majoré de <strong>10 points</strong></li>
+                    <li>Une indemnité forfaitaire de <strong>40€</strong> pour frais de recouvrement</li>
+                    <li>La suspension immédiate de l'accès à la Plateforme</li>
+                </ul>
+                
+                <h3>5.4 Non-remboursement</h3>
+                <p>Les abonnements payés ne sont pas remboursables, même en cas de résiliation anticipée.</p>
+
+                <!-- ARTICLE 6 -->
+                <h2>Article 6 - Obligations des membres</h2>
+                
+                <h3>6.1 Obligations générales</h3>
+                <p>Chaque membre s'engage à :</p>
+                <ul>
+                    <li>Utiliser la Plateforme de manière loyale, professionnelle et de bonne foi</li>
+                    <li>Fournir des informations véridiques, exactes et à jour</li>
+                    <li>Déclarer tout partenariat né d'une mise en relation via AOI</li>
+                    <li>S'acquitter des commissions dues dans les délais</li>
+                    <li>Respecter la confidentialité des informations obtenues</li>
+                </ul>
+                
+                <h3>6.2 Vérifications propres</h3>
+                <div class="warning-box">
+                    <p><strong>OBLIGATION ESSENTIELLE :</strong> Le membre reconnaît qu'il lui appartient de procéder à <strong>toutes les vérifications nécessaires</strong> avant de s'engager avec un autre membre : vérification de l'identité, des références, de la solvabilité, des assurances, des compétences, consultation d'un avocat, réalisation d'audits, etc.</p>
+                </div>
+                
+                <h3>6.3 Assurances professionnelles</h3>
+                <p>Le membre garantit disposer de toutes les assurances professionnelles requises (RC Pro, décennale le cas échéant) et s'engage à les maintenir en vigueur.</p>
+
+                <!-- ARTICLE 7 -->
+                <h2>Article 7 - Confidentialité et non-divulgation</h2>
+                
+                <h3>7.1 Engagement</h3>
+                <p>En accédant aux informations d'un autre membre, le membre s'engage à les traiter comme <strong>strictement confidentielles</strong>.</p>
+                
+                <h3>7.2 Interdictions</h3>
+                <p>Il est formellement interdit de :</p>
+                <ul>
+                    <li>Communiquer les coordonnées d'un membre à des tiers</li>
+                    <li>Partager les informations relatives aux projets avec des personnes extérieures</li>
+                    <li>Extraire ou constituer des bases de données</li>
+                </ul>
+                
+                <h3>7.3 Durée et sanctions</h3>
+                <p>L'obligation perdure pendant <strong>5 ans</strong> après la fin de l'inscription. Toute violation expose à une <strong>pénalité de 5 000€ par infraction</strong>.</p>
+
+                <!-- ARTICLE 8 -->
+                <h2>Article 8 - Clause anti-contournement</h2>
+                
+                <div class="alert-box">
+                    <h3>⚠️ CLAUSE ESSENTIELLE ET DÉTERMINANTE DU CONSENTEMENT D'AOI</h3>
+                    <p>Le membre reconnaît que cette clause est <strong>essentielle et déterminante</strong>. Sans cette clause, AOI n'aurait pas contracté.</p>
+                </div>
+                
+                <h3>8.1 Principe</h3>
+                <p>Tout membre s'engage à <strong>déclarer sur la Plateforme</strong> tout partenariat né d'une mise en relation via AOI, <strong>même si les échanges ont ensuite eu lieu en dehors de la Plateforme</strong>.</p>
+                
+                <h3>8.2 Définition du contournement</h3>
+                <p>Constitue un contournement le fait de :</p>
+                <ul>
+                    <li>Réaliser une opération avec un membre rencontré via AOI sans la déclarer</li>
+                    <li>Utiliser un intermédiaire pour masquer l'origine de la relation</li>
+                    <li>Attendre l'expiration de son abonnement pour collaborer sans déclarer</li>
+                    <li>Déclarer un montant d'opération inférieur à la réalité</li>
+                </ul>
+                
+                <h3>8.3 Pénalités</h3>
+                <div class="critical-box">
+                    <p>Tout contournement expose aux sanctions cumulatives suivantes :</p>
+                    <ul>
+                        <li><strong>Pénalité forfaitaire :</strong> 5 000€ HT</li>
+                        <li><strong>ET/OU Pénalité proportionnelle :</strong> 10% du montant de l'opération</li>
+                        <li><strong>Exclusion définitive</strong> de la Plateforme sans remboursement</li>
+                        <li><strong>Publication</strong> du nom du contrevenant auprès des membres</li>
+                    </ul>
+                </div>
+                
+                <h3>8.4 Durée</h3>
+                <p>L'obligation s'applique pendant <strong>3 ans</strong> après tout premier contact via la Plateforme.</p>
+
+                <!-- ARTICLE 9 -->
+                <h2>Article 9 - Limitation de responsabilité d'AOI</h2>
+                
+                <div class="alert-box">
+                    <h3>⚠️ CLAUSE LIMITATIVE DE RESPONSABILITÉ</h3>
+                    <p>Les stipulations du présent article sont <strong>essentielles et déterminantes</strong> du consentement d'AOI.</p>
+                </div>
+                
+                <h3>9.1 Rôle limité</h3>
+                <p>AOI agit <strong>exclusivement</strong> en qualité d'intermédiaire technique de mise en relation.</p>
+                
+                <h3>9.2 Absence de vérification</h3>
+                <div class="warning-box">
+                    <p><strong>AOI ne vérifie pas et ne garantit pas :</strong></p>
+                    <ul>
+                        <li>L'identité réelle des membres</li>
+                        <li>La véracité des informations fournies</li>
+                        <li>Les compétences ou qualifications des membres</li>
+                        <li>La solvabilité ou situation financière des membres</li>
+                        <li>La validité des assurances professionnelles</li>
+                        <li>La faisabilité des projets publiés</li>
+                    </ul>
+                </div>
+                
+                <h3>9.3 Exclusions totales de responsabilité</h3>
+                <div class="critical-box">
+                    <p><strong>AOI décline TOUTE responsabilité en cas de :</strong></p>
+                    <ul>
+                        <li>Manquement d'un membre envers un autre membre</li>
+                        <li>Défaillance, incompétence ou faute d'un prestataire</li>
+                        <li>Défaut de paiement entre membres</li>
+                        <li>Échec d'un projet immobilier</li>
+                        <li>Pertes financières subies par un membre</li>
+                        <li>Litige entre membres</li>
+                        <li>Fraude ou acte délictueux d'un membre</li>
+                        <li>Tout dommage indirect ou consécutif</li>
+                    </ul>
+                </div>
+                
+                <h3>9.4 Plafond de responsabilité</h3>
+                <p>En tout état de cause, la responsabilité d'AOI est <strong>limitée aux commissions perçues</strong> au cours des 12 derniers mois et <strong>plafonnée à 1 000€</strong>.</p>
+
+                <!-- ARTICLE 10 -->
+                <h2>Article 10 - Exclusions de garantie</h2>
+                
+                <h3>10.1 Absence de garantie de résultat</h3>
+                <p>AOI fournit une <strong>obligation de moyens</strong>. AOI ne garantit pas que le membre trouvera des partenaires, des projets ou du financement.</p>
+                
+                <h3>10.2 Recommandation de due diligence</h3>
+                <div class="green-box">
+                    <p><strong>AOI RECOMMANDE EXPRESSÉMENT</strong> à chaque membre de procéder à toutes les vérifications avant de s'engager :</p>
+                    <ul>
+                        <li>Demander et vérifier des références</li>
+                        <li>Vérifier l'existence légale et la solvabilité des partenaires</li>
+                        <li>Contrôler la validité des assurances professionnelles</li>
+                        <li>Consulter un avocat avant tout engagement</li>
+                        <li>Faire réaliser des audits techniques et financiers</li>
+                    </ul>
+                </div>
+
+                <!-- ARTICLE 11 -->
+                <h2>Article 11 - Dysfonctionnements techniques</h2>
+                
+                <h3>11.1 Disponibilité</h3>
+                <p>AOI s'efforce d'assurer la disponibilité de la Plateforme mais <strong>ne garantit pas</strong> un fonctionnement ininterrompu.</p>
+                
+                <h3>11.2 Exclusion de responsabilité</h3>
+                <div class="critical-box">
+                    <p><strong>AOI décline toute responsabilité en cas de :</strong></p>
+                    <ul>
+                        <li>Interruption ou arrêt de la Plateforme</li>
+                        <li>Bugs, erreurs ou anomalies</li>
+                        <li>Perte ou altération de données</li>
+                        <li>Virus ou attaques informatiques</li>
+                        <li>Défaillance des services tiers</li>
+                    </ul>
+                </div>
+                
+                <h3>11.3 Engagement de correction</h3>
+                <p>AOI s'engage à mettre en œuvre ses <strong>meilleurs efforts</strong> pour corriger les dysfonctionnements signalés, sans garantie de délai.</p>
+
+                <!-- ARTICLE 12 -->
+                <h2>Article 12 - Relations entre membres</h2>
+                
+                <h3>12.1 Autonomie</h3>
+                <p>Les relations entre membres sont régies par les accords qu'ils concluent directement entre eux. AOI n'est partie à aucun de ces accords.</p>
+                
+                <h3>12.2 Absence d'intervention</h3>
+                <div class="warning-box">
+                    <p><strong>AOI n'intervient pas :</strong></p>
+                    <ul>
+                        <li>Dans les négociations entre membres</li>
+                        <li>Dans la rédaction des contrats entre membres</li>
+                        <li>Dans la résolution des litiges entre membres</li>
+                        <li>Dans le recouvrement des créances entre membres</li>
+                    </ul>
+                </div>
+
+                <!-- ARTICLE 13 -->
+                <h2>Article 13 - Force majeure</h2>
+                
+                <p>AOI ne saurait être tenue responsable en cas de force majeure ou circonstances échappant à son contrôle : catastrophes naturelles, pandémie, guerre, grève, cyberattaque, défaillance de prestataires critiques, etc.</p>
+
+                <!-- ARTICLE 14 -->
+                <h2>Article 14 - Propriété intellectuelle</h2>
+                
+                <p>L'ensemble des éléments de la Plateforme (marque, logo, textes, graphismes, logiciels, base de données) sont la propriété exclusive d'AOI. Toute reproduction non autorisée constitue une contrefaçon.</p>
+
+                <!-- ARTICLE 15 -->
+                <h2>Article 15 - Protection des données</h2>
+                
+                <p>Les données personnelles sont traitées conformément au RGPD. Voir notre <a href="/mentions-legales.html">Politique de Confidentialité</a> pour plus de détails.</p>
+
+                <!-- ARTICLE 16 -->
+                <h2>Article 16 - Résiliation</h2>
+                
+                <h3>16.1 Par le membre</h3>
+                <p>Le membre peut résilier son compte à tout moment. Les abonnements ne sont pas remboursés.</p>
+                
+                <h3>16.2 Par AOI</h3>
+                <p>AOI peut suspendre ou résilier immédiatement un compte en cas de violation des CGV, fausses informations, non-paiement ou contournement.</p>
+                
+                <h3>16.3 Survie des obligations</h3>
+                <p>Les clauses de confidentialité, anti-contournement et limitation de responsabilité survivent à la résiliation.</p>
+
+                <!-- ARTICLE 17 -->
+                <h2>Article 17 - Dispositions finales</h2>
+                
+                <h3>17.1 Droit applicable</h3>
+                <p>Les présentes sont régies par le <strong>droit français</strong>.</p>
+                
+                <h3>17.2 Litiges</h3>
+                <p>En cas de litige, les parties rechercheront une solution amiable pendant 30 jours. À défaut, les <strong>tribunaux de Paris</strong> seront compétents.</p>
+                
+                <h3>17.3 Divisibilité</h3>
+                <p>Si une clause est déclarée nulle, les autres conservent leur plein effet.</p>
+
+                <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);text-align:center;color:var(--gray-500);font-size:0.85rem;">
+                    <p style="margin:0;text-align:center;"><strong>AOI - Alliance des Opérateurs Immobiliers</strong></p>
+                    <p style="margin:0.25rem 0 0;text-align:center;">Conditions Générales de Vente et d'Utilisation - Version 2.0 - Janvier 2026</p>
+                    <p style="margin:0.25rem 0 0;text-align:center;"><strong>Document contractuel - Conservez-le précieusement</strong></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo">
+                        <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                        <span class="logo-text">Alliance</span>
+                    </a>
+                    <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                        <a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Navigation</h5>
+                    <ul>
+                        <li><a href="/#origine">Notre histoire</a></li>
+                        <li><a href="/#offres">Qui peut rejoindre</a></li>
+                        <li><a href="/#solution">La Solution</a></li>
+                        <li><a href="/#tarifs">Tarifs</a></li>
+                        <li><a href="/#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Niveaux</h5>
+                    <ul>
+                        <li><a href="/#tarifs">Partenaire Métier</a></li>
+                        <li><a href="/#tarifs">Opérateur</a></li>
+                        <li><a href="/#tarifs">Co-Opérateur</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="tel:+33763782041">07 63 78 20 41</a></li>
+                        <li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li>
+                        <li><a href="/#contact">Candidater</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 SAS AOI HOLDING (en cours de constitution) - 3 rue Hébert, 92140 Clamart</p>
+                <div class="footer-legal">
+                    <a href="/mentions-legales.html">Mentions légales</a>
+                    <a href="/cgv.html">CGV</a>
+                    <a href="/mentions-legales.html#cookies">Confidentialité</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>
