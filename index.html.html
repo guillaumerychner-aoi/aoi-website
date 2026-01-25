@@ -30,6 +30,9 @@
         .fade-in{opacity:0;transform:translateY(30px);transition:all .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
         @media (max-width:1024px){.hero-content,.origin-content,.solution-content,.dual-offer-grid{grid-template-columns:1fr;gap:48px}.hero-content{text-align:center}.hero-cta{justify-content:center}.hero-visual,.origin-visual{max-width:500px;margin:0 auto}.problems-grid,.pricing-grid{grid-template-columns:1fr}.pricing-card.featured{transform:none}.steps{grid-template-columns:repeat(2,1fr)}.step::after{display:none}.ecosystem-categories,.vision-values{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:40px}.problem-card h4{min-height:auto}}
         @media (max-width:768px){nav{display:none}.mobile-menu-btn{display:block}.hero{padding-top:80px}.floating-card{display:none}.steps,.vision-values{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;text-align:center}.cta-buttons{flex-direction:column;align-items:center}.cta-buttons .btn{width:100%;max-width:300px}}
+        .track-record{padding:120px 0;background:linear-gradient(180deg,#fff 0%,var(--orange-50) 100%)}.track-record .section-header{text-align:center;max-width:700px;margin:0 auto 64px}.track-record .section-header h2{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--gray-900);margin-bottom:16px;line-height:1.2}.track-record .section-header h2 span{color:var(--orange-600)}.track-record .section-header>p{font-size:1.1rem;color:var(--gray-600)}.track-record-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}.deal-card{background:#fff;border-radius:20px;padding:28px 24px;border:2px solid var(--gray-200);display:grid;grid-template-rows:auto auto auto 1fr auto;gap:0;transition:all .3s ease}.deal-card:hover{border-color:var(--orange-300);box-shadow:0 20px 40px rgba(249,115,22,.12);transform:translateY(-4px)}.deal-card.completed{border-top:4px solid #22c55e}.deal-card.ongoing{border-top:4px solid var(--orange-500)}.deal-card.structuring{border-top:4px solid #3b82f6}.deal-status{height:36px;display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;padding:0 14px;border-radius:100px;width:fit-content;margin-bottom:16px}.deal-status i{width:16px;height:16px}.deal-card.completed .deal-status{color:#166534;background:#dcfce7}.deal-card.ongoing .deal-status{color:#c2410c;background:#ffedd5}.deal-card.structuring .deal-status{color:#1e40af;background:#dbeafe}.deal-type{height:20px;font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-400);font-weight:700;margin-bottom:8px}.deal-card h3{height:60px;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gray-900);line-height:1.3;margin-bottom:20px;display:flex;align-items:center}.deal-stats{display:flex;flex-direction:column;margin-bottom:20px}.deal-stat{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--gray-100)}.deal-stat:last-child{border-bottom:none}.stat-value{font-size:1.1rem;font-weight:800;color:var(--gray-900)}.deal-card.completed .deal-stat:first-child .stat-value{color:#16a34a}.deal-card.ongoing .deal-stat:first-child .stat-value{color:var(--orange-600)}.deal-card.structuring .deal-stat:first-child .stat-value{color:#2563eb}.stat-label{font-size:.8rem;color:var(--gray-500);text-align:right}.deal-method{background:var(--gray-50);padding:16px;border-radius:12px}.deal-method-title{display:flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange-600);margin-bottom:8px}.deal-method-title i{width:14px;height:14px}.deal-method p{font-size:.85rem;color:var(--gray-600);line-height:1.5;margin:0}.track-record-summary{display:grid;grid-template-columns:repeat(3,1fr);background:var(--gray-900);border-radius:20px;overflow:hidden;margin-bottom:32px}.summary-stat{text-align:center;padding:36px 24px;border-right:1px solid rgba(255,255,255,.1)}.summary-stat:last-child{border-right:none}.summary-value{display:block;font-size:2.25rem;font-weight:800;color:var(--orange-400);margin-bottom:6px}.summary-label{font-size:.85rem;color:var(--gray-400);line-height:1.4}.track-record-note{text-align:center;font-size:.85rem;color:var(--gray-500);max-width:700px;margin:0 auto;line-height:1.6}
+        @media(max-width:1024px){.track-record-grid{grid-template-columns:1fr;max-width:450px;margin-left:auto;margin-right:auto}.deal-card{grid-template-rows:auto auto auto auto auto}.deal-card h3{height:auto;margin-bottom:16px}.track-record-summary{grid-template-columns:1fr}.summary-stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:28px 24px}.summary-stat:last-child{border-bottom:none}}
+        @media(max-width:768px){.track-record{padding:80px 0}.track-record .section-header{margin-bottom:48px}.track-record .section-header h2{font-size:2rem}.deal-card{padding:24px 20px}.summary-value{font-size:1.75rem}.summary-stat{padding:24px 20px}}
     </style>
 </head>
 <body>
@@ -46,6 +49,7 @@
                     <a href="#origine">Notre histoire</a>
                     <a href="#offres">Qui peut rejoindre</a>
                     <a href="#solution">La Solution</a>
+                    <a href="#resultats">Résultats</a>
                     <a href="#tarifs">Tarifs</a>
                     <a href="#faq">FAQ</a>
                     <a href="#" class="nav-extranet"><i data-lucide="log-in" style="width:16px;height:16px;margin-right:4px;"></i>Extranet</a>
@@ -60,6 +64,7 @@
         <a href="#origine" onclick="toggleMobileMenu()">Notre histoire</a>
         <a href="#offres" onclick="toggleMobileMenu()">Qui peut rejoindre</a>
         <a href="#solution" onclick="toggleMobileMenu()">La Solution</a>
+        <a href="#resultats" onclick="toggleMobileMenu()">Résultats</a>
         <a href="#tarifs" onclick="toggleMobileMenu()">Tarifs</a>
         <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
         <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">Nous rejoindre</a>
@@ -249,6 +254,56 @@
             </div>
         </div>
     </section>
+    <section class="track-record" id="resultats">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="award"></i>Track Record</div>
+                <h2>Ce n'est pas de la théorie.<br><span>C'est notre quotidien.</span></h2>
+                <p>Les dernières opérations structurées par nos membres fondateurs — sans financement bancaire.</p>
+            </div>
+            <div class="track-record-grid">
+                <div class="deal-card completed">
+                    <div class="deal-status"><i data-lucide="check-circle"></i> Clôturé</div>
+                    <div class="deal-type">Structuration paiement à terme</div>
+                    <h3>Ensemble de 5 maisonnettes</h3>
+                    <div class="deal-stats">
+                        <div class="deal-stat"><span class="stat-value">219 000 €</span><span class="stat-label">Marge brute réalisée</span></div>
+                        <div class="deal-stat"><span class="stat-value">0 €</span><span class="stat-label">Apport personnel</span></div>
+                        <div class="deal-stat"><span class="stat-value">9 mois</span><span class="stat-label">Durée de l'opération</span></div>
+                    </div>
+                    <div class="deal-method"><div class="deal-method-title"><i data-lucide="lightbulb"></i> Structuration</div><p>Achat avec paiement différé au vendeur, revente des lots avant le terme — aucun financement bancaire.</p></div>
+                </div>
+                <div class="deal-card ongoing">
+                    <div class="deal-status"><i data-lucide="clock"></i> En closing</div>
+                    <div class="deal-type">Structuration paiement à terme</div>
+                    <h3>Ensemble de 7 lots</h3>
+                    <div class="deal-stats">
+                        <div class="deal-stat"><span class="stat-value">350 000 €</span><span class="stat-label">Marge brute attendue</span></div>
+                        <div class="deal-stat"><span class="stat-value">0 €</span><span class="stat-label">Apport personnel</span></div>
+                        <div class="deal-stat"><span class="stat-value">6 mois</span><span class="stat-label">Durée prévisionnelle</span></div>
+                    </div>
+                    <div class="deal-method"><div class="deal-method-title"><i data-lucide="lightbulb"></i> Structuration</div><p>Paiement différé négocié avec le vendeur. Tous les lots sous promesse — dénouement imminent.</p></div>
+                </div>
+                <div class="deal-card structuring">
+                    <div class="deal-status"><i data-lucide="settings"></i> En structuration</div>
+                    <div class="deal-type">SEP Vendeurs / Opérateur</div>
+                    <h3>Division parcellaire — 3 lots</h3>
+                    <div class="deal-stats">
+                        <div class="deal-stat"><span class="stat-value">300 000 €</span><span class="stat-label">Marge brute attendue</span></div>
+                        <div class="deal-stat"><span class="stat-value">0 €</span><span class="stat-label">Apport personnel</span></div>
+                        <div class="deal-stat"><span class="stat-value">PCVD</span><span class="stat-label">En attente de purge</span></div>
+                    </div>
+                    <div class="deal-method"><div class="deal-method-title"><i data-lucide="users"></i> SEP Vendeurs / Opérateur</div><p>Les vendeurs apportent la jouissance du foncier à la SEP, l'opérateur le savoir-faire — partage à la revente.</p></div>
+                </div>
+            </div>
+            <div class="track-record-summary">
+                <div class="summary-stat"><span class="summary-value">869 000 €</span><span class="summary-label">Marge brute cumulée<br>sur 3 opérations</span></div>
+                <div class="summary-stat"><span class="summary-value">0 €</span><span class="summary-label">Fonds propres<br>investis</span></div>
+                <div class="summary-stat"><span class="summary-value">0 €</span><span class="summary-label">Crédit bancaire<br>contracté</span></div>
+            </div>
+            <p class="track-record-note">Ces opérations ont été structurées par les membres fondateurs d'AOI parallèlement au lancement du réseau. Chaque opération immobilière est unique — ces résultats illustrent notre expertise mais ne constituent pas une promesse de rendement.</p>
+        </div>
+    </section>
 
     <section class="pricing" id="tarifs">
         <div class="container">
@@ -435,7 +490,7 @@
                     <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
                     <div class="footer-social"><a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a><a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a></div>
                 </div>
-                <div class="footer-column"><h5>Navigation</h5><ul><li><a href="#origine">Notre histoire</a></li><li><a href="#offres">Qui peut rejoindre</a></li><li><a href="#solution">La Solution</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+                <div class="footer-column"><h5>Navigation</h5><ul><li><a href="#origine">Notre histoire</a></li><li><a href="#offres">Qui peut rejoindre</a></li><li><a href="#solution">La Solution</a></li><li><a href="#resultats">Résultats</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">FAQ</a></li></ul></div>
                 <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="#tarifs">Accès Initial</a></li><li><a href="#tarifs">Partenaire Métier</a></li><li><a href="#tarifs">Co-Opérateur</a></li></ul></div>
                 <div class="footer-column"><h5>Contact</h5><ul><li><a href="tel:+33763782041">07 63 78 20 41</a></li><li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li><li><a href="#contact">Candidater</a></li></ul></div>
             </div>
