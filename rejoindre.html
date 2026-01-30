@@ -548,12 +548,11 @@
             btnCallback.disabled = true;
             lucide.createIcons();
             
-            // Send to Formspree (or your backend)
+            // Send to AOI API
             const formData = getFormData();
-            formData.demande = 'Demande de rappel';
             
             try {
-                const response = await fetch('https://formspree.io/f/mvzknkva', {
+                const response = await fetch('https://aoi-extranet.vercel.app/api/contact/callback', {
                     method: 'POST',
                     body: JSON.stringify(formData),
                     headers: {
