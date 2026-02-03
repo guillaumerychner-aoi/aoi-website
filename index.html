@@ -61,6 +61,11 @@
         @media(max-width:768px){.track-record{padding:80px 0}.track-record .section-header{margin-bottom:48px}.track-record .section-header h2{font-size:2rem}.deal-card{padding:24px 20px}.summary-value{font-size:1.75rem}.summary-stat{padding:24px 20px}}
         .pricing-price{min-height:140px;display:flex;flex-direction:column;justify-content:flex-start}.pricing-features{min-height:220px}.pricing-features li{min-height:60px;align-items:flex-start}
         .origin-list li{align-items:flex-start}.origin-list i,.origin-list svg{min-width:24px!important;min-height:24px!important;width:24px!important;height:24px!important;margin-top:2px;flex-shrink:0}
+        .testimonials{padding:120px 0;background:linear-gradient(180deg,var(--orange-50) 0%,#fff 100%)}.testimonials .section-header{text-align:center;max-width:700px;margin:0 auto 64px}.testimonials .section-header h2 span{color:var(--orange-600)}.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:stretch}.testimonial-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 10px 40px rgba(0,0,0,.06);border:1px solid var(--gray-100);position:relative;transition:all .3s ease;display:flex;flex-direction:column}.testimonial-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.1)}.testimonial-card::before{content:'"';position:absolute;top:20px;right:30px;font-size:80px;font-family:'Playfair Display',serif;color:var(--orange-100);line-height:1}.testimonial-content{position:relative;z-index:1;margin-bottom:24px;flex-grow:1}.testimonial-content p{font-size:1rem;line-height:1.7;color:var(--gray-700);font-style:italic}.testimonial-author{display:flex;align-items:center;gap:16px;padding-top:20px;border-top:1px solid var(--gray-100);margin-top:auto}.testimonial-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--orange-400),var(--orange-600));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem;flex-shrink:0}.testimonial-avatar.blue{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}.testimonial-avatar.green{background:linear-gradient(135deg,#22c55e,#16a34a)}.testimonial-info h5{font-family:'Inter',sans-serif;font-weight:600;color:var(--gray-900);margin-bottom:4px}.testimonial-info span{font-size:.875rem;color:var(--gray-500)}.testimonial-badge{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:4px 12px;background:var(--orange-100);color:var(--orange-700);border-radius:100px;font-size:.75rem;font-weight:600}.testimonial-badge.beta{background:#dbeafe;color:#1d4ed8}
+        .platform-preview{padding:120px 0;background:var(--gray-900);position:relative;overflow:hidden}.platform-preview::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top right,rgba(249,115,22,.15) 0%,transparent 60%)}.platform-preview .container{position:relative;z-index:1}.platform-preview .section-header{text-align:center;max-width:700px;margin:0 auto 64px}.platform-preview .section-label{color:var(--orange-400)}.platform-preview h2{color:#fff;margin-bottom:16px}.platform-preview h2 span{color:var(--orange-400)}.platform-preview .section-header>p{color:var(--gray-400);font-size:1.125rem}.preview-screenshot{max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}.preview-features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}.preview-feature{text-align:center}.preview-feature-icon{width:64px;height:64px;background:rgba(249,115,22,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}.preview-feature-icon i{width:32px;height:32px;color:var(--orange-400)}.preview-feature h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;margin-bottom:10px}.preview-feature p{font-size:.95rem;color:var(--gray-400);line-height:1.6}
+        .key-numbers{padding:80px 0;background:#fff;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}.key-numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;text-align:center}.key-number-value{font-size:3rem;font-weight:800;color:var(--orange-600);line-height:1;margin-bottom:12px}.key-number-label{font-size:1rem;color:var(--gray-600);line-height:1.4}
+        @media(max-width:1024px){.testimonials-grid,.preview-features{grid-template-columns:1fr}.testimonials-grid{max-width:600px;margin:0 auto}}
+        @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}}
     </style>
 </head>
 <body>
@@ -72,10 +77,10 @@
                     <span class="logo-text">Network</span>
                 </a>               
                 <nav>
-                    <a href="#origine">Notre histoire</a>
-                    <a href="#offres">Nous rejoindre</a>
+                    <a href="#problemes">Le Problème</a>
                     <a href="#solution">La Solution</a>
                     <a href="#resultats">Résultats</a>
+                    <a href="#offres">Nous rejoindre</a>
                     <a href="#tarifs">Tarifs</a>
                     <a href="#faq">FAQ</a>
                     <a href="https://aoi-extranet.vercel.app/login" class="nav-extranet"><i data-lucide="log-in" style="width:16px;height:16px;margin-right:4px;"></i>Extranet</a>
@@ -87,10 +92,10 @@
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#origine" onclick="toggleMobileMenu()">Notre histoire</a>
-        <a href="#offres" onclick="toggleMobileMenu()">Qui peut rejoindre</a>
+        <a href="#problemes" onclick="toggleMobileMenu()">Le Problème</a>
         <a href="#solution" onclick="toggleMobileMenu()">La Solution</a>
         <a href="#resultats" onclick="toggleMobileMenu()">Résultats</a>
+        <a href="#offres" onclick="toggleMobileMenu()">Nous rejoindre</a>
         <a href="#tarifs" onclick="toggleMobileMenu()">Tarifs</a>
         <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
         <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">Nous rejoindre</a>
@@ -105,75 +110,13 @@
                     <p class="hero-description">Né de l'expérience terrain d'opérateurs qui ont appris à structurer autrement. Paiements à terme, SEP entre opérateurs, co-production avec les vendeurs : nous avons testé, nous avons réussi, nous partageons.</p>
                     <div class="hero-cta">
                         <a href="#contact" class="btn btn-primary"><i data-lucide="users"></i>Rejoindre les pionniers</a>
-                        <a href="#origine" class="btn btn-secondary"><i data-lucide="book-open"></i>Notre histoire</a>
+                        <a href="#resultats" class="btn btn-secondary"><i data-lucide="trophy"></i>Nos résultats</a>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop" alt="Immeubles modernes" class="hero-image">
                     <div class="floating-card floating-card-1"><div class="icon"><i data-lucide="check-circle"></i></div><div class="text"><strong>Testé sur le terrain</strong><span>Méthodes éprouvées</span></div></div>
                     <div class="floating-card floating-card-2"><div class="value">SEP</div><div class="label">100% légal</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="origin" id="origine">
-        <div class="container">
-            <div class="origin-content">
-                <div class="origin-visual">
-                    <div class="origin-quote">
-                        <p>Après des années à subir les refus bancaires, les taux de crowdfunding à 12% auxquels s'ajoutent frais de dossier, frais de plateforme et cumul de garanties (personnelles, hypothèques, fiducies...), et l'isolement face aux décisions complexes, nous avons appris à faire autrement. Paiements différés, SEP avec d'autres opérateurs, partage du fruit de la vente avec les vendeurs... Ces méthodes nous ont permis de continuer à opérer. AOI, c'est ce savoir-faire que nous voulons partager.</p>
-                        <p class="author">— Guillaume, Fondateur d'AOI</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="section-label"><i data-lucide="history"></i>Pourquoi AOI existe</div>
-                    <h2>Né de <span>l'expérience</span>, pas d'une théorie</h2>
-                    <p class="origin-text">AOI n'est pas un concept imaginé dans un bureau. C'est le fruit de dizaines d'opérations réalisées dans des conditions difficiles, où les financements traditionnels n'étaient plus une option.</p>
-                    <ul class="origin-list">
-                        <li><i data-lucide="x-circle"></i><span><strong>Les banques qui ferment leurs portes après d'innombrables comités</strong> — Critères durcis, délais interminables, garanties impossibles</span></li>
-                        <li><i data-lucide="x-circle"></i><span><strong>Le financement alternatif devenu hors de prix</strong> — Taux de 10 à 14%, frais de plateforme de 6 à 9%, cumul de garanties (personnelles, hypothécaires, déportées, fiducies...) et le couteau sous la gorge quand le marché ralentit</span></li>
-                        <li><i data-lucide="x-circle"></i><span><strong>L'isolement qui fragilise</strong> — Seul face aux décisions, aux imprévus, aux risques</span></li>
-                    </ul>
-                    <p class="origin-text">Face à ces impasses, nous avons développé des alternatives qui fonctionnent. Aujourd'hui, nous créons AOI pour permettre à d'autres professionnels de bénéficier de ces méthodes et de cette entraide.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dual-offer" id="offres">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label"><i data-lucide="users-2"></i>Deux mondes, une alliance</div>
-                <h2>AOI réunit <span>opérateurs</span> et <span>prestataires</span></h2>
-                <p>Un écosystème complet où chacun trouve sa place et ses opportunités.</p>
-            </div>
-            <div class="dual-offer-grid">
-                <div class="offer-card operateur fade-in">
-                    <div class="offer-icon"><i data-lucide="building-2" style="width:36px;height:36px;"></i></div>
-                    <h3>Opérateurs</h3>
-                    <p class="subtitle">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
-                    <p>Structurez vos opérations autrement, trouvez des associés pour vos SEP, et accédez à un réseau de prestataires de confiance.</p>
-                    <ul class="offer-features">
-                        <li><i data-lucide="check"></i><span><strong>Méthodes de structuration</strong> — Paiements à terme, SEP, co-production</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Recherche d'associés</strong> — Trouvez des co-associés pour vos projets</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Publiez vos besoins et recevez des candidatures qualifiées</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Confrontation des décisions</strong> — Partagez avec des pairs expérimentés</span></li>
-                    </ul>
-                    <a href="#tarifs" class="btn btn-primary">Voir les offres opérateurs</a>
-                </div>
-                <div class="offer-card prestataire fade-in">
-                    <div class="offer-icon"><i data-lucide="briefcase" style="width:36px;height:36px;"></i></div>
-                    <h3>Partenaires Métier</h3>
-                    <p class="subtitle">Tous les professionnels de l'immobilier</p>
-                    <p>Accédez à une <strong>Salle des Opportunités</strong> exclusive : appels d'offres et consultations publiés par les opérateurs du réseau.</p>
-                    <ul class="offer-features">
-                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Des missions qualifiées, pas de la prospection à froid</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Visibilité ciblée</strong> — Votre profil dans l'annuaire des prestataires</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Réseau qualifié</strong> — Opérateurs sélectionnés et solvables</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Moins de prospection</strong> — Les projets viennent à vous</span></li>
-                    </ul>
-                    <a href="#tarifs" class="btn btn-secondary" style="border-color:#3b82f6;color:#3b82f6;">Voir l'offre Partenaire</a>
                 </div>
             </div>
         </div>
@@ -249,37 +192,6 @@
         </div>
     </section>
 
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label"><i data-lucide="route"></i>Comment ça marche</div>
-                <h2>Rejoindre l'alliance en 4 étapes</h2>
-                <p>Un processus simple pour intégrer le réseau et commencer à collaborer.</p>
-            </div>
-            <div class="steps">
-                <div class="step fade-in">
-                    <div class="step-number">1</div>
-                    <h4>Nous rejoindre</h4>
-                    <p>Présentez votre parcours et vos projets. Nous validons votre profil sous 48h.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">2</div>
-                    <h4>Échange</h4>
-                    <p>Un appel pour faire connaissance, comprendre vos besoins et présenter le fonctionnement.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">3</div>
-                    <h4>Intégration</h4>
-                    <p>Accès à l'extranet, aux ressources, et présentation aux autres membres.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">4</div>
-                    <h4>Collaboration</h4>
-                    <p>Publiez un projet, rejoignez une opération, répondez à des opportunités.</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="track-record" id="resultats">
         <div class="container">
             <div class="section-header">
@@ -342,6 +254,302 @@
                 <p><strong>4 opérations impossibles à financer seul</strong> — rendues possibles grâce à des structurations sur-mesure et la force du collectif.</p>
             </div>
             <p class="track-record-note">Ces opérations ont été structurées par les membres fondateurs d'AOI parallèlement au lancement du réseau. Chaque opération immobilière est unique — ces résultats illustrent notre expertise mais ne constituent pas une promesse de rendement.</p>
+        </div>
+    </section>
+
+    <section class="dual-offer" id="offres">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="users-2"></i>Deux mondes, une alliance</div>
+                <h2>AOI réunit <span>opérateurs</span> et <span>prestataires</span></h2>
+                <p>Un écosystème complet où chacun trouve sa place et ses opportunités.</p>
+            </div>
+            <div class="dual-offer-grid">
+                <div class="offer-card operateur fade-in">
+                    <div class="offer-icon"><i data-lucide="building-2" style="width:36px;height:36px;"></i></div>
+                    <h3>Opérateurs</h3>
+                    <p class="subtitle">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
+                    <p>Structurez vos opérations autrement, trouvez des associés pour vos SEP, et accédez à un réseau de prestataires de confiance.</p>
+                    <ul class="offer-features">
+                        <li><i data-lucide="check"></i><span><strong>Méthodes de structuration</strong> — Paiements à terme, SEP, co-production</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Recherche d'associés</strong> — Trouvez des co-associés pour vos projets</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Publiez vos besoins et recevez des candidatures qualifiées</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Confrontation des décisions</strong> — Partagez avec des pairs expérimentés</span></li>
+                    </ul>
+                    <a href="#tarifs" class="btn btn-primary">Voir les offres opérateurs</a>
+                </div>
+                <div class="offer-card prestataire fade-in">
+                    <div class="offer-icon"><i data-lucide="briefcase" style="width:36px;height:36px;"></i></div>
+                    <h3>Partenaires Métier</h3>
+                    <p class="subtitle">Tous les professionnels de l'immobilier</p>
+                    <p>Accédez à une <strong>Salle des Opportunités</strong> exclusive : appels d'offres et consultations publiés par les opérateurs du réseau.</p>
+                    <ul class="offer-features">
+                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Des missions qualifiées, pas de la prospection à froid</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Visibilité ciblée</strong> — Votre profil dans l'annuaire des prestataires</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Réseau qualifié</strong> — Opérateurs sélectionnés et solvables</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Moins de prospection</strong> — Les projets viennent à vous</span></li>
+                    </ul>
+                    <a href="#tarifs" class="btn btn-secondary" style="border-color:#3b82f6;color:#3b82f6;">Voir l'offre Partenaire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="platform-preview" id="plateforme">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="layout-dashboard"></i> Votre espace membre</div>
+                <h2>Un extranet <span>pensé pour l'action</span></h2>
+                <p>Projets SEP, MasterClass, opportunités, bibliothèque documentaire — tout ce dont vous avez besoin, au même endroit.</p>
+            </div>
+            
+            <!-- Screenshot Co-Opérateurs -->
+            <p style="color:var(--orange-400);text-align:center;font-weight:600;margin-bottom:16px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Espace Co-Opérateur — Projets SEP</p>
+            <div class="preview-screenshot" style="margin-bottom:48px;">
+                <svg width="100%" viewBox="0 0 1100 580" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="orangeGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#ea580c"/></linearGradient>
+                        <clipPath id="imgClip1"><rect x="252" y="96" width="270" height="100" rx="16"/></clipPath>
+                        <clipPath id="imgClip2"><rect x="542" y="96" width="270" height="100" rx="16"/></clipPath>
+                        <clipPath id="imgClip3"><rect x="832" y="96" width="250" height="100" rx="16"/></clipPath>
+                    </defs>
+                    <!-- Sidebar -->
+                    <rect x="0" y="0" width="220" height="580" fill="#fff"/><line x1="220" y1="0" x2="220" y2="580" stroke="#e5e7eb"/>
+                    <rect x="20" y="20" width="36" height="36" rx="8" fill="url(#orangeGrad1)"/><text x="38" y="44" font-size="11" fill="white" font-weight="800" text-anchor="middle" font-family="Inter,sans-serif">AOI</text><text x="66" y="44" font-size="16" fill="#1f2937" font-weight="700" font-family="Playfair Display,serif">Network</text>
+                    <rect x="16" y="72" width="188" height="50" rx="8" fill="#f9fafb"/><text x="28" y="94" font-size="13" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Thomas M.</text><text x="28" y="112" font-size="11" fill="#6b7280" font-family="Inter,sans-serif">Niveau 3 • Co-Opérateur</text>
+                    <!-- Menu complet -->
+                    <text x="44" y="150" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🏠  Accueil</text>
+                    <text x="44" y="174" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">👤  Mon Profil</text>
+                    <text x="44" y="198" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">💼  Mon Portfolio</text>
+                    <text x="44" y="222" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">💬  Messages</text>
+                    <text x="44" y="246" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">📄  Bibliothèque</text>
+                    <text x="44" y="270" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🎬  MasterClass</text>
+                    <text x="44" y="294" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">👥  Annuaire</text>
+                    <text x="44" y="318" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🎯  Mes opportunités</text>
+                    <rect x="12" y="330" width="196" height="32" rx="8" fill="#1f2937"/><text x="44" y="351" font-size="12" fill="white" font-weight="600" font-family="Inter,sans-serif">📊  Projets SEP</text>
+                    <text x="44" y="382" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🏗️  Mes opérations</text>
+                    <text x="44" y="406" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🤝  Mes partenariats</text>
+                    <!-- Bottom menu -->
+                    <line x1="16" y1="470" x2="204" y2="470" stroke="#e5e7eb"/>
+                    <text x="44" y="494" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">⚙️  Paramètres</text>
+                    <text x="44" y="514" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">❓  Support</text>
+                    <text x="44" y="534" font-size="10" fill="#d1d5db" font-family="Inter,sans-serif">CGV • Guide</text>
+                    <text x="44" y="554" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">🚪  Déconnexion</text>
+                    
+                    <!-- Main content -->
+                    <rect x="220" y="0" width="880" height="580" fill="#f9fafb"/>
+                    <rect x="252" y="24" width="48" height="48" rx="12" fill="#ffedd5"/><text x="276" y="56" font-size="20" text-anchor="middle">📊</text>
+                    <text x="316" y="44" font-size="22" fill="#1f2937" font-weight="700" font-family="Playfair Display,serif">Projets SEP</text>
+                    <text x="316" y="64" font-size="13" fill="#6b7280" font-family="Inter,sans-serif">Retrouvez vos projets en cours et les opportunités d'association</text>
+                    
+                    <!-- Card 1: Division parcellaire -->
+                    <rect x="252" y="96" width="270" height="460" rx="16" fill="white" stroke="#e5e7eb"/>
+                    <rect x="252" y="96" width="270" height="100" rx="16" fill="#4a5568"/>
+                    <image href="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=400&amp;h=200&amp;fit=crop" x="252" y="96" width="270" height="100" clip-path="url(#imgClip1)" preserveAspectRatio="xMidYMid slice"/>
+                    <rect x="262" y="106" width="80" height="22" rx="11" fill="#22c55e"/><text x="278" y="121" font-size="10" fill="white" font-weight="600" font-family="Inter,sans-serif">● En cours</text>
+                    <text x="268" y="220" font-size="15" fill="#1f2937" font-weight="700" font-family="Inter,sans-serif">Division parcellaire — Meudon</text>
+                    <text x="268" y="240" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">📍 Meudon (92)</text>
+                    <rect x="268" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="305" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">120 000 €</text><text x="305" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Apport recherché</text>
+                    <rect x="351" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="388" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">285 000 €</text><text x="388" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Marge prév.</text>
+                    <rect x="434" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="471" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">11 mois</text><text x="471" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Durée prév.</text>
+                    <text x="268" y="340" font-size="11" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Structuration</text><text x="497" y="340" font-size="11" fill="#f97316" font-weight="600" font-family="Inter,sans-serif">65%</text>
+                    <rect x="268" y="350" width="240" height="6" rx="3" fill="#e5e7eb"/><rect x="268" y="350" width="156" height="6" rx="3" fill="url(#orangeGrad1)"/>
+                    <rect x="252" y="380" width="270" height="176" fill="#f9fafb" rx="0 0 16 16"/>
+                    <text x="268" y="405" font-size="10" fill="#6b7280" font-family="Inter,sans-serif">ASSOCIÉS</text>
+                    <circle cx="285" cy="435" r="16" fill="#f97316"/><text x="285" y="440" font-size="9" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">TM</text>
+                    <circle cx="310" cy="435" r="16" fill="#3b82f6" stroke="white" stroke-width="2"/><text x="310" y="440" font-size="9" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">PD</text>
+                    <circle cx="335" cy="435" r="16" fill="#22c55e" stroke="white" stroke-width="2"/><text x="335" y="440" font-size="9" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">JL</text>
+                    <rect x="268" y="470" width="240" height="36" rx="8" fill="url(#orangeGrad1)"/><text x="388" y="494" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Voir le projet</text>
+                    
+                    <!-- Card 2: Rénovation immeuble -->
+                    <rect x="542" y="96" width="270" height="460" rx="16" fill="white" stroke="#e5e7eb"/>
+                    <rect x="542" y="96" width="270" height="100" rx="16" fill="#4a5568"/>
+                    <image href="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&amp;h=200&amp;fit=crop" x="542" y="96" width="270" height="100" clip-path="url(#imgClip2)" preserveAspectRatio="xMidYMid slice"/>
+                    <rect x="552" y="106" width="120" height="22" rx="11" fill="#fef3c7"/><text x="568" y="121" font-size="10" fill="#92400e" font-weight="600" font-family="Inter,sans-serif">◐ Recherche associé</text>
+                    <text x="558" y="220" font-size="15" fill="#1f2937" font-weight="700" font-family="Inter,sans-serif">Immeuble ancien — Boulogne</text>
+                    <text x="558" y="240" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">📍 Boulogne-Billancourt (92)</text>
+                    <rect x="558" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="595" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">180 000 €</text><text x="595" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Apport recherché</text>
+                    <rect x="641" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="678" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">320 000 €</text><text x="678" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Marge prév.</text>
+                    <rect x="724" y="258" width="75" height="55" rx="6" fill="#f9fafb"/><text x="761" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">13 mois</text><text x="761" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Durée prév.</text>
+                    <text x="558" y="340" font-size="11" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Structuration</text><text x="787" y="340" font-size="11" fill="#f97316" font-weight="600" font-family="Inter,sans-serif">40%</text>
+                    <rect x="558" y="350" width="240" height="6" rx="3" fill="#e5e7eb"/><rect x="558" y="350" width="96" height="6" rx="3" fill="url(#orangeGrad1)"/>
+                    <rect x="542" y="380" width="270" height="176" fill="#f9fafb" rx="0 0 16 16"/>
+                    <text x="558" y="405" font-size="10" fill="#6b7280" font-family="Inter,sans-serif">ASSOCIÉS</text>
+                    <circle cx="575" cy="435" r="16" fill="#f97316"/><text x="575" y="440" font-size="9" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">GM</text>
+                    <circle cx="600" cy="435" r="16" fill="#e5e7eb" stroke="white" stroke-width="2"/><text x="600" y="440" font-size="9" fill="#9ca3af" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">+?</text>
+                    <rect x="558" y="470" width="240" height="36" rx="8" fill="url(#orangeGrad1)"/><text x="678" y="494" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Candidater</text>
+                    
+                    <!-- Card 3: Paiement à terme -->
+                    <rect x="832" y="96" width="250" height="460" rx="16" fill="white" stroke="#e5e7eb"/>
+                    <rect x="832" y="96" width="250" height="100" rx="16" fill="#4a5568"/>
+                    <image href="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=400&amp;h=200&amp;fit=crop" x="832" y="96" width="250" height="100" clip-path="url(#imgClip3)" preserveAspectRatio="xMidYMid slice"/>
+                    <rect x="842" y="106" width="110" height="22" rx="11" fill="#dbeafe"/><text x="858" y="121" font-size="10" fill="#1e40af" font-weight="600" font-family="Inter,sans-serif">◎ En structuration</text>
+                    <text x="848" y="220" font-size="15" fill="#1f2937" font-weight="700" font-family="Inter,sans-serif">Maison de ville — Lyon 6</text>
+                    <text x="848" y="240" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">📍 Lyon 6ème (69)</text>
+                    <rect x="848" y="258" width="70" height="55" rx="6" fill="#f9fafb"/><text x="883" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">75 000 €</text><text x="883" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Apport recherché</text>
+                    <rect x="926" y="258" width="70" height="55" rx="6" fill="#f9fafb"/><text x="961" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">145 000 €</text><text x="961" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Marge prév.</text>
+                    <rect x="1004" y="258" width="70" height="55" rx="6" fill="#f9fafb"/><text x="1039" y="282" font-size="14" fill="#f97316" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">4 mois</text><text x="1039" y="300" font-size="9" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Durée prév.</text>
+                    <text x="848" y="340" font-size="11" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Structuration</text><text x="1059" y="340" font-size="11" fill="#f97316" font-weight="600" font-family="Inter,sans-serif">20%</text>
+                    <rect x="848" y="350" width="220" height="6" rx="3" fill="#e5e7eb"/><rect x="848" y="350" width="44" height="6" rx="3" fill="url(#orangeGrad1)"/>
+                    <rect x="832" y="380" width="250" height="176" fill="#f9fafb" rx="0 0 16 16"/>
+                    <text x="848" y="405" font-size="10" fill="#6b7280" font-family="Inter,sans-serif">ASSOCIÉS</text>
+                    <circle cx="865" cy="435" r="16" fill="#f97316"/><text x="865" y="440" font-size="9" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">TM</text>
+                    <rect x="848" y="470" width="220" height="36" rx="8" fill="url(#orangeGrad1)"/><text x="958" y="494" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Voir le projet</text>
+                </svg>
+            </div>
+            
+            <!-- Screenshot Partenaires Métier -->
+            <p style="color:var(--orange-400);text-align:center;font-weight:600;margin-bottom:16px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Espace Partenaire Métier — Opportunités</p>
+            <div class="preview-screenshot">
+                <svg width="100%" viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="orangeGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f97316"/><stop offset="100%" style="stop-color:#ea580c"/></linearGradient></defs>
+                    <!-- Sidebar -->
+                    <rect x="0" y="0" width="220" height="520" fill="#fff"/><line x1="220" y1="0" x2="220" y2="520" stroke="#e5e7eb"/>
+                    <rect x="20" y="20" width="36" height="36" rx="8" fill="url(#orangeGrad2)"/><text x="38" y="44" font-size="11" fill="white" font-weight="800" text-anchor="middle" font-family="Inter,sans-serif">AOI</text><text x="66" y="44" font-size="16" fill="#1f2937" font-weight="700" font-family="Playfair Display,serif">Network</text>
+                    <rect x="16" y="72" width="188" height="70" rx="8" fill="#f9fafb"/>
+                    <text x="28" y="92" font-size="12" fill="#f59e0b" font-family="Inter,sans-serif">★★★★★</text><text x="90" y="92" font-size="11" fill="#6b7280" font-family="Inter,sans-serif">4.7 (26 avis)</text>
+                    <text x="28" y="112" font-size="13" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Cabinet Martin</text><text x="28" y="130" font-size="11" fill="#6b7280" font-family="Inter,sans-serif">Partenaire • Architecte</text>
+                    <!-- Menu Partenaire (sans Bibliothèque ni MasterClass) -->
+                    <text x="44" y="150" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🏠  Accueil</text>
+                    <text x="44" y="174" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">👤  Mon Profil</text>
+                    <text x="44" y="198" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">💼  Mon Portfolio</text>
+                    <text x="44" y="222" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">💬  Messages</text>
+                    <text x="44" y="246" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">👥  Annuaire</text>
+                    <rect x="12" y="258" width="196" height="32" rx="8" fill="#1f2937"/><text x="44" y="279" font-size="12" fill="white" font-weight="600" font-family="Inter,sans-serif">🎯  Mes opportunités</text>
+                    <text x="44" y="310" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">🤝  Mes partenariats</text>
+                    <!-- Bottom menu -->
+                    <line x1="16" y1="410" x2="204" y2="410" stroke="#e5e7eb"/>
+                    <text x="44" y="434" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">⚙️  Paramètres</text>
+                    <text x="44" y="454" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">❓  Support</text>
+                    <text x="44" y="474" font-size="10" fill="#d1d5db" font-family="Inter,sans-serif">CGV • Guide</text>
+                    <text x="44" y="494" font-size="11" fill="#9ca3af" font-family="Inter,sans-serif">🚪  Déconnexion</text>
+                    
+                    <!-- Main content -->
+                    <rect x="220" y="0" width="880" height="520" fill="#f9fafb"/>
+                    <rect x="252" y="24" width="48" height="48" rx="12" fill="#dbeafe"/><text x="276" y="56" font-size="20" text-anchor="middle">🎯</text>
+                    <text x="316" y="44" font-size="22" fill="#1f2937" font-weight="700" font-family="Playfair Display,serif">Salle des Opportunités</text>
+                    <text x="316" y="64" font-size="13" fill="#6b7280" font-family="Inter,sans-serif">Appels d'offres et consultations des opérateurs du réseau</text>
+                    
+                    <!-- Opportunity 1: Rénovation maison -->
+                    <rect x="252" y="96" width="820" height="95" rx="12" fill="white" stroke="#e5e7eb"/>
+                    <rect x="272" y="116" width="56" height="56" rx="12" fill="url(#orangeGrad2)"/>
+                    <text x="300" y="152" font-size="24" text-anchor="middle">🏠</text>
+                    <text x="348" y="120" font-size="10" fill="#f97316" font-weight="600" font-family="Inter,sans-serif">RÉNOVATION COMPLÈTE</text>
+                    <text x="348" y="143" font-size="15" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Rénovation maison 180m² — Coordination TCE</text>
+                    <text x="348" y="165" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">Publié par Thomas M. • il y a 2 jours • 📍 Issy-les-Moulineaux (92)</text>
+                    <text x="780" y="130" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">6</text><text x="780" y="150" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Candidatures</text>
+                    <text x="860" y="130" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">5j</text><text x="860" y="150" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Restants</text>
+                    <rect x="940" y="120" width="110" height="36" rx="8" fill="#1f2937"/><text x="995" y="143" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Postuler</text>
+                    
+                    <!-- Opportunity 2: Architecte -->
+                    <rect x="252" y="206" width="820" height="95" rx="12" fill="white" stroke="#e5e7eb"/>
+                    <rect x="272" y="226" width="56" height="56" rx="12" fill="#3b82f6"/>
+                    <text x="300" y="262" font-size="24" text-anchor="middle">📐</text>
+                    <text x="348" y="230" font-size="10" fill="#3b82f6" font-weight="600" font-family="Inter,sans-serif">MISSION ARCHITECTURE</text>
+                    <text x="348" y="253" font-size="15" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Conception plans division 4 lots — Permis d'aménager</text>
+                    <text x="348" y="275" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">Publié par Guillaume M. • il y a 3 jours • 📍 Meudon (92)</text>
+                    <text x="780" y="240" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">4</text><text x="780" y="260" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Candidatures</text>
+                    <text x="860" y="240" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">8j</text><text x="860" y="260" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Restants</text>
+                    <rect x="940" y="230" width="110" height="36" rx="8" fill="#1f2937"/><text x="995" y="253" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Postuler</text>
+                    
+                    <!-- Opportunity 3: Géomètre -->
+                    <rect x="252" y="316" width="820" height="95" rx="12" fill="white" stroke="#e5e7eb"/>
+                    <rect x="272" y="336" width="56" height="56" rx="12" fill="#22c55e"/>
+                    <text x="300" y="372" font-size="24" text-anchor="middle">📏</text>
+                    <text x="348" y="340" font-size="10" fill="#22c55e" font-weight="600" font-family="Inter,sans-serif">BORNAGE & DIVISION</text>
+                    <text x="348" y="363" font-size="15" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Bornage terrain 1 800m² + document d'arpentage</text>
+                    <text x="348" y="385" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">Publié par Pierre D. • il y a 1 semaine • 📍 Lyon 6ème (69)</text>
+                    <text x="780" y="350" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">3</text><text x="780" y="370" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Candidatures</text>
+                    <text x="860" y="350" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">12j</text><text x="860" y="370" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Restants</text>
+                    <rect x="940" y="340" width="110" height="36" rx="8" fill="#1f2937"/><text x="995" y="363" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Postuler</text>
+                    
+                    <!-- Opportunity 4: Avocat fiscaliste -->
+                    <rect x="252" y="426" width="820" height="95" rx="12" fill="white" stroke="#e5e7eb"/>
+                    <rect x="272" y="446" width="56" height="56" rx="12" fill="#8b5cf6"/>
+                    <text x="300" y="482" font-size="24" text-anchor="middle">⚖️</text>
+                    <text x="348" y="450" font-size="10" fill="#8b5cf6" font-weight="600" font-family="Inter,sans-serif">CONSULTATION FISCALE</text>
+                    <text x="348" y="473" font-size="15" fill="#1f2937" font-weight="600" font-family="Inter,sans-serif">Analyse TVA sur marge — Opération marchand de biens</text>
+                    <text x="348" y="495" font-size="12" fill="#6b7280" font-family="Inter,sans-serif">Publié par Sophie L. • il y a 4 jours • 📍 Boulogne-Billancourt (92)</text>
+                    <text x="780" y="460" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">2</text><text x="780" y="480" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Candidatures</text>
+                    <text x="860" y="460" font-size="18" fill="#1f2937" font-weight="700" text-anchor="middle" font-family="Inter,sans-serif">6j</text><text x="860" y="480" font-size="10" fill="#6b7280" text-anchor="middle" font-family="Inter,sans-serif">Restants</text>
+                    <rect x="940" y="450" width="110" height="36" rx="8" fill="#1f2937"/><text x="995" y="473" font-size="12" fill="white" font-weight="600" text-anchor="middle" font-family="Inter,sans-serif">Postuler</text>
+                </svg>
+            </div>
+            
+            <div class="preview-features">
+                <div class="preview-feature fade-in">
+                    <div class="preview-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <h4>Espace sécurisé</h4>
+                    <p>Vos projets et échanges restent confidentiels. Accès réservé aux membres validés.</p>
+                </div>
+                <div class="preview-feature fade-in">
+                    <div class="preview-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <h4>Accessible partout</h4>
+                    <p>Application web responsive, consultez vos projets depuis n'importe quel appareil.</p>
+                </div>
+                <div class="preview-feature fade-in">
+                    <div class="preview-feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                    </div>
+                    <h4>Notifications temps réel</h4>
+                    <p>Soyez alerté des nouvelles opportunités et de l'avancement de vos projets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="temoignages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="message-square"></i> Ce qu'ils en disent</div>
+                <h2>Premiers <span>retours</span> du terrain</h2>
+                <p>Les premiers utilisateurs partagent leur expérience avec les méthodes AOI.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>« Un projet bloqué depuis 18 mois, aucune banque ne voulait suivre. Après avoir découvert les méthodes AOI, j'ai structuré l'opération autrement : 5 mois plus tard, le dossier était bouclé avec 145K€ de marge. »</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">TM</div>
+                        <div class="testimonial-info">
+                            <h5>Thomas M.</h5>
+                            <span>Marchand de biens — Boulogne (92)</span>
+                            <div class="testimonial-badge">Early adopter</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>« Avant, je refusais des opérations faute de financement. Depuis que j'ai découvert la SEP avec d'autres opérateurs via AOI, j'ai pu me positionner sur 3 projets en 6 mois. Le réseau fait la différence. »</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar blue">PD</div>
+                        <div class="testimonial-info">
+                            <h5>Pierre D.</h5>
+                            <span>Promoteur — Clamart (92)</span>
+                            <div class="testimonial-badge">Early adopter</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <p>« L'extranet est vraiment bien pensé. Les MasterClass sont concrètes, pas de la théorie. Et pouvoir échanger avec d'autres opérateurs qui ont les mêmes problématiques, ça n'a pas de prix. »</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar green">SL</div>
+                        <div class="testimonial-info">
+                            <h5>Sophie L.</h5>
+                            <span>Marchande de biens — Lyon (69)</span>
+                            <div class="testimonial-badge beta">Beta-testeur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -418,71 +626,56 @@
         </div>
     </section>
 
-    <section class="ecosystem" id="ecosystem">
+    <section class="how-it-works">
         <div class="container">
             <div class="section-header">
-                <div class="section-label"><i data-lucide="network"></i>Écosystème complet</div>
-                <h2>Tous les métiers de l'immobilier</h2>
+                <div class="section-label"><i data-lucide="route"></i>Comment ça marche</div>
+                <h2>Rejoindre l'alliance en 4 étapes</h2>
+                <p>Un processus simple pour intégrer le réseau et commencer à collaborer.</p>
             </div>
-            <div class="ecosystem-intro">
-                <p>AOI fédère <strong>opérateurs</strong> et <strong>partenaires métier</strong> de toute la chaîne de valeur immobilière. Chaque prestataire accède à la Salle des Opportunités pour répondre aux consultations et appels d'offres des opérateurs.</p>
-            </div>
-            <div class="ecosystem-categories">
-                <div class="ecosystem-category fade-in">
-                    <h4><span class="cat-icon"><i data-lucide="pencil-ruler"></i></span>Conception & Études</h4>
-                    <div class="ecosystem-list">
-                        <span class="ecosystem-tag"><i data-lucide="building"></i>Architectes</span>
-                        <span class="ecosystem-tag"><i data-lucide="map-pin"></i>Géomètres</span>
-                        <span class="ecosystem-tag"><i data-lucide="ruler"></i>Maîtres d'œuvre</span>
-                        <span class="ecosystem-tag"><i data-lucide="clipboard-check"></i>Bureaux d'études</span>
-                        <span class="ecosystem-tag"><i data-lucide="box"></i>Designers 3D</span>
-                        <span class="ecosystem-tag"><i data-lucide="file-search"></i>Diagnostiqueurs</span>
-                    </div>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>Nous rejoindre</h4>
+                    <p>Présentez votre parcours et vos projets. Nous validons votre profil sous 48h.</p>
                 </div>
-                <div class="ecosystem-category fade-in">
-                    <h4><span class="cat-icon"><i data-lucide="hard-hat"></i></span>Construction & Travaux</h4>
-                    <div class="ecosystem-list">
-                        <span class="ecosystem-tag"><i data-lucide="home"></i>Constructeurs</span>
-                        <span class="ecosystem-tag"><i data-lucide="wrench"></i>Entreprises TCE</span>
-                        <span class="ecosystem-tag"><i data-lucide="hammer"></i>Artisans</span>
-                        <span class="ecosystem-tag"><i data-lucide="truck"></i>Fournisseurs matériaux</span>
-                        <span class="ecosystem-tag"><i data-lucide="cooking-pot"></i>Cuisinistes / SdB</span>
-                    </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>Échange</h4>
+                    <p>Un appel pour faire connaissance, comprendre vos besoins et présenter le fonctionnement.</p>
                 </div>
-                <div class="ecosystem-category fade-in">
-                    <h4><span class="cat-icon"><i data-lucide="scale"></i></span>Juridique & Finance</h4>
-                    <div class="ecosystem-list">
-                        <span class="ecosystem-tag"><i data-lucide="stamp"></i>Notaires</span>
-                        <span class="ecosystem-tag"><i data-lucide="gavel"></i>Avocats</span>
-                        <span class="ecosystem-tag"><i data-lucide="calculator"></i>Experts-comptables</span>
-                        <span class="ecosystem-tag"><i data-lucide="piggy-bank"></i>Courtiers</span>
-                        <span class="ecosystem-tag"><i data-lucide="shield"></i>Assureurs</span>
-                    </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>Intégration</h4>
+                    <p>Accès à l'extranet, aux ressources, et présentation aux autres membres.</p>
                 </div>
-                <div class="ecosystem-category fade-in">
-                    <h4><span class="cat-icon"><i data-lucide="megaphone"></i></span>Commercial & Marketing</h4>
-                    <div class="ecosystem-list">
-                        <span class="ecosystem-tag"><i data-lucide="key"></i>Agents immobiliers</span>
-                        <span class="ecosystem-tag"><i data-lucide="camera"></i>Photographes / Vidéastes</span>
-                        <span class="ecosystem-tag"><i data-lucide="sofa"></i>Home stagers</span>
-                        <span class="ecosystem-tag"><i data-lucide="trending-up"></i>Agences marketing</span>
-                        <span class="ecosystem-tag"><i data-lucide="pen-tool"></i>Rédacteurs</span>
-                    </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>Collaboration</h4>
+                    <p>Publiez un projet, rejoignez une opération, répondez à des opportunités.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="vision">
+    <section class="origin" id="origine">
         <div class="container">
-            <div class="vision-content">
-                <div class="section-label"><i data-lucide="compass"></i>Notre vision</div>
-                <h2>Un immobilier <span>plus coopératif</span></h2>
-                <p class="vision-text">Nous croyons que l'avenir de l'immobilier passe par des modèles plus collaboratifs, moins dépendants des schémas traditionnels de financement. AOI anticipe cette évolution.</p>
-                <div class="vision-values">
-                    <div class="vision-value fade-in"><i data-lucide="shield"></i><h4>Confiance</h4><p>Membres sélectionnés, engagement de confidentialité, relations de long terme.</p></div>
-                    <div class="vision-value fade-in"><i data-lucide="eye"></i><h4>Transparence</h4><p>Tarifs clairs, rôles définis, pas de promesses impossibles.</p></div>
-                    <div class="vision-value fade-in"><i data-lucide="target"></i><h4>Exigence</h4><p>Qualité des projets, rigueur des montages, professionnalisme des échanges.</p></div>
+            <div class="origin-content">
+                <div class="origin-visual">
+                    <div class="origin-quote">
+                        <p>Après des années à subir les refus bancaires, les taux de crowdfunding à 12% auxquels s'ajoutent frais de dossier, frais de plateforme et cumul de garanties (personnelles, hypothèques, fiducies...), et l'isolement face aux décisions complexes, nous avons appris à faire autrement. Paiements différés, SEP avec d'autres opérateurs, partage du fruit de la vente avec les vendeurs... Ces méthodes nous ont permis de continuer à opérer. AOI, c'est ce savoir-faire que nous voulons partager.</p>
+                        <p class="author">— Guillaume, Fondateur d'AOI</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="section-label"><i data-lucide="history"></i>Pourquoi AOI existe</div>
+                    <h2>Né de <span>l'expérience</span>, pas d'une théorie</h2>
+                    <p class="origin-text">AOI n'est pas un concept imaginé dans un bureau. C'est le fruit de dizaines d'opérations réalisées dans des conditions difficiles, où les financements traditionnels n'étaient plus une option.</p>
+                    <ul class="origin-list">
+                        <li><i data-lucide="x-circle"></i><span><strong>Les banques qui ferment leurs portes après d'innombrables comités</strong> — Critères durcis, délais interminables, garanties impossibles</span></li>
+                        <li><i data-lucide="x-circle"></i><span><strong>Le financement alternatif devenu hors de prix</strong> — Taux de 10 à 14%, frais de plateforme de 6 à 9%, cumul de garanties (personnelles, hypothécaires, déportées, fiducies...) et le couteau sous la gorge quand le marché ralentit</span></li>
+                        <li><i data-lucide="x-circle"></i><span><strong>L'isolement qui fragilise</strong> — Seul face aux décisions, aux imprévus, aux risques</span></li>
+                    </ul>
+                    <p class="origin-text">Face à ces impasses, nous avons développé des alternatives qui fonctionnent. Aujourd'hui, nous créons AOI pour permettre à d'autres professionnels de bénéficier de ces méthodes et de cette entraide.</p>
                 </div>
             </div>
         </div>
