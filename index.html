@@ -65,7 +65,7 @@
         .platform-preview{padding:120px 0;background:var(--gray-900);position:relative;overflow:hidden}.platform-preview::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top right,rgba(249,115,22,.15) 0%,transparent 60%)}.platform-preview .container{position:relative;z-index:1}.platform-preview .section-header{text-align:center;max-width:700px;margin:0 auto 64px}.platform-preview .section-label{color:var(--orange-400)}.platform-preview h2{color:#fff;margin-bottom:16px}.platform-preview h2 span{color:var(--orange-400)}.platform-preview .section-header>p{color:var(--gray-400);font-size:1.125rem}.preview-screenshot{max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}.preview-features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}.preview-feature{text-align:center}.preview-feature-icon{width:64px;height:64px;background:rgba(249,115,22,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}.preview-feature-icon i{width:32px;height:32px;color:var(--orange-400)}.preview-feature h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;margin-bottom:10px}.preview-feature p{font-size:.95rem;color:var(--gray-400);line-height:1.6}
         .key-numbers{padding:80px 0;background:#fff;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}.key-numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;text-align:center}.key-number-value{font-size:3rem;font-weight:800;color:var(--orange-600);line-height:1;margin-bottom:12px}.key-number-label{font-size:1rem;color:var(--gray-600);line-height:1.4}
         @media(max-width:1024px){.testimonials-grid,.preview-features{grid-template-columns:1fr}.testimonials-grid{max-width:600px;margin:0 auto}}
-        @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}}
+        @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}.masterclass-biblio-grid{grid-template-columns:1fr !important;gap:24px !important}.masterclass-biblio-grid>div{padding:20px !important}.masterclass-item{gap:10px !important}.masterclass-item>div:first-child{width:60px !important;height:38px !important}.masterclass-item p:first-of-type{font-size:.8rem !important}}
     </style>
 </head>
 <body>
@@ -516,7 +516,7 @@
             <!-- Bande MasterClass + Bibliothèque -->
             <div style="margin-top:64px;margin-bottom:48px;">
                 <p style="color:var(--orange-400);text-align:center;font-weight:600;margin-bottom:24px;font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;">Également inclus — MasterClass & Bibliothèque</p>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;align-items:stretch;">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1000px;margin:0 auto;align-items:stretch;" class="masterclass-biblio-grid">
                     <!-- MasterClass -->
                     <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px;display:flex;flex-direction:column;">
                         <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
@@ -529,7 +529,7 @@
                             </div>
                         </div>
                         <div style="display:flex;flex-direction:column;gap:12px;flex:1;">
-                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;">
+                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;" class="masterclass-item">
                                 <div style="width:70px;height:45px;border-radius:6px;overflow:hidden;flex-shrink:0;position:relative;">
                                     <img src="masterclass-division.png" style="width:100%;height:100%;object-fit:cover;">
                                     <div style="position:absolute;inset:0;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;">
@@ -541,7 +541,7 @@
                                     <p style="color:var(--gray-500);font-size:.75rem;margin:0;">24 min • Urbanisme</p>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;">
+                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;" class="masterclass-item">
                                 <div style="width:70px;height:45px;border-radius:6px;overflow:hidden;flex-shrink:0;position:relative;">
                                     <img src="masterclass-paiement.png" style="width:100%;height:100%;object-fit:cover;">
                                     <div style="position:absolute;inset:0;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;">
@@ -553,7 +553,7 @@
                                     <p style="color:var(--gray-500);font-size:.75rem;margin:0;">17 min • Stratégie</p>
                                 </div>
                             </div>
-                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;">
+                            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);padding:12px;border-radius:8px;" class="masterclass-item">
                                 <div style="width:70px;height:45px;border-radius:6px;overflow:hidden;flex-shrink:0;position:relative;">
                                     <img src="masterclass-sep.png" style="width:100%;height:100%;object-fit:cover;">
                                     <div style="position:absolute;inset:0;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;">
