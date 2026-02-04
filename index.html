@@ -65,7 +65,7 @@
         .platform-preview{padding:120px 0;background:var(--gray-900);position:relative;overflow:hidden}.platform-preview::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top right,rgba(249,115,22,.15) 0%,transparent 60%)}.platform-preview .container{position:relative;z-index:1}.platform-preview .section-header{text-align:center;max-width:700px;margin:0 auto 64px}.platform-preview .section-label{color:var(--orange-400)}.platform-preview h2{color:#fff;margin-bottom:16px}.platform-preview h2 span{color:var(--orange-400)}.platform-preview .section-header>p{color:var(--gray-400);font-size:1.125rem}.preview-screenshot{max-width:1000px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1)}.preview-features{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:64px}.preview-feature{text-align:center}.preview-feature-icon{width:64px;height:64px;background:rgba(249,115,22,.15);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}.preview-feature-icon i{width:32px;height:32px;color:var(--orange-400)}.preview-feature h4{font-family:'Inter',sans-serif;font-weight:600;color:#fff;margin-bottom:10px}.preview-feature p{font-size:.95rem;color:var(--gray-400);line-height:1.6}
         .key-numbers{padding:80px 0;background:#fff;border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100)}.key-numbers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:48px;text-align:center}.key-number-value{font-size:3rem;font-weight:800;color:var(--orange-600);line-height:1;margin-bottom:12px}.key-number-label{font-size:1rem;color:var(--gray-600);line-height:1.4}
         @media(max-width:1024px){.testimonials-grid,.preview-features{grid-template-columns:1fr}.testimonials-grid{max-width:600px;margin:0 auto}}
-        @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}.masterclass-biblio-grid{grid-template-columns:1fr !important;gap:20px !important;width:calc(100% - 40px) !important;max-width:none !important;padding:0 !important;margin:0 20px !important}.masterclass-biblio-grid>div{padding:16px !important;width:100% !important;box-sizing:border-box !important;overflow:hidden !important}.masterclass-item{gap:8px !important;width:100% !important;box-sizing:border-box !important}.masterclass-item>div:first-child{width:50px !important;min-width:50px !important;height:32px !important}.masterclass-item>div:last-child{overflow:hidden !important}.masterclass-item p{font-size:.75rem !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important}.recognition-grid{grid-template-columns:1fr 1fr !important;gap:10px !important;padding:0 !important;margin:0 auto 40px auto !important;max-width:100% !important;box-sizing:border-box !important}.recognition-grid>div{padding:12px 10px !important;gap:8px !important}.recognition-grid span{font-size:.8rem !important}.recognition-grid i{width:16px !important;height:16px !important}.biblio-grid{gap:6px !important;width:100% !important}.biblio-grid>div{padding:8px !important}.biblio-grid p{font-size:.65rem !important}}
+        @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}.masterclass-biblio-grid{grid-template-columns:1fr !important;gap:20px !important;width:calc(100% - 40px) !important;max-width:none !important;padding:0 !important;margin:0 20px !important}.masterclass-biblio-grid>div{padding:16px !important;width:100% !important;box-sizing:border-box !important;overflow:hidden !important}.masterclass-item{gap:8px !important;width:100% !important;box-sizing:border-box !important}.masterclass-item>div:first-child{width:50px !important;min-width:50px !important;height:32px !important}.masterclass-item>div:last-child{overflow:hidden !important}.masterclass-item p{font-size:.75rem !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important}.recognition-tabs{flex-direction:column !important;gap:10px !important}.recognition-tab{width:100% !important;justify-content:center !important;padding:12px 20px !important;font-size:.9rem !important}.recognition-grid{grid-template-columns:1fr !important;gap:10px !important;padding:0 !important;margin:0 auto 30px auto !important;max-width:100% !important;box-sizing:border-box !important}.recognition-grid>div{padding:14px 12px !important;gap:10px !important}.recognition-grid span{font-size:.85rem !important;line-height:1.4 !important}.recognition-grid i{width:18px !important;height:18px !important;min-width:18px !important}.biblio-grid{gap:6px !important;width:100% !important}.biblio-grid>div{padding:8px !important}.biblio-grid p{font-size:.65rem !important}}
     </style>
 </head>
 <body>
@@ -152,39 +152,131 @@
         <div class="container" style="position:relative;z-index:1;">
             <div style="max-width:900px;margin:0 auto;text-align:center;padding:0 20px;box-sizing:border-box;">
                 <h2 style="color:#fff;font-size:2rem;margin-bottom:32px;">Vous vous reconnaissez ?</h2>
-                <div class="recognition-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;margin-bottom:40px;">
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">Une opération rentable qui vous échappe, faute de financement</span>
+                
+                <!-- Onglets -->
+                <div class="recognition-tabs" style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;">
+                    <button class="recognition-tab active" data-tab="operateurs" style="display:flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;border:2px solid transparent;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s ease;">
+                        <i data-lucide="building-2" style="width:20px;height:20px;"></i>
+                        Opérateurs
+                    </button>
+                    <button class="recognition-tab" data-tab="prestataires" style="display:flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#9ca3af;font-weight:600;font-size:1rem;cursor:pointer;transition:all .3s ease;">
+                        <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
+                        Partenaires Métier
+                    </button>
+                </div>
+                
+                <!-- Contenu Opérateurs -->
+                <div class="recognition-content" id="content-operateurs" style="display:block;">
+                    <p style="color:#9ca3af;font-size:.95rem;margin-bottom:24px;font-style:italic;">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
+                    <div class="recognition-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;margin-bottom:40px;">
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Une opération rentable qui vous échappe, faute de financement</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Des conditions de prêt qui grignotent toute votre marge</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Un apport demandé que vous n'avez pas — ou plus</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Des garanties personnelles qui vous exposent trop</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Une saisie ou une fiducie réalisée qui a laissé des traces</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(249,115,22,.08);padding:20px;border-radius:12px;border:1px solid rgba(249,115,22,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">L'envie de structurer autrement pour gagner plus, sereinement</span>
+                        </div>
                     </div>
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">Des conditions de prêt qui grignotent toute votre marge</span>
-                    </div>
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">Un apport demandé que vous n'avez pas — ou plus</span>
-                    </div>
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">Des garanties personnelles qui vous exposent trop</span>
-                    </div>
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">Une saisie ou une fiducie réalisée qui a laissé des traces</span>
-                    </div>
-                    <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.05);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,.1);">
-                        <i data-lucide="circle-dot" style="width:20px;height:20px;color:#f97316;flex-shrink:0;margin-top:2px;"></i>
-                        <span style="color:#e5e7eb;font-size:.95rem;">L'envie de structurer autrement pour gagner plus, sereinement</span>
+                    <div style="background:linear-gradient(135deg,#f97316,#ea580c);padding:24px 32px;border-radius:16px;margin-bottom:24px;">
+                        <p style="color:#fff;font-size:1.1rem;margin:0;font-weight:500;"><strong>Structurez autrement.</strong><br>SEP • Paiement à terme • Co-production entre opérateurs</p>
                     </div>
                 </div>
-                <div style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));padding:24px 32px;border-radius:16px;margin-bottom:24px;">
-                    <p style="color:#fff;font-size:1.15rem;margin:0;font-weight:500;">Ces situations ne sont pas des impasses.<br>Ce sont exactement celles pour lesquelles nous avons construit AOI.</p>
+                
+                <!-- Contenu Prestataires -->
+                <div class="recognition-content" id="content-prestataires" style="display:none;">
+                    <p style="color:#9ca3af;font-size:.95rem;margin-bottom:24px;font-style:italic;">Architectes • Maîtres d'œuvre • Géomètres • Avocats • Notaires • Courtiers</p>
+                    <div class="recognition-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:left;margin-bottom:40px;">
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">La prospection dévore votre temps facturable</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Vous êtes invisible sur Google face aux grandes enseignes</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Vos devis restent sans suite, faute de financement côté opérateur</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Le bouche-à-oreille ne génère pas une croissance prévisible</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Vos clients paient en retard ou disparaissent sans prévenir</span>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(59,130,246,.08);padding:20px;border-radius:12px;border:1px solid rgba(59,130,246,.2);">
+                            <i data-lucide="x-circle" style="width:20px;height:20px;color:#3b82f6;flex-shrink:0;margin-top:2px;"></i>
+                            <span style="color:#e5e7eb;font-size:.95rem;">Les impayés fragilisent votre trésorerie sans aucune garantie</span>
+                        </div>
+                    </div>
+                    <div style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);padding:24px 32px;border-radius:16px;margin-bottom:24px;">
+                        <p style="color:#fff;font-size:1.1rem;margin:0;font-weight:500;"><strong>Les projets viennent à vous.</strong><br>Appels d'offres • Clients qualifiés • Visibilité auprès d'opérateurs solvables</p>
+                    </div>
                 </div>
+                
                 <a href="#tarifs" class="btn btn-primary" style="background:#fff;color:#1f2937;box-shadow:none;"><i data-lucide="arrow-right"></i>Découvrir les offres</a>
             </div>
         </div>
     </section>
+    
+    <script>
+    // Gestion des onglets reconnaissance
+    document.querySelectorAll('.recognition-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.dataset.tab;
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.recognition-tab').forEach(t => {
+                t.classList.remove('active');
+                t.style.background = 'rgba(255,255,255,.05)';
+                t.style.borderColor = 'rgba(255,255,255,.2)';
+                t.style.color = '#9ca3af';
+            });
+            
+            // Activer l'onglet cliqué
+            this.classList.add('active');
+            if(tabId === 'operateurs') {
+                this.style.background = 'linear-gradient(135deg,#f97316,#ea580c)';
+                this.style.borderColor = 'transparent';
+                this.style.color = '#fff';
+            } else {
+                this.style.background = 'linear-gradient(135deg,#3b82f6,#1d4ed8)';
+                this.style.borderColor = 'transparent';
+                this.style.color = '#fff';
+            }
+            
+            // Masquer tous les contenus
+            document.querySelectorAll('.recognition-content').forEach(c => {
+                c.style.display = 'none';
+            });
+            
+            // Afficher le contenu correspondant
+            document.getElementById('content-' + tabId).style.display = 'block';
+            
+            // Réinitialiser les icônes Lucide
+            if(typeof lucide !== 'undefined') lucide.createIcons();
+        });
+    });
+    </script>
 
     <section class="solution" id="solution">
         <div class="container">
