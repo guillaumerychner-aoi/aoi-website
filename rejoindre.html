@@ -255,7 +255,7 @@
                     <a href="/#offres">Qui peut rejoindre</a>
                     <a href="/#tarifs">Tarifs</a>
                     <a href="/#faq">FAQ</a>
-                    <a href="https://aoi-extranet.vercel.app" class="nav-extranet">Extranet</a>
+                    <a href="https://extranet.aoi-network.com" class="nav-extranet">Extranet</a>
                 </nav>
             </div>
         </div>
@@ -577,7 +577,7 @@
             const formData = getFormData();
             
             try {
-                const response = await fetch('https://aoi-extranet.vercel.app/api/contact/callback', {
+                const response = await fetch('https://extranet.aoi-network.com/api/contact/callback', {
                     method: 'POST',
                     body: JSON.stringify(formData),
                     headers: {
