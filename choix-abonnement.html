@@ -77,7 +77,7 @@
         .pricing-card.popular{border-color:var(--gold);box-shadow:0 8px 30px rgba(196,169,98,.2)}
         .pricing-card.popular::before{content:'RECOMMANDÉ';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#fff;font-size:0.75rem;font-weight:700;padding:4px 16px;border-radius:20px}
         
-        .pricing-header{text-align:center;padding-bottom:24px;border-bottom:1px solid var(--gray-100);margin-bottom:24px}
+        .pricing-header{text-align:center;padding-bottom:24px;border-bottom:1px solid var(--gray-100);margin-bottom:24px;min-height:310px;display:flex;flex-direction:column;justify-content:flex-start}
         .pricing-header .icon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
         .pricing-header .icon i{width:28px;height:28px}
         .pricing-card:nth-child(1) .pricing-header .icon{background:var(--orange-100)}
@@ -134,6 +134,7 @@
             .pricing-grid{grid-template-columns:1fr}
             .pricing-card{max-width:400px;margin:0 auto}
             .pricing-card.popular{order:-1}
+            .pricing-header{min-height:auto}
         }
         @media(max-width:768px){
             nav{display:none}
@@ -198,13 +199,13 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i data-lucide="check"></i>Bibliothèque documentaire</li>
-                            <li><i data-lucide="check"></i>MasterClass et formations</li>
-                            <li><i data-lucide="check"></i>Accès aux actualités du réseau</li>
+                            <li><i data-lucide="check"></i><strong>Logiciel Opérateurs AOI Network</strong></li>
+                            <li><i data-lucide="check"></i>Bibliothèque documentaire & MasterClass</li>
                             <li class="disabled"><i data-lucide="x"></i>Annuaire des membres</li>
                             <li class="disabled"><i data-lucide="x"></i>Messagerie interne</li>
+                            <li class="disabled"><i data-lucide="x"></i>Opportunités & missions</li>
+                            <li class="disabled"><i data-lucide="x"></i>Candidature aux missions</li>
                             <li class="disabled"><i data-lucide="x"></i>Publication de projets SEP</li>
-                            <li class="disabled"><i data-lucide="x"></i>Création d'opportunités</li>
                         </ul>
                     </div>
                     <button class="btn btn-secondary" data-plan="niveau1" data-price="7680">
@@ -219,17 +220,17 @@
                         <div class="icon"><i data-lucide="briefcase"></i></div>
                         <h3>Partenaire Métier</h3>
                         <p class="subtitle">Pour les prestataires</p>
-                        <div class="billing-toggle">
+                        <p class="price" id="partenairePrice">329€<span>/mois HT</span></p>
+                        <p class="price-info" id="partenairePriceInfo">394,80€ TTC • Engagement 12 mois</p>
+                        <div class="billing-toggle" style="margin-top:12px;">
                             <button class="active" data-billing="monthly">Mensuel</button>
                             <button data-billing="yearly">Annuel</button>
                         </div>
-                        <p class="price" id="partenairePrice">329€<span>/mois HT</span></p>
-                        <p class="price-info" id="partenairePriceInfo">394,80€ TTC • Engagement 12 mois</p>
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i data-lucide="check"></i>Bibliothèque documentaire</li>
-                            <li><i data-lucide="check"></i>MasterClass et formations</li>
+                            <li class="disabled"><i data-lucide="x"></i>Logiciel Opérateurs</li>
+                            <li><i data-lucide="check"></i>Bibliothèque documentaire & MasterClass</li>
                             <li><i data-lucide="check"></i>Annuaire complet des membres</li>
                             <li><i data-lucide="check"></i>Messagerie interne illimitée</li>
                             <li><i data-lucide="check"></i>Réception d'opportunités</li>
@@ -254,13 +255,13 @@
                     </div>
                     <div class="pricing-features">
                         <ul>
-                            <li><i data-lucide="check"></i>Tout le niveau Partenaire</li>
-                            <li><i data-lucide="check"></i><strong>Publication de projets SEP</strong></li>
+                            <li><i data-lucide="check"></i><strong>Logiciel Opérateurs AOI Network</strong></li>
+                            <li><i data-lucide="check"></i>Bibliothèque documentaire & MasterClass</li>
+                            <li><i data-lucide="check"></i>Annuaire complet des membres</li>
+                            <li><i data-lucide="check"></i>Messagerie interne illimitée</li>
                             <li><i data-lucide="check"></i><strong>Création d'opportunités</strong></li>
-                            <li><i data-lucide="check"></i>Recherche de co-investisseurs</li>
-                            <li><i data-lucide="check"></i>Déclaration de partenariats</li>
-                            <li><i data-lucide="check"></i>Système d'avis et réputation</li>
-                            <li><i data-lucide="check"></i>Support prioritaire</li>
+                            <li><i data-lucide="check"></i>Partenariats & réputation</li>
+                            <li><i data-lucide="check"></i><strong>Publication de projets SEP</strong></li>
                         </ul>
                     </div>
                     <button class="btn btn-gold" data-plan="niveau3" data-price="718800">
