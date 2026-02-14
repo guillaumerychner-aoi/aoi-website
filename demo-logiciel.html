@@ -7,6 +7,14 @@
 *{margin:0;padding:0;box-sizing:border-box}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+/* Portrait overlay */
+.rot{display:none;position:fixed;inset:0;z-index:9999;background:#111827;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px}
+.rot .ri{font-size:48px;margin-bottom:16px;animation:rh 2s ease-in-out infinite}
+.rot h2{color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:8px;font-family:'Inter',sans-serif}
+.rot p{color:#9ca3af;font-size:.85rem;line-height:1.5;max-width:280px;font-family:'Inter',sans-serif}
+@keyframes rh{0%,100%{transform:rotate(0deg)}25%{transform:rotate(90deg)}75%{transform:rotate(90deg)}}
+@media(max-width:768px) and (orientation:portrait){.rot{display:flex!important}.demo{display:none!important}}
+
 :root{
   --sbw:170px;--bg:#f9fafb;--w:#fff;
   --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g800:#1f2937;--g900:#111827;
@@ -128,6 +136,12 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
 </style>
 </head>
 <body>
+
+<div class="rot">
+  <div class="ri">📱</div>
+  <h2>Tournez votre téléphone</h2>
+  <p>Cette démo interactive est optimisée en mode paysage pour une meilleure lisibilité.</p>
+</div>
 
 <div class="demo" id="demo">
   <div class="sb">
