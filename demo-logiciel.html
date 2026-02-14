@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --sbw:170px;--bg:#f9fafb;--w:#fff;
+  --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;--g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g800:#1f2937;--g900:#111827;
+  --o50:#fff7ed;--o100:#ffedd5;--o500:#f97316;--o600:#ea580c;
+  --gr50:#f0fdf4;--gr100:#dcfce7;--gr500:#22c55e;--gr600:#16a34a;
+  --b50:#eff6ff;--b100:#dbeafe;--b500:#3b82f6;
+  --am50:#fffbeb;--am100:#fef3c7;--am500:#f59e0b;
+  --pu50:#faf5ff;--pu500:#a855f7;
+  --r500:#ef4444;
+}
+
+body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+
+.demo{width:100%;max-width:960px;aspect-ratio:16/9.5;background:var(--bg);border-radius:12px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);position:relative}
+
+/* Sidebar */
+.sb{position:absolute;left:0;top:0;bottom:0;width:var(--sbw);background:var(--w);border-right:1px solid var(--g200);display:flex;flex-direction:column;z-index:10}
+.sb-logo{padding:10px 11px;border-bottom:1px solid var(--g200);display:flex;align-items:center;gap:7px}
+.sb-logo .bx{width:24px;height:24px;background:linear-gradient(135deg,#f97316,#ea580c);border-radius:5px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:7px;font-weight:800}
+.sb-logo .t{font-size:11px;font-weight:700;color:var(--g900)}
+.sb-logo .s{font-size:7px;color:var(--o500);display:block}
+.sb-nav{flex:1;padding:6px 5px}
+.sb-nav a{display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:5px;font-size:9.5px;color:var(--g600);text-decoration:none;margin-bottom:1px;transition:all .2s}
+.sb-nav a.on{background:var(--g900);color:#fff}
+.sb-nav a:hover:not(.on){background:var(--g100)}
+.sb-ft{padding:6px 10px;border-top:1px solid var(--g200);font-size:7px;color:var(--g400)}
+
+.sc{position:absolute;left:var(--sbw);top:0;right:0;bottom:0;opacity:0;transition:opacity .5s;overflow:hidden}
+.sc.on{opacity:1}
+
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--g200);background:var(--w);padding:0 14px}
+.tab{padding:8px 12px;font-size:9px;font-weight:500;color:var(--g400);border-bottom:2px solid transparent}
+.tab.on{color:var(--o600);border-bottom-color:var(--o500);font-weight:600}
+
+.ct{padding:10px 14px;height:calc(100% - 34px);overflow-y:auto}
+
+.cd{background:var(--w);border:1px solid var(--g200);border-radius:7px;padding:10px;margin-bottom:8px}
+.cd-t{font-size:10px;font-weight:700;color:var(--g900);margin-bottom:6px;display:flex;align-items:center;gap:5px}
+
+.fg{margin-bottom:5px}
+.fl{font-size:7.5px;font-weight:600;color:var(--g500);margin-bottom:2px;display:block}
+.fi{width:100%;padding:4px 6px;border:1px solid var(--g200);border-radius:4px;font-size:9px;color:var(--g900);background:var(--w);font-family:inherit;transition:all .2s}
+.fi.ok{border-color:var(--gr500);background:var(--gr50)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.fr3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}
+.kpi{background:var(--w);border:1px solid var(--g200);border-radius:6px;padding:6px 8px;text-align:center}
+.kpi-l{font-size:6.5px;font-weight:600;color:var(--g500);text-transform:uppercase;letter-spacing:.3px}
+.kpi-v{font-size:12px;font-weight:800;color:var(--g900);margin-top:1px;transition:transform .3s}
+.kpi-v.gr{color:var(--gr600)}.kpi-v.or{color:var(--o600)}.kpi-v.bl{color:var(--b500)}
+
+.lt{width:100%;border-collapse:collapse;font-size:8.5px}
+.lt th{background:var(--g50);padding:4px 6px;text-align:left;font-weight:600;color:var(--g600);border-bottom:1px solid var(--g200)}
+.lt td{padding:4px 6px;border-bottom:1px solid var(--g100);color:var(--g800)}
+.lt .n{font-weight:700;color:var(--o600)}
+.lt .m{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+
+.car{background:var(--o50);border:1px solid var(--o100);border-radius:5px;padding:7px;margin-top:5px}
+.car-r{display:flex;justify-content:space-between;font-size:7.5px;padding:1.5px 0;color:var(--g600)}
+.car-r.tot{font-weight:700;color:var(--g900);border-top:1px solid var(--o100);margin-top:3px;padding-top:3px}
+.car-r .mi{color:var(--r500)}
+
+.btn{padding:4px 8px;border-radius:4px;font-size:8px;font-weight:600;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:3px;transition:all .2s}
+.btn-o{background:var(--o500);color:#fff}
+.btn-d{background:var(--g900);color:#fff}
+.btn-out{background:transparent;border:1px solid var(--g200);color:var(--g600)}
+.btn-gr{background:var(--gr50);color:var(--gr600);border:1px solid var(--gr100)}
+
+/* Checklist */
+.ck{background:var(--w);border:1px solid var(--g200);border-radius:6px;padding:7px 9px;margin-bottom:5px;transition:all .2s}
+.ck.exp{border-color:var(--o500)}
+.ck-h{display:flex;align-items:center;justify-content:space-between}
+.ck-t{font-size:9.5px;font-weight:600;color:var(--g900);display:flex;align-items:center;gap:5px}
+.ck-p{font-size:7px;color:var(--g400)}
+.ck-items{margin-top:5px;padding-top:5px;border-top:1px solid var(--g100)}
+.ck-i{display:grid;grid-template-columns:14px 1fr 52px 52px;gap:4px;align-items:center;padding:2.5px 0;font-size:8px;color:var(--g600)}
+.ck-box{width:13px;height:13px;border:1.5px solid var(--g300);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s;font-size:7px}
+.ck-box.done{background:var(--gr500);border-color:var(--gr500);color:#fff}
+.ck-date{font-size:7px;color:var(--g400);text-align:center;padding:1px 3px;border-radius:3px;transition:all .2s}
+.ck-date.set{color:var(--b500);font-weight:600;background:var(--b50)}
+.ck-date.real{color:var(--gr600);font-weight:600;background:var(--gr50)}
+
+/* Synthèse */
+.syn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.syn-card{background:var(--w);border:1px solid var(--g200);border-radius:8px;padding:10px;text-align:center}
+.syn-val{font-size:18px;font-weight:800;margin-bottom:2px}
+.syn-lab{font-size:7px;color:var(--g500);font-weight:600;text-transform:uppercase}
+
+.stk{width:100%;border-collapse:collapse;font-size:8px}
+.stk th{background:var(--g50);padding:5px 6px;text-align:left;font-weight:600;color:var(--g600);border-bottom:1px solid var(--g200)}
+.stk td{padding:5px 6px;border-bottom:1px solid var(--g100);color:var(--g800)}
+.badge{font-size:7px;padding:2px 6px;border-radius:10px;font-weight:600;white-space:nowrap}
+.badge-blue{background:var(--b50);color:var(--b500)}
+.badge-amber{background:var(--am50);color:var(--am500)}
+.badge-purple{background:var(--pu50);color:var(--pu500)}
+.badge-green{background:var(--gr50);color:var(--gr600)}
+
+.ov{position:absolute;left:0;top:0;right:0;bottom:0;z-index:40;background:rgba(17,24,39,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:opacity .5s}
+.ov.on{opacity:1}
+.ov .tx{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#fff;opacity:0;transition:opacity .4s ease .2s}
+.ov.on .tx{opacity:1}
+.ov .tx h3{font-size:16px;font-weight:700;margin-bottom:4px}
+.ov .tx p{font-size:10px;color:var(--g400)}
+
+.cur{position:absolute;width:16px;height:16px;z-index:100;pointer-events:none;transition:all .6s cubic-bezier(.25,.1,.25,1);opacity:0}
+.cur::before{content:'';position:absolute;width:0;height:0;border-left:7px solid var(--g900);border-top:3px solid transparent;border-bottom:7px solid transparent;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.3))}
+.cur.cl::after{content:'';position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:rgba(249,115,22,.3);transform:translate(-4px,-4px);animation:cp .4s ease-out}
+@keyframes cp{0%{transform:translate(-4px,-4px) scale(0);opacity:1}100%{transform:translate(-4px,-4px) scale(1.5);opacity:0}}
+
+.toast{position:absolute;top:10px;right:10px;z-index:55;background:var(--w);border:1px solid var(--g200);border-radius:7px;padding:7px 10px;box-shadow:0 8px 24px rgba(0,0,0,.12);transform:translateY(-20px);opacity:0;transition:all .3s;font-size:9px;color:var(--g700)}
+.toast.vis{transform:translateY(0);opacity:1}
+.toast strong{display:block;font-size:9.5px;color:var(--g900)}
+
+.prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--g200);z-index:60}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--o500),var(--o600));transition:width .3s;width:0}
+
+.pdf-btns{display:flex;gap:6px;margin-top:8px;justify-content:flex-end}
+</style>
+</head>
+<body>
+
+<div class="demo" id="demo">
+  <div class="sb">
+    <div class="sb-logo"><div class="bx">AOI</div><div><span class="t">Opérateurs</span><span class="s">Logiciel AOI Network</span></div></div>
+    <nav class="sb-nav">
+      <a href="#" id="n-dash">📊 Tableau de bord</a>
+      <a href="#" id="n-ops" class="on">🏠 Mes opérations</a>
+      <a href="#" id="n-stocks">📦 Stocks</a>
+      <a href="#" id="n-syn">📈 Synthèse</a>
+      <a href="#" id="n-guide">📖 Guide</a>
+      <a href="#" id="n-params">⚙️ Paramètres</a>
+    </nav>
+    <div class="sb-ft"><span style="color:var(--b500);">↩️ Retour à l'extranet</span><br>v1.0.0</div>
+  </div>
+
+  <div class="cur" id="cur"></div>
+  <div class="ov" id="ov"><div class="tx"><h3 id="ovT"></h3><p id="ovD"></p></div></div>
+  <div class="toast" id="toast"></div>
+
+  <!-- SCENE 1: Matrice + CAR + PDF -->
+  <div class="sc on" id="s1">
+    <div class="tabs"><div class="tab on">Simulation</div><div class="tab">Lots</div><div class="tab">Calendrier</div><div class="tab">Suivi</div><div class="tab">Dossier</div></div>
+    <div class="ct">
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-l">Coût total</div><div class="kpi-v" id="k1">—</div></div>
+        <div class="kpi"><div class="kpi-l">Chiffre d'affaires</div><div class="kpi-v" id="k2">—</div></div>
+        <div class="kpi"><div class="kpi-l">Marge nette</div><div class="kpi-v gr" id="k3">—</div></div>
+        <div class="kpi"><div class="kpi-l">Rentabilité</div><div class="kpi-v or" id="k4">—</div></div>
+        <div class="kpi"><div class="kpi-l">Reste à financer</div><div class="kpi-v bl" id="k5">—</div></div>
+      </div>
+      <div class="cd">
+        <div class="cd-t">🏠 Acquisition</div>
+        <div class="fr"><div class="fg"><label class="fl">Prix net vendeur</label><input class="fi" id="i1" readonly></div><div class="fg"><label class="fl">Frais d'agence TTC</label><input class="fi" id="i2" readonly></div></div>
+        <div class="fr3"><div class="fg"><label class="fl">Type de frais</label><input class="fi" value="Frais réduits (1,96%)" readonly style="font-size:7.5px;"></div><div class="fg"><label class="fl">Frais acquisition</label><input class="fi" id="i3" readonly></div><div class="fg"><label class="fl">Coût acquisition total</label><input class="fi" id="i4" readonly style="font-weight:700;"></div></div>
+      </div>
+      <div class="cd">
+        <div class="cd-t">📦 Lots <span style="font-size:7px;color:var(--g400);font-weight:400;">— avec compte à rebours promoteur</span></div>
+        <table class="lt"><thead><tr><th>#</th><th>Type</th><th>Désignation</th><th>Surface</th><th style="text-align:right">Prix</th></tr></thead>
+        <tbody><tr><td class="n">1</td><td>Maison</td><td id="l1n">—</td><td id="l1s">—</td><td class="m" id="l1p">—</td></tr>
+        <tr><td class="n">2</td><td>Maison</td><td id="l2n">—</td><td id="l2s">—</td><td class="m" id="l2p">—</td></tr>
+        <tr><td class="n">3</td><td>Terrain</td><td id="l3n">—</td><td id="l3s">—</td><td class="m" id="l3p">—</td></tr></tbody></table>
+        <div class="car" id="car" style="display:none;">
+          <div style="font-size:8px;font-weight:700;color:var(--o600);margin-bottom:3px;">🔢 Compte à Rebours — Lot 1</div>
+          <div class="car-r"><span>Prix clé en main</span><span id="c0" style="font-weight:700;">—</span></div>
+          <div class="car-r"><span class="mi">– Travaux (gros œuvre + second œuvre)</span><span id="c1">—</span></div>
+          <div class="car-r"><span class="mi">– Maîtrise d'œuvre</span><span id="c2">—</span></div>
+          <div class="car-r"><span class="mi">– Bureau d'études</span><span id="c3">—</span></div>
+          <div class="car-r"><span class="mi">– Assurance DO</span><span id="c4">—</span></div>
+          <div class="car-r"><span class="mi">– VRD & raccordements</span><span id="c5">—</span></div>
+          <div class="car-r tot"><span>= Prix de revente du lot</span><span id="c6" style="color:var(--gr600);">—</span></div>
+        </div>
+      </div>
+      <div class="cd">
+        <div class="cd-t">🏦 Financement</div>
+        <div class="fr3"><div class="fg"><label class="fl">Source</label><input class="fi" value="Fonds propres" readonly style="font-size:8px;"></div><div class="fg"><label class="fl">Montant</label><input class="fi" id="i5" readonly></div><div class="fg"><label class="fl">Taux</label><input class="fi" value="0 %" readonly></div></div>
+      </div>
+      <div class="pdf-btns" id="pdf-btns" style="opacity:0;">
+        <button class="btn btn-out" id="pb1">📄 PDF Comité</button>
+        <button class="btn btn-out" id="pb2">🏦 PDF Financement</button>
+        <button class="btn btn-d" id="pb3">📊 PDF Bilan complet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: Suivi / Checklist with dates -->
+  <div class="sc" id="s2">
+    <div class="tabs"><div class="tab">Simulation</div><div class="tab">Lots</div><div class="tab">Calendrier</div><div class="tab on">Suivi</div><div class="tab">Dossier</div></div>
+    <div class="ct">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="font-size:11px;font-weight:700;color:var(--g900);">📋 Pilotage d'opération</div>
+        <div style="display:flex;gap:4px;">
+          <button class="btn btn-out" id="bx1">📄 PDF cette phase</button>
+          <button class="btn btn-d" id="bx2">📄 PDF global</button>
+        </div>
+      </div>
+      <div class="ck" id="p1"><div class="ck-h"><div class="ck-t">✅ Prospection foncière</div><div class="ck-p" style="color:var(--gr600);font-weight:600;">7/7 ✓</div></div></div>
+      <div class="ck exp" id="p2">
+        <div class="ck-h"><div class="ck-t">📋 Étude de faisabilité</div><div class="ck-p" id="p2p">0/6</div></div>
+        <div class="ck-items" id="p2i">
+          <div style="display:grid;grid-template-columns:14px 1fr 52px 52px;gap:4px;font-size:6.5px;color:var(--g400);padding-bottom:3px;border-bottom:1px solid var(--g100);margin-bottom:2px;font-weight:600;">
+            <span></span><span>Tâche</span><span style="text-align:center;">📅 Objectif</span><span style="text-align:center;">✅ Réalisé</span>
+          </div>
+          <div class="ck-i"><div class="ck-box" id="x1"></div><span>Vérifier le PLU et règles d'urbanisme</span><div class="ck-date" id="d1">—</div><div class="ck-date" id="r1">—</div></div>
+          <div class="ck-i"><div class="ck-box" id="x2"></div><span>Consulter cadastre et servitudes</span><div class="ck-date" id="d2">—</div><div class="ck-date" id="r2">—</div></div>
+          <div class="ck-i"><div class="ck-box" id="x3"></div><span>Évaluer le coût des travaux (devis)</span><div class="ck-date" id="d3">—</div><div class="ck-date" id="r3">—</div></div>
+          <div class="ck-i"><div class="ck-box" id="x4"></div><span>Réaliser la simulation financière</span><div class="ck-date" id="d4">—</div><div class="ck-date" id="r4">—</div></div>
+          <div class="ck-i"><div class="ck-box" id="x5"></div><span>Vérifier contraintes environnementales</span><div class="ck-date" id="d5">—</div><div class="ck-date" id="r5">—</div></div>
+          <div class="ck-i"><div class="ck-box" id="x6"></div><span>Vérifier accès et viabilisation</span><div class="ck-date" id="d6">—</div><div class="ck-date" id="r6">—</div></div>
+        </div>
+      </div>
+      <div class="ck" id="p3"><div class="ck-h"><div class="ck-t">📐 Permis de construire</div><div class="ck-p">0/6</div></div></div>
+      <div class="ck" id="p4"><div class="ck-h"><div class="ck-t">🎨 Conception du projet</div><div class="ck-p">0/5</div></div></div>
+      <div class="ck" id="p5"><div class="ck-h"><div class="ck-t">📢 Commercialisation</div><div class="ck-p">0/8</div></div></div>
+      <div class="ck" id="p6"><div class="ck-h"><div class="ck-t">🤝 Ventes des biens</div><div class="ck-p">0/6</div></div></div>
+      <div class="ck" id="p7"><div class="ck-h"><div class="ck-t">🔑 Acquisition du foncier</div><div class="ck-p">0/7</div></div></div>
+      <div class="ck" id="p8"><div class="ck-h"><div class="ck-t">🏗️ Préparation chantier</div><div class="ck-p">0/5</div></div></div>
+      <div class="ck" id="p9"><div class="ck-h"><div class="ck-t">🔨 Construction</div><div class="ck-p">0/9</div></div></div>
+      <div class="ck" id="p10"><div class="ck-h"><div class="ck-t">✅ Réception des travaux</div><div class="ck-p">0/6</div></div></div>
+      <div class="ck" id="p11"><div class="ck-h"><div class="ck-t">🏠 Livraison</div><div class="ck-p">0/5</div></div></div>
+      <div class="ck" id="p12"><div class="ck-h"><div class="ck-t">📞 Suivi après livraison</div><div class="ck-p">0/4</div></div></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: Synthèse + Stocks -->
+  <div class="sc" id="s3">
+    <div class="tabs" style="border:none;padding:0;">
+      <div style="display:flex;width:100%;border-bottom:1px solid var(--g200);background:var(--w);padding:0 14px;">
+        <div class="tab on" id="ts1">📈 Synthèse</div>
+        <div class="tab" id="ts2">📦 Stocks</div>
+      </div>
+    </div>
+    <div class="ct">
+      <!-- Synthèse -->
+      <div id="syn-v">
+        <div class="syn-grid">
+          <div class="syn-card"><div class="syn-val" style="color:var(--b500);">4</div><div class="syn-lab">À l'étude</div></div>
+          <div class="syn-card"><div class="syn-val" style="color:var(--am500);">3</div><div class="syn-lab">En cours</div></div>
+          <div class="syn-card"><div class="syn-val" style="color:var(--gr600);">2</div><div class="syn-lab">Terminées</div></div>
+          <div class="syn-card"><div class="syn-val" style="color:var(--g900);">10</div><div class="syn-lab">Opérations total</div></div>
+        </div>
+        <div class="cd">
+          <div class="cd-t">📈 Indicateurs consolidés</div>
+          <div class="fr" style="gap:12px;">
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--g600);padding:3px 0;border-bottom:1px solid var(--g100);"><span>Investissement total</span><span style="font-weight:700;">2 450 000 €</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--g600);padding:3px 0;border-bottom:1px solid var(--g100);"><span>Chiffre d'affaires</span><span style="font-weight:700;">3 820 000 €</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;padding:4px 0;"><span style="font-weight:700;color:var(--gr600);">Marge nette totale</span><span style="font-weight:800;color:var(--gr600);font-size:10px;">892 000 €</span></div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--g600);padding:3px 0;border-bottom:1px solid var(--g100);"><span>Rentabilité moyenne</span><span style="font-weight:700;color:var(--o600);">22,4 %</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--g600);padding:3px 0;border-bottom:1px solid var(--g100);"><span>Lots en vente</span><span style="font-weight:700;color:var(--b500);">8</span></div>
+              <div style="display:flex;justify-content:space-between;font-size:8px;color:var(--g600);padding:3px 0;"><span>Lots vendus</span><span style="font-weight:700;color:var(--gr600);">12</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cd">
+          <div class="cd-t">🏠 Opérations en cours</div>
+          <table class="stk">
+            <thead><tr><th>Opération</th><th>Étape</th><th style="text-align:right">CA</th><th style="text-align:right">Marge</th><th>Renta.</th></tr></thead>
+            <tbody>
+              <tr><td style="font-weight:600;">Division 5 lots — Châtillon</td><td><span class="badge badge-amber">12. Commercialisation</span></td><td style="text-align:right;font-weight:600;">765 000 €</td><td style="text-align:right;font-weight:600;color:var(--gr600);">128 278 €</td><td style="font-weight:700;color:var(--o600);">20,1%</td></tr>
+              <tr><td style="font-weight:600;">Surélévation — Clamart</td><td><span class="badge badge-purple">9. Construction</span></td><td style="text-align:right;font-weight:600;">520 000 €</td><td style="text-align:right;font-weight:600;color:var(--gr600);">95 400 €</td><td style="font-weight:700;color:var(--o600);">18,3%</td></tr>
+              <tr><td style="font-weight:600;">Rénovation — Fontenay</td><td><span class="badge badge-blue">9. Financement</span></td><td style="text-align:right;font-weight:600;">380 000 €</td><td style="text-align:right;font-weight:600;color:var(--gr600);">72 500 €</td><td style="font-weight:700;color:var(--o600);">19,1%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stocks -->
+      <div id="stk-v" style="display:none;">
+        <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+          <span style="font-size:8px;padding:3px 8px;border-radius:10px;background:var(--b50);color:var(--b500);font-weight:600;">🔵 À vendre (8)</span>
+          <span style="font-size:8px;padding:3px 8px;border-radius:10px;background:var(--am50);color:var(--am500);font-weight:600;">🟡 Sous offre (3)</span>
+          <span style="font-size:8px;padding:3px 8px;border-radius:10px;background:var(--pu50);color:var(--pu500);font-weight:600;">🟣 Sous compromis (2)</span>
+          <span style="font-size:8px;padding:3px 8px;border-radius:10px;background:var(--gr50);color:var(--gr600);font-weight:600;">🟢 Vendus (12)</span>
+        </div>
+        <table class="stk">
+          <thead><tr><th>#</th><th>Opération</th><th>Lot</th><th>Surface</th><th>Statut</th><th style="text-align:right">Prix</th></tr></thead>
+          <tbody>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">1</td><td>Châtillon</td><td>Maison T4</td><td>95 m²</td><td><span class="badge badge-blue">À vendre</span></td><td style="text-align:right;font-weight:600;">320 000 €</td></tr>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">2</td><td>Châtillon</td><td>Maison T3</td><td>75 m²</td><td><span class="badge badge-amber">Sous offre</span></td><td style="text-align:right;font-weight:600;">265 000 €</td></tr>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">3</td><td>Châtillon</td><td>Terrain</td><td>450 m²</td><td><span class="badge badge-green">Vendu</span></td><td style="text-align:right;font-weight:600;">180 000 €</td></tr>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">4</td><td>Clamart</td><td>T2 — RDC</td><td>42 m²</td><td><span class="badge badge-purple">Sous compromis</span></td><td style="text-align:right;font-weight:600;">195 000 €</td></tr>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">5</td><td>Clamart</td><td>T3 — R+1</td><td>68 m²</td><td><span class="badge badge-blue">À vendre</span></td><td style="text-align:right;font-weight:600;">285 000 €</td></tr>
+            <tr><td class="n" style="font-weight:700;color:var(--o600);">6</td><td>Fontenay</td><td>Maison T5</td><td>110 m²</td><td><span class="badge badge-blue">À vendre</span></td><td style="text-align:right;font-weight:600;">380 000 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prog"><div class="prog-bar" id="pB"></div></div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id),cur=$('cur');
+const T=58000,st=Date.now();
+setInterval(()=>{$('pB').style.width=Math.min((Date.now()-st)/T*100,100)+'%';},100);
+
+const sl=ms=>new Promise(r=>setTimeout(r,ms));
+const mv=(x,y)=>{cur.style.opacity='1';cur.style.left=x+'px';cur.style.top=y+'px';};
+const hd=()=>{cur.style.opacity='0';};
+const cl=()=>{cur.classList.add('cl');setTimeout(()=>cur.classList.remove('cl'),400);};
+async function ty(el,t,sp=40){for(let i=0;i<t.length;i++){el.value=t.substring(0,i+1);await sl(sp);}el.classList.add('ok');}
+const sh=n=>{document.querySelectorAll('.sc').forEach(s=>s.classList.remove('on'));$('s'+n).classList.add('on');};
+async function ov(t,d,dur=2200){hd();$('ovT').textContent=t;$('ovD').textContent=d;$('ov').classList.add('on');await sl(dur);$('ov').classList.remove('on');await sl(500);}
+async function tt(h,dur=2500){$('toast').innerHTML=h;$('toast').classList.add('vis');await sl(dur);$('toast').classList.remove('vis');}
+const nav=id=>{document.querySelectorAll('.sb-nav a').forEach(a=>a.classList.remove('on'));$(id).classList.add('on');};
+const uk=(id,v)=>{const e=$(id);e.textContent=v;e.style.transform='scale(1.15)';setTimeout(()=>e.style.transition='transform .3s',0);setTimeout(()=>e.style.transform='scale(1)',300);};
+const chk=id=>{$(id).classList.add('done');$(id).textContent='✓';};
+const setD=(id,v,cls='set')=>{$(id).textContent=v;$(id).className='ck-date '+cls;};
+
+async function run(){
+  // ══════ SCENE 1: Matrice + CAR + PDF ══════
+  await ov('📊 Matrice d\'opération','Bilan financier, compte à rebours promoteur, génération PDF');
+  sh(1);nav('n-ops');await sl(600);
+
+  mv(370,135);await sl(350);cl();await ty($('i1'),'420 000 €',30);
+  mv(550,135);await sl(200);cl();await ty($('i2'),'25 000 €',35);
+  await sl(200);$('i3').value='8 722 €';$('i3').classList.add('ok');$('i4').value='453 722 €';$('i4').classList.add('ok');
+  uk('k1','453 722 €');await sl(300);
+
+  mv(400,245);await sl(200);
+  $('l1n').textContent='Maison T4';$('l1s').textContent='95 m²';$('l1p').textContent='320 000 €';await sl(200);
+  $('l2n').textContent='Maison T3';$('l2s').textContent='75 m²';$('l2p').textContent='265 000 €';await sl(200);
+  $('l3n').textContent='Terrain constructible';$('l3s').textContent='450 m²';$('l3p').textContent='180 000 €';
+  uk('k2','765 000 €');await sl(400);
+
+  mv(350,285);await sl(250);cl();$('car').style.display='block';await sl(200);
+  $('c0').textContent='320 000 €';await sl(200);
+  $('c1').textContent='– 120 000 €';await sl(120);$('c2').textContent='– 18 000 €';await sl(120);
+  $('c3').textContent='– 8 000 €';await sl(120);$('c4').textContent='– 6 500 €';await sl(120);
+  $('c5').textContent='– 15 000 €';await sl(200);$('c6').textContent='152 500 €';await sl(350);
+
+  mv(460,415);await sl(200);cl();await ty($('i5'),'200 000 €',30);await sl(250);
+  uk('k1','636 722 €');await sl(120);uk('k3','128 278 €');await sl(120);uk('k4','20,1 %');await sl(120);uk('k5','436 722 €');
+  await sl(500);
+
+  // PDF buttons appear
+  $('pdf-btns').style.opacity='1';$('pdf-btns').style.transition='opacity .4s';await sl(400);
+  
+  // PDF Comité
+  mv(530,458);await sl(350);cl();
+  $('pb1').style.background='var(--o50)';$('pb1').style.color='var(--o600)';$('pb1').style.borderColor='var(--o500)';
+  await sl(500);$('pb1').textContent='✅ PDF Comité';$('pb1').className='btn btn-gr';
+  await sl(350);
+
+  // PDF Financement
+  mv(630,458);await sl(300);cl();
+  $('pb2').style.background='var(--o50)';$('pb2').style.color='var(--o600)';$('pb2').style.borderColor='var(--o500)';
+  await sl(500);$('pb2').textContent='✅ PDF Financement';$('pb2').className='btn btn-gr';
+  
+  // PDF Bilan complet
+  mv(740,458);await sl(300);cl();
+  $('pb3').style.background='var(--gr600)';
+  await sl(500);$('pb3').textContent='✅ PDF Bilan complet';
+  
+  await tt('<strong>📄 3 PDF générés</strong>Comité • Financement • Bilan complet');await sl(1200);
+
+  // ══════ SCENE 2: Suivi + dates + PDF ══════
+  await ov('📋 Pilotage d\'opération','Dates objectifs, dates de réalisation, export PDF par phase et global');
+  sh(2);await sl(500);
+
+  const items=[
+    {x:'x1',d:'d1',r:'r1',dt:'15/01/26',rt:'12/01/26'},
+    {x:'x2',d:'d2',r:'r2',dt:'20/01/26',rt:'18/01/26'},
+    {x:'x3',d:'d3',r:'r3',dt:'01/02/26',rt:'30/01/26'},
+    {x:'x4',d:'d4',r:'r4',dt:'05/02/26',rt:'04/02/26'},
+    {x:'x5',d:'d5',r:'r5',dt:'10/02/26',rt:''},
+    {x:'x6',d:'d6',r:'r6',dt:'15/02/26',rt:''},
+  ];
+
+  for(let i=0;i<items.length;i++){
+    const it=items[i];
+    // Date objectif
+    mv(510,117+i*21);await sl(200);cl();await sl(80);
+    setD(it.d,it.dt,'set');await sl(120);
+    
+    if(it.rt){
+      // Date réalisée
+      mv(565,117+i*21);await sl(150);cl();await sl(80);
+      setD(it.r,it.rt,'real');await sl(80);
+      // Check box
+      mv(193,117+i*21);await sl(150);cl();await sl(80);
+      chk(it.x);
+    }
+    $('p2p').textContent=(Math.min(i+1,4))+'/6';
+    await sl(80);
+  }
+  await sl(400);
+
+  // Flash all 12 phases
+  for(let i=3;i<=12;i++){
+    $('p'+i).style.borderColor='var(--o500)';$('p'+i).style.background='var(--o50)';
+    await sl(180);
+    $('p'+i).style.borderColor='';$('p'+i).style.background='';
+  }
+  await sl(300);
+
+  // Export PDF cette phase
+  mv(605,45);await sl(300);cl();
+  $('bx1').textContent='✅ PDF phase exporté';$('bx1').className='btn btn-gr';
+  await sl(500);
+
+  // Export PDF global
+  mv(710,45);await sl(250);cl();
+  $('bx2').textContent='✅ PDF global exporté';$('bx2').style.background='var(--gr600)';
+  await tt('<strong>📄 Rapports de pilotage</strong>Export par phase et vue globale');await sl(1200);
+
+  // ══════ SCENE 3: Synthèse + Stocks ══════
+  await ov('📈 Vue consolidée','Toutes vos opérations, tous vos lots, en un coup d\'œil');
+  sh(3);nav('n-syn');await sl(1000);
+
+  // Let user absorb the synthèse
+  mv(400,150);await sl(800);
+  mv(500,250);await sl(800);
+  mv(400,350);await sl(1000);
+
+  // Switch to Stocks
+  mv(274,35);await sl(400);cl();await sl(200);
+  $('ts1').classList.remove('on');$('ts2').classList.add('on');
+  $('syn-v').style.display='none';$('stk-v').style.display='block';
+  nav('n-stocks');
+  await sl(600);
+
+  // Scan down stock rows
+  mv(400,120);await sl(400);
+  mv(400,160);await sl(400);
+  mv(400,200);await sl(400);
+  mv(400,240);await sl(400);
+  mv(400,280);await sl(400);
+  mv(400,320);await sl(800);
+
+  // Switch back to Synthèse
+  mv(234,35);await sl(400);cl();await sl(200);
+  $('ts2').classList.remove('on');$('ts1').classList.add('on');
+  $('stk-v').style.display='none';$('syn-v').style.display='block';
+  nav('n-syn');
+  await sl(2000);
+
+  // ══════ FIN ══════
+  await ov('AOI Network','Le logiciel des opérateurs immobiliers');await sl(1000);
+  reset();run();
+}
+
+function reset(){
+  ['i1','i2','i3','i4','i5'].forEach(id=>{$(id).value='';$(id).classList.remove('ok');});
+  ['k1','k2','k3','k4','k5'].forEach(id=>$(id).textContent='—');
+  ['l1n','l1s','l1p','l2n','l2s','l2p','l3n','l3s','l3p'].forEach(id=>$(id).textContent='—');
+  $('car').style.display='none';['c0','c1','c2','c3','c4','c5','c6'].forEach(id=>$(id).textContent='—');
+  $('pdf-btns').style.opacity='0';
+  $('pb1').textContent='📄 PDF Comité';$('pb1').className='btn btn-out';$('pb1').style.cssText='';
+  $('pb2').textContent='🏦 PDF Financement';$('pb2').className='btn btn-out';$('pb2').style.cssText='';
+  $('pb3').textContent='📊 PDF Bilan complet';$('pb3').className='btn btn-d';$('pb3').style.cssText='';
+  ['x1','x2','x3','x4','x5','x6'].forEach(id=>{$(id).classList.remove('done');$(id).textContent='';});
+  ['d1','d2','d3','d4','d5','d6','r1','r2','r3','r4','r5','r6'].forEach(id=>{$(id).textContent='—';$(id).className='ck-date';});
+  $('p2p').textContent='0/6';
+  $('bx1').textContent='📄 PDF cette phase';$('bx1').className='btn btn-out';
+  $('bx2').textContent='📄 PDF global';$('bx2').className='btn btn-d';$('bx2').style.cssText='';
+  $('ts1').classList.add('on');$('ts2').classList.remove('on');
+  $('syn-v').style.display='block';$('stk-v').style.display='none';
+  sh(1);nav('n-ops');hd();
+}
+
+run();
+</script>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --sidebar-w:200px;
+  --header-h:48px;
+  --bg:#f9fafb;
+  --white:#fff;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-300:#d1d5db;
+  --gray-400:#9ca3af;
+  --gray-500:#6b7280;
+  --gray-600:#4b5563;
+  --gray-700:#374151;
+  --gray-800:#1f2937;
+  --gray-900:#111827;
+  --orange-50:#fff7ed;
+  --orange-100:#ffedd5;
+  --orange-500:#f97316;
+  --orange-600:#ea580c;
+  --orange-700:#c2410c;
+  --green-50:#f0fdf4;
+  --green-500:#22c55e;
+  --green-600:#16a34a;
+  --blue-50:#eff6ff;
+  --blue-500:#3b82f6;
+  --blue-600:#2563eb;
+  --red-50:#fef2f2;
+  --red-500:#ef4444;
+}
+
+body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+
+.demo-container{
+  width:100%;max-width:960px;aspect-ratio:16/9.5;
+  background:var(--bg);border-radius:12px;overflow:hidden;
+  box-shadow:0 40px 80px rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.1);
+  position:relative;
+}
+
+/* Sidebar */
+.sidebar{position:absolute;left:0;top:0;bottom:0;width:var(--sidebar-w);background:var(--white);border-right:1px solid var(--gray-200);display:flex;flex-direction:column;z-index:10}
+.sidebar-logo{padding:12px 14px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:8px}
+.sidebar-logo .logo-box{width:28px;height:28px;background:linear-gradient(135deg,#f97316,#ea580c);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:800}
+.sidebar-logo .logo-text{font-size:13px;font-weight:700;color:var(--gray-900)}
+.sidebar-user{padding:10px 14px;border-bottom:1px solid var(--gray-200);background:var(--gray-100)}
+.sidebar-user .name{font-size:11px;font-weight:600;color:var(--gray-900)}
+.sidebar-user .level{font-size:9px;color:var(--gray-500)}
+.sidebar-nav{flex:1;padding:8px 6px;overflow:hidden}
+.sidebar-nav a{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:6px;font-size:10.5px;color:var(--gray-600);text-decoration:none;margin-bottom:1px;transition:all .2s}
+.sidebar-nav a.active{background:var(--gray-900);color:#fff}
+.sidebar-nav a:hover:not(.active){background:var(--gray-100)}
+.sidebar-nav .icon{width:14px;height:14px;opacity:.7}
+
+/* Main content */
+.main{position:absolute;left:var(--sidebar-w);top:0;right:0;bottom:0;overflow:hidden;background:var(--bg)}
+.page-header{padding:16px 20px 12px;border-bottom:1px solid var(--gray-200);background:var(--white)}
+.page-header h1{font-size:16px;font-weight:700;color:var(--gray-900)}
+.page-header p{font-size:10px;color:var(--gray-500);margin-top:2px}
+.page-content{padding:16px 20px;overflow-y:auto;height:calc(100% - 60px)}
+
+/* Cards */
+.card{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:14px;margin-bottom:12px}
+.card-title{font-size:12px;font-weight:700;color:var(--gray-900);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.card-title .badge{font-size:8px;padding:2px 6px;border-radius:4px;font-weight:600}
+
+/* Form elements */
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.form-group{margin-bottom:8px}
+.form-label{font-size:9px;font-weight:600;color:var(--gray-600);margin-bottom:3px;display:block}
+.form-input{width:100%;padding:6px 8px;border:1px solid var(--gray-200);border-radius:6px;font-size:10px;color:var(--gray-900);background:var(--white);font-family:inherit;transition:border-color .2s}
+.form-input:focus{border-color:var(--orange-500);outline:none}
+.form-input.filled{border-color:var(--green-500);background:var(--green-50)}
+.form-textarea{resize:none;height:40px}
+
+/* Buttons */
+.btn{padding:6px 12px;border-radius:6px;font-size:10px;font-weight:600;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:all .2s}
+.btn-primary{background:var(--gray-900);color:#fff}
+.btn-orange{background:var(--orange-500);color:#fff}
+.btn-outline{background:transparent;border:1px solid var(--gray-200);color:var(--gray-600)}
+
+/* Tags/chips */
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;font-size:9px;font-weight:500;margin:2px}
+.chip-orange{background:var(--orange-50);color:var(--orange-700);border:1px solid var(--orange-100)}
+.chip-blue{background:var(--blue-50);color:var(--blue-600);border:1px solid #dbeafe}
+.chip-green{background:var(--green-50);color:var(--green-600);border:1px solid #bbf7d0}
+
+/* Photo grid */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.photo-thumb{aspect-ratio:4/3;background:var(--gray-200);border-radius:6px;overflow:hidden;position:relative}
+.photo-thumb img{width:100%;height:100%;object-fit:cover}
+
+/* Portfolio card */
+.portfolio-card{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;overflow:hidden}
+.portfolio-img{height:80px;background:linear-gradient(135deg,#dbeafe,#e0e7ff);position:relative}
+.portfolio-body{padding:10px}
+.portfolio-body h3{font-size:11px;font-weight:700;color:var(--gray-900)}
+.portfolio-body p{font-size:9px;color:var(--gray-500);margin-top:2px}
+.portfolio-stats{display:flex;gap:10px;margin-top:6px}
+.portfolio-stat{font-size:9px;color:var(--gray-600)}
+.portfolio-stat strong{color:var(--gray-900)}
+
+/* Opportunity card */
+.opp-card{background:var(--white);border:1px solid var(--gray-200);border-radius:10px;padding:12px;margin-bottom:8px;transition:all .3s}
+.opp-card.highlight{border-color:var(--orange-500);box-shadow:0 0 0 2px rgba(249,115,22,.15)}
+.opp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.opp-title{font-size:11px;font-weight:700;color:var(--gray-900)}
+.opp-badge{font-size:8px;padding:2px 6px;border-radius:4px;font-weight:600;background:var(--green-50);color:var(--green-600)}
+.opp-desc{font-size:9px;color:var(--gray-500);margin-bottom:6px;line-height:1.4}
+.opp-meta{display:flex;gap:12px;font-size:8px;color:var(--gray-400)}
+
+/* Cursor */
+.cursor{
+  position:absolute;width:16px;height:16px;z-index:100;pointer-events:none;
+  transition:all .6s cubic-bezier(.25,.1,.25,1);
+  opacity:0;
+}
+.cursor::before{
+  content:'';position:absolute;
+  width:0;height:0;
+  border-left:7px solid var(--gray-900);
+  border-top:3px solid transparent;
+  border-bottom:7px solid transparent;
+  filter:drop-shadow(1px 1px 2px rgba(0,0,0,.3));
+}
+.cursor.clicking::after{
+  content:'';position:absolute;left:0;top:0;
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(249,115,22,.3);
+  transform:translate(-4px,-4px);
+  animation:clickPulse .4s ease-out;
+}
+@keyframes clickPulse{0%{transform:translate(-4px,-4px) scale(0);opacity:1}100%{transform:translate(-4px,-4px) scale(1.5);opacity:0}}
+
+/* Scene transitions */
+.scene{position:absolute;left:var(--sidebar-w);top:0;right:0;bottom:0;opacity:0;transition:opacity .5s}
+.scene.active{opacity:1}
+
+/* Blur overlay for scene transitions */
+.transition-overlay{
+  position:absolute;left:0;top:0;right:0;bottom:0;z-index:40;
+  background:rgba(17,24,39,.6);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  opacity:0;pointer-events:none;
+  transition:opacity .5s ease;
+}
+.transition-overlay.active{opacity:1}
+.transition-overlay .transition-text{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;color:#fff;
+  opacity:0;transition:opacity .4s ease .2s;
+}
+.transition-overlay.active .transition-text{opacity:1}
+.transition-overlay .transition-text h3{font-size:16px;font-weight:700;margin-bottom:4px;font-family:'Inter',sans-serif}
+.transition-overlay .transition-text p{font-size:10px;color:var(--gray-400)}
+
+/* Scene label */
+.scene-label{
+  position:absolute;top:0;left:var(--sidebar-w);right:0;
+  background:linear-gradient(135deg,var(--gray-900),var(--gray-800));
+  color:#fff;text-align:center;padding:14px 20px;z-index:50;
+  opacity:0;transition:opacity .4s;
+}
+.scene-label.visible{opacity:1}
+.scene-label h2{font-size:13px;font-weight:700;margin-bottom:2px}
+.scene-label p{font-size:9px;color:var(--gray-400)}
+
+/* Typing animation */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.typing-cursor{display:inline-block;width:1px;height:12px;background:var(--orange-500);animation:blink .8s infinite;vertical-align:middle;margin-left:1px}
+
+/* Progress bar */
+.demo-progress{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gray-200);z-index:60}
+.demo-progress-bar{height:100%;background:linear-gradient(90deg,var(--orange-500),var(--orange-600));transition:width .3s;width:0}
+
+/* Notification toast */
+.toast{
+  position:absolute;top:12px;right:12px;z-index:55;
+  background:var(--white);border:1px solid var(--gray-200);border-radius:8px;
+  padding:8px 12px;box-shadow:0 8px 24px rgba(0,0,0,.12);
+  display:flex;align-items:center;gap:8px;
+  transform:translateY(-20px);opacity:0;transition:all .3s;
+}
+.toast.visible{transform:translateY(0);opacity:1}
+.toast .toast-icon{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px}
+.toast .toast-text{font-size:9px;color:var(--gray-700)}
+.toast .toast-text strong{display:block;font-size:10px;color:var(--gray-900)}
+</style>
+</head>
+<body>
+
+<div class="demo-container" id="demo">
+  <!-- Sidebar (always visible) -->
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-box">AOI</div>
+      <div class="logo-text">Network</div>
+    </div>
+    <div class="sidebar-user">
+      <div class="name" id="sidebar-name">Thomas M.</div>
+      <div class="level" id="sidebar-level">Niveau 3 • Co-Opérateur</div>
+    </div>
+    <nav class="sidebar-nav" id="sidebar-nav">
+      <a href="#" id="nav-dashboard">🏠 Accueil</a>
+      <a href="#" id="nav-profil">👤 Mon Profil</a>
+      <a href="#" id="nav-portfolio">💼 Mon Portfolio</a>
+      <a href="#" id="nav-messages">💬 Messages</a>
+      <a href="#" id="nav-biblio">📄 Bibliothèque</a>
+      <a href="#" id="nav-masterclass">🎬 MasterClass</a>
+      <a href="#" id="nav-annuaire">👥 Annuaire</a>
+      <a href="#" id="nav-opp">🎯 Mes Opportunités</a>
+      <a href="#" id="nav-sep" class="active">📊 Projets SEP</a>
+      <a href="#" id="nav-operations">🏗️ Mes Opérations</a>
+      <a href="#" id="nav-partenariats">🤝 Partenariats</a>
+    </nav>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- Transition overlay -->
+  <div class="transition-overlay" id="transitionOverlay">
+    <div class="transition-text">
+      <h3 id="transitionTitle"></h3>
+      <p id="transitionDesc"></p>
+    </div>
+  </div>
+
+  <!-- Scene Label -->
+  <div class="scene-label" id="sceneLabel">
+    <h2 id="sceneLabelTitle"></h2>
+    <p id="sceneLabelDesc"></p>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">
+    <div class="toast-icon" id="toastIcon"></div>
+    <div class="toast-text" id="toastText"></div>
+  </div>
+
+  <!-- ====== SCENE 1: Création projet SEP ====== -->
+  <div class="scene active" id="scene1">
+    <div class="page-header">
+      <h1>📊 Nouveau Projet SEP</h1>
+      <p>Publiez votre projet et recherchez des associés et prestataires</p>
+    </div>
+    <div class="page-content">
+      <div class="card">
+        <div class="card-title">📋 Informations du projet</div>
+        <div class="form-group">
+          <label class="form-label">Titre du projet</label>
+          <input class="form-input" id="f-title" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Ville</label>
+            <input class="form-input" id="f-city" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Budget total</label>
+            <input class="form-input" id="f-budget" readonly>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Marge brute estimée</label>
+            <input class="form-input" id="f-marge" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rentabilité visée</label>
+            <input class="form-input" id="f-renta" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea class="form-input form-textarea" id="f-desc" readonly></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔍 Profils recherchés</div>
+        <div id="chips-container" style="min-height:24px;"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📷 Photos du projet</div>
+        <div class="photo-grid" id="photo-grid"></div>
+      </div>
+
+      <div style="margin-top:12px;text-align:right;">
+        <button class="btn btn-orange" id="btn-publish" style="opacity:.5;pointer-events:none;">📊 Publier le projet SEP</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SCENE 2: Portfolio prestataire ====== -->
+  <div class="scene" id="scene2">
+    <div class="page-header">
+      <h1>💼 Mon Portfolio</h1>
+      <p>Présentez vos réalisations aux opérateurs du réseau</p>
+    </div>
+    <div class="page-content">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+        <span style="font-size:10px;color:var(--gray-500);">3 réalisations</span>
+        <button class="btn btn-primary" id="btn-add-portfolio">＋ Nouvelle réalisation</button>
+      </div>
+
+      <div id="portfolio-list">
+        <div class="portfolio-card" style="margin-bottom:10px;">
+          <div class="portfolio-img" style="background:linear-gradient(135deg,#fed7aa,#fdba74);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:24px;">🏠</span>
+          </div>
+          <div class="portfolio-body">
+            <h3>Extension bois — Maison Clamart</h3>
+            <p>Clamart (92) • 45 m² • Extension ossature bois</p>
+            <div class="portfolio-stats">
+              <div class="portfolio-stat">Budget : <strong>85 000 €</strong></div>
+              <div class="portfolio-stat">Durée : <strong>4 mois</strong></div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card" style="margin-bottom:10px;">
+          <div class="portfolio-img" style="background:linear-gradient(135deg,#dbeafe,#bfdbfe);display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:24px;">🏗️</span>
+          </div>
+          <div class="portfolio-body">
+            <h3>Réhabilitation immeuble — Fontenay</h3>
+            <p>Fontenay-aux-Roses (92) • 320 m² • Rénovation complète</p>
+            <div class="portfolio-stats">
+              <div class="portfolio-stat">Budget : <strong>420 000 €</strong></div>
+              <div class="portfolio-stat">Durée : <strong>8 mois</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New portfolio form (hidden initially) -->
+      <div class="card" id="new-portfolio-form" style="display:none;border:2px solid var(--orange-500);">
+        <div class="card-title" style="color:var(--orange-600);">🆕 Nouvelle réalisation</div>
+        <div class="form-group">
+          <label class="form-label">Nom du projet</label>
+          <input class="form-input" id="pf-name" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Ville</label>
+            <input class="form-input" id="pf-city" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Surface</label>
+            <input class="form-input" id="pf-surface" readonly>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Type de prestation</label>
+          <input class="form-input" id="pf-type" readonly>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Prix de la prestation</label>
+            <input class="form-input" id="pf-prix" readonly>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Photos</label>
+            <div id="pf-photos" style="display:flex;gap:4px;margin-top:4px;"></div>
+          </div>
+        </div>
+        <div style="text-align:right;margin-top:8px;">
+          <button class="btn btn-orange" id="btn-save-portfolio" style="opacity:.5;">💾 Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== SCENE 3: Appels d'offres + candidature ====== -->
+  <div class="scene" id="scene3">
+    <div class="page-header">
+      <h1>🎯 Salle des Opportunités</h1>
+      <p>Consultez les appels d'offres des opérateurs du réseau</p>
+    </div>
+    <div class="page-content">
+      <div style="display:flex;gap:6px;margin-bottom:12px;">
+        <span class="chip chip-orange">📋 Toutes (5)</span>
+        <span class="chip" style="background:var(--gray-100);color:var(--gray-600);">🏗️ Travaux (3)</span>
+        <span class="chip" style="background:var(--gray-100);color:var(--gray-600);">📐 Architecture (2)</span>
+      </div>
+
+      <div class="opp-card" id="opp1">
+        <div class="opp-header">
+          <div class="opp-title">📐 Architecte — Division parcellaire Châtillon</div>
+          <div class="opp-badge">Ouvert</div>
+        </div>
+        <div class="opp-desc">Recherche architecte pour dépôt PA et suivi d'une division en 5 lots sur parcelle 1 200 m² à Châtillon (92).</div>
+        <div class="opp-meta">
+          <span>📍 Châtillon (92)</span>
+          <span>💰 Budget : 35 000 €</span>
+          <span>📅 Deadline : 28/02/2026</span>
+          <span>👤 Par Thomas M.</span>
+        </div>
+      </div>
+
+      <div class="opp-card" id="opp2">
+        <div class="opp-header">
+          <div class="opp-title">🏗️ Constructeur — Maison neuve Clamart</div>
+          <div class="opp-badge">Ouvert</div>
+        </div>
+        <div class="opp-desc">Construction d'une maison individuelle R+1 sur terrain issu de division. Surface : 95 m² habitables.</div>
+        <div class="opp-meta">
+          <span>📍 Clamart (92)</span>
+          <span>💰 Budget : 180 000 €</span>
+          <span>📅 Deadline : 15/03/2026</span>
+        </div>
+      </div>
+
+      <div class="opp-card" id="opp3">
+        <div class="opp-header">
+          <div class="opp-title">📐 Géomètre — Bornage + DP Fontenay</div>
+          <div class="opp-badge">Ouvert</div>
+        </div>
+        <div class="opp-desc">Mission géomètre pour bornage contradictoire et dépôt DP pour division parcellaire en 3 lots.</div>
+        <div class="opp-meta">
+          <span>📍 Fontenay-aux-Roses (92)</span>
+          <span>💰 Budget : 8 500 €</span>
+          <span>📅 Deadline : 20/02/2026</span>
+        </div>
+      </div>
+
+      <!-- Candidature panel (hidden) -->
+      <div id="candidature-panel" style="display:none;">
+        <div class="card" style="border:2px solid var(--blue-500);margin-top:12px;">
+          <div class="card-title" style="color:var(--blue-600);">✉️ Postuler à cette mission</div>
+          <div class="form-group">
+            <label class="form-label">Votre message</label>
+            <textarea class="form-input" id="cand-msg" style="height:50px;" readonly></textarea>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
+            <span style="font-size:8px;color:var(--gray-400);">Votre portfolio sera automatiquement joint</span>
+            <button class="btn btn-primary" id="btn-postuler" style="opacity:.5;background:var(--blue-600);">✉️ Envoyer ma candidature</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="demo-progress">
+    <div class="demo-progress-bar" id="progressBar"></div>
+  </div>
+</div>
+
+<script>
+// ================================================
+// AOI EXTRANET — ANIMATION ENGINE
+// ================================================
+
+const $ = id => document.getElementById(id);
+const cursor = $('cursor');
+const sceneLabel = $('sceneLabel');
+const toast = $('toast');
+let currentScene = 1;
+const totalDuration = 42000; // ~42s total
+const startTime = Date.now();
+
+// Update progress bar
+setInterval(() => {
+  const elapsed = Date.now() - startTime;
+  const pct = Math.min((elapsed / totalDuration) * 100, 100);
+  $('progressBar').style.width = pct + '%';
+}, 100);
+
+// Utilities
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function moveCursor(x, y) {
+  cursor.style.opacity = '1';
+  cursor.style.left = x + 'px';
+  cursor.style.top = y + 'px';
+}
+
+function hideCursor() { cursor.style.opacity = '0'; }
+
+function click() {
+  cursor.classList.add('clicking');
+  setTimeout(() => cursor.classList.remove('clicking'), 400);
+}
+
+async function typeText(el, text, speed = 35) {
+  for (let i = 0; i < text.length; i++) {
+    el.value = text.substring(0, i + 1);
+    await sleep(speed);
+  }
+  el.classList.add('filled');
+}
+
+async function typeTextarea(el, text, speed = 25) {
+  for (let i = 0; i < text.length; i++) {
+    el.value = text.substring(0, i + 1);
+    await sleep(speed);
+  }
+  el.classList.add('filled');
+}
+
+function showScene(n) {
+  document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+  $('scene' + n).classList.add('active');
+  currentScene = n;
+}
+
+async function showLabel(title, desc, duration = 2000) {
+  $('sceneLabelTitle').textContent = title;
+  $('sceneLabelDesc').textContent = desc;
+  sceneLabel.classList.add('visible');
+  await sleep(duration);
+  sceneLabel.classList.remove('visible');
+  await sleep(400);
+}
+
+async function sceneTransition(title, desc, duration = 2200) {
+  hideCursor();
+  // Blur in
+  $('transitionTitle').textContent = title;
+  $('transitionDesc').textContent = desc;
+  $('transitionOverlay').classList.add('active');
+  await sleep(duration);
+  // Blur out
+  $('transitionOverlay').classList.remove('active');
+  await sleep(500);
+}
+
+async function showToast(icon, title, text, bg = '#f0fdf4', color = '#16a34a', duration = 2500) {
+  $('toastIcon').textContent = icon;
+  $('toastIcon').style.background = bg;
+  $('toastIcon').style.color = color;
+  $('toastText').innerHTML = '<strong>' + title + '</strong>' + text;
+  toast.classList.add('visible');
+  await sleep(duration);
+  toast.classList.remove('visible');
+}
+
+function setActiveNav(id) {
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+  $(id).classList.add('active');
+}
+
+function addChip(container, text, cls = 'chip-orange') {
+  const chip = document.createElement('span');
+  chip.className = 'chip ' + cls;
+  chip.textContent = text;
+  container.appendChild(chip);
+}
+
+function addPhoto(container) {
+  const div = document.createElement('div');
+  div.className = 'photo-thumb';
+  const colors = ['#fed7aa','#bfdbfe','#bbf7d0','#e9d5ff','#fecaca'];
+  const icons = ['🏠','🏗️','📐','🔨','🏡'];
+  const idx = container.children.length;
+  div.style.background = 'linear-gradient(135deg,' + colors[idx % 5] + ',' + colors[(idx + 2) % 5] + ')';
+  div.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:20px;">' + icons[idx % 5] + '</div>';
+  div.style.opacity = '0';
+  div.style.transform = 'scale(.8)';
+  container.appendChild(div);
+  requestAnimationFrame(() => {
+    div.style.transition = 'all .3s';
+    div.style.opacity = '1';
+    div.style.transform = 'scale(1)';
+  });
+}
+
+function addMiniPhoto(container) {
+  const div = document.createElement('div');
+  div.style.cssText = 'width:28px;height:28px;border-radius:4px;background:linear-gradient(135deg,#bbf7d0,#86efac);display:flex;align-items:center;justify-content:center;font-size:12px;opacity:0;transform:scale(.8);transition:all .3s;';
+  div.textContent = '📷';
+  container.appendChild(div);
+  requestAnimationFrame(() => { div.style.opacity = '1'; div.style.transform = 'scale(1)'; });
+}
+
+// ================================================
+// MAIN ANIMATION SEQUENCE
+// ================================================
+async function runDemo() {
+  // ──── SCENE 1: Création Projet SEP ────
+  await showLabel('Scène 1 — Opérateur', 'Thomas crée un projet SEP et recherche des associés et prestataires');
+  
+  setActiveNav('nav-sep');
+  
+  // Type title
+  const titleEl = $('f-title');
+  moveCursor(500, 140);
+  await sleep(500);
+  click();
+  await sleep(300);
+  await typeText(titleEl, 'Division 7 lots — Châtillon (92)');
+  
+  // City
+  moveCursor(400, 195);
+  await sleep(300);
+  click();
+  await typeText($('f-city'), 'Châtillon', 50);
+  
+  // Budget
+  moveCursor(600, 195);
+  await sleep(200);
+  click();
+  await typeText($('f-budget'), '850 000 €', 50);
+  
+  // Marge
+  moveCursor(400, 240);
+  await sleep(200);
+  click();
+  await typeText($('f-marge'), '350 000 €', 50);
+  
+  // Renta
+  moveCursor(600, 240);
+  await sleep(200);
+  click();
+  await typeText($('f-renta'), '28,5 %', 60);
+  
+  // Description
+  moveCursor(500, 290);
+  await sleep(300);
+  click();
+  await typeTextarea($('f-desc'), 'Immeuble R+2, 7 lots dont 5 T2 et 2 T3. Paiement différé négocié.', 20);
+  
+  await sleep(400);
+  
+  // Scroll simulated — add chips
+  const chips = $('chips-container');
+  const profiles = ['Marchand de biens', 'Architecte', 'Constructeur', 'Géomètre'];
+  for (const p of profiles) {
+    moveCursor(350 + Math.random() * 100, 370);
+    await sleep(300);
+    click();
+    addChip(chips, p, profiles.indexOf(p) === 0 ? 'chip-orange' : 'chip-blue');
+    await sleep(200);
+  }
+  
+  await sleep(400);
+  
+  // Add photos
+  const photoGrid = $('photo-grid');
+  for (let i = 0; i < 3; i++) {
+    moveCursor(450, 430);
+    await sleep(250);
+    click();
+    addPhoto(photoGrid);
+    await sleep(300);
+  }
+  
+  await sleep(500);
+  
+  // Enable publish button and click
+  const btnPublish = $('btn-publish');
+  btnPublish.style.opacity = '1';
+  btnPublish.style.pointerEvents = 'auto';
+  moveCursor(700, 500);
+  await sleep(400);
+  click();
+  await sleep(300);
+  btnPublish.textContent = '✅ Projet publié !';
+  btnPublish.style.background = 'var(--green-600)';
+  
+  await showToast('✅', 'Projet SEP publié', '<br>4 opportunités créées automatiquement');
+  
+  await sleep(1500);
+  
+  // ──── SCENE 2: Portfolio Prestataire ────
+  await sceneTransition('👤 Changement de point de vue', 'Sophie, architecte DPLG — Partenaire Métier');
+  
+  showScene(2);
+  $('sidebar-name').textContent = 'Sophie D.';
+  $('sidebar-level').textContent = 'Niveau 2 • Partenaire Métier';
+  setActiveNav('nav-portfolio');
+  
+  // Update nav for level 2
+  $('nav-opp').textContent = '🎯 Opportunités';
+  $('nav-sep').style.display = 'none';
+  $('nav-operations').style.display = 'none';
+  
+  await sleep(800);
+  
+  // Click "New"
+  moveCursor(700, 90);
+  await sleep(400);
+  click();
+  await sleep(300);
+  $('new-portfolio-form').style.display = 'block';
+  $('new-portfolio-form').scrollIntoView({ behavior: 'smooth' });
+  
+  await sleep(400);
+  
+  // Fill form
+  moveCursor(500, 340);
+  await sleep(300);
+  click();
+  await typeText($('pf-name'), 'Surélévation R+1 — Bagneux', 35);
+  
+  moveCursor(400, 390);
+  await sleep(200);
+  click();
+  await typeText($('pf-city'), 'Bagneux (92)', 50);
+  
+  moveCursor(600, 390);
+  await sleep(200);
+  click();
+  await typeText($('pf-surface'), '120 m²', 60);
+  
+  moveCursor(500, 430);
+  await sleep(200);
+  click();
+  await typeText($('pf-type'), 'Architecture + suivi de chantier', 25);
+  
+  moveCursor(400, 470);
+  await sleep(200);
+  click();
+  await typeText($('pf-prix'), '42 000 €', 50);
+  
+  // Photos
+  const pfPhotos = $('pf-photos');
+  for (let i = 0; i < 3; i++) {
+    moveCursor(600 + i * 30, 470);
+    await sleep(250);
+    click();
+    addMiniPhoto(pfPhotos);
+    await sleep(200);
+  }
+  
+  await sleep(400);
+  
+  // Save
+  const btnSave = $('btn-save-portfolio');
+  btnSave.style.opacity = '1';
+  moveCursor(700, 510);
+  await sleep(300);
+  click();
+  await sleep(200);
+  btnSave.textContent = '✅ Enregistré !';
+  btnSave.style.background = 'var(--green-600)';
+  
+  await showToast('💼', 'Réalisation ajoutée', '<br>Visible par les opérateurs du réseau');
+  
+  await sleep(1500);
+  
+  // ──── SCENE 3: Candidature appel d'offre ────
+  await sceneTransition('🎯 Appels d\'offres', 'Sophie consulte les missions disponibles et postule');
+  
+  showScene(3);
+  setActiveNav('nav-opp');
+  
+  await sleep(800);
+  
+  // Hover on first opportunity
+  moveCursor(500, 160);
+  await sleep(500);
+  $('opp1').classList.add('highlight');
+  await sleep(400);
+  
+  // Click
+  click();
+  await sleep(300);
+  
+  // Show candidature panel
+  $('candidature-panel').style.display = 'block';
+  
+  await sleep(500);
+  
+  // Type message
+  moveCursor(500, 400);
+  await sleep(300);
+  click();
+  await typeTextarea($('cand-msg'), 'Bonjour Thomas, architecte DPLG avec 12 ans d\'expérience en division parcellaire. J\'ai réalisé 8 PA similaires dans les Hauts-de-Seine. Mon portfolio est joint.', 18);
+  
+  await sleep(400);
+  
+  // Click postuler
+  const btnPostuler = $('btn-postuler');
+  btnPostuler.style.opacity = '1';
+  moveCursor(700, 470);
+  await sleep(400);
+  click();
+  await sleep(300);
+  btnPostuler.textContent = '✅ Candidature envoyée !';
+  btnPostuler.style.background = 'var(--green-600)';
+  
+  await showToast('✉️', 'Candidature envoyée', '<br>Thomas M. sera notifié par email', '#eff6ff', '#2563eb');
+  
+  await sleep(2000);
+
+  // End — loop
+  await sceneTransition('AOI Network', 'L\'extranet des opérateurs et prestataires immobiliers');
+  await sleep(1000);
+  
+  // Reset and replay
+  resetDemo();
+  runDemo();
+}
+
+function resetDemo() {
+  // Reset scene 1
+  $('f-title').value = ''; $('f-city').value = ''; $('f-budget').value = '';
+  $('f-marge').value = ''; $('f-renta').value = ''; $('f-desc').value = '';
+  document.querySelectorAll('.form-input').forEach(el => el.classList.remove('filled'));
+  $('chips-container').innerHTML = '';
+  $('photo-grid').innerHTML = '';
+  $('btn-publish').textContent = '📊 Publier le projet SEP';
+  $('btn-publish').style.background = 'var(--orange-500)';
+  $('btn-publish').style.opacity = '.5';
+  
+  // Reset scene 2
+  $('new-portfolio-form').style.display = 'none';
+  $('pf-name').value = ''; $('pf-city').value = ''; $('pf-surface').value = '';
+  $('pf-type').value = ''; $('pf-prix').value = '';
+  $('pf-photos').innerHTML = '';
+  $('btn-save-portfolio').textContent = '💾 Enregistrer';
+  $('btn-save-portfolio').style.background = 'var(--orange-500)';
+  $('btn-save-portfolio').style.opacity = '.5';
+  
+  // Reset scene 3
+  $('opp1').classList.remove('highlight');
+  $('candidature-panel').style.display = 'none';
+  $('cand-msg').value = '';
+  $('btn-postuler').textContent = '✉️ Envoyer ma candidature';
+  $('btn-postuler').style.background = 'var(--blue-600)';
+  $('btn-postuler').style.opacity = '.5';
+  
+  // Reset user
+  $('sidebar-name').textContent = 'Thomas M.';
+  $('sidebar-level').textContent = 'Niveau 3 • Co-Opérateur';
+  $('nav-opp').textContent = '🎯 Mes Opportunités';
+  $('nav-sep').style.display = '';
+  $('nav-operations').style.display = '';
+  
+  showScene(1);
+  hideCursor();
+}
+
+// Start
+runDemo();
+</script>
+
+</body>
+</html>
