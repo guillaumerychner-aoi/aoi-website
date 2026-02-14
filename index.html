@@ -90,7 +90,6 @@
                     <a href="#resultats">Résultats</a>
                     <a href="#offres">L'Alliance</a>
                     <a href="#tarifs">Tarifs</a>
-                    <a href="#faq">FAQ</a>
                     <a href="https://extranet.aoi-network.com/login" class="nav-extranet"><i data-lucide="log-in" style="width:16px;height:16px;margin-right:4px;"></i>Extranet</a>
                     <a href="#contact" class="btn btn-primary">Nous rejoindre</a>
                 </nav>
@@ -105,6 +104,7 @@
         <a href="#offres" onclick="toggleMobileMenu()">L'Alliance</a>
         <a href="#tarifs" onclick="toggleMobileMenu()">Tarifs</a>
         <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
+        <a href="https://extranet.aoi-network.com/login" style="background:var(--gray-900);color:#fff;border-radius:8px;text-align:center;padding:12px;">Extranet →</a>
         <a href="#contact" class="btn btn-primary" onclick="toggleMobileMenu()">Nous rejoindre</a>
     </div>
 
@@ -119,6 +119,12 @@
                         <a href="#contact" class="btn btn-primary"><i data-lucide="users"></i>Rejoindre l'Alliance</a>
                         <a href="#resultats" class="btn btn-secondary"><i data-lucide="trophy"></i>Nos résultats</a>
                     </div>
+                    <div style="display:flex;gap:24px;margin-top:32px;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:1.5rem;font-weight:800;color:var(--orange-600);">1,17M€</span><span style="font-size:.8rem;color:var(--gray-500);line-height:1.2;">marge brute<br>cumulée</span></div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:1.5rem;font-weight:800;color:var(--orange-600);">0€</span><span style="font-size:.8rem;color:var(--gray-500);line-height:1.2;">d'apport dans<br>3 opérations sur 4</span></div>
+                        <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:1.5rem;font-weight:800;color:var(--orange-600);">0€</span><span style="font-size:.8rem;color:var(--gray-500);line-height:1.2;">d'emprunt<br>bancaire</span></div>
+                    </div>
+                    <p style="margin-top:10px;font-size:.75rem;color:var(--gray-400);font-style:italic;">Sur les 4 dernières opérations structurées par les fondateurs d'AOI — sans financement bancaire.</p>
                 </div>
                 <div class="hero-visual">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=500&fit=crop" alt="Immeubles modernes" class="hero-image">
@@ -156,29 +162,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Bandeau double cible -->
-    <section class="dual-target">
-        <div class="container">
-            <div class="dual-target-grid">
-                <div class="dual-target-card dual-target-operator">
-                    <div class="dual-target-icon"><i data-lucide="building-2"></i></div>
-                    <div class="dual-target-content">
-                        <h3>Opérateurs</h3>
-                        <p>Marchands de biens, promoteurs, aménageurs — trouvez des <strong>associés SEP</strong>, publiez vos <strong>appels d'offres</strong>, simulez vos opérations et pilotez vos projets.</p>
-                    </div>
-                </div>
-                <div class="dual-target-card dual-target-partner">
-                    <div class="dual-target-icon"><i data-lucide="compass"></i></div>
-                    <div class="dual-target-content">
-                        <h3>Prestataires</h3>
-                        <p>Architectes, constructeurs, géomètres, courtiers — recevez des <strong>missions qualifiées</strong> directement des opérateurs du réseau. Fini la prospection à froid.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="problems" id="problemes">
         <div class="container">
             
@@ -267,31 +250,6 @@
                 </div>
                 
                 <a href="#tarifs" class="btn btn-primary" style="background:#fff;color:#1f2937;box-shadow:none;"><i data-lucide="arrow-right"></i>Découvrir les offres</a>
-            </div>
-
-            <!-- Synthèse : les 3 constats terrain -->
-            <div style="margin-top:80px;">
-                <div class="section-header">
-                    <div class="section-label"><i data-lucide="alert-triangle"></i>En résumé</div>
-                    <h2>Le marché a changé. Les vieilles recettes ne marchent plus.</h2>
-                </div>
-                <div class="problems-grid">
-                    <div class="problem-card fade-in">
-                        <div class="problem-icon"><i data-lucide="building-2"></i></div>
-                        <h4>Dossiers refusés en série</h4>
-                        <p>Même avec un bon projet, les banques disent non. Trop de garanties demandées, délais trop longs, et au final... rien.</p>
-                    </div>
-                    <div class="problem-card fade-in">
-                        <div class="problem-icon"><i data-lucide="percent"></i></div>
-                        <h4>Des coûts qui mangent la marge</h4>
-                        <p>Financements externes à 10-14% + frais de plateforme de 7 à 8% + frais de dossier + cumul de garanties = des conditions qui compriment vos marges.</p>
-                    </div>
-                    <div class="problem-card fade-in">
-                        <div class="problem-icon"><i data-lucide="user-x"></i></div>
-                        <h4>Seul face aux décisions</h4>
-                        <p>Personne pour challenger vos chiffres. Une erreur d'appréciation et c'est la catastrophe. L'isolement tue autant que le manque de cash.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -444,43 +402,13 @@
         </div>
     </section>
 
-    <section class="dual-offer" id="offres">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label"><i data-lucide="users-2"></i>Deux mondes, une alliance</div>
-                <h2>AOI réunit <span>opérateurs</span> et <span>prestataires</span></h2>
-                <p>Un écosystème complet où chacun trouve sa place et ses opportunités.</p>
-            </div>
-            <div class="dual-offer-grid">
-                <div class="offer-card operateur fade-in">
-                    <div class="offer-icon"><i data-lucide="building-2" style="width:36px;height:36px;"></i></div>
-                    <h3>Opérateurs</h3>
-                    <p class="subtitle">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
-                    <p>Structurez vos opérations autrement, trouvez des associés pour vos SEP, et accédez à un réseau de prestataires de confiance.</p>
-                    <ul class="offer-features">
-                        <li><i data-lucide="check"></i><span><strong>Méthodes de structuration</strong> — Paiements à terme, SEP, co-production</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Recherche d'associés</strong> — Trouvez des co-associés pour vos projets</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Publiez vos besoins et recevez des candidatures qualifiées</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Confrontation des décisions</strong> — Partagez avec des pairs expérimentés</span></li>
-                    </ul>
-                    <a href="#tarifs" class="btn btn-primary">Voir les offres opérateurs</a>
-                </div>
-                <div class="offer-card prestataire fade-in">
-                    <div class="offer-icon"><i data-lucide="briefcase" style="width:36px;height:36px;"></i></div>
-                    <h3>Partenaires Métier</h3>
-                    <p class="subtitle">Tous les professionnels de l'immobilier</p>
-                    <p>Accédez à une <strong>Salle des Opportunités</strong> exclusive : appels d'offres et consultations publiés par les opérateurs du réseau.</p>
-                    <ul class="offer-features">
-                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Des missions qualifiées, pas de la prospection à froid</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Visibilité ciblée</strong> — Votre profil dans l'annuaire des prestataires</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Réseau qualifié</strong> — Opérateurs sélectionnés et solvables</span></li>
-                        <li><i data-lucide="check"></i><span><strong>Moins de prospection</strong> — Les projets viennent à vous</span></li>
-                    </ul>
-                    <a href="#tarifs" class="btn btn-secondary" style="border-color:#3b82f6;color:#3b82f6;">Voir l'offre Partenaire</a>
-                </div>
-            </div>
+    <div style="text-align:center;padding:48px 0;background:var(--gray-50);">
+        <p style="color:var(--gray-600);font-size:1rem;margin-bottom:16px;font-weight:500;">Ces résultats vous parlent ?</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="#tarifs" class="btn btn-primary"><i data-lucide="arrow-right"></i>Voir les tarifs</a>
+            <a href="#contact" class="btn btn-secondary"><i data-lucide="message-circle"></i>Échanger avec nous</a>
         </div>
-    </section>
+    </div>
 
     <section class="platform-preview" id="plateforme">
         <div class="container">
@@ -681,6 +609,49 @@
         </div>
     </section>
 
+    <div style="text-align:center;padding:48px 0;background:var(--gray-50);">
+        <p style="color:var(--gray-600);font-size:1rem;margin-bottom:16px;font-weight:500;">Convaincu(e) par l'outil ?</p>
+        <a href="#tarifs" class="btn btn-primary"><i data-lucide="arrow-right"></i>Choisir mon offre</a>
+    </div>
+
+    <section class="dual-offer" id="offres">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="users-2"></i>Deux mondes, une alliance</div>
+                <h2>AOI réunit <span>opérateurs</span> et <span>prestataires</span></h2>
+                <p>Un écosystème complet où chacun trouve sa place et ses opportunités.</p>
+            </div>
+            <div class="dual-offer-grid">
+                <div class="offer-card operateur fade-in">
+                    <div class="offer-icon"><i data-lucide="building-2" style="width:36px;height:36px;"></i></div>
+                    <h3>Opérateurs</h3>
+                    <p class="subtitle">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
+                    <p>Structurez vos opérations autrement, trouvez des associés pour vos SEP, et accédez à un réseau de prestataires de confiance.</p>
+                    <ul class="offer-features">
+                        <li><i data-lucide="check"></i><span><strong>Méthodes de structuration</strong> — Paiements à terme, SEP, co-production</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Recherche d'associés</strong> — Trouvez des co-associés pour vos projets</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Publiez vos besoins et recevez des candidatures qualifiées</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Confrontation des décisions</strong> — Partagez avec des pairs expérimentés</span></li>
+                    </ul>
+                    <a href="#tarifs" class="btn btn-primary">Voir les offres opérateurs</a>
+                </div>
+                <div class="offer-card prestataire fade-in">
+                    <div class="offer-icon"><i data-lucide="briefcase" style="width:36px;height:36px;"></i></div>
+                    <h3>Partenaires Métier</h3>
+                    <p class="subtitle">Tous les professionnels de l'immobilier</p>
+                    <p>Accédez à une <strong>Salle des Opportunités</strong> exclusive : appels d'offres et consultations publiés par les opérateurs du réseau.</p>
+                    <ul class="offer-features">
+                        <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Des missions qualifiées, pas de la prospection à froid</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Visibilité ciblée</strong> — Votre profil dans l'annuaire des prestataires</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Réseau qualifié</strong> — Opérateurs sélectionnés et solvables</span></li>
+                        <li><i data-lucide="check"></i><span><strong>Moins de prospection</strong> — Les projets viennent à vous</span></li>
+                    </ul>
+                    <a href="#tarifs" class="btn btn-secondary" style="border-color:#3b82f6;color:#3b82f6;">Voir l'offre Partenaire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials" id="temoignages">
         <div class="container">
             <div class="section-header">
@@ -731,6 +702,42 @@
             </div>
         </div>
     </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label"><i data-lucide="route"></i>Comment ça marche</div>
+                <h2>Rejoindre l'alliance en 4 étapes</h2>
+                <p>Un processus simple pour intégrer le réseau et commencer à collaborer.</p>
+            </div>
+            <div class="steps">
+                <div class="step fade-in">
+                    <div class="step-number">1</div>
+                    <h4>Nous rejoindre</h4>
+                    <p>Présentez votre parcours et vos projets. Nous validons votre profil sous 48h.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">2</div>
+                    <h4>Échange</h4>
+                    <p>Un appel pour faire connaissance, comprendre vos besoins et présenter le fonctionnement.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">3</div>
+                    <h4>Intégration</h4>
+                    <p>Accès à l'extranet, aux ressources, et présentation aux autres membres.</p>
+                </div>
+                <div class="step fade-in">
+                    <div class="step-number">4</div>
+                    <h4>Collaboration</h4>
+                    <p>Publiez un projet, rejoignez une opération, répondez à des opportunités.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align:center;padding:20px 24px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;">
+        <p style="margin:0;font-size:.95rem;font-weight:600;">🚀 Phase de lancement — Places limitées par région • Tarifs fondateurs garantis à vie</p>
+    </div>
 
     <section class="pricing" id="tarifs">
         <div class="container">
@@ -832,61 +839,6 @@
         </div>
     </section>
 
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label"><i data-lucide="route"></i>Comment ça marche</div>
-                <h2>Rejoindre l'alliance en 4 étapes</h2>
-                <p>Un processus simple pour intégrer le réseau et commencer à collaborer.</p>
-            </div>
-            <div class="steps">
-                <div class="step fade-in">
-                    <div class="step-number">1</div>
-                    <h4>Nous rejoindre</h4>
-                    <p>Présentez votre parcours et vos projets. Nous validons votre profil sous 48h.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">2</div>
-                    <h4>Échange</h4>
-                    <p>Un appel pour faire connaissance, comprendre vos besoins et présenter le fonctionnement.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">3</div>
-                    <h4>Intégration</h4>
-                    <p>Accès à l'extranet, aux ressources, et présentation aux autres membres.</p>
-                </div>
-                <div class="step fade-in">
-                    <div class="step-number">4</div>
-                    <h4>Collaboration</h4>
-                    <p>Publiez un projet, rejoignez une opération, répondez à des opportunités.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="origin" id="origine">
-        <div class="container">
-            <div class="origin-content">
-                <div class="origin-visual">
-                    <div class="origin-quote">
-                        <p>Après des années à subir les refus bancaires, les taux des financements externes à 10-14% — qui répondent à un vrai besoin du marché — mais auxquels s'ajoutent frais de dossier, frais de plateforme de 7 à 8%, et cumul de garanties (personnelles, hypothèques, fiducies...), et l'isolement face aux décisions complexes, nous avons appris à faire autrement. Paiements différés, SEP avec d'autres opérateurs, partage du fruit de la vente avec les vendeurs... Ces méthodes nous ont permis de continuer à opérer. Alors nous avons construit les outils que nous aurions aimé avoir dès le début : un logiciel de simulation, des data rooms pour nos SEP, un réseau de prestataires qualifiés. AOI, c'est tout ça réuni.</p>
-                        <p class="author">— Guillaume, Fondateur d'AOI</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="section-label"><i data-lucide="history"></i>Pourquoi AOI existe</div>
-                    <h2>Né de <span>l'expérience</span>, pas d'une théorie</h2>
-                    <p class="origin-text">AOI n'est pas un concept imaginé dans un bureau. C'est le fruit de dizaines d'opérations réalisées dans des conditions difficiles, où les financements traditionnels n'étaient plus une option.</p>
-                    <ul class="origin-list">
-                        <li><i data-lucide="x-circle"></i><span><strong>Les banques qui ferment leurs portes après d'innombrables comités</strong> — Critères durcis, délais interminables, garanties impossibles</span></li>
-                        <li><i data-lucide="x-circle"></i><span><strong>Des conditions de financement qui pèsent sur les marges</strong> — Taux de 10 à 14%, frais de plateforme de 7 à 8%, cumul de garanties (personnelles, hypothécaires, déportées, fiducies...). Ces solutions ont leur utilité, mais elles ne conviennent pas à toutes les opérations.</span></li>
-                        <li><i data-lucide="x-circle"></i><span><strong>L'isolement qui fragilise</strong> — Seul face aux décisions, aux imprévus, aux risques</span></li>
-                    </ul>
-                    <p class="origin-text">Face à ces impasses, nous avons développé des alternatives qui fonctionnent — et nous avons construit une plateforme complète pour les mettre en œuvre. Logiciel de simulation, data rooms SEP, appels d'offres privés, pilotage d'opération de A à Z : AOI est l'outil que nous utilisons nous-mêmes au quotidien.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-header">
@@ -909,6 +861,10 @@
 
     <section class="cta" id="contact">
         <div class="container">
+            <div style="max-width:700px;margin:0 auto 32px;padding:24px 32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:16px;text-align:left;">
+                <p style="color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.7;margin:0;font-style:italic;">« Après des années à subir les refus bancaires et les conditions de financement qui compriment nos marges, nous avons appris à faire autrement. Paiements différés, SEP entre opérateurs, co-production avec les vendeurs... Ces méthodes nous ont permis de continuer à opérer. Alors nous avons construit les outils que nous aurions aimé avoir dès le début. AOI, c'est tout ça réuni. »</p>
+                <p style="color:var(--orange-400);font-size:.85rem;margin-top:12px;font-weight:600;">— Guillaume, Fondateur d'AOI</p>
+            </div>
             <h2>Prêt à rejoindre l'Alliance ?</h2>
             <p>AOI se construit maintenant, avec ses premiers membres. Participez à l'aventure dès le départ.</p>
             <div class="cta-buttons">
