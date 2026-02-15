@@ -14,7 +14,7 @@
 .rot p{color:#9ca3af;font-size:.85rem;line-height:1.5;max-width:280px;font-family:'Inter',sans-serif}
 @keyframes rh{0%,100%{transform:rotate(0deg)}25%{transform:rotate(90deg)}75%{transform:rotate(90deg)}}
 @media(max-width:768px) and (orientation:portrait){.rot{display:flex!important;position:fixed;inset:0;z-index:99999;background:#111827}.demo{display:none!important;visibility:hidden}body{background:#111827;overflow:hidden}}
-@media(max-width:900px) and (orientation:landscape){body{padding:0;margin:0;overflow:hidden}.demo{max-width:100%;width:100%;height:100vh;max-height:100vh;aspect-ratio:unset;border-radius:0;margin:0;box-shadow:none;border:none}}
+@media(max-width:900px) and (orientation:landscape){body{padding:0;margin:0;overflow:hidden;display:flex;align-items:center;justify-content:center;height:100vh;min-height:unset}.demo{max-width:unset;width:calc(100vw / var(--demo-scale, 1));height:calc(100vh / var(--demo-scale, 1));max-height:unset;aspect-ratio:unset;border-radius:0;margin:0;box-shadow:none;border:none;transform:scale(var(--demo-scale, 1));transform-origin:top left}}
 
 :root{
   --sbw:170px;--bg:#f9fafb;--w:#fff;
@@ -540,6 +540,22 @@ function reset(){
   ['ai1','ai2','ai3','ai4','ai5','ai-q1','ai-a1','ai-q2','ai-a2'].forEach(id=>{$(id).style.opacity='0';$(id).style.transition='none';});
   sh(1);nav('n-ops');hd();
 }
+
+// Auto-scale pour mobile paysage
+function applyMobileScale(){
+  if(window.innerWidth<=900 && window.innerHeight<window.innerWidth){
+    const demo=$('demo');
+    const scaleX=window.innerWidth/960;
+    const scaleY=window.innerHeight/570;
+    const s=Math.min(scaleX,scaleY);
+    document.documentElement.style.setProperty('--demo-scale',s);
+    demo.style.width='960px';
+    demo.style.height='570px';
+  }
+}
+applyMobileScale();
+window.addEventListener('resize',applyMobileScale);
+window.addEventListener('orientationchange',()=>setTimeout(applyMobileScale,200));
 
 run();
 </script>
