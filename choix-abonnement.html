@@ -230,7 +230,7 @@
                         <p class="price" id="partenairePrice">329€<span>/mois HT</span></p>
                         <p class="price-info" id="partenairePriceInfo">394,80€ TTC • Engagement 12 mois</p>
                         <p style="font-size:.75rem;color:#2563eb;font-weight:600;margin-top:6px;min-height:20px;">🚀 Premiers inscrits = moins de concurrence</p>
-                        <div class="billing-toggle" style="margin-top:12px;">
+                        <div class="billing-toggle billing-toggle-n2" style="margin-top:12px;">
                             <button class="active" data-billing="monthly">Mensuel</button>
                             <button data-billing="yearly">Annuel</button>
                         </div>
@@ -351,14 +351,14 @@
         });
         
         // Billing toggle for Partenaire Métier
-        const billingButtons = document.querySelectorAll('.billing-toggle button');
+        const billingButtonsN2 = document.querySelectorAll('.billing-toggle-n2 button');
         const partenaireBtn = document.querySelector('[data-plan="niveau2"]');
         const partenairePrice = document.getElementById('partenairePrice');
         const partenairePriceInfo = document.getElementById('partenairePriceInfo');
         
-        billingButtons.forEach(btn => {
+        billingButtonsN2.forEach(btn => {
             btn.addEventListener('click', function() {
-                billingButtons.forEach(b => b.classList.remove('active'));
+                billingButtonsN2.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
                 const billing = this.dataset.billing;
