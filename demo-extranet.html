@@ -859,14 +859,23 @@ function resetDemo() {
   hideCursor();
 }
 
-// Auto-scale pour mobile (portrait et paysage)
+// Auto-scale pour mobile (portrait et paysage) et pour iframe
 function applyMobileScale(){
   const demo=$('demo');
-  if(window.innerWidth<=900){
-    const s=Math.min(window.innerWidth/960,window.innerHeight/570);
+  const inIframe=window.self!==window.top;
+  const vw=inIframe?document.documentElement.clientWidth:window.innerWidth;
+  const vh=inIframe?document.documentElement.clientHeight:window.innerHeight;
+  if(vw<960||vh<570){
+    const s=Math.min(vw/960,vh/570);
     demo.style.transform='scale('+s+')';
+    demo.style.transformOrigin='top left';
+    document.body.style.display='block';
+    document.body.style.overflow='hidden';
+    document.body.style.padding='0';
+    document.body.style.margin='0';
   } else {
     demo.style.transform='';
+    demo.style.transformOrigin='';
   }
 }
 applyMobileScale();
