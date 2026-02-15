@@ -151,6 +151,7 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
       <a href="#" id="n-ops" class="on">🏠 Mes opérations</a>
       <a href="#" id="n-stocks">📦 Stocks</a>
       <a href="#" id="n-syn">📈 Synthèse</a>
+      <a href="#" id="n-ia">✨ Copilote IA</a>
       <a href="#" id="n-guide">📖 Guide</a>
       <a href="#" id="n-params">⚙️ Paramètres</a>
     </nav>
@@ -245,6 +246,39 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
     </div>
   </div>
 
+  <!-- SCENE 4: Intelligence Artificielle -->
+  <div class="sc" id="s4">
+    <div class="pg-h" style="margin-bottom:8px;">
+      <span style="font-weight:700;font-size:13px;">✨ Intelligence Artificielle</span>
+    </div>
+    <!-- Analyse de faisabilité -->
+    <div style="background:linear-gradient(135deg,#faf5ff,#f5f3ff);border:1px solid #e9d5ff;border-radius:8px;padding:10px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+        <span style="font-size:11px;font-weight:700;color:#7c3aed;">Analyse de faisabilité</span>
+        <span style="font-size:7px;background:#ede9fe;color:#6d28d9;padding:2px 6px;border-radius:10px;font-weight:600;">AUTO</span>
+      </div>
+      <div id="ai-lines" style="display:flex;flex-direction:column;gap:4px;">
+        <div class="ai-line" id="ai1" style="opacity:0;background:#fff;border-radius:6px;padding:6px 8px;font-size:8px;display:flex;align-items:center;gap:6px;border:1px solid #e5e7eb;"><span>🟢</span><span style="color:#374151;"><strong>Marge nette</strong> : 18,2% — Confortable</span></div>
+        <div class="ai-line" id="ai2" style="opacity:0;background:#fff;border-radius:6px;padding:6px 8px;font-size:8px;display:flex;align-items:center;gap:6px;border:1px solid #e5e7eb;"><span>🟢</span><span style="color:#374151;"><strong>Rentabilité</strong> : 24,1% — Excellente</span></div>
+        <div class="ai-line" id="ai3" style="opacity:0;background:#fff;border-radius:6px;padding:6px 8px;font-size:8px;display:flex;align-items:center;gap:6px;border:1px solid #e5e7eb;"><span>🟢</span><span style="color:#374151;"><strong>Financement</strong> : 0€ reste à financer — Couvert</span></div>
+        <div class="ai-line" id="ai4" style="opacity:0;background:#fff;border-radius:6px;padding:6px 8px;font-size:8px;display:flex;align-items:center;gap:6px;border:1px solid #e5e7eb;"><span>🟡</span><span style="color:#374151;"><strong>Travaux/CA</strong> : 28% — À surveiller</span></div>
+        <div class="ai-line" id="ai5" style="opacity:0;background:#fff;border-radius:6px;padding:6px 8px;font-size:8px;display:flex;align-items:center;gap:6px;border:1px solid #e5e7eb;"><span>🟢</span><span style="color:#374151;"><strong>Durée</strong> : 8 mois — Risque limité</span></div>
+      </div>
+    </div>
+    <!-- Chat Copilote -->
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:10px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+        <span style="font-size:11px;font-weight:700;color:#374151;">💬 Copilote</span>
+      </div>
+      <div id="ai-chat" style="display:flex;flex-direction:column;gap:6px;">
+        <div id="ai-q1" style="opacity:0;align-self:flex-end;background:#f97316;color:#fff;padding:5px 10px;border-radius:10px 10px 2px 10px;font-size:8px;max-width:70%;">Ma marge est-elle suffisante pour cette opération ?</div>
+        <div id="ai-a1" style="opacity:0;align-self:flex-start;background:#f3f4f6;color:#374151;padding:6px 10px;border-radius:10px 10px 10px 2px;font-size:8px;max-width:80%;line-height:1.4;">Avec 18,2% de marge nette et un financement 100% couvert par paiement à terme, l'opération est bien structurée. Le seul point de vigilance est le ratio travaux/CA à 28%.</div>
+        <div id="ai-q2" style="opacity:0;align-self:flex-end;background:#f97316;color:#fff;padding:5px 10px;border-radius:10px 10px 2px 10px;font-size:8px;max-width:70%;">Rédige-moi un argumentaire investisseur</div>
+        <div id="ai-a2" style="opacity:0;align-self:flex-start;background:#f3f4f6;color:#374151;padding:6px 10px;border-radius:10px 10px 10px 2px;font-size:8px;max-width:80%;line-height:1.4;">📄 <strong>Dossier généré</strong> — Note de synthèse, argumentaire et analyse des risques prêts à télécharger.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- SCENE 3: Synthèse + Stocks -->
   <div class="sc" id="s3">
     <div class="tabs" style="border:none;padding:0;">
@@ -317,7 +351,7 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
 
 <script>
 const $=id=>document.getElementById(id),cur=$('cur');
-const T=58000,st=Date.now();
+const T=72000,st=Date.now();
 setInterval(()=>{$('pB').style.width=Math.min((Date.now()-st)/T*100,100)+'%';},100);
 
 const sl=ms=>new Promise(r=>setTimeout(r,ms));
@@ -430,6 +464,22 @@ async function run(){
   $('bx2').textContent='✅ PDF global exporté';$('bx2').style.background='var(--gr600)';
   await tt('<strong>📄 Rapports de pilotage</strong>Export par phase et vue globale');await sl(1200);
 
+  // ══════ SCENE 4: Intelligence Artificielle ══════
+  await ov('✨ Intelligence Artificielle','Analyse automatique, copilote conversationnel, génération de dossiers');
+  sh(4);nav('n-ia');await sl(800);
+
+  // Analyse de faisabilité — lignes qui apparaissent une par une
+  for(let i=1;i<=5;i++){$('ai'+i).style.opacity='1';$('ai'+i).style.transition='opacity .4s';await sl(500);}
+  await sl(1000);
+
+  // Chat copilote
+  $('ai-q1').style.opacity='1';$('ai-q1').style.transition='opacity .3s';await sl(800);
+  $('ai-a1').style.opacity='1';$('ai-a1').style.transition='opacity .3s';await sl(1500);
+  $('ai-q2').style.opacity='1';$('ai-q2').style.transition='opacity .3s';await sl(800);
+  $('ai-a2').style.opacity='1';$('ai-a2').style.transition='opacity .3s';await sl(2000);
+
+  await tt('<strong>✨ IA intégrée</strong>Analyse, dialogue et rédaction automatiques');await sl(1500);
+
   // ══════ SCENE 3: Synthèse + Stocks ══════
   await ov('📈 Vue consolidée','Toutes vos opérations, tous vos lots, en un coup d\'œil');
   sh(3);nav('n-syn');await sl(1000);
@@ -462,7 +512,7 @@ async function run(){
   await sl(2000);
 
   // ══════ FIN ══════
-  await ov('AOI Network','Le logiciel des opérateurs immobiliers');await sl(1000);
+  await ov('AOI Network','Le logiciel IA des opérateurs immobiliers');await sl(1000);
   reset();run();
 }
 
@@ -482,6 +532,8 @@ function reset(){
   $('bx2').textContent='📄 PDF global';$('bx2').className='btn btn-d';$('bx2').style.cssText='';
   $('ts1').classList.add('on');$('ts2').classList.remove('on');
   $('syn-v').style.display='block';$('stk-v').style.display='none';
+  // Reset IA
+  ['ai1','ai2','ai3','ai4','ai5','ai-q1','ai-a1','ai-q2','ai-a2'].forEach(id=>{$(id).style.opacity='0';$(id).style.transition='none';});
   sh(1);nav('n-ops');hd();
 }
 
