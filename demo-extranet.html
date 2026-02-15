@@ -13,7 +13,7 @@
 .rotate-overlay h2{color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:8px;font-family:'Inter',sans-serif}
 .rotate-overlay p{color:#9ca3af;font-size:.85rem;line-height:1.5;max-width:280px;font-family:'Inter',sans-serif}
 @keyframes rotateHint{0%,100%{transform:rotate(0deg)}25%{transform:rotate(90deg)}75%{transform:rotate(90deg)}}
-@media(max-width:768px) and (orientation:portrait){.rotate-overlay{display:flex!important}.demo-container{display:none!important}body{overflow:hidden}}
+@media(max-width:768px) and (orientation:portrait){.rotate-overlay{display:flex!important;position:fixed;inset:0;z-index:99999;background:#111827}.demo-container{display:none!important;visibility:hidden}body{background:#111827;overflow:hidden}}
 @media(max-width:900px) and (orientation:landscape){body{padding:8px}.demo-container{max-width:100%;max-height:calc(100vh - 16px);border-radius:8px}}
 
 :root{
