@@ -87,9 +87,8 @@
                     <span class="logo-text">Network</span>
                 </a>               
                 <nav>
-                    <a href="#plateforme">La Solution</a>
                     <a href="#resultats">Résultats</a>
-                    
+                    <a href="#plateforme">La Plateforme</a>
                     <a href="#tarifs">Tarifs</a>
                     <a href="https://extranet.aoi-network.com/login" class="nav-extranet"><i data-lucide="log-in" style="width:16px;height:16px;margin-right:4px;"></i>Extranet</a>
                     <a href="#contact" class="btn btn-primary">Nous rejoindre</a>
@@ -100,9 +99,8 @@
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#plateforme" onclick="toggleMobileMenu()">La Solution</a>
         <a href="#resultats" onclick="toggleMobileMenu()">Résultats</a>
-        
+        <a href="#plateforme" onclick="toggleMobileMenu()">La Plateforme</a>
         <a href="#tarifs" onclick="toggleMobileMenu()">Tarifs</a>
         <a href="#faq" onclick="toggleMobileMenu()">FAQ</a>
         <a href="https://extranet.aoi-network.com/login" style="background:var(--gray-900);color:#fff;border-radius:8px;text-align:center;padding:12px;">Extranet →</a>
@@ -746,7 +744,7 @@
                     <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
                     <div class="footer-social"><a href="https://www.linkedin.com/company/aoinetwork" target="_blank" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a><a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a></div>
                 </div>
-                <div class="footer-column"><h5>Navigation</h5><ul><li><a href="#plateforme">La Solution</a></li><li><a href="#resultats">Résultats</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+                <div class="footer-column"><h5>Navigation</h5><ul><li><a href="#resultats">Résultats</a></li><li><a href="#plateforme">La Plateforme</a></li><li><a href="#tarifs">Tarifs</a></li><li><a href="#faq">FAQ</a></li></ul></div>
                 <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="#tarifs">Accès Initial</a></li><li><a href="#tarifs">Partenaire Métier</a></li><li><a href="#tarifs">Co-Opérateur</a></li></ul></div>
                 <div class="footer-column"><h5>Contact</h5><ul><li><a href="https://wa.me/33763782041" target="_blank">WhatsApp</a></li><li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li><li><a href="#contact">Nous Rejoindre</a></li></ul></div>
             </div>
@@ -769,12 +767,8 @@
         // --- IFRAME MANAGEMENT (anti-scroll-steal) ---
         // Lazy-load iframes only when visible, with scroll position protection
         const iframeObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const iframe=e.target;if(iframe.dataset.src&&!iframe.src){
-            // Save scroll position BEFORE loading iframe
             const savedY=window.scrollY;
-            iframe.addEventListener('load',()=>{
-                // Only restore if scroll moved without user interaction
-                window.scrollTo({top:savedY,behavior:'instant'});
-            },{once:true});
+            iframe.addEventListener('load',()=>{window.scrollTo({top:savedY,behavior:'instant'});},{once:true});
             iframe.src=iframe.dataset.src;
         }iframeObs.unobserve(iframe);}})},{threshold:0.1,rootMargin:'200px'});
         document.querySelectorAll('iframe[data-src]').forEach(el=>iframeObs.observe(el));
@@ -783,27 +777,16 @@
         function scaleIframes(){document.querySelectorAll('.demo-iframe-scaler').forEach(wrap=>{const iframe=wrap.querySelector('.demo-iframe');if(!iframe)return;const s=wrap.clientWidth/960;iframe.style.transform='scale('+s+')';});}
         scaleIframes();window.addEventListener('resize',scaleIframes);
 
-        // ROBUST anti-scroll-steal: overlay blocks all iframe interaction unless hovered
+        // Permanent overlay: iframes are view-only, never interactive
         document.querySelectorAll('.demo-iframe-scaler').forEach(wrap=>{
-            // Add pointer-events:none on iframes by default
             const iframe=wrap.querySelector('.demo-iframe');
             if(!iframe)return;
             iframe.style.pointerEvents='none';
-            // Create transparent overlay
+            iframe.setAttribute('tabindex','-1');
             const overlay=document.createElement('div');
-            overlay.style.cssText='position:absolute;inset:0;z-index:10;cursor:pointer;';
+            overlay.style.cssText='position:absolute;inset:0;z-index:10;';
             wrap.style.position='relative';
             wrap.appendChild(overlay);
-            // On click, enable iframe interaction temporarily
-            overlay.addEventListener('click',function(){
-                iframe.style.pointerEvents='auto';
-                overlay.style.display='none';
-                // Re-enable overlay after 2 seconds of no hover
-                const reOverlay=()=>{iframe.style.pointerEvents='none';overlay.style.display='block';};
-                wrap.addEventListener('mouseleave',reOverlay,{once:true});
-                // Fallback: re-enable after 30s anyway
-                setTimeout(()=>{reOverlay();},30000);
-            });
         });
         // Catch any remaining focus steal
         window.addEventListener('blur',()=>{if(document.activeElement&&document.activeElement.tagName==='IFRAME'){window.focus();}});
