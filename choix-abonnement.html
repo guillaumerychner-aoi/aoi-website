@@ -194,8 +194,12 @@
                         <div class="icon"><i data-lucide="user"></i></div>
                         <h3>Accès Initial</h3>
                         <p class="subtitle">Pour découvrir le réseau</p>
-                        <p class="price">99€<span>/mois HT</span></p>
-                        <p class="price-info">118,80€ TTC • Engagement 12 mois</p>
+                        <p class="price" id="initialPrice">99€<span>/mois HT</span></p>
+                        <p class="price-info" id="initialPriceInfo">118,80€ TTC • Engagement 12 mois</p>
+                        <div class="billing-toggle billing-toggle-n1" style="margin-top:12px;">
+                            <button class="active" data-billing="monthly">Mensuel</button>
+                            <button data-billing="yearly">Annuel</button>
+                        </div>
                     </div>
                     <div class="pricing-features">
                         <ul>
@@ -208,7 +212,7 @@
                             <li class="disabled"><i data-lucide="x"></i>Publication de projets SEP</li>
                         </ul>
                     </div>
-                    <button class="btn btn-secondary" data-plan="niveau1" data-price="11880">
+                    <button class="btn btn-secondary" data-plan="niveau1" data-price="11880" data-billing="monthly">
                         <i data-lucide="arrow-right"></i>
                         Choisir ce niveau
                     </button>
@@ -312,6 +316,32 @@
             document.getElementById('recapName').textContent = 'Visiteur';
             document.getElementById('recapCompany').textContent = 'Données non renseignées';
         }
+        
+        // Billing toggle for Accès Initial (Niveau 1)
+        const billingButtonsN1 = document.querySelectorAll('.billing-toggle-n1 button');
+        const initialBtn = document.querySelector('[data-plan="niveau1"]');
+        const initialPrice = document.getElementById('initialPrice');
+        const initialPriceInfo = document.getElementById('initialPriceInfo');
+        
+        billingButtonsN1.forEach(btn => {
+            btn.addEventListener('click', function() {
+                billingButtonsN1.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const billing = this.dataset.billing;
+                if (billing === 'yearly') {
+                    initialPrice.innerHTML = '1 090€<span>/an HT</span>';
+                    initialPriceInfo.textContent = '1 308€ TTC • 1 mois offert';
+                    initialBtn.dataset.price = '130800';
+                    initialBtn.dataset.billing = 'yearly';
+                } else {
+                    initialPrice.innerHTML = '99€<span>/mois HT</span>';
+                    initialPriceInfo.textContent = '118,80€ TTC • Engagement 12 mois';
+                    initialBtn.dataset.price = '11880';
+                    initialBtn.dataset.billing = 'monthly';
+                }
+            });
+        });
         
         // Billing toggle for Partenaire Métier
         const billingButtons = document.querySelectorAll('.billing-toggle button');
