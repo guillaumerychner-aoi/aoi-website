@@ -771,13 +771,11 @@
         const iframeObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const iframe=e.target;if(iframe.dataset.src&&!iframe.src){
             // Save scroll position BEFORE loading iframe
             const savedY=window.scrollY;
-            const savedX=window.scrollX;
+            iframe.addEventListener('load',()=>{
+                // Only restore if scroll moved without user interaction
+                window.scrollTo({top:savedY,behavior:'instant'});
+            },{once:true});
             iframe.src=iframe.dataset.src;
-            // Restore scroll position repeatedly for 3 seconds to catch any delayed focus steal
-            const restore=()=>{window.scrollTo(savedX,savedY);};
-            const interval=setInterval(restore,50);
-            setTimeout(()=>clearInterval(interval),3000);
-            iframe.addEventListener('load',()=>{restore();setTimeout(restore,100);setTimeout(restore,500);});
         }iframeObs.unobserve(iframe);}})},{threshold:0.1,rootMargin:'200px'});
         document.querySelectorAll('iframe[data-src]').forEach(el=>iframeObs.observe(el));
 
