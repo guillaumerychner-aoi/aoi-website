@@ -13,7 +13,8 @@
 .rot h2{color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:8px;font-family:'Inter',sans-serif}
 .rot p{color:#9ca3af;font-size:.85rem;line-height:1.5;max-width:280px;font-family:'Inter',sans-serif}
 @keyframes rh{0%,100%{transform:rotate(0deg)}25%{transform:rotate(90deg)}75%{transform:rotate(90deg)}}
-@media(max-width:768px) and (orientation:portrait){.rot{display:flex!important}.demo{display:none!important}}
+@media(max-width:768px) and (orientation:portrait){.rot{display:flex!important}.demo{display:none!important}body{overflow:hidden}}
+@media(max-width:900px) and (orientation:landscape){body{padding:8px}.demo{max-width:100%;max-height:calc(100vh - 16px);border-radius:8px}}
 
 :root{
   --sbw:170px;--bg:#f9fafb;--w:#fff;
@@ -515,6 +516,9 @@ async function run(){
   await ov('AOI Network','Le logiciel IA des opérateurs immobiliers');await sl(1000);
   reset();run();
 }
+
+// Empêcher le focus stealing qui scroll la page parent
+document.addEventListener('focusin', e => { e.target.blur && e.target.blur(); });
 
 function reset(){
   ['i1','i2','i3','i4','i5'].forEach(id=>{$(id).value='';$(id).classList.remove('ok');});
