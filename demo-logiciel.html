@@ -14,7 +14,7 @@
 .rot p{color:#9ca3af;font-size:.85rem;line-height:1.5;max-width:280px;font-family:'Inter',sans-serif}
 @keyframes rh{0%,100%{transform:rotate(0deg)}25%{transform:rotate(90deg)}75%{transform:rotate(90deg)}}
 @media(max-width:768px) and (orientation:portrait){.rot{display:flex!important;position:fixed;inset:0;z-index:99999;background:#111827}.demo{display:none!important;visibility:hidden}body{background:#111827;overflow:hidden}}
-@media(max-width:900px) and (orientation:landscape){body{padding:0;margin:0;overflow:hidden;display:flex;align-items:center;justify-content:center;height:100vh;min-height:unset}.demo{max-width:unset;width:calc(100vw / var(--demo-scale, 1));height:calc(100vh / var(--demo-scale, 1));max-height:unset;aspect-ratio:unset;border-radius:0;margin:0;box-shadow:none;border:none;transform:scale(var(--demo-scale, 1));transform-origin:top left}}
+@media(max-width:900px) and (orientation:landscape){body{padding:0;margin:0;overflow:hidden;display:flex;align-items:center;justify-content:center;height:100vh;width:100vw;min-height:unset}.demo{width:960px;height:570px;max-width:unset;max-height:unset;aspect-ratio:unset;border-radius:0;margin:0;box-shadow:none;border:none;transform-origin:center center}}
 
 :root{
   --sbw:170px;--bg:#f9fafb;--w:#fff;
@@ -543,19 +543,17 @@ function reset(){
 
 // Auto-scale pour mobile paysage
 function applyMobileScale(){
+  const demo=$('demo');
   if(window.innerWidth<=900 && window.innerHeight<window.innerWidth){
-    const demo=$('demo');
-    const scaleX=window.innerWidth/960;
-    const scaleY=window.innerHeight/570;
-    const s=Math.min(scaleX,scaleY);
-    document.documentElement.style.setProperty('--demo-scale',s);
-    demo.style.width='960px';
-    demo.style.height='570px';
+    const s=Math.min(window.innerWidth/960,window.innerHeight/570);
+    demo.style.transform='scale('+s+')';
+  } else {
+    demo.style.transform='';
   }
 }
 applyMobileScale();
 window.addEventListener('resize',applyMobileScale);
-window.addEventListener('orientationchange',()=>setTimeout(applyMobileScale,200));
+window.addEventListener('orientationchange',()=>setTimeout(applyMobileScale,300));
 
 run();
 </script>
