@@ -707,7 +707,10 @@ async function runDemo() {
   click();
   await sleep(300);
   $('new-portfolio-form').style.display = 'block';
-  $('new-portfolio-form').scrollIntoView({ behavior: 'smooth' });
+  // Scroll within the iframe body only, without affecting parent
+  const formEl = $('new-portfolio-form');
+  const rect = formEl.getBoundingClientRect();
+  document.documentElement.scrollTop = document.documentElement.scrollTop + rect.top - 50;
   
   await sleep(400);
   
