@@ -911,8 +911,8 @@
         const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
         document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
         // Lazy-load iframes seulement quand visibles (empêche le focus stealing qui scroll la page)
-        const iframeObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const iframe=e.target;if(iframe.dataset.src&&!iframe.src){iframe.src=iframe.dataset.src;}iframeObs.unobserve(iframe);}})},{threshold:0.1,rootMargin:'200px'});
-        document.querySelectorAll('iframe[data-src]').forEach(el=>iframeObs.observe(el));
+        // Lazy-load iframes UNIQUEMENT sur desktop (pas mobile)
+        if(window.innerWidth>768){const iframeObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){const iframe=e.target;if(iframe.dataset.src&&!iframe.src){iframe.src=iframe.dataset.src;}iframeObs.unobserve(iframe);}})},{threshold:0.1,rootMargin:'200px'});document.querySelectorAll('iframe[data-src]').forEach(el=>iframeObs.observe(el));}
         // Empêcher les iframes de voler le scroll
         window.addEventListener('blur',()=>{if(document.activeElement&&document.activeElement.tagName==='IFRAME'){window.focus();}});
     </script>
