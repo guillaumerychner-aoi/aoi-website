@@ -142,6 +142,82 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 .pdf-page .kpi-mini div .km-v{font-size:.4rem;font-weight:800;color:#222}
 
 /* PROGRESS */
+/* ═══ RESPONSIVE MOBILE ═══ */
+@media(max-width:768px){
+  .th{font-size:2rem}
+  .tl{font-size:1.6rem}
+  .tm{font-size:1.3rem}
+  .sub{font-size:1rem}
+  .sn{font-size:2.5rem}
+  .lbl{font-size:.6rem}
+  .g3{grid-template-columns:1fr;gap:12px;width:92%}
+  .g2{grid-template-columns:1fr;gap:16px;width:92%}
+  .cd{padding:20px}
+  .ic{width:36px;height:36px;font-size:.9rem}
+  /* Stats row */
+  #s1 > div:last-child{flex-direction:column;gap:24px}
+  /* Mock UI — hide sidebar, shrink */
+  .mock{width:95%;border-radius:8px}
+  .mock-side{display:none}
+  .mock-body{min-height:280px}
+  .mock-main{padding:12px}
+  .mock-header h3{font-size:.8rem}
+  .mock-btn{font-size:.55rem;padding:4px 8px}
+  .mock-btn.sec{font-size:.55rem;padding:4px 8px}
+  .mock-bar .url{font-size:.5rem}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:10px}
+  .kpi{padding:8px}
+  .kpi .kl{font-size:.45rem}
+  .kpi .kv{font-size:.85rem}
+  .kanban{grid-template-columns:repeat(2,1fr);gap:6px}
+  .kan-col{padding:6px}
+  .kan-col h4{font-size:.5rem;margin-bottom:4px}
+  .kan-card{padding:5px 7px;margin-bottom:4px;font-size:.55rem}
+  .kan-card .addr{font-size:.55rem}
+  .kan-card .city{font-size:.45rem}
+  /* Deals SEP */
+  .deal{padding:8px;margin-bottom:6px}
+  .deal .dh .dt{font-size:.6rem}
+  .deal .dd{flex-wrap:wrap;gap:6px;font-size:.5rem}
+  .sep-bar{height:6px}
+  .deal > div:last-child{flex-wrap:wrap}
+  /* Appels d'offres */
+  .ao-card{padding:8px}
+  .ao-card .ao-t{font-size:.6rem}
+  .ao-card .ao-d{font-size:.45rem}
+  .ext-grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .ext-card{padding:6px}
+  .ext-card .ext-av{width:24px;height:24px;font-size:.6rem}
+  .ext-card .ext-name{font-size:.5rem}
+  .ext-card .ext-role{font-size:.4rem}
+  .ext-card .ext-stars{font-size:.4rem}
+  /* Chat IA + PDF side by side → stack */
+  #s11 > div:last-of-type{flex-direction:column;width:95%}
+  #s11 > div:last-of-type > div:last-child{flex-direction:row;justify-content:center}
+  .pdf-page{width:110px!important;height:155px!important}
+  .chat-msg .bubble{font-size:.5rem;max-width:80%}
+  /* Echéancier */
+  .ech-grid{grid-template-columns:repeat(4,1fr)}
+  .ech-day{min-height:40px;padding:4px}
+  /* Skip button */
+  #skip-btn{top:12px;right:12px;padding:6px 12px;font-size:.65rem}
+  /* CTA */
+  .cta-link{padding:12px 28px;font-size:.95rem}
+  /* Nav zones wider on mobile */
+  .nav-left{width:30%}.nav-right{width:30%}
+}
+
+@media(max-width:480px){
+  .th{font-size:1.6rem}
+  .tl{font-size:1.3rem}
+  .tm{font-size:1.1rem}
+  .sn{font-size:2rem}
+  #s1 > div:last-child > div .sn{font-size:2rem}
+  .kanban{grid-template-columns:1fr 1fr}
+  .ech-grid{grid-template-columns:repeat(3,1fr)}
+  .pdf-page{width:90px!important;height:125px!important}
+  .g3 .cd,.g2 .cd{padding:16px}
+}
 #progress{position:fixed;bottom:0;left:0;height:3px;background:var(--orange);z-index:100;transition:width .3s}
 
 /* CTA link style */
@@ -521,6 +597,8 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 <script>
 const SITE_URL='accueil.html';
 const SLIDE_DURATION=5000;
+// Slide 0 tourne plus vite (3s), les autres 5s
+const SLIDE_TIMES=[3000,5000,5000,5000,5000,7000,7000,7000,4000,7000,7000,7000,5000,5000,5000];
 const S=document.querySelectorAll('.slide');
 let c=0,ap=null;
 const t=S.length;
@@ -536,22 +614,21 @@ function sS(n){
   document.getElementById('skip-btn').classList.toggle('hidden',c>=t-2);
 }
 function nS(){if(c<t-1)sS(c+1);else if(ap)sA()}
+function scheduleNext(){if(ap)clearTimeout(ap);ap=setTimeout(()=>{nS();if(c<t-1)scheduleNext()},SLIDE_TIMES[c]||5000)}
 function pS(){if(c>0)sS(c-1)}
-function tA(){if(ap)sA();else{ap=setInterval(nS,SLIDE_DURATION)}}
-function sA(){clearInterval(ap);ap=null}
+function tA(){if(ap){clearTimeout(ap);ap=null}else scheduleNext()}
+function sA(){clearTimeout(ap);ap=null}
 function goToSite(){window.location.href=SITE_URL}
 
-// Keyboard
 document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nS()}
-  if(e.key==='ArrowLeft'){e.preventDefault();pS()}
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nS();if(ap)scheduleNext()}
+  if(e.key==='ArrowLeft'){e.preventDefault();pS();if(ap)scheduleNext()}
   if(e.key==='Escape')goToSite();
-  if(e.key==='p'){if(ap)sA();else tA();}
+  if(e.key==='p'){if(ap)sA();else scheduleNext();}
 });
 
-// Auto-start after 2s
 sS(0);
-setTimeout(()=>{ap=setInterval(nS,SLIDE_DURATION)},2000);
+setTimeout(()=>{scheduleNext()},1500);
 </script>
 </body>
 </html>
