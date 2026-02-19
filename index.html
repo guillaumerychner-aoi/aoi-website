@@ -193,7 +193,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
   .ext-card .ext-stars{font-size:.4rem}
   /* Chat IA + PDF side by side → stack */
   #s11 > div:last-of-type{flex-direction:column;width:95%}
-  #s11 > div:last-of-type > div:last-child{flex-direction:row;justify-content:center}
+  #s11 > div:last-of-type > div:last-child{flex-direction:row;justify-content:center;gap:6px}
   .pdf-page{width:110px!important;height:155px!important}
   .chat-msg .bubble{font-size:.5rem;max-width:80%}
   /* Echéancier */
@@ -299,7 +299,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
   <div class="g3">
     <div class="cd fu d3" style="text-align:center"><div class="ic">🤝</div><h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Capital</h3><p style="font-size:.8rem;color:var(--gray);line-height:1.5">Associations SEP structurées.<br>Le capital vient à nous.</p></div>
     <div class="cd fu d4" style="text-align:center"><div class="ic">⚡</div><h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Réseau</h3><p style="font-size:.8rem;color:var(--gray);line-height:1.5">Prestataires qualifiés.<br>Deals bouclés en temps record.</p></div>
-    <div class="cd fu d5" style="text-align:center"><div class="ic">🧠</div><h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Intelligence</h3><p style="font-size:.8rem;color:var(--gray);line-height:1.5">Logiciel IA qui blinde<br>nos dossiers et simulations.</p></div>
+    <div class="cd fu d5" style="text-align:center"><div class="ic">🧠</div><h3 style="font-size:1rem;font-weight:700;margin-bottom:6px">Intelligence</h3><p style="font-size:.8rem;color:var(--gray);line-height:1.5">Logiciel IA qui blinde<br>vos dossiers et simulations.</p></div>
   </div>
 </div>
 
@@ -449,7 +449,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 <div class="slide bg-dp" id="s9">
   <div class="lbl fi d1">Logiciel MdB — Cockpit</div>
   <div style="height:10px"></div>
-  <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">Toutes nos opérations <span style="color:var(--orange)">en un coup d'œil</span></h2>
+  <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">Toutes vos opérations <span style="color:var(--orange)">en un coup d'œil</span></h2>
   <div class="mock si d3">
     <div class="mock-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">mdb.aoi-network.com/dashboard</div></div>
     <div class="mock-body">
@@ -523,7 +523,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 <div class="slide bg-dp" id="s11">
   <div class="lbl fi d1">Dossier IA — Deal-Builder</div>
   <div style="height:10px"></div>
-  <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">L'IA qui <span style="color:var(--orange)">blinde nos dossiers</span></h2>
+  <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">L'IA qui <span style="color:var(--orange)">blinde vos dossiers</span></h2>
   <div style="display:flex;gap:24px;width:88%;max-width:1000px" class="si d3">
     <div style="flex:1;background:#111;border-radius:12px;border:1px solid rgba(255,255,255,.08);padding:16px;display:flex;flex-direction:column">
       <div style="font-size:.7rem;font-weight:700;color:var(--white);margin-bottom:10px;display:flex;align-items:center;gap:6px">🤖 Assistant IA <span class="ai-badge">Powered by Claude</span></div>
@@ -612,7 +612,7 @@ function initAudio(){
   masterGain.gain.value=0;
   masterGain.connect(audioCtx.destination);
   // Fade in over 3s
-  masterGain.gain.linearRampToValueAtTime(0.18,audioCtx.currentTime+3);
+  masterGain.gain.linearRampToValueAtTime(0.55,audioCtx.currentTime+3);
 
   // ─── Sub bass drone (very low, felt more than heard) ───
   function drone(freq,vol){
@@ -704,21 +704,21 @@ function initAudio(){
 
   // Key of D minor — dark, cinematic, determined
   // D2 sub bass
-  drone(73.42, 0.12);
-  drone(36.71, 0.08); // D1 sub-sub
+  drone(73.42, 0.25);
+  drone(36.71, 0.18); // D1 sub-sub
 
   // Dm pads (D3, F3, A3)
-  pad(146.83, 0.03, -8);  // D3
-  pad(174.61, 0.025, 5);  // F3
-  pad(220.00, 0.02, -3);  // A3
+  pad(146.83, 0.07, -8);  // D3
+  pad(174.61, 0.06, 5);  // F3
+  pad(220.00, 0.05, -3);  // A3
 
   // Add Bb for tension (Dm7)
-  pad(233.08, 0.015, 7);  // Bb3
+  pad(233.08, 0.04, 7);  // Bb3
 
   // Shimmers — high harmonics
-  shimmer(587.33, 0.008);  // D5
-  shimmer(880.00, 0.005);  // A5
-  shimmer(1174.66, 0.003); // D6
+  shimmer(587.33, 0.02);  // D5
+  shimmer(880.00, 0.012);  // A5
+  shimmer(1174.66, 0.008); // D6
 
   // ─── Evolving chord: shift mood on certain slides ───
   window._audioLayers={masterGain};
@@ -730,7 +730,7 @@ function toggleMute(){
   if(!audioStarted){initAudio();return}
   isMuted=!isMuted;
   if(masterGain){
-    masterGain.gain.linearRampToValueAtTime(isMuted?0:0.18,audioCtx.currentTime+0.5);
+    masterGain.gain.linearRampToValueAtTime(isMuted?0:0.55,audioCtx.currentTime+0.5);
   }
   document.getElementById('sound-btn').textContent=isMuted?'🔇':'🔊';
 }
