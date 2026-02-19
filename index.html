@@ -244,7 +244,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 </div>
 
 <!-- SOUND TOGGLE -->
-<div id="sound-btn" onclick="toggleMute()">🔇</div>
+<div id="sound-btn" onclick="toggleMute()">🔊</div>
 
 <!-- NAVIGATION ZONES (mobile + desktop click) -->
 <div class="nav-left" onclick="pS()"></div>
@@ -737,14 +737,20 @@ function toggleMute(){
   document.getElementById('sound-btn').textContent=isMuted?'🔇':'🔊';
 }
 
-// Start audio on first user interaction (mobile needs touch events)
+// Start audio immediately on first user interaction (required by browsers)
+let pendingAudioStart=true;
 function unlockAudio(){
-  if(!audioStarted)initAudio();
-  else if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();
+  if(pendingAudioStart){
+    pendingAudioStart=false;
+    initAudio();
+  }else if(audioCtx&&audioCtx.state==='suspended'){
+    audioCtx.resume();
+  }
 }
 document.addEventListener('click',unlockAudio);
 document.addEventListener('touchstart',unlockAudio);
 document.addEventListener('touchend',unlockAudio);
+document.addEventListener('keydown',unlockAudio);
 // Slide 0 tourne plus vite (3s), les autres 5s
 const SLIDE_TIMES=[3000,5000,5000,5000,5000,7000,7000,7000,4000,7000,7000,7000,5000,5000,5000];
 const S=document.querySelectorAll('.slide');
