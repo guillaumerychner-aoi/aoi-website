@@ -83,14 +83,14 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 .kpi .kl{font-size:.55rem;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;display:flex;align-items:center;gap:4px}
 .kpi .kv{font-size:1.1rem;font-weight:700;color:var(--white)}
 .kpi .kv.green{color:#10b981}.kpi .kv.red{color:#ef4444}.kpi .kv.or{color:var(--orange)}
-.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1}
-.kan-col{background:rgba(255,255,255,.02);border-radius:10px;padding:10px}
-.kan-col h4{font-size:.6rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
-.kan-col h4 .cnt{background:rgba(255,255,255,.1);padding:1px 6px;border-radius:10px;font-size:.55rem}
-.kan-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:.65rem}
-.kan-card .addr{font-weight:600;color:var(--white);margin-bottom:2px}
-.kan-card .city{color:var(--gray);font-size:.55rem}
-.kan-card .tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:.5rem;font-weight:600;margin-top:4px}
+.kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;flex:1}
+.kan-col{background:rgba(255,255,255,.02);border-radius:8px;padding:8px}
+.kan-col h4{font-size:.5rem;font-weight:600;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.kan-col h4 .cnt{background:rgba(255,255,255,.1);padding:1px 5px;border-radius:10px;font-size:.45rem}
+.kan-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:6px 8px;margin-bottom:5px;font-size:.55rem}
+.kan-card .addr{font-weight:600;color:var(--white);margin-bottom:1px;font-size:.55rem}
+.kan-card .city{color:var(--gray);font-size:.45rem}
+.kan-card .tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:.42rem;font-weight:600;margin-top:3px}
 .tag.green{background:rgba(16,185,129,.15);color:#10b981}
 .tag.blue{background:rgba(59,130,246,.15);color:#3b82f6}
 .tag.or{background:rgba(249,115,22,.15);color:var(--orange)}
@@ -193,7 +193,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
   .ext-card .ext-stars{font-size:.4rem}
   /* Chat IA + PDF side by side → stack */
   #s11 > div:last-of-type{flex-direction:column;width:95%}
-  #s11 > div:last-of-type > div:last-child{flex-direction:row;justify-content:center;gap:6px}
+  .pdf-stack{flex-direction:row!important;justify-content:center;gap:6px!important}
   .pdf-page{width:110px!important;height:155px!important}
   .chat-msg .bubble{font-size:.5rem;max-width:80%}
   /* Echéancier */
@@ -533,7 +533,7 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
         <div class="chat-msg user"><div class="bubble">Rédige l'argumentaire SEP pour un investisseur.</div><div class="av user-av">GR</div></div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:8px">
+    <div class="pdf-stack" style="display:flex;flex-direction:column;gap:8px">
       <div class="pdf-page" style="width:155px;height:210px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
         <div class="bar-orange" style="width:100%"></div>
         <div style="font-size:.4rem;font-weight:300;color:#888;margin-bottom:10px">Dossier d'opération</div>
@@ -608,6 +608,8 @@ function initAudio(){
   if(audioStarted)return;
   audioStarted=true;
   audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+  // CRITICAL for mobile: resume suspended context
+  if(audioCtx.state==='suspended')audioCtx.resume();
   masterGain=audioCtx.createGain();
   masterGain.gain.value=0;
   masterGain.connect(audioCtx.destination);
@@ -735,15 +737,14 @@ function toggleMute(){
   document.getElementById('sound-btn').textContent=isMuted?'🔇':'🔊';
 }
 
-// Start audio on first user interaction
-document.addEventListener('click',function startAudioOnce(){
+// Start audio on first user interaction (mobile needs touch events)
+function unlockAudio(){
   if(!audioStarted)initAudio();
-  document.removeEventListener('click',startAudioOnce);
-},{once:false});
-document.addEventListener('touchstart',function startAudioOnceT(){
-  if(!audioStarted)initAudio();
-  document.removeEventListener('touchstart',startAudioOnceT);
-},{once:false});
+  else if(audioCtx&&audioCtx.state==='suspended')audioCtx.resume();
+}
+document.addEventListener('click',unlockAudio);
+document.addEventListener('touchstart',unlockAudio);
+document.addEventListener('touchend',unlockAudio);
 // Slide 0 tourne plus vite (3s), les autres 5s
 const SLIDE_TIMES=[3000,5000,5000,5000,5000,7000,7000,7000,4000,7000,7000,7000,5000,5000,5000];
 const S=document.querySelectorAll('.slide');
