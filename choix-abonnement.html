@@ -144,6 +144,8 @@
             .recap-bar{flex-direction:column;text-align:center}
             .pricing-card{padding:24px}
             .info-box{flex-direction:column;text-align:center}
+            .reassurance-grid{grid-template-columns:1fr!important}
+            .mini-faq-grid{grid-template-columns:1fr!important}
         }
     </style>
 </head>
@@ -290,6 +292,72 @@
                     500€ HT par prestation réalisée • 4,5% du montant pour les SEP (minimum 5 000€ HT).
                     <a href="/cgv.html" target="_blank" rel="noopener noreferrer">Voir les CGV</a>
                 </p>
+            </div>
+
+            <!-- BLOC REASSURANCE -->
+            <div class="reassurance-grid" style="margin-top:48px;display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+                <!-- Ce que vous obtenez -->
+                <div style="background:var(--gray-900);border-radius:20px;padding:32px;color:#fff;">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+                        <div style="width:40px;height:40px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="package" style="width:20px;height:20px;color:#fff;"></i></div>
+                        <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin:0;">Ce que vous obtenez dès l'activation</h3>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:14px;">
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">Logiciel IA — simulation, mémorandum PDF, pipeline 15 étapes</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">Extranet complet — annuaire, messagerie, data rooms SEP</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">MasterClass — SEP, paiement différé, structurations hors-banque</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">Appels d'offres privés — missions qualifiées entre membres</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">Réseau d'opérateurs et prestataires vérifiés</span></div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check-circle" style="width:18px;height:18px;color:var(--orange-400);flex-shrink:0;margin-top:2px;"></i><span style="font-size:.9rem;color:var(--gray-300);">Échanges directs avec les fondateurs</span></div>
+                    </div>
+                </div>
+                <!-- FAQ rapide + Contact -->
+                <div style="display:flex;flex-direction:column;gap:24px;">
+                    <!-- Garanties -->
+                    <div style="background:#fff;border-radius:20px;padding:28px;border:2px solid var(--gray-200);">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+                            <div style="width:40px;height:40px;background:#dcfce7;border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="shield-check" style="width:20px;height:20px;color:#16a34a;"></i></div>
+                            <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;color:var(--gray-900);margin:0;">Vos garanties</h3>
+                        </div>
+                        <div style="display:flex;flex-direction:column;gap:12px;">
+                            <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check" style="width:16px;height:16px;color:#16a34a;flex-shrink:0;margin-top:3px;"></i><span style="font-size:.85rem;color:var(--gray-700);">Paiement 100% sécurisé via Stripe</span></div>
+                            <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check" style="width:16px;height:16px;color:#16a34a;flex-shrink:0;margin-top:3px;"></i><span style="font-size:.85rem;color:var(--gray-700);">Accès immédiat à la plateforme dès le paiement</span></div>
+                            <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check" style="width:16px;height:16px;color:#16a34a;flex-shrink:0;margin-top:3px;"></i><span style="font-size:.85rem;color:var(--gray-700);">Tarif fondateur garanti à vie tant que vous restez membre</span></div>
+                            <div style="display:flex;align-items:flex-start;gap:10px;"><i data-lucide="check" style="width:16px;height:16px;color:#16a34a;flex-shrink:0;margin-top:3px;"></i><span style="font-size:.85rem;color:var(--gray-700);">Aucune commission tant que vous ne concluez pas d'affaire via le réseau</span></div>
+                        </div>
+                    </div>
+                    <!-- Contact direct -->
+                    <div style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:20px;padding:24px;color:#fff;">
+                        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                            <i data-lucide="message-circle" style="width:20px;height:20px;"></i>
+                            <span style="font-weight:700;font-size:.95rem;">Une question avant de souscrire ?</span>
+                        </div>
+                        <p style="font-size:.85rem;color:rgba(255,255,255,.85);margin-bottom:16px;margin-top:0;">Un fondateur vous répond personnellement — pas un chatbot.</p>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <a href="https://wa.me/33763782041?text=Bonjour%2C%20j%27ai%20une%20question%20avant%20de%20souscrire%20à%20AOI%20Network" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);color:#fff;padding:10px 16px;border-radius:10px;font-size:.85rem;font-weight:600;text-decoration:none;backdrop-filter:blur(4px);"><i data-lucide="message-circle" style="width:16px;height:16px;"></i>WhatsApp</a>
+                            <a href="mailto:contact@aoi-network.com" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.2);color:#fff;padding:10px 16px;border-radius:10px;font-size:.85rem;font-weight:600;text-decoration:none;backdrop-filter:blur(4px);"><i data-lucide="mail" style="width:16px;height:16px;"></i>contact@aoi-network.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mini FAQ -->
+            <div style="margin-top:48px;">
+                <h3 style="font-family:'Inter',sans-serif;font-weight:700;font-size:1.1rem;color:var(--gray-900);margin-bottom:20px;text-align:center;">Questions fréquentes avant le paiement</h3>
+                <div class="mini-faq-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:950px;margin:0 auto;">
+                    <div style="background:#fff;border-radius:16px;padding:24px;border:1px solid var(--gray-200);">
+                        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;color:var(--gray-900);margin-bottom:8px;">Puis-je changer de formule après ?</h4>
+                        <p style="font-size:.85rem;color:var(--gray-500);line-height:1.5;margin:0;">Oui, vous pouvez upgrader à tout moment. Le prorata est calculé automatiquement.</p>
+                    </div>
+                    <div style="background:#fff;border-radius:16px;padding:24px;border:1px solid var(--gray-200);">
+                        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;color:var(--gray-900);margin-bottom:8px;">Quand est-ce que j'ai accès à la plateforme ?</h4>
+                        <p style="font-size:.85rem;color:var(--gray-500);line-height:1.5;margin:0;">Immédiatement après le paiement. Vos identifiants sont envoyés par email en quelques minutes.</p>
+                    </div>
+                    <div style="background:#fff;border-radius:16px;padding:24px;border:1px solid var(--gray-200);">
+                        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:.9rem;color:var(--gray-900);margin-bottom:8px;">La facture est-elle déductible ?</h4>
+                        <p style="font-size:.85rem;color:var(--gray-500);line-height:1.5;margin:0;">Oui, la TVA est récupérable et l'abonnement est une charge d'exploitation déductible.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

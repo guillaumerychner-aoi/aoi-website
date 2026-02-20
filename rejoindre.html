@@ -286,12 +286,19 @@
                     <!-- Success Message (for callback request) -->
                     <div class="success-message" id="successMessage">
                         <div class="icon"><i data-lucide="check"></i></div>
-                        <h2>Candidature reçue !</h2>
-                        <p>Merci pour votre intérêt pour l'Alliance. Un fondateur examinera votre profil et vous recontactera sous 48h ouvrées pour un entretien personnalisé.</p>
+                        <h2><span id="successPrenom">Votre</span> candidature est reçue !</h2>
+                        <p>Merci pour votre intérêt pour l'Alliance. Un fondateur examinera votre profil et vous recontactera sous 48h ouvrées.</p>
                         <div style="background:var(--gray-50);border-radius:12px;padding:20px;margin:24px 0;text-align:left;border:1px solid var(--gray-200);">
-                            <p style="font-size:.9rem;color:var(--gray-700);margin:0;"><strong>Prochaine étape :</strong> entretien téléphonique de 15-20 min avec un fondateur pour échanger sur votre activité, vos ambitions, et vérifier que l'Alliance correspond à vos besoins.</p>
+                            <p style="font-size:.9rem;color:var(--gray-700);margin:0 0 12px;"><strong>Prochaine étape :</strong> entretien téléphonique de 15-20 min avec un fondateur pour échanger sur votre activité, vos ambitions, et vérifier que l'Alliance correspond à vos besoins.</p>
+                            <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+                                <i data-lucide="clock" style="width:16px;height:16px;color:var(--orange-600);"></i>
+                                <span style="font-size:.85rem;color:var(--gray-600);">Délai moyen de réponse : <strong style="color:var(--gray-900);">moins de 24h</strong></span>
+                            </div>
                         </div>
-                        <a href="/" class="btn btn-primary"><i data-lucide="arrow-left"></i>Retour à l'accueil</a>
+                        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px;">
+                            <a href="/accueil.html" class="btn btn-primary" style="flex:1;max-width:220px;"><i data-lucide="arrow-left"></i>Retour à l'accueil</a>
+                            <a href="https://wa.me/33763782041?text=Bonjour%2C%20je%20viens%20de%20déposer%20ma%20candidature%20sur%20AOI%20Network." target="_blank" rel="noopener" class="btn btn-secondary" style="flex:1;max-width:220px;"><i data-lucide="message-circle"></i>Écrire sur WhatsApp</a>
+                        </div>
                     </div>
                     
                     <!-- Form Content -->
@@ -636,6 +643,11 @@
                 });
                 
                 if (response.ok) {
+                    // Injecter le prénom dans le message de succès
+                    const prenom = formData.prenom || '';
+                    if (prenom) {
+                        document.getElementById('successPrenom').textContent = prenom + ', votre';
+                    }
                     form.classList.add('hide');
                     successMessage.classList.add('show');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
