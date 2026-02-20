@@ -182,8 +182,8 @@
             <div class="recap-bar" id="recapBar">
                 <div class="icon"><i data-lucide="user-check"></i></div>
                 <div class="text">
-                    <strong id="recapName">Chargement...</strong><br>
-                    <span id="recapCompany"></span>
+                    <strong id="recapName">Bienvenue</strong><br>
+                    <span id="recapCompany">Choisissez la formule adaptée à votre profil</span>
                 </div>
                 <a href="/rejoindre.html">Modifier mes informations</a>
             </div>
@@ -220,7 +220,7 @@
                         <i data-lucide="arrow-right"></i>
                         Choisir ce niveau
                     </button>
-                </div>
+                    <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
                 
                 <!-- Niveau 2: Partenaire Métier -->
                 <div class="pricing-card">
@@ -252,7 +252,7 @@
                         <i data-lucide="arrow-right"></i>
                         Choisir ce niveau
                     </button>
-                </div>
+                    <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
                 
                 <!-- Niveau 3: Co-Opérateur -->
                 <div class="pricing-card popular">
@@ -281,7 +281,7 @@
                         <i data-lucide="crown"></i>
                         Devenir Co-Opérateur
                     </button>
-                </div>
+                    <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
             </div>
             
             <!-- Info Box -->
@@ -387,10 +387,9 @@
             document.getElementById('recapName').textContent = `${formData.prenom} ${formData.nom}`;
             document.getElementById('recapCompany').textContent = formData.societe || '';
         } else {
-            // No data, redirect back
-            // window.location.href = '/rejoindre.html';
-            document.getElementById('recapName').textContent = 'Visiteur';
-            document.getElementById('recapCompany').textContent = 'Données non renseignées';
+            document.getElementById('recapName').textContent = 'Bienvenue';
+            document.getElementById('recapCompany').textContent = 'Choisissez la formule adaptée à votre profil';
+            document.getElementById('recapBar').querySelector('.icon').style.background = 'var(--orange-500)';
         }
         
         // Billing toggle for Accès Initial (Niveau 1)
