@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rejoindre le réseau - AOI - Alliance des Opérateurs Immobiliers</title>
-    <meta name="description" content="Rejoignez le réseau AOI - Alliance des Opérateurs Immobiliers. Souscrivez en ligne ou demandez à être rappelé.">
+    <title>Vérifier mon éligibilité - AOI Network - Alliance des Opérateurs Immobiliers</title>
+    <meta name="description" content="Candidatez pour rejoindre l'Alliance des Opérateurs Immobiliers. Processus de sélection sur entretien — réponse sous 48h.">
     
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -122,8 +122,8 @@
         .action-buttons .btn{padding:18px 24px}
         
         /* Sidebar */
-        .sidebar{position:sticky;top:120px}
-        .sidebar-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid var(--gray-200);margin-bottom:24px}
+        .sidebar{position:sticky;top:120px;display:flex;flex-direction:column;gap:20px}
+        .sidebar-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid var(--gray-200)}
         .sidebar-card h3{font-family:'Inter',sans-serif;font-weight:600;font-size:1rem;color:var(--gray-900);margin-bottom:20px;display:flex;align-items:center;gap:10px}
         .sidebar-card h3 i{width:20px;height:20px;color:var(--orange-500)}
         .benefit-list{list-style:none}
@@ -213,6 +213,8 @@
             .footer-legal{flex-wrap:wrap;justify-content:center;gap:16px}
             .benefit-list li{padding:10px 0}
             .benefit-list li span{font-size:0.85rem}
+            .steps-bar{flex-wrap:wrap;gap:4px!important}
+            .steps-bar span{font-size:.75rem!important}
         }
         @media(max-width:480px){
             .container{padding:0 12px}
@@ -251,11 +253,11 @@
                     <span class="logo-text">Network</span>
                 </a>
                 <nav>
-                    <a href="/#origine">Notre histoire</a>
-                    <a href="/#offres">Qui peut rejoindre</a>
-                    <a href="/#tarifs">Tarifs</a>
-                    <a href="/#faq">FAQ</a>
-                    <a href="https://extranet.aoi-network.com" class="nav-extranet">Extranet</a>
+                    <a href="/accueil.html#problemes">Le Constat</a>
+                    <a href="/accueil.html#plateforme">La Plateforme</a>
+                    <a href="/accueil.html#resultats">Résultats</a>
+                    <a href="/accueil.html#tarifs">Tarifs</a>
+                    <a href="https://extranet.aoi-network.com/login" class="nav-extranet"><i data-lucide="log-in" style="width:16px;height:16px;margin-right:4px;"></i>Extranet</a>
                 </nav>
             </div>
         </div>
@@ -264,8 +266,14 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Rejoignez <span>le réseau AOI</span></h1>
-            <p>Complétez ce formulaire pour rejoindre l'Alliance des Opérateurs Immobiliers. Souscrivez directement en ligne ou demandez à être rappelé.</p>
+            <div style="display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;padding:6px 16px;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;"><i data-lucide="shield-check" style="width:14px;height:14px;"></i>Processus de sélection</div>
+            <h1>Vérifiez votre <span>éligibilité</span></h1>
+            <p>L'Alliance sélectionne ses membres sur entretien. Complétez ce formulaire — notre équipe vous recontacte sous 48h pour échanger sur votre profil et vos ambitions.</p>
+            <div style="display:flex;gap:24px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--gray-500);"><i data-lucide="clock" style="width:16px;height:16px;color:var(--orange-500);"></i>Réponse sous 48h</div>
+                <div style="display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--gray-500);"><i data-lucide="lock" style="width:16px;height:16px;color:var(--orange-500);"></i>Données confidentielles</div>
+                <div style="display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--gray-500);"><i data-lucide="ban" style="width:16px;height:16px;color:var(--orange-500);"></i>Sans engagement</div>
+            </div>
         </div>
     </section>
 
@@ -278,14 +286,29 @@
                     <!-- Success Message (for callback request) -->
                     <div class="success-message" id="successMessage">
                         <div class="icon"><i data-lucide="check"></i></div>
-                        <h2>Demande enregistrée !</h2>
-                        <p>Merci pour votre intérêt. Notre équipe vous rappellera sous 48h ouvrées (du lundi au vendredi) pour échanger sur votre projet.</p>
+                        <h2>Candidature reçue !</h2>
+                        <p>Merci pour votre intérêt pour l'Alliance. Un fondateur examinera votre profil et vous recontactera sous 48h ouvrées pour un entretien personnalisé.</p>
+                        <div style="background:var(--gray-50);border-radius:12px;padding:20px;margin:24px 0;text-align:left;border:1px solid var(--gray-200);">
+                            <p style="font-size:.9rem;color:var(--gray-700);margin:0;"><strong>Prochaine étape :</strong> entretien téléphonique de 15-20 min avec un fondateur pour échanger sur votre activité, vos ambitions, et vérifier que l'Alliance correspond à vos besoins.</p>
+                        </div>
                         <a href="/" class="btn btn-primary"><i data-lucide="arrow-left"></i>Retour à l'accueil</a>
                     </div>
                     
                     <!-- Form Content -->
                     <form class="form-content" id="rejoindreForm">
                         
+                        <!-- Étape indicateur -->
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:32px;padding:16px 20px;background:var(--gray-50);border-radius:12px;border:1px solid var(--gray-200);flex-wrap:wrap;">
+                            <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:#fff;font-size:.75rem;font-weight:700;">1</span></div>
+                            <span style="font-size:.85rem;color:var(--gray-500);">Vos informations</span>
+                            <i data-lucide="chevron-right" style="width:16px;height:16px;color:var(--gray-300);"></i>
+                            <div style="width:28px;height:28px;background:var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:var(--gray-500);font-size:.75rem;font-weight:700;">2</span></div>
+                            <span style="font-size:.85rem;color:var(--gray-400);">Entretien <em>ou</em> souscription directe</span>
+                            <i data-lucide="chevron-right" style="width:16px;height:16px;color:var(--gray-300);"></i>
+                            <div style="width:28px;height:28px;background:var(--gray-200);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:var(--gray-500);font-size:.75rem;font-weight:700;">3</span></div>
+                            <span style="font-size:.85rem;color:var(--gray-400);">Accès à l'infrastructure</span>
+                        </div>
+
                         <!-- Section 1: Type de profil -->
                         <div class="form-section">
                             <div class="form-section-title">
@@ -339,6 +362,82 @@
                                     <input type="tel" name="telephone" placeholder="06 00 00 00 00" required>
                                 </div>
                             </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Société</label>
+                                    <input type="text" name="societe" placeholder="Nom de votre structure">
+                                </div>
+                                <div class="form-group">
+                                    <label>Ville / Département <span class="required">*</span></label>
+                                    <input type="text" name="localisation" placeholder="Ex : Paris, 92, Lyon..." required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Section 3: Qualification -->
+                        <div class="form-section">
+                            <div class="form-section-title">
+                                <div class="icon"><i data-lucide="target"></i></div>
+                                <h3>Votre activité</h3>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Années d'expérience</label>
+                                    <select name="experience">
+                                        <option value="" disabled selected>Sélectionnez</option>
+                                        <option value="debut">Je me lance (< 1 an)</option>
+                                        <option value="junior">1 à 3 ans</option>
+                                        <option value="confirme">3 à 7 ans</option>
+                                        <option value="senior">7 à 15 ans</option>
+                                        <option value="expert">+ de 15 ans</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombre d'opérations réalisées</label>
+                                    <select name="nb_operations">
+                                        <option value="" disabled selected>Sélectionnez</option>
+                                        <option value="0">Aucune encore</option>
+                                        <option value="1-3">1 à 3</option>
+                                        <option value="4-10">4 à 10</option>
+                                        <option value="11-30">11 à 30</option>
+                                        <option value="30+">Plus de 30</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Votre principal défi aujourd'hui</label>
+                                    <select name="defi">
+                                        <option value="" disabled selected>Sélectionnez</option>
+                                        <option value="financement">Trouver du financement hors banque</option>
+                                        <option value="associes">Trouver des associés / co-investisseurs</option>
+                                        <option value="prestataires">Trouver des prestataires fiables</option>
+                                        <option value="structuration">Structurer mes opérations (SEP, montages)</option>
+                                        <option value="missions">Obtenir des missions qualifiées (prestataire)</option>
+                                        <option value="reseau">Développer mon réseau professionnel</option>
+                                        <option value="outils">Avoir de meilleurs outils de pilotage</option>
+                                        <option value="autre">Autre</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Budget opérationnel annuel</label>
+                                    <select name="budget">
+                                        <option value="" disabled selected>Sélectionnez</option>
+                                        <option value="<500k">Moins de 500K€</option>
+                                        <option value="500k-1m">500K€ à 1M€</option>
+                                        <option value="1m-3m">1M€ à 3M€</option>
+                                        <option value="3m-10m">3M€ à 10M€</option>
+                                        <option value="10m+">Plus de 10M€</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row single">
+                                <div class="form-group">
+                                    <label>Un mot sur votre situation ou vos attentes</label>
+                                    <textarea name="message" placeholder="Décrivez brièvement votre activité, vos projets en cours, ou ce que vous attendez d'AOI..." rows="4"></textarea>
+                                    <span class="hint">Facultatif — mais aide notre équipe à préparer votre entretien.</span>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- CGV Checkbox -->
@@ -350,37 +449,62 @@
                         <!-- Action Buttons -->
                         <div class="action-buttons">
                             <button type="button" class="btn btn-secondary" id="btnCallback">
-                                <i data-lucide="phone"></i>
-                                Être rappelé
+                                <i data-lucide="message-circle"></i>
+                                Échanger avec un fondateur
                             </button>
                             <button type="button" class="btn btn-primary" id="btnSubscribe">
-                                <i data-lucide="credit-card"></i>
-                                Souscrire maintenant
+                                <i data-lucide="zap"></i>
+                                Souscrire directement
                             </button>
                         </div>
+                        <p style="text-align:center;font-size:.75rem;color:var(--gray-400);margin-top:12px;">« Échanger » = un fondateur vous rappelle sous 48h · « Souscrire » = accès immédiat après paiement</p>
                     </form>
                 </div>
 
                 <!-- Sidebar -->
                 <div class="sidebar">
+                    <!-- Track Record résumé -->
+                    <div class="sidebar-card" style="background:var(--gray-900);border-color:transparent;color:#fff;">
+                        <h3 style="color:#fff;"><i data-lucide="trophy" style="color:var(--orange-400);"></i>Track record des fondateurs</h3>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
+                            <div style="text-align:center;padding:12px;background:rgba(255,255,255,.06);border-radius:10px;">
+                                <span style="display:block;font-size:1.3rem;font-weight:800;color:var(--orange-400);">1,17M€</span>
+                                <span style="font-size:.7rem;color:var(--gray-400);">marge brute cumulée</span>
+                            </div>
+                            <div style="text-align:center;padding:12px;background:rgba(255,255,255,.06);border-radius:10px;">
+                                <span style="display:block;font-size:1.3rem;font-weight:800;color:var(--orange-400);">0€</span>
+                                <span style="font-size:.7rem;color:var(--gray-400);">d'apport dans 3/4 deals</span>
+                            </div>
+                        </div>
+                        <p style="font-size:.75rem;color:var(--gray-500);margin:0;font-style:italic;">Sur les 4 dernières opérations structurées par les fondateurs d'AOI.</p>
+                    </div>
+
+                    <!-- Ce que vous obtenez -->
                     <div class="sidebar-card">
-                        <h3><i data-lucide="gift"></i>Pourquoi rejoindre AOI ?</h3>
+                        <h3><i data-lucide="package"></i>Ce que vous obtenez</h3>
                         <ul class="benefit-list">
-                            <li><i data-lucide="check"></i><span>Accès au logiciel Opérateurs développé par AOI Network</span></li>
-                            <li><i data-lucide="check"></i><span>Accès à un réseau qualifié de professionnels</span></li>
-                            <li><i data-lucide="check"></i><span>Opportunités de co-investissement en SEP</span></li>
-                            <li><i data-lucide="check"></i><span>Commissions réduites (4.5% vs 15-20% financement alternatif)</span></li>
-                            <li><i data-lucide="check"></i><span>Bibliothèque de documents et MasterClass</span></li>
-                            <li><i data-lucide="check"></i><span>Confidentialité garantie</span></li>
+                            <li><i data-lucide="check"></i><span><strong>Logiciel Opérateurs</strong> — Simulation IA, mémorandum PDF, pipeline</span></li>
+                            <li><i data-lucide="check"></i><span><strong>Réseau qualifié</strong> — Co-investissement SEP entre pairs vérifiés</span></li>
+                            <li><i data-lucide="check"></i><span><strong>Appels d'offres privés</strong> — Missions qualifiées entre membres</span></li>
+                            <li><i data-lucide="check"></i><span><strong>MasterClass</strong> — SEP, paiement différé, structurations hors-banque</span></li>
+                            <li><i data-lucide="check"></i><span><strong>Accompagnement</strong> — Échanges directs avec les fondateurs</span></li>
                         </ul>
                     </div>
+
+                    <!-- Urgence -->
+                    <div style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:20px;padding:24px;text-align:center;">
+                        <i data-lucide="zap" style="width:24px;height:24px;color:#fff;margin-bottom:8px;"></i>
+                        <p style="color:#fff;font-weight:700;font-size:.95rem;margin-bottom:4px;">50 places de Membres Fondateurs</p>
+                        <p style="color:rgba(255,255,255,.8);font-size:.8rem;margin:0;">Tarif garanti à vie tant que vous restez membre. Une fois complètes, le tarif standard s'appliquera.</p>
+                    </div>
                     
+                    <!-- Contact direct -->
                     <div class="contact-card">
-                        <h3>Une question ?</h3>
-                        <p>Notre équipe est disponible pour échanger sur votre projet.</p>
-                        <a href="https://wa.me/33763782041" class="contact-link" target="_blank" rel="noopener noreferrer">
+                        <h3>Besoin d'échanger d'abord ?</h3>
+                        <p>Un fondateur vous répond personnellement.</p>
+                        <a href="https://wa.me/33763782041?text=Bonjour%20AOI%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20réseau" class="contact-link" target="_blank" rel="noopener noreferrer">
                             <i data-lucide="message-circle"></i>
-                            WhatsApp
+                            WhatsApp — réponse rapide
                         </a>
                         <a href="mailto:contact@aoi-network.com" class="contact-link">
                             <i data-lucide="mail"></i>
