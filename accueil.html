@@ -180,14 +180,26 @@
             </div>
             <p class="hero-v3-eyebrow"><span class="live-dot"></span>Réseau opérationnel + <span>Logiciel IA</span> pour les professionnels de l'immobilier</p>
             <h1>L'immobilier opérationnel<br><span class="gradient">a trouvé son réseau.</span></h1>
-            <div class="hero-v3-targets" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto 40px;animation:fadeUp .7s ease .2s both;">
-                <div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.12);border-radius:14px;text-align:left;">
-                    <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--orange-400);display:block;margin-bottom:4px;">Opérateurs</span>
-                    <span style="font-size:.95rem;color:var(--gray-300);line-height:1.5;">Montez vos deals avec un logiciel IA et trouvez des associés SEP entre pairs.</span>
+            <!-- Bloc rotatif opérateurs/prestataires -->
+            <div style="animation:fadeUp .7s ease .2s both;margin-bottom:40px;">
+                <div class="hero-rotating-block" id="heroRotatingBlock" style="position:relative;height:80px;max-width:600px;margin:0 auto;overflow:hidden;">
+                    <div class="hero-rotating-item" data-index="0" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s ease;">
+                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-400);">Opérateurs</span>
+                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Montez vos deals avec un logiciel IA et trouvez des associés SEP entre pairs.</span>
+                    </div>
+                    <div class="hero-rotating-item" data-index="1" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;">
+                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#60a5fa;">Prestataires</span>
+                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Recevez des missions qualifiées sans prospecter.</span>
+                    </div>
                 </div>
-                <div style="flex:1;min-width:260px;padding:16px 20px;background:rgba(37,99,235,.06);border:1px solid rgba(37,99,235,.12);border-radius:14px;text-align:left;">
-                    <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#60a5fa;display:block;margin-bottom:4px;">Prestataires</span>
-                    <span style="font-size:.95rem;color:var(--gray-300);line-height:1.5;">Recevez des missions qualifiées sans prospecter.</span>
+                <!-- Dots indicateurs -->
+                <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;">
+                    <div class="hero-rot-dot" data-index="0" style="width:6px;height:6px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 8px rgba(249,115,22,.4);transition:all .4s;"></div>
+                    <div class="hero-rot-dot" data-index="1" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s;"></div>
+                </div>
+                <!-- Barre de progression -->
+                <div style="width:60px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;margin:20px auto 0;overflow:hidden;">
+                    <div id="heroProgressBar" style="height:100%;width:0%;border-radius:2px;background:var(--orange-400);"></div>
                 </div>
             </div>
             <div class="hero-v3-cta">
@@ -1109,6 +1121,32 @@
         // If iframe somehow steals focus, take it back once
         window.addEventListener('blur',()=>{setTimeout(()=>{if(document.activeElement&&document.activeElement.tagName==='IFRAME'){window.focus();}},0);});
         // Catch any remaining focus steal
+
+        // --- HERO ROTATING BLOCK ---
+        (function(){
+            var items=document.querySelectorAll('#heroRotatingBlock .hero-rotating-item');
+            var dots=document.querySelectorAll('.hero-rot-dot');
+            var bar=document.getElementById('heroProgressBar');
+            if(!items.length||!bar)return;
+            var current=0,total=items.length,dur=3000;
+            function getColor(i){return i===0?'var(--orange-400)':'#60a5fa';}
+            function resetBar(){
+                bar.style.transition='none';bar.style.width='0%';bar.style.background=getColor(current);
+                void bar.offsetWidth;
+                bar.style.transition='width '+dur+'ms linear';bar.style.width='100%';
+            }
+            resetBar();
+            setInterval(function(){
+                var prev=current;current=(current+1)%total;
+                items[prev].style.opacity='0';items[prev].style.transform='translateY(-20px)';
+                setTimeout(function(){items[prev].style.transform='translateY(20px)';},500);
+                items[current].style.opacity='1';items[current].style.transform='translateY(0)';
+                dots.forEach(function(d){d.style.background='rgba(255,255,255,.15)';d.style.boxShadow='none';});
+                dots[current].style.background=getColor(current);
+                dots[current].style.boxShadow='0 0 8px '+(current===0?'rgba(249,115,22,.4)':'rgba(96,165,250,.4)');
+                resetBar();
+            },dur);
+        })();
     </script>
 
 <!-- Bandeau cookies -->
