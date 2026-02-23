@@ -70,7 +70,17 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
 .mock-body{display:flex;min-height:380px}
 .mock-side{width:200px;background:rgba(255,255,255,.02);border-right:1px solid rgba(255,255,255,.05);padding:16px 0;flex-shrink:0}
 .mock-side .si-item{padding:8px 16px;font-size:.7rem;color:var(--gray);display:flex;align-items:center;gap:8px}
-.mock-side .si-item.act{background:rgba(249,115,22,.1);color:var(--orange);border-right:2px solid var(--orange)}
+.mock-side .si-item.act{background:rgba(194,112,62,.12);color:#C2703E;border-right:2px solid #C2703E}
+.mock-side .si-user{padding:8px 16px;margin-bottom:4px;background:rgba(255,255,255,.02);border-bottom:1px solid rgba(255,255,255,.04)}
+.mock-side .si-user-av{width:24px;height:24px;border-radius:8px;background:rgba(194,112,62,.2);display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:700;color:#C2703E;flex-shrink:0}
+.mock-side .si-user-name{font-size:.6rem;font-weight:600;color:var(--white)}
+.mock-side .si-user-level{font-size:.48rem;color:var(--gray)}
+.mock-side .si-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;opacity:.5}
+.mock-side .si-item.act .si-dot{opacity:1}
+.mock-side .si-sso{margin-top:auto;padding:6px 12px;border-top:1px solid rgba(255,255,255,.04)}
+.mock-side .si-sso a{display:flex;align-items:center;gap:6px;font-size:.58rem;font-weight:600;color:#C2703E;background:rgba(194,112,62,.1);padding:5px 10px;border-radius:8px;text-decoration:none}
+.ao-file{display:flex;align-items:center;gap:4px;margin-top:4px;padding:3px 6px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);border-radius:5px;font-size:.48rem;color:var(--gray)}
+.ao-file .af-icon{color:#C2703E}
 .mock-side .si-logo{padding:12px 16px;margin-bottom:8px;font-weight:800;font-size:.85rem;color:var(--white);display:flex;align-items:center;gap:8px}
 .mock-side .si-logo .lo{width:28px;height:28px;background:linear-gradient(135deg,#f97316,#ea580c);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:900;color:white}
 .mock-main{flex:1;padding:20px;overflow:hidden}
@@ -309,39 +319,44 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
   <div style="height:10px"></div>
   <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">Le capital vient <span style="color:var(--orange)">à nous</span></h2>
   <div class="mock si d3">
-    <div class="mock-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">aoi-network.com/extranet/sep</div></div>
+    <div class="mock-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">extranet.aoi-network.com/dashboard/sep</div></div>
     <div class="mock-body">
-      <div class="mock-side">
-        <div class="si-logo"><div class="lo">AOI</div> Extranet</div>
-        <div class="si-item act">🤝 SEP & Associations</div>
-        <div class="si-item">📢 Appels d'offres</div>
-        <div class="si-item">🏗️ Annuaire pro</div>
-        <div class="si-item">🎓 MasterClass</div>
-        <div class="si-item">💬 Communauté</div>
+      <div class="mock-side" style="display:flex;flex-direction:column">
+        <div class="si-logo"><div class="lo">AOI</div> Network</div>
+        <div class="si-user"><div style="display:flex;align-items:center;gap:6px"><div class="si-user-av">MR</div><div><div class="si-user-name">Marc R.</div><div class="si-user-level">Co-Opérateur · Niveau 3</div></div></div></div>
+        <div class="si-item" style="opacity:.5">Accueil</div>
+        <div class="si-item" style="opacity:.5">Mon Profil</div>
+        <div class="si-item" style="opacity:.5">Messages</div>
+        <div class="si-item" style="opacity:.5">Annuaire</div>
+        <div class="si-item" style="opacity:.5">Mes Opportunités</div>
+        <div class="si-item act">Projets SEP</div>
+        <div class="si-item" style="opacity:.5">Mes Opérations</div>
+        <div class="si-item" style="opacity:.5">Mes Partenariats</div>
+        <div class="si-sso"><a href="#">Logiciel Opérateurs ↗</a></div>
       </div>
       <div class="mock-main">
-        <div class="mock-header"><h3>Opportunités SEP en cours</h3><div class="mock-btn">+ Publier une opération</div></div>
+        <div class="mock-header"><h3>Projets SEP</h3><div class="mock-btn">+ Nouveau projet</div></div>
         <div class="deal">
-          <div class="dh"><div class="dt">Division foncière — Clamart (92)</div><div class="ds" style="background:rgba(16,185,129,.15);color:#10b981">En levée</div></div>
-          <div class="dd"><span>💰 Ticket : 150 000 €</span><span>📈 Renta : 37,4%</span><span>⏱ 12 mois</span><span>👤 Vérifié ✓</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:.55rem;color:var(--gray);margin-bottom:3px"><span>Avancement des apports</span><span style="color:#10b981;font-weight:600">420 000 € / 620 000 €  —  68%</span></div>
-          <div class="sep-bar"><div class="fill green" style="width:68%"></div></div>
-          <div style="display:flex;gap:6px;margin-top:6px">
-            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">👤 Associé 1 : 200 000 € ✓</div>
-            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">👤 Associé 2 : 150 000 € ✓</div>
-            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">👤 Associé 3 : 70 000 € ✓</div>
-            <div style="font-size:.5rem;color:var(--orange);background:rgba(249,115,22,.1);padding:2px 6px;border-radius:4px">🔍 Reste 200 000 €</div>
+          <div class="dh"><div class="dt">Division terrain — Lyon 3e</div><div class="ds" style="background:rgba(45,122,95,.15);color:#2D7A5F">En levée</div></div>
+          <div class="dd"><span>Recherché : 180 000 €</span><span>Renta : 39,6%</span><span>4 lots</span><span>✓ Vérifié</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.55rem;color:var(--gray);margin-bottom:3px"><span>Avancement des apports</span><span style="color:#2D7A5F;font-weight:600">540 000 € / 720 000 €  —  75%</span></div>
+          <div class="sep-bar"><div class="fill green" style="width:75%"></div></div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap">
+            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">Associé 1 : 220 000 € ✓</div>
+            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">Associé 2 : 180 000 € ✓</div>
+            <div style="font-size:.5rem;color:var(--gray);background:rgba(255,255,255,.04);padding:2px 6px;border-radius:4px">Associé 3 : 140 000 € ✓</div>
+            <div style="font-size:.5rem;color:#C2703E;background:rgba(194,112,62,.1);padding:2px 6px;border-radius:4px;font-weight:600">Reste 180 000 €</div>
           </div>
         </div>
         <div class="deal">
-          <div class="dh"><div class="dt">Rénovation immeuble — Boulogne (92)</div><div class="ds" style="background:rgba(249,115,22,.15);color:var(--orange)">Nouveau</div></div>
-          <div class="dd"><span>💰 Ticket : 80 000 €</span><span>📈 Renta : 22,1%</span><span>⏱ 18 mois</span><span>👤 Vérifié ✓</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:.55rem;color:var(--gray);margin-bottom:3px"><span>Avancement des apports</span><span style="color:var(--orange);font-weight:600">80 000 € / 350 000 €  —  23%</span></div>
-          <div class="sep-bar"><div class="fill or" style="width:23%"></div></div>
+          <div class="dh"><div class="dt">Réhabilitation immeuble — Marseille 6e</div><div class="ds" style="background:rgba(194,112,62,.15);color:#C2703E">Nouveau</div></div>
+          <div class="dd"><span>Recherché : 95 000 €</span><span>Renta : 24,8%</span><span>6 lots</span><span>✓ Vérifié</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:.55rem;color:var(--gray);margin-bottom:3px"><span>Avancement des apports</span><span style="color:#C2703E;font-weight:600">120 000 € / 480 000 €  —  25%</span></div>
+          <div class="sep-bar"><div class="fill or" style="width:25%"></div></div>
         </div>
         <div class="deal">
-          <div class="dh"><div class="dt">Division terrain — Meudon (92)</div><div class="ds" style="background:rgba(59,130,246,.15);color:#3b82f6">Complété ✓</div></div>
-          <div class="dd"><span>💰 300 000 € levés</span><span>📈 28,6%</span><span>⏱ 14 mois</span><span>✅ 4 associés</span></div>
+          <div class="dh"><div class="dt">Surélévation R+2 — Strasbourg</div><div class="ds" style="background:rgba(59,130,246,.15);color:#3b82f6">Complété ✓</div></div>
+          <div class="dd"><span>350 000 € levés</span><span>Renta : 31,2%</span><span>3 associés</span><span>✓ Acte signé</span></div>
           <div class="sep-bar"><div class="fill blue" style="width:100%"></div></div>
         </div>
       </div>
@@ -349,41 +364,51 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
   </div>
 </div>
 
-<!-- ═══ S6 — APPELS D'OFFRES ═══ -->
+<!-- ═══ S6 — OPPORTUNITÉS & PRESTATAIRES ═══ -->
 <div class="slide bg-dp" id="s6">
   <div class="lbl fi d1">Prestataires qualifiés</div>
   <div style="height:10px"></div>
   <h2 class="tm fu d2" style="text-align:center;margin-bottom:16px">Une armée d'experts <span style="color:var(--orange)">au pied de guerre</span></h2>
   <div class="mock si d3">
-    <div class="mock-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">aoi-network.com/extranet/appels-offres</div></div>
+    <div class="mock-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="url">extranet.aoi-network.com/dashboard/mes-opportunites</div></div>
     <div class="mock-body">
-      <div class="mock-side">
-        <div class="si-logo"><div class="lo">AOI</div> Extranet</div>
-        <div class="si-item">🤝 SEP & Associations</div>
-        <div class="si-item act">📢 Appels d'offres</div>
-        <div class="si-item">🏗️ Annuaire pro</div>
-        <div class="si-item">🎓 MasterClass</div>
+      <div class="mock-side" style="display:flex;flex-direction:column">
+        <div class="si-logo"><div class="lo">AOI</div> Network</div>
+        <div class="si-user"><div style="display:flex;align-items:center;gap:6px"><div class="si-user-av">MR</div><div><div class="si-user-name">Marc R.</div><div class="si-user-level">Co-Opérateur · Niveau 3</div></div></div></div>
+        <div class="si-item" style="opacity:.5">Accueil</div>
+        <div class="si-item" style="opacity:.5">Mon Profil</div>
+        <div class="si-item" style="opacity:.5">Messages</div>
+        <div class="si-item" style="opacity:.5">Annuaire</div>
+        <div class="si-item act">Mes Opportunités</div>
+        <div class="si-item" style="opacity:.5">Projets SEP</div>
+        <div class="si-item" style="opacity:.5">Mes Opérations</div>
+        <div class="si-item" style="opacity:.5">Mes Partenariats</div>
+        <div class="si-sso"><a href="#">Logiciel Opérateurs ↗</a></div>
       </div>
       <div class="mock-main">
-        <div class="mock-header"><h3>Appels d'offres en cours</h3><div class="mock-btn">+ Lancer un appel</div></div>
+        <div class="mock-header"><h3>Mes Opportunités</h3><div class="mock-btn">+ Nouvelle opportunité</div></div>
+        <div style="font-size:.55rem;color:var(--gray);margin-bottom:10px">Liées au projet : <span style="color:#C2703E;font-weight:600">Division terrain — Lyon 3e</span></div>
         <div class="ao-card">
-          <div class="ao-h"><div class="ao-t">📐 Géomètre-expert — Division Clamart</div><div class="ao-badge" style="background:rgba(16,185,129,.15);color:#10b981">3 réponses</div></div>
-          <div class="ao-d">Bornage + plan de division + DP · Budget : 3 000–5 000 € · ⏱ Clôture dans 4j</div>
+          <div class="ao-h"><div class="ao-t">Architecte DPLG — Esquisse & PA</div><div class="ao-badge" style="background:rgba(45,122,95,.15);color:#2D7A5F">3 candidatures</div></div>
+          <div class="ao-d">Budget : 8 000 – 12 000 € · Clôture dans 10j</div>
+          <div class="ao-file"><span class="af-icon">📎</span> Plans_cadastraux_Lyon3.pdf · 1.4 Mo</div>
         </div>
         <div class="ao-card">
-          <div class="ao-h"><div class="ao-t">🔨 Maître d'œuvre — Rénovation Boulogne</div><div class="ao-badge" style="background:rgba(249,115,22,.15);color:var(--orange)">5 réponses</div></div>
-          <div class="ao-d">Suivi chantier 250m² · Budget : 12 000–18 000 € · ⏱ Clôture dans 2j</div>
+          <div class="ao-h"><div class="ao-t">Géomètre-expert — Bornage & division</div><div class="ao-badge" style="background:rgba(194,112,62,.15);color:#C2703E">2 candidatures</div></div>
+          <div class="ao-d">Budget : 3 500 – 5 500 € · Clôture dans 10j</div>
+          <div class="ao-file"><span class="af-icon">📎</span> Plan_masse_parcelle.pdf · 820 Ko</div>
         </div>
         <div class="ao-card">
-          <div class="ao-h"><div class="ao-t">🏦 Courtier — Financement Meudon</div><div class="ao-badge" style="background:rgba(59,130,246,.15);color:#3b82f6">2 réponses</div></div>
-          <div class="ao-d">Recherche prêt pro 500 K€ · Portage 14 mois · ⏱ Clôture dans 6j</div>
+          <div class="ao-h"><div class="ao-t">Constructeur — Maisons individuelles ×4</div><div class="ao-badge" style="background:rgba(59,107,165,.15);color:#3B6BA5">5 candidatures</div></div>
+          <div class="ao-d">Budget : 480 000 – 560 000 € · Clôture dans 14j</div>
+          <div class="ao-file"><span class="af-icon">📎</span> CCTP_construction_4lots.pdf · 2.1 Mo</div>
         </div>
-        <div style="margin-top:14px">
-          <div style="font-size:.65rem;font-weight:600;color:var(--gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">🏗️ Annuaire des prestataires vérifiés</div>
+        <div style="margin-top:12px">
+          <div style="font-size:.6rem;font-weight:600;color:var(--gray);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em">Annuaire des prestataires vérifiés</div>
           <div class="ext-grid">
-            <div class="ext-card"><div class="ext-av">⚖️</div><div class="ext-name">Me Dubois</div><div class="ext-role">Notaire · 92</div><div class="ext-stars">★★★★★</div></div>
-            <div class="ext-card"><div class="ext-av">📐</div><div class="ext-name">P. Martin</div><div class="ext-role">Géomètre · IDF</div><div class="ext-stars">★★★★☆</div></div>
-            <div class="ext-card"><div class="ext-av">🏠</div><div class="ext-name">L. Bernard</div><div class="ext-role">Architecte DPLG</div><div class="ext-stars">★★★★★</div></div>
+            <div class="ext-card"><div class="ext-av" style="background:rgba(194,112,62,.15)">📐</div><div class="ext-name">C. Duval</div><div class="ext-role">Architecte DPLG · Lyon</div><div class="ext-stars">★★★★★</div></div>
+            <div class="ext-card"><div class="ext-av" style="background:rgba(45,122,95,.15)">📏</div><div class="ext-name">P. Blanc</div><div class="ext-role">Géomètre · Rhône-Alpes</div><div class="ext-stars">★★★★☆</div></div>
+            <div class="ext-card"><div class="ext-av" style="background:rgba(59,107,165,.15)">🏗</div><div class="ext-name">S. Morel</div><div class="ext-role">Constructeur · Nationale</div><div class="ext-stars">★★★★★</div></div>
           </div>
         </div>
       </div>
@@ -402,15 +427,15 @@ body{background:var(--bg);color:var(--white);font-family:'Outfit',sans-serif;ove
       <h3 style="font-size:1rem;font-weight:700;margin-bottom:14px">✅ Opérations financées</h3>
       <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(16,185,129,.06);border-radius:8px;margin-bottom:8px">
         <div style="font-size:1.8rem">🏡</div>
-        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Division — Meudon (92)</div><div style="font-size:.6rem;color:var(--gray)">300 K€ levés · 4 associés · 28,6%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Acte signé · Travaux lancés</div></div>
+        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Division terrain — Lyon 3e</div><div style="font-size:.6rem;color:var(--gray)">540 K€ levés · 3 associés · 39,6%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Permis purgé · Travaux VRD lancés</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(16,185,129,.06);border-radius:8px;margin-bottom:8px">
         <div style="font-size:1.8rem">🏢</div>
-        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Réhabilitation — Sceaux (92)</div><div style="font-size:.6rem;color:var(--gray)">180 K€ levés · 2 associés · 19,3%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Commercialisation en cours</div></div>
+        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Réhabilitation — Bordeaux</div><div style="font-size:.6rem;color:var(--gray)">280 K€ levés · 2 associés · 22,4%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Commercialisation en cours</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(16,185,129,.06);border-radius:8px">
         <div style="font-size:1.8rem">🏗️</div>
-        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Surélévation — Vanves (92)</div><div style="font-size:.6rem;color:var(--gray)">450 K€ levés · 3 associés · 31,2%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Livraison T2 2026</div></div>
+        <div><div style="font-size:.75rem;font-weight:600;color:var(--white)">Surélévation R+2 — Strasbourg</div><div style="font-size:.6rem;color:var(--gray)">350 K€ levés · 3 associés · 31,2%</div><div style="font-size:.55rem;color:#10b981;font-weight:500;margin-top:2px">✓ Livraison T2 2026</div></div>
       </div>
     </div>
     <div class="cd fu d4">
