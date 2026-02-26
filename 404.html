@@ -31,5 +31,32 @@
     <h2>Page introuvable</h2>
     <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
     <a href="/" class="btn">Retour à l'accueil</a>
+
+<!-- AOI Tracking Pixels — Chargés uniquement après consentement -->
+<script>
+function loadTrackingPixels(){
+  // LinkedIn Insight Tag
+  _linkedin_partner_id="8742890";
+  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
+  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b,s);})(window.lintrk);
+
+  // Meta Pixel
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2586678501298941');
+  fbq('track','PageView');
+}
+// Charger si consentement déjà donné
+if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
+
 </body>
 </html>
