@@ -52,7 +52,7 @@
 
         .article-nav{max-width:740px;margin:0 auto;padding:40px 0 0;border-top:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.article-nav a{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--orange-600);text-decoration:none;padding:10px 16px;border-radius:10px;transition:all .2s}.article-nav a:hover{background:var(--orange-50)}.article-nav a i{width:16px;height:16px}
 
-        footer{background:var(--gray-900);color:#fff;padding:60px 0 30px}.footer-simple{text-align:center}.footer-simple p{color:var(--gray-500);font-size:.85rem;margin-bottom:8px}.footer-simple a{color:var(--gray-400);text-decoration:none;font-size:.85rem;margin:0 12px}.footer-simple a:hover{color:var(--orange-400)}
+        
     </style>
 </head>
 <body>
@@ -153,10 +153,24 @@
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-simple">
-            <p>&copy; 2026 SAS AOI Network &mdash; RCS Nanterre 101 608 164</p>
-            <div><a href="/mentions-legales.html">Mentions l&eacute;gales</a><a href="/cgv.html">CGV</a><a href="/blog/">Ressources</a><a href="/rejoindre.html">Nous rejoindre</a></div>
+        <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="logo" style="margin-bottom:16px;">
+                        <div class="logo-box"><span class="logo-aoi">AOI</span></div><span class="logo-text" style="color:#fff;">Network</span>
+                    </a>
+                    <p>Alliance des Op&eacute;rateurs Immobiliers.<br>N&eacute; de l'exp&eacute;rience terrain, pour ceux qui veulent op&eacute;rer autrement.</p>
+                    <div class="footer-social"><a href="https://www.linkedin.com/company/aoinetwork" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a><a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a></div>
+                </div>
+                <div class="footer-column"><h5>Navigation</h5><ul><li><a href="/accueil.html">La Plateforme</a></li><li><a href="/blog/">Ressources</a></li><li><a href="/accueil.html#tarifs">Tarifs</a></li><li><a href="/accueil.html#faq">FAQ</a></li></ul></div>
+                <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="/accueil.html#tarifs">Acc&egrave;s Initial</a></li><li><a href="/accueil.html#tarifs">Partenaire M&eacute;tier</a></li><li><a href="/accueil.html#tarifs">Co-Op&eacute;rateur</a></li></ul></div>
+                <div class="footer-column"><h5>Contact</h5><ul><li><a href="https://wa.me/33763782041" target="_blank" rel="noopener noreferrer">WhatsApp</a></li><li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li><li><a href="/rejoindre.html">Nous Rejoindre</a></li></ul></div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SAS AOI Network &mdash; RCS Nanterre 101 608 164 &mdash; 3 Rue H&eacute;bert, 92140 Clamart</p>
+                <div class="footer-legal"><a href="/mentions-legales.html">Mentions l&eacute;gales</a><a href="/cgv.html">CGV</a><a href="/mentions-legales.html#cookies">Confidentialit&eacute;</a></div>
+            </div>
         </div>
     </footer>
 
