@@ -43,7 +43,21 @@
         .blog-cta{padding:80px 0;background:linear-gradient(135deg,#0a0a0f,#12121a);text-align:center;position:relative;overflow:hidden}.blog-cta::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,var(--orange-600) 0%,transparent 70%);opacity:.08}.blog-cta .container{position:relative;z-index:1}.blog-cta h2{color:#fff;font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:16px}.blog-cta h2 span{color:var(--orange-400)}.blog-cta p{color:var(--gray-400);font-size:1.1rem;max-width:550px;margin:0 auto 32px}
 
         footer{background:var(--gray-900);color:#fff;padding:80px 0 40px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px;align-items:start}.footer-brand p{color:var(--gray-400);margin-bottom:24px;line-height:1.6}.footer-social{display:flex;gap:12px}.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s ease}.footer-social a:hover{background:var(--orange-600)}.footer-column h5{font-family:'Inter',sans-serif;font-weight:600;margin-bottom:24px;color:#fff}.footer-column ul{list-style:none}.footer-column li{margin-bottom:12px}.footer-column a{color:var(--gray-400);text-decoration:none;transition:color .2s ease}.footer-column a:hover{color:var(--orange-400)}.footer-bottom{padding-top:40px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-bottom p{color:var(--gray-500);font-size:.875rem}.footer-legal{display:flex;gap:24px}.footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.875rem}.footer-legal a:hover{color:var(--orange-400)}
-        @media(max-width:768px){.blog-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;text-align:center}}
+        
+    
+        @media(max-width:768px){
+            nav{display:none}.mobile-menu-btn{display:block}
+            .blog-hero{padding:120px 0 50px}
+            .blog-hero h1{font-size:1.8rem}
+            .blog-hero p{font-size:1rem;padding:0 8px}
+            .blog-grid{grid-template-columns:1fr;gap:20px}
+            .blog-card-header{height:140px}
+            .coming-soon{padding:32px 20px}
+            .blog-cta h2{font-size:1.5rem}
+            .blog-cta p{font-size:.95rem;padding:0 8px}
+            .footer-grid{grid-template-columns:1fr;gap:32px}
+            .footer-bottom{flex-direction:column;text-align:center}
+        }
     </style>
 </head>
 <body>
