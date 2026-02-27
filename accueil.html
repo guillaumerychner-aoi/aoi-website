@@ -259,33 +259,45 @@
                     </button>
                 </div>
                 
+                <style>
+                .pain-card-v2{display:flex;align-items:flex-start;gap:16px;padding:22px 24px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);border-left:4px solid var(--orange-400);transition:all .3s;cursor:default;text-align:left;}
+                .pain-card-v2:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(249,115,22,.1);border-left-color:var(--orange-500);}
+                .pain-card-v2.highlight{background:linear-gradient(135deg,rgba(249,115,22,.03),rgba(249,115,22,.01));border-left-width:5px;}
+                .pain-card-v2 .pain-keyword{font-size:1rem;font-weight:700;color:var(--gray-900);line-height:1.3;margin-bottom:3px;}
+                .pain-card-v2 .pain-detail{font-size:.82rem;color:var(--gray-500);line-height:1.4;}
+                .pain-card-v2-blue{border-left-color:#93c5fd;}
+                .pain-card-v2-blue:hover{box-shadow:0 8px 24px rgba(59,130,246,.1);border-left-color:#3b82f6;}
+                .pain-card-v2-blue.highlight{background:linear-gradient(135deg,rgba(59,130,246,.03),rgba(59,130,246,.01));}
+                @media(max-width:640px){.recognition-grid-v2{grid-template-columns:1fr!important;}}
+                </style>
+
                 <!-- Contenu Opérateurs -->
                 <div class="recognition-content" id="content-operateurs" style="display:block;">
                     <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
-                    <div class="recognition-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="lock" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Opération rentable qui vous échappe, faute de financement</span>
+                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
+                        <div class="pain-card-v2 highlight">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="lock" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Refus bancaire</div><div class="pain-detail">Opération rentable qui vous échappe, faute de financement</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="trending-down" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Conditions de prêt qui grignotent toute votre marge</span>
+                        <div class="pain-card-v2 highlight">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="trending-down" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Marge grignotée</div><div class="pain-detail">Conditions de prêt qui absorbent toute votre rentabilité</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="wallet" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Apport demandé que vous n'avez pas — ou plus</span>
+                        <div class="pain-card-v2">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="wallet" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Apport insuffisant</div><div class="pain-detail">Fonds propres demandés que vous n'avez pas — ou plus</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="shield-alert" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Garanties personnelles qui vous exposent trop</span>
+                        <div class="pain-card-v2">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shield-alert" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Exposition personnelle</div><div class="pain-detail">Garanties personnelles qui mettent votre patrimoine en jeu</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="gavel" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Saisie ou fiducie réalisée qui a laissé des traces</span>
+                        <div class="pain-card-v2">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="gavel" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Passif bancaire</div><div class="pain-detail">Saisie ou fiducie réalisée qui a laissé des traces</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='var(--orange-300)';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(249,115,22,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="arrow-right-circle" style="width:16px;height:16px;color:var(--orange-500);"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">L'envie de structurer autrement, sereinement</span>
+                        <div class="pain-card-v2">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="arrow-right-circle" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
+                            <div><div class="pain-keyword">Besoin de structurer</div><div class="pain-detail">L'envie de monter autrement, sereinement, sans banque</div></div>
                         </div>
                     </div>
                     <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(249,115,22,.3);">
@@ -297,30 +309,30 @@
                 <!-- Contenu Prestataires -->
                 <div class="recognition-content" id="content-prestataires" style="display:none;">
                     <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Tous les professionnels liés à l'immobilier — architectes, MOE, constructeurs, artisans, notaires, courtiers, géomètres, fournisseurs…</p>
-                    <div class="recognition-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="clock" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">La prospection dévore votre temps facturable</span>
+                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
+                        <div class="pain-card-v2 pain-card-v2-blue highlight">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="clock" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Temps perdu</div><div class="pain-detail">La prospection dévore votre temps facturable</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="eye-off" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Invisible sur Google face aux grandes enseignes</span>
+                        <div class="pain-card-v2 pain-card-v2-blue highlight">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="eye-off" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Invisibilité</div><div class="pain-detail">Introuvable sur Google face aux grandes enseignes</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="file-x" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Devis sans suite, faute de financement côté opérateur</span>
+                        <div class="pain-card-v2 pain-card-v2-blue">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="file-x" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Devis sans suite</div><div class="pain-detail">Projets qui tombent à l'eau faute de financement côté opérateur</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="shuffle" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Le bouche-à-oreille ne génère pas une croissance prévisible</span>
+                        <div class="pain-card-v2 pain-card-v2-blue">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shuffle" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Croissance aléatoire</div><div class="pain-detail">Le bouche-à-oreille ne génère pas un flux prévisible</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="user-x" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Clients qui paient en retard ou disparaissent sans prévenir</span>
+                        <div class="pain-card-v2 pain-card-v2-blue">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="user-x" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Clients volatils</div><div class="pain-detail">Paient en retard ou disparaissent sans prévenir</div></div>
                         </div>
-                        <div class="pain-card" style="display:flex;align-items:center;gap:14px;padding:20px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);transition:all .3s;cursor:default;position:relative;overflow:hidden;" onmouseover="this.style.borderColor='#93c5fd';this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(59,130,246,.1)'" onmouseout="this.style.borderColor='var(--gray-200)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                            <span style="width:36px;height:36px;min-width:36px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;"><i data-lucide="credit-card" style="width:16px;height:16px;color:#3b82f6;"></i></span>
-                            <span style="color:var(--gray-700);font-size:.9rem;line-height:1.4;">Impayés qui fragilisent votre trésorerie</span>
+                        <div class="pain-card-v2 pain-card-v2-blue">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="credit-card" style="width:17px;height:17px;color:#3b82f6;"></i></span>
+                            <div><div class="pain-keyword">Impayés</div><div class="pain-detail">Trésorerie fragilisée, encaissements incertains</div></div>
                         </div>
                     </div>
                     <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(59,130,246,.3);">
