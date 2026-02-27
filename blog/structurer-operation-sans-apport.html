@@ -33,6 +33,8 @@
         .article-cta{margin:48px 0;padding:36px;background:var(--orange-50);border:1px solid var(--orange-200);border-radius:16px;text-align:center}.article-cta h3{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:700;color:var(--gray-900);margin-bottom:10px}.article-cta p{font-size:.95rem;color:var(--gray-600);max-width:500px;margin:0 auto 20px}.article-cta .btn{padding:14px 28px;font-size:.95rem}
         .article-nav{max-width:740px;margin:0 auto;padding:40px 0 0;border-top:1px solid var(--gray-200);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.article-nav a{display:inline-flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;color:var(--orange-600);text-decoration:none;padding:10px 16px;border-radius:10px;transition:all .2s}.article-nav a:hover{background:var(--orange-50)}.article-nav a i{width:16px;height:16px}
         
+    footer{background:var(--gray-900);color:#fff;padding:80px 0 40px}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:64px;margin-bottom:64px;align-items:start}.footer-brand p{color:var(--gray-400);margin-bottom:24px;line-height:1.6}.footer-social{display:flex;gap:12px}.footer-social a{width:40px;height:40px;background:rgba(255,255,255,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s ease}.footer-social a:hover{background:var(--orange-600)}.footer-column h5{font-family:Inter,sans-serif;font-weight:600;margin-bottom:24px;color:#fff}.footer-column ul{list-style:none}.footer-column li{margin-bottom:12px}.footer-column a{color:var(--gray-400);text-decoration:none;transition:color .2s ease}.footer-column a:hover{color:var(--orange-400)}.footer-bottom{padding-top:40px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}.footer-bottom p{color:var(--gray-500);font-size:.875rem}.footer-legal{display:flex;gap:24px}.footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.875rem}.footer-legal a:hover{color:var(--orange-400)}
+        @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:32px}.footer-bottom{flex-direction:column;text-align:center}}
     </style>
 </head>
 <body>
@@ -106,26 +108,63 @@
         </div>
     </section>
 
-        <footer>
+            <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="/" class="logo" style="margin-bottom:16px;">
                         <div class="logo-box"><span class="logo-aoi">AOI</span></div><span class="logo-text" style="color:#fff;">Network</span>
                     </a>
-                    <p>Alliance des Op&eacute;rateurs Immobiliers.<br>N&eacute; de l'exp&eacute;rience terrain, pour ceux qui veulent op&eacute;rer autrement.</p>
+                    <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
                     <div class="footer-social"><a href="https://www.linkedin.com/company/aoinetwork" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a><a href="https://wa.me/33763782041" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a></div>
                 </div>
                 <div class="footer-column"><h5>Navigation</h5><ul><li><a href="/accueil.html">La Plateforme</a></li><li><a href="/blog/">Ressources</a></li><li><a href="/accueil.html#tarifs">Tarifs</a></li><li><a href="/accueil.html#faq">FAQ</a></li></ul></div>
-                <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="/accueil.html#tarifs">Acc&egrave;s Initial</a></li><li><a href="/accueil.html#tarifs">Partenaire M&eacute;tier</a></li><li><a href="/accueil.html#tarifs">Co-Op&eacute;rateur</a></li></ul></div>
+                <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="/accueil.html#tarifs">Accès Initial</a></li><li><a href="/accueil.html#tarifs">Partenaire Métier</a></li><li><a href="/accueil.html#tarifs">Co-Opérateur</a></li></ul></div>
                 <div class="footer-column"><h5>Contact</h5><ul><li><a href="https://wa.me/33763782041" target="_blank" rel="noopener noreferrer">WhatsApp</a></li><li><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></li><li><a href="/rejoindre.html">Nous Rejoindre</a></li></ul></div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 SAS AOI Network &mdash; RCS Nanterre 101 608 164 &mdash; 3 Rue H&eacute;bert, 92140 Clamart</p>
-                <div class="footer-legal"><a href="/mentions-legales.html">Mentions l&eacute;gales</a><a href="/cgv.html">CGV</a><a href="/mentions-legales.html#cookies">Confidentialit&eacute;</a></div>
+                <div class="footer-legal"><a href="/mentions-legales.html">Mentions légales</a><a href="/cgv.html">CGV</a><a href="/mentions-legales.html#cookies">Confidentialité</a></div>
             </div>
         </div>
     </footer>
     <script>lucide.createIcons();const header=document.getElementById('header');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>50)});function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active')}</script>
+<!-- Bandeau cookies -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0a0a0f;color:#fff;padding:16px 24px;box-shadow:0 -4px 20px rgba(0,0,0,.15);font-family:'Inter',sans-serif;font-size:.9rem;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+        <div style="flex:1;min-width:280px;">
+            <p style="margin:0;line-height:1.5;color:#d1d5db;">Ce site utilise des cookies essentiels et, avec votre accord, des cookies d'analyse pour améliorer votre expérience et mesurer l'audience. <a href="/mentions-legales.html#cookies" style="color:#fb923c;text-decoration:underline;">En savoir plus</a></p>
+        </div>
+        <div style="display:flex;gap:10px;flex-shrink:0;">
+            <button onclick="acceptCookies()" style="background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;border:none;padding:10px 24px;border-radius:8px;font-weight:600;font-size:.9rem;cursor:pointer;">Accepter</button>
+            <button onclick="refuseCookies()" style="background:transparent;color:#9ca3af;border:1px solid #4b5563;padding:10px 24px;border-radius:8px;font-weight:500;font-size:.9rem;cursor:pointer;">Refuser</button>
+        </div>
+    </div>
+</div>
+<script>
+(function(){var c=localStorage.getItem("aoi_cookies");if(!c){document.getElementById("cookieBanner").style.display="block";}})();
+function acceptCookies(){localStorage.setItem("aoi_cookies","accepted");document.getElementById("cookieBanner").style.display="none";if(typeof loadTrackingPixels==="function")loadTrackingPixels();}
+function refuseCookies(){localStorage.setItem("aoi_cookies","refused");document.getElementById("cookieBanner").style.display="none";}
+</script>
+<script>
+function loadTrackingPixels(){
+  _linkedin_partner_id="8742890";
+  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
+  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b,s);})(window.lintrk);
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+  fbq("init","2586678501298941");
+  fbq("track","PageView");
+}
+if(localStorage.getItem("aoi_cookies")==="accepted"){loadTrackingPixels();}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
 </body>
 </html>
