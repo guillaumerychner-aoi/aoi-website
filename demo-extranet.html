@@ -223,7 +223,7 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
         </div>
         <div class="form-row">
           <div><label class="form-label">Marge brute estimée</label><input class="form-input" id="f-marge" placeholder="000 000 €"></div>
-          <div><label class="form-label">Rentabilité</label><input class="form-input" id="f-renta" placeholder="00 %"></div>
+          <div><label class="form-label">Taux de marge</label><input class="form-input" id="f-renta" placeholder="00 %"></div>
         </div>
         <div class="form-row">
           <div><label class="form-label">Apport du porteur</label><input class="form-input" id="f-apport" placeholder="000 000 €"></div>
@@ -478,7 +478,7 @@ async function runDemo(){
 
   await sleep(300);
   const chips=$('chips-container');
-  const profiles=[['Investisseur SEP','chip-accent'],['Architecte','chip-blue'],['Géomètre','chip-blue'],['Constructeur','chip-blue']];
+  const profiles=[['Associé SEP','chip-accent'],['Architecte','chip-blue'],['Géomètre','chip-blue'],['Constructeur','chip-blue']];
   for(const [p,cls] of profiles){moveCursor(380+Math.random()*80,385);await sleep(200);click();addChip(chips,p,cls);await sleep(150)}
 
   const ul=$('upload-area');
