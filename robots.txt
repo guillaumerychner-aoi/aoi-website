@@ -2,5 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /demo-extranet.html
+Disallow: /demo-logiciel.html
 
 Sitemap: https://www.aoi-network.com/sitemap.xml
