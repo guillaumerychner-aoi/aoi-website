@@ -93,11 +93,41 @@
             .toc ul{columns:1}
             nav{display:none}
         }
-    </style>
+            /* ── PRE-LAUNCH BANNER ── */
+        #prelaunchBanner{position:fixed;top:0;left:0;right:0;z-index:1100;height:40px;display:flex;align-items:center;justify-content:center;background:#0a0a0f;border-bottom:1px solid rgba(249,115,22,.18);overflow:hidden;}
+        #prelaunchBanner::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(249,115,22,.06) 40%,rgba(249,115,22,.06) 60%,transparent 100%);}
+        .plb-inner{display:flex;align-items:center;gap:16px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center;padding:0 16px;}
+        .plb-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;flex-shrink:0;box-shadow:0 0 0 3px rgba(74,222,128,.15);animation:pulse 2s ease infinite;}
+        .plb-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);}
+        .plb-sep{color:rgba(255,255,255,.12);font-size:.8rem;}
+        .plb-tag{font-size:.68rem;color:rgba(255,255,255,.4);}
+        .plb-cta{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;color:var(--orange-400);text-decoration:none;padding:3px 10px;border:1px solid rgba(249,115,22,.25);border-radius:100px;transition:all .2s;white-space:nowrap;}
+        .plb-cta:hover{background:rgba(249,115,22,.12);border-color:rgba(249,115,22,.5);}
+        /* Décale header et hero pour faire place au bandeau */
+        header{top:40px!important;}
+        .hero-v3{padding-top:180px!important;}
+        @media(max-width:768px){
+            .plb-sep,.plb-gauge-wrap,.plb-tag{display:none!important;}
+            #prelaunchBanner{height:36px;}
+            header{top:36px!important;}
+            .hero-v3{padding:156px 16px 50px!important;}
+        }
+        </style>
     <link rel="canonical" href="https://www.aoi-network.com/cgv.html">
 </head>
 <body>
     <!-- Header -->
+    <!-- ══ PRE-LAUNCH BANNER ══ -->
+    <div id="prelaunchBanner">
+        <div class="plb-inner">
+            <span style="font-size:.75rem;">🚀</span>
+            <span class="plb-label">AOI Network est en ligne&nbsp;!</span>
+            <span class="plb-sep">·</span>
+            <span class="plb-tag">Devenez Membre Fondateur — avantages permanents, places limitées</span>
+            <span class="plb-sep">·</span>
+            <a href="/rejoindre.html" class="plb-cta">Rejoindre <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5.5 2.5L8 5l-2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+    </div>
     <header>
         <div class="container">
             <div class="header-inner">
