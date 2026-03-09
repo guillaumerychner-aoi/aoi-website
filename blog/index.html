@@ -88,6 +88,12 @@
             header{top:36px!important;}
             .hero-v3{padding:156px 16px 50px!important;}
         }
+        
+        @media(max-width:640px){
+            .blog-featured > div { grid-template-columns:1fr !important; }
+            .blog-featured > div > div:last-child { padding:0 24px 32px !important; }
+            .blog-grid { grid-template-columns:1fr !important; }
+        }
         </style>
     <link rel="canonical" href="https://www.aoi-network.com/blog/">
 </head>
@@ -137,11 +143,11 @@
     </section>
 
     <section class="blog-grid-section">
-        <div class="container" style="max-width:1000px;margin:0 auto;padding:0 48px;box-sizing:border-box;width:100%;">
+        <div class="container" style="max-width:1000px;margin:0 auto;padding:0 clamp(16px,4vw,48px);box-sizing:border-box;width:100%;">
             
             <!-- Article à la une -->
             <a href="/blog/pourquoi-un-reseau.html" class="blog-featured" style="text-decoration:none;display:block;margin-bottom:40px;max-width:900px;margin-left:auto;margin-right:auto;">
-                <div style="display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#0a0a0f,#1a1a2e);border-radius:20px;overflow:hidden;border:1px solid rgba(249,115,22,.2);transition:all .3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(249,115,22,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <div style="display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#0a0a0f,#1a1a2e);border-radius:20px;overflow:hidden;border:1px solid rgba(249,115,22,.2);transition:all .3s ease;width:100%;box-sizing:border-box;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 40px rgba(249,115,22,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                     <div style="padding:40px;display:flex;flex-direction:column;justify-content:center;">
                         <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
                             <span style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;font-size:.65rem;font-weight:800;padding:5px 12px;border-radius:6px;text-transform:uppercase;letter-spacing:1px;">À la une</span>
@@ -188,7 +194,7 @@
                 </div>
             </a>
 
-            <div class="blog-grid" style="max-width:900px;margin:0 auto;overflow:hidden;box-sizing:border-box;">
+            <div class="blog-grid" style="max-width:900px;width:100%;margin:0 auto;overflow:hidden;box-sizing:border-box;">
 
                 <a href="/blog/sep-immobiliere.html" class="blog-card" style="text-decoration:none;">
                     <div class="blog-card-header" style="background:none;padding:0;">
