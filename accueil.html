@@ -284,63 +284,110 @@
             </div>
         </div>
     </section>
-        <!-- ═══ BANDEAU RÉSEAU — entre hero et problèmes ═══ -->
-    <div style="background:linear-gradient(180deg,var(--gray-900) 0%,#0d0d12 100%);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);">
-        <div class="container">
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);max-width:1100px;margin:0 auto;" id="bnd-grid">
+        <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
+    <div style="background:#111118;border-top:1px solid rgba(249,115,22,.15);border-bottom:1px solid rgba(249,115,22,.08);overflow:hidden;position:relative;">
+        <!-- Dégradés masquants sur les bords -->
+        <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#111118,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#111118,transparent);z-index:2;pointer-events:none;"></div>
 
-                <div style="padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
-                    <div style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px;" id="bnd-operations">—</div>
-                    <div style="font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.3px;line-height:1.5;">Opération<br>en structuration</div>
-                </div>
-
-                <div style="padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
-                    <div style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;" id="bnd-volume">—</div>
-                    <div style="font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.3px;line-height:1.5;">Volume SEP<br>en cours</div>
-                </div>
-
-                <div style="padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
-                    <div style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px;" id="bnd-marge">—</div>
-                    <div style="font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.3px;line-height:1.5;">Marges brutes<br>attendues</div>
-                </div>
-
-                <div style="padding:24px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.06);">
-                    <div style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px;" id="bnd-missions">—</div>
-                    <div style="font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.3px;line-height:1.5;">Missions<br>AO privés ouverts</div>
-                </div>
-
-                <div style="padding:24px 16px;text-align:center;">
-                    <div style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;line-height:1;margin-bottom:4px;" id="bnd-budget">—</div>
-                    <div style="font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.3px;line-height:1.5;">Budget AO<br>en attente</div>
-                </div>
-
-            </div>
+        <!-- Track défilant -->
+        <div id="bnd-track" style="display:flex;align-items:center;gap:0;white-space:nowrap;padding:0;animation:bndScroll 28s linear infinite;">
         </div>
     </div>
+
+    <style>
+    @keyframes bndScroll {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .bnd-item {
+        display:inline-flex;
+        align-items:center;
+        gap:14px;
+        padding:18px 40px;
+        border-right:1px solid rgba(255,255,255,.05);
+        flex-shrink:0;
+    }
+    .bnd-value {
+        font-family:'Playfair Display',serif;
+        font-size:1.4rem;
+        font-weight:800;
+        color:#fff;
+        line-height:1;
+    }
+    .bnd-value.orange {
+        background:linear-gradient(135deg,var(--orange-400),#f59e0b);
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        background-clip:text;
+    }
+    .bnd-label {
+        font-size:.6rem;
+        color:var(--gray-500);
+        text-transform:uppercase;
+        letter-spacing:1.5px;
+        line-height:1.5;
+    }
+    .bnd-dot {
+        width:5px;height:5px;border-radius:50%;
+        background:rgba(249,115,22,.4);
+        flex-shrink:0;
+    }
+    @media(max-width:768px){
+        .bnd-item{padding:14px 28px;gap:10px;}
+        .bnd-value{font-size:1.15rem;}
+    }
+    </style>
+
     <script>
     (function() {
         function fmt(n) {
-            if (!n || n === 0) return "0";
+            if (!n || n === 0) return "—";
+            // Correction centimes → euros si valeur aberrante (> 100M€ improbable)
+            if (n > 100000000) n = n / 100;
             if (n >= 1000000) return (n/1000000).toFixed(1).replace(".",",").replace(/,0$/,"") + "M€";
             if (n >= 1000) return Math.round(n/1000) + "k€";
-            return n + "€";
+            return Math.round(n) + "€";
         }
+
+        function buildTicker(items) {
+            var track = document.getElementById("bnd-track");
+            if (!track) return;
+            // Dupliquer pour le défilement infini
+            var html = "";
+            for (var pass = 0; pass < 2; pass++) {
+                items.forEach(function(item) {
+                    html += '<div class="bnd-item">'
+                        + '<span class="bnd-dot"></span>'
+                        + '<div>'
+                        + '<div class="bnd-value' + (item.orange ? ' orange' : '') + '">' + item.value + '</div>'
+                        + '<div class="bnd-label">' + item.label + '</div>'
+                        + '</div>'
+                        + '</div>';
+                });
+            }
+            track.innerHTML = html;
+        }
+
         fetch("https://extranet.aoi-network.com/api/public/stats")
             .then(function(r){ return r.json(); })
             .then(function(d) {
-                document.getElementById("bnd-operations").textContent = d.sepActives || "0";
-                document.getElementById("bnd-volume").textContent = fmt(d.volumeSEP);
-                document.getElementById("bnd-marge").textContent = fmt(d.margeCumulee);
-                document.getElementById("bnd-missions").textContent = d.opportunitesOuvertes || "0";
-                document.getElementById("bnd-budget").textContent = fmt(d.budgetAO);
+                buildTicker([
+                    { value: d.sepActives || "0",       label: "Opération en structuration",      orange: false },
+                    { value: fmt(d.volumeSEP),           label: "Volume SEP en cours",             orange: true  },
+                    { value: fmt(d.margeCumulee),        label: "Marges brutes attendues",         orange: false },
+                    { value: d.opportunitesOuvertes || "0", label: "Missions AO privés ouverts",  orange: false },
+                    { value: fmt(d.budgetAO),            label: "Budget AO en attente",            orange: false },
+                ]);
             })
             .catch(function() {
-                // Fallback silencieux sur les vraies données actuelles
-                document.getElementById("bnd-operations").textContent = "1";
-                document.getElementById("bnd-volume").textContent = "1,9M€";
-                document.getElementById("bnd-marge").textContent = "487k€";
-                document.getElementById("bnd-missions").textContent = "4";
-                document.getElementById("bnd-budget").textContent = "—";
+                buildTicker([
+                    { value: "1",      label: "Opération en structuration",  orange: false },
+                    { value: "1,9M€",  label: "Volume SEP en cours",         orange: true  },
+                    { value: "487k€",  label: "Marges brutes attendues",     orange: false },
+                    { value: "4",      label: "Missions AO privés ouverts",  orange: false },
+                    { value: "—",      label: "Budget AO en attente",        orange: false },
+                ]);
             });
     })();
     </script>
