@@ -378,6 +378,7 @@
                     { value: fmt(d.volumeSEP),              label: "Volume SEP\nen cours",          orange: true  },
                     { value: fmt(d.margeCumulee),           label: "Marges brutes\nattendues",      orange: false },
                     { value: d.opportunitesOuvertes || "0", label: "Missions\nAO privés ouverts",  orange: false },
+                    { value: fmt(d.budgetAO),               label: "Budget AO\nen attente",         orange: false },
                 ]);
             })
             .catch(function() {
@@ -386,6 +387,7 @@
                     { value: "1,9M€",  label: "Volume SEP\nen cours",         orange: true  },
                     { value: "487k€",  label: "Marges brutes\nattendues",     orange: false },
                     { value: "4",      label: "Missions\nAO privés ouverts",  orange: false },
+                    { value: "37k€",   label: "Budget AO\nen attente",        orange: false },
                 ]);
             });
     })();
