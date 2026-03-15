@@ -373,12 +373,15 @@
                         html += '<span class="bnd-section-sep"></span>';
                     }
                     html += '<div class="bnd-item">'
-                        + '<span class="bnd-dot"></span>'
                         + '<div>'
                         + '<div class="bnd-value' + (item.orange ? ' orange' : '') + '">' + item.value + '</div>'
                         + '<div class="bnd-label">' + item.label.replace("\n","<br>") + '</div>'
                         + '</div>'
                         + '</div>';
+                    // Séparateur fin entre dernière stat et début du second tour
+                    if (idx === items.length - 1) {
+                        html += '<span class="bnd-section-sep"></span>';
+                    }
                 });
             }
             track.innerHTML = html;
