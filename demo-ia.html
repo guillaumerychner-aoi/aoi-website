@@ -302,19 +302,19 @@
 // ── Analyse DVF ────────────────────────────────────────────────
 var stepTimeout;
 
-function setExemple(adresse) {
+window.setExemple = function(adresse) {
     document.getElementById('adresseInput').value = adresse;
     document.getElementById('adresseInput').focus();
 }
 
-function showStep(n) {
+window.showStep = function(n) {
     for (var i = 1; i <= 4; i++) {
         var el = document.getElementById('step' + i);
         if (el) el.classList.toggle('active', i === n);
     }
 }
 
-async function lancerAnalyse() {
+window.lancerAnalyse = async function() {
     var adresse = document.getElementById('adresseInput').value.trim();
     if (!adresse) { document.getElementById('adresseInput').focus(); return; }
 
@@ -366,7 +366,7 @@ async function lancerAnalyse() {
     }
 }
 
-function afficherResultats(data) {
+window.afficherResultats = function(data) {
     var results = document.getElementById('results');
 
     // Adresse
