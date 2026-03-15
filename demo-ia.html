@@ -203,7 +203,7 @@
                 autocomplete="off"
                 maxlength="200"
             />
-            <button class="btn-analyse" id="btnAnalyse" onclick="lancerAnalyse()">
+            <button class="btn-analyse" id="btnAnalyse">
                 Analyser →
             </button>
         </div>
@@ -436,10 +436,23 @@ window.afficherResultats = function(data) {
     results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Enter pour lancer
-document.getElementById('adresseInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') lancerAnalyse();
+// Attacher les events au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('btnAnalyse').addEventListener('click', lancerAnalyse);
+    document.getElementById('adresseInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') lancerAnalyse();
+    });
 });
+
+// Fallback si DOMContentLoaded déjà passé
+if (document.readyState !== 'loading') {
+    var btn = document.getElementById('btnAnalyse');
+    if (btn) btn.addEventListener('click', lancerAnalyse);
+    var inp = document.getElementById('adresseInput');
+    if (inp) inp.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') lancerAnalyse();
+    });
+}
 </script>
 
 <footer>
