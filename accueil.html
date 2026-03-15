@@ -285,10 +285,10 @@
         </div>
     </section>
         <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
-    <div style="background:#111118;border-top:1px solid rgba(249,115,22,.15);border-bottom:1px solid rgba(249,115,22,.08);overflow:hidden;position:relative;">
+    <div style="background:#f5f3ef;border-top:2px solid var(--orange-200);border-bottom:1px solid var(--gray-200);overflow:hidden;position:relative;">
         <!-- Dégradés masquants sur les bords -->
-        <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#111118,transparent);z-index:2;pointer-events:none;"></div>
-        <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#111118,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#f5f3ef 60%,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#f5f3ef 60%,transparent);z-index:2;pointer-events:none;"></div>
 
         <!-- Track défilant -->
         <div id="bnd-track" style="display:flex;align-items:center;gap:0;white-space:nowrap;padding:0;animation:bndScroll 28s linear infinite;">
@@ -304,20 +304,20 @@
         display:inline-flex;
         align-items:center;
         gap:16px;
-        padding:20px 48px;
-        border-right:1px solid rgba(255,255,255,.05);
+        padding:18px 44px;
+        border-right:1px solid var(--gray-200);
         flex-shrink:0;
     }
     .bnd-value {
         font-family:'Inter',sans-serif;
-        font-size:1.35rem;
+        font-size:1.3rem;
         font-weight:900;
-        color:#fff;
+        color:var(--gray-900);
         line-height:1;
         letter-spacing:-.5px;
     }
     .bnd-value.orange {
-        color:var(--orange-400);
+        color:var(--orange-600);
     }
     .bnd-label {
         font-size:.58rem;
@@ -327,16 +327,27 @@
         line-height:1.55;
         max-width:120px;
     }
-    .bnd-sep {
-        width:1px;height:32px;
-        background:rgba(249,115,22,.2);
+    /* Séparateur de section — plus court que la hauteur totale */
+    .bnd-section-sep {
+        display:inline-block;
+        width:1px;
+        height:28px;
+        background:var(--orange-300);
         flex-shrink:0;
-        margin:0 8px;
+        margin:0 12px;
+        vertical-align:middle;
+        opacity:.7;
+    }
+    .bnd-dot {
+        width:5px;height:5px;border-radius:50%;
+        background:var(--orange-400);
+        flex-shrink:0;
+        opacity:.6;
     }
     @media(max-width:768px){
-        .bnd-item{padding:14px 32px;gap:12px;}
-        .bnd-value{font-size:1.1rem;}
-        .bnd-label{font-size:.55rem;}
+        .bnd-item{padding:14px 28px;gap:12px;}
+        .bnd-value{font-size:1.05rem;}
+        .bnd-label{font-size:.52rem;}
     }
     </style>
 
@@ -354,15 +365,18 @@
         function buildTicker(items) {
             var track = document.getElementById("bnd-track");
             if (!track) return;
-            // Dupliquer pour le défilement infini
             var html = "";
             for (var pass = 0; pass < 2; pass++) {
-                items.forEach(function(item) {
+                items.forEach(function(item, idx) {
+                    // Séparateur de section entre opérations (idx<3) et opportunités (idx>=3)
+                    if (idx === 3) {
+                        html += '<span class="bnd-section-sep"></span>';
+                    }
                     html += '<div class="bnd-item">'
                         + '<span class="bnd-dot"></span>'
                         + '<div>'
                         + '<div class="bnd-value' + (item.orange ? ' orange' : '') + '">' + item.value + '</div>'
-                        + '<div class="bnd-label">' + item.label + '</div>'
+                        + '<div class="bnd-label">' + item.label.replace("\n","<br>") + '</div>'
                         + '</div>'
                         + '</div>';
                 });
