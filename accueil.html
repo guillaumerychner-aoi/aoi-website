@@ -303,39 +303,40 @@
     .bnd-item {
         display:inline-flex;
         align-items:center;
-        gap:14px;
-        padding:18px 40px;
+        gap:16px;
+        padding:20px 48px;
         border-right:1px solid rgba(255,255,255,.05);
         flex-shrink:0;
     }
     .bnd-value {
-        font-family:'Playfair Display',serif;
-        font-size:1.4rem;
-        font-weight:800;
+        font-family:'Inter',sans-serif;
+        font-size:1.35rem;
+        font-weight:900;
         color:#fff;
         line-height:1;
+        letter-spacing:-.5px;
     }
     .bnd-value.orange {
-        background:linear-gradient(135deg,var(--orange-400),#f59e0b);
-        -webkit-background-clip:text;
-        -webkit-text-fill-color:transparent;
-        background-clip:text;
+        color:var(--orange-400);
     }
     .bnd-label {
-        font-size:.6rem;
+        font-size:.58rem;
         color:var(--gray-500);
         text-transform:uppercase;
         letter-spacing:1.5px;
-        line-height:1.5;
+        line-height:1.55;
+        max-width:120px;
     }
-    .bnd-dot {
-        width:5px;height:5px;border-radius:50%;
-        background:rgba(249,115,22,.4);
+    .bnd-sep {
+        width:1px;height:32px;
+        background:rgba(249,115,22,.2);
         flex-shrink:0;
+        margin:0 8px;
     }
     @media(max-width:768px){
-        .bnd-item{padding:14px 28px;gap:10px;}
-        .bnd-value{font-size:1.15rem;}
+        .bnd-item{padding:14px 32px;gap:12px;}
+        .bnd-value{font-size:1.1rem;}
+        .bnd-label{font-size:.55rem;}
     }
     </style>
 
@@ -373,20 +374,18 @@
             .then(function(r){ return r.json(); })
             .then(function(d) {
                 buildTicker([
-                    { value: d.sepActives || "0",       label: "Opération en structuration",      orange: false },
-                    { value: fmt(d.volumeSEP),           label: "Volume SEP en cours",             orange: true  },
-                    { value: fmt(d.margeCumulee),        label: "Marges brutes attendues",         orange: false },
-                    { value: d.opportunitesOuvertes || "0", label: "Missions AO privés ouverts",  orange: false },
-                    { value: fmt(d.budgetAO),            label: "Budget AO en attente",            orange: false },
+                    { value: d.sepActives || "0",          label: "Opération\nen structuration",   orange: false },
+                    { value: fmt(d.volumeSEP),              label: "Volume SEP\nen cours",          orange: true  },
+                    { value: fmt(d.margeCumulee),           label: "Marges brutes\nattendues",      orange: false },
+                    { value: d.opportunitesOuvertes || "0", label: "Missions\nAO privés ouverts",  orange: false },
                 ]);
             })
             .catch(function() {
                 buildTicker([
-                    { value: "1",      label: "Opération en structuration",  orange: false },
-                    { value: "1,9M€",  label: "Volume SEP en cours",         orange: true  },
-                    { value: "487k€",  label: "Marges brutes attendues",     orange: false },
-                    { value: "4",      label: "Missions AO privés ouverts",  orange: false },
-                    { value: "—",      label: "Budget AO en attente",        orange: false },
+                    { value: "1",      label: "Opération\nen structuration",  orange: false },
+                    { value: "1,9M€",  label: "Volume SEP\nen cours",         orange: true  },
+                    { value: "487k€",  label: "Marges brutes\nattendues",     orange: false },
+                    { value: "4",      label: "Missions\nAO privés ouverts",  orange: false },
                 ]);
             });
     })();
