@@ -250,7 +250,7 @@
             </div>
             <div class="hero-v3-cta">
                 <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1.05rem;padding:18px 40px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
-                <a href="#resultats" class="btn btn-ghost"><i data-lucide="play-circle"></i>Voir le track record</a>
+                <a href="/demo-ia.html" class="btn btn-ghost" style="border-color:rgba(249,115,22,.35);color:var(--orange-400);"><i data-lucide="search"></i>Analyser une adresse gratuitement</a>
             </div>
             <!-- Preuves en ligne légère -->
             <div class="hero-proofs" style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;animation:fadeUp .7s ease .3s both;">
@@ -395,8 +395,8 @@
                     { value: d.sepActives || "0",          label: "Opération\nen structuration",   orange: false },
                     { value: fmt(d.volumeSEP),              label: "Volume SEP\nen cours",          orange: true  },
                     { value: fmt(d.margeCumulee),           label: "Marges brutes\nattendues",      orange: false },
-                    { value: d.opportunitesOuvertes || "0", label: "Missions\nAO privés ouverts",  orange: false },
-                    { value: fmt(d.budgetAO),               label: "Budget AO\nen attente",         orange: false },
+                    { value: d.opportunitesOuvertes || "0", label: "Missions\nappels d'offres privés",  orange: false },
+                    { value: fmt(d.budgetAO),               label: "Budget\nappels d'offres",         orange: false },
                 ]);
             })
             .catch(function() {
@@ -404,8 +404,8 @@
                     { value: "1",      label: "Opération\nen structuration",  orange: false },
                     { value: "1,9M€",  label: "Volume SEP\nen cours",         orange: true  },
                     { value: "487k€",  label: "Marges brutes\nattendues",     orange: false },
-                    { value: "4",      label: "Missions\nAO privés ouverts",  orange: false },
-                    { value: "37k€",   label: "Budget AO\nen attente",        orange: false },
+                    { value: "4",      label: "Missions\nappels d'offres privés",  orange: false },
+                    { value: "37k€",   label: "Budget\nappels d'offres",        orange: false },
                 ]);
             });
     })();

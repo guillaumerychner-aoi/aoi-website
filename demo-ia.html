@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyse gratuite — AOI Network</title>
+    <meta name="description" content="Analysez gratuitement votre prochaine adresse immobilière : prix médian DVF, zone PLU, potentiel de division. Sans inscription.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico">
+    <style>
+        :root {
+            --orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;
+            --orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;
+            --orange-700:#c2410c;
+            --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+            --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
+            --gray-600:#4b5563;--gray-700:#374151;--gray-800:#141418;
+            --gray-900:#0a0a0f;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--gray-50);color:var(--gray-800);line-height:1.6;}
+
+        /* NAV */
+        nav{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+        .nav-logo-box{width:34px;height:34px;background:var(--orange-500);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.8rem;}
+        .nav-logo-text{font-weight:800;font-size:1rem;color:var(--gray-900);}
+        .nav-links{display:flex;align-items:center;gap:16px;}
+        .nav-links a{text-decoration:none;font-size:.85rem;color:var(--gray-500);transition:color .2s;}
+        .nav-links a:hover{color:var(--gray-900);}
+        .btn-nav{background:var(--orange-500);color:#fff;padding:9px 18px;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;transition:all .2s;}
+        .btn-nav:hover{background:var(--orange-600);}
+
+        /* HERO */
+        .hero{background:var(--gray-900);color:#fff;padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+        .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;}
+        .hero-inner{max-width:640px;margin:0 auto;position:relative;z-index:1;}
+        .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);color:var(--orange-400);padding:5px 14px;border-radius:100px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;font-weight:600;}
+        .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange-400);animation:pulse 1.5s infinite;}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin-bottom:14px;}
+        .hero h1 em{color:var(--orange-400);font-style:italic;}
+        .hero-sub{color:rgba(255,255,255,.5);font-size:.95rem;max-width:500px;margin:0 auto 12px;line-height:1.7;}
+        .hero-note{font-size:.75rem;color:rgba(255,255,255,.3);letter-spacing:.5px;}
+
+        /* FORM CARD */
+        .form-wrap{max-width:680px;margin:-28px auto 0;padding:0 24px 48px;position:relative;z-index:10;}
+        .form-card{background:#fff;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.12);padding:36px 32px;border:1px solid var(--gray-100);}
+        .form-label{font-size:.8rem;font-weight:700;color:var(--gray-700);margin-bottom:8px;display:block;letter-spacing:.3px;}
+        .form-input-wrap{display:flex;gap:10px;}
+        .form-input{flex:1;border:2px solid var(--gray-200);border-radius:10px;padding:14px 18px;font-size:.95rem;font-family:'Inter',sans-serif;color:var(--gray-900);outline:none;transition:border-color .2s;}
+        .form-input:focus{border-color:var(--orange-400);}
+        .form-input::placeholder{color:var(--gray-400);}
+        .btn-analyse{background:var(--orange-500);color:#fff;border:none;border-radius:10px;padding:14px 24px;font-size:.95rem;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap;font-family:'Inter',sans-serif;}
+        .btn-analyse:hover:not(:disabled){background:var(--orange-600);transform:translateY(-1px);}
+        .btn-analyse:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+        .form-hint{font-size:.72rem;color:var(--gray-400);margin-top:8px;}
+
+        /* RÉSULTATS */
+        .results{display:none;margin-top:28px;}
+        .results.visible{display:block;}
+
+        .result-adresse{background:var(--orange-50);border:1px solid var(--orange-200);border-radius:10px;padding:12px 16px;font-size:.85rem;color:var(--orange-700);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+        .result-adresse svg{flex-shrink:0;}
+
+        .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+        .metric{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px 14px;text-align:center;}
+        .metric.highlight{background:var(--orange-50);border-color:var(--orange-200);}
+        .metric-val{font-size:1.4rem;font-weight:900;color:var(--gray-900);display:block;line-height:1;margin-bottom:4px;}
+        .metric.highlight .metric-val{color:var(--orange-600);}
+        .metric-lbl{font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;line-height:1.4;}
+
+        .points-section{margin-bottom:16px;}
+        .points-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-500);margin-bottom:10px;}
+        .point-item{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--gray-100);font-size:.85rem;color:var(--gray-700);}
+        .point-item:last-child{border-bottom:none;}
+        .point-item::before{content:'→';color:var(--orange-500);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+        .alerte-item{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;background:#fef3c7;border-radius:6px;font-size:.82rem;color:#92400e;margin-bottom:6px;}
+        .alerte-item::before{content:'⚠️';flex-shrink:0;}
+
+        /* PAYWALL */
+        .paywall{background:var(--gray-900);border-radius:14px;padding:28px 24px;text-align:center;margin-top:20px;position:relative;overflow:hidden;}
+        .paywall::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;}
+        .paywall h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:8px;}
+        .paywall p{color:rgba(255,255,255,.5);font-size:.82rem;max-width:400px;margin:0 auto 20px;line-height:1.6;}
+        .paywall-features{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;text-align:left;max-width:360px;margin-left:auto;margin-right:auto;}
+        .paywall-feature{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.6);}
+        .paywall-feature::before{content:'✓';color:var(--orange-400);font-weight:700;flex-shrink:0;}
+        .btn-rejoindre{display:inline-flex;align-items:center;gap:8px;background:var(--orange-500);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;}
+        .btn-rejoindre:hover{background:var(--orange-600);transform:translateY(-1px);}
+        .paywall-note{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:12px;}
+
+        /* LOADING */
+        .loading{display:none;text-align:center;padding:32px 0;}
+        .loading.visible{display:block;}
+        .spinner{width:40px;height:40px;border:3px solid var(--orange-100);border-top-color:var(--orange-500);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px;}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        .loading-steps{font-size:.78rem;color:var(--gray-500);}
+        .loading-step{opacity:.4;transition:opacity .3s;}
+        .loading-step.active{opacity:1;color:var(--orange-600);}
+
+        /* ERREUR */
+        .error-msg{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px 16px;font-size:.82rem;color:#dc2626;margin-top:12px;display:none;}
+        .error-msg.visible{display:block;}
+
+        /* EXEMPLES */
+        .exemples{margin-top:40px;text-align:center;}
+        .exemples-title{font-size:.72rem;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px;}
+        .exemple-btns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+        .exemple-btn{background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px 12px;font-size:.78rem;color:var(--gray-600);cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;}
+        .exemple-btn:hover{border-color:var(--orange-300);color:var(--orange-600);background:var(--orange-50);}
+
+        /* SOCIAL PROOF */
+        .social-proof{background:#fff;border-radius:16px;padding:28px 24px;margin:40px 0;border:1px solid var(--gray-100);}
+        .sp-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-400);text-align:center;margin-bottom:16px;}
+        .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;}
+        .sp-stat{font-size:1.5rem;font-weight:900;color:var(--orange-500);display:block;}
+        .sp-lbl{font-size:.68rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;}
+
+        @media(max-width:640px){
+            .form-input-wrap{flex-direction:column;}
+            .metrics-grid{grid-template-columns:1fr 1fr;}
+            .metrics-grid .metric:last-child{grid-column:1/-1;}
+            .sp-grid{grid-template-columns:1fr;}
+            .form-card{padding:24px 20px;}
+            .nav-links{display:none;}
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="/" class="nav-logo">
+        <div class="nav-logo-box">AOI</div>
+        <span class="nav-logo-text">Network</span>
+    </a>
+    <div class="nav-links">
+        <a href="/#tarifs">Tarifs</a>
+        <a href="/blog/index.html">Blog</a>
+        <a href="https://extranet.aoi-network.com" target="_blank">Espace membres</a>
+    </div>
+    <a href="/rejoindre.html" class="btn-nav">Rejoindre le réseau</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">Gratuit · Sans inscription</div>
+        <h1>Analysez votre prochaine<br><em>adresse en 30 secondes</em></h1>
+        <p class="hero-sub">Prix médian DVF, zone PLU, potentiel de division — données officielles croisées par l'IA AOI.</p>
+        <p class="hero-note">Données sources : data.gouv.fr · DVF · API Urbanisme · Cadastre IGN</p>
+    </div>
+</div>
+
+<!-- FORMULAIRE -->
+<div class="form-wrap">
+    <div class="form-card">
+        <label class="form-label" for="adresseInput">Adresse à analyser</label>
+        <div class="form-input-wrap">
+            <input
+                id="adresseInput"
+                class="form-input"
+                type="text"
+                placeholder="Ex : 80 rue Gabriel Péri, Châtillon"
+                autocomplete="off"
+                maxlength="200"
+            />
+            <button class="btn-analyse" id="btnAnalyse" onclick="lancerAnalyse()">
+                Analyser →
+            </button>
+        </div>
+        <div class="form-hint">5 analyses gratuites par heure · Aucune inscription requise</div>
+
+
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <div class="loading-steps">
+                <div class="loading-step active" id="step1">📍 Géolocalisation de l'adresse…</div>
+                <div class="loading-step" id="step2">📊 Récupération des données DVF…</div>
+                <div class="loading-step" id="step3">🏛️ Analyse de la zone PLU…</div>
+                <div class="loading-step" id="step4">🤖 Synthèse par l'IA AOI…</div>
+            </div>
+        </div>
+
+        <!-- Erreur -->
+        <div class="error-msg" id="errorMsg"></div>
+
+        <!-- Résultats -->
+        <div class="results" id="results">
+
+            <div class="result-adresse" id="resultAdresse">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="adresseLabel"></span>
+            </div>
+
+            <div class="metrics-grid" id="metricsGrid"></div>
+
+            <div class="points-section" id="pointsSection"></div>
+
+            <div id="alertesSection"></div>
+
+            <!-- Paywall -->
+            <div class="paywall">
+                <h3>Accédez au dossier <em style="color:var(--orange-400);font-style:italic;">complet</em></h3>
+                <p>Cette analyse est un aperçu. Les membres AOI Network accèdent à l'analyse complète sur chaque opération — avec les données cadastrales, la simulation financière, et les associés SEP disponibles.</p>
+                <div class="paywall-features">
+                    <div class="paywall-feature">Données DVF complètes + historique 5 ans</div>
+                    <div class="paywall-feature">Simulation financière (TVA, IS, marge nette)</div>
+                    <div class="paywall-feature">Recherche d'associés SEP dans le réseau</div>
+                    <div class="paywall-feature">Alertes passoires DPE dans votre zone</div>
+                </div>
+                <a href="/rejoindre.html" class="btn-rejoindre">Rejoindre AOI Network</a>
+                <p class="paywall-note">Accès immédiat · dès 99€/mois · Stripe sécurisé</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Social proof -->
+    <div class="social-proof">
+        <div class="sp-title">Le réseau AOI Network en ce moment</div>
+        <div class="sp-grid">
+            <div>
+                <span class="sp-stat" id="spOps">—</span>
+                <span class="sp-lbl">Opération en structuration</span>
+            </div>
+            <div>
+                <span class="sp-stat" id="spVolume">—</span>
+                <span class="sp-lbl">Volume SEP en cours</span>
+            </div>
+            <div>
+                <span class="sp-stat" id="spMissions">—</span>
+                <span class="sp-lbl">Appels d'offres privés</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// ── Chargement stats réseau ────────────────────────────────────
+(function() {
+    function fmt(n) {
+        if (!n) return '—';
+        if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M€';
+        if (n >= 1000) return Math.round(n/1000) + 'k€';
+        return n + '€';
+    }
+    fetch('https://extranet.aoi-network.com/api/public/stats')
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById('spOps').textContent = d.sepActives || '1';
+            document.getElementById('spVolume').textContent = fmt(d.volumeSEP);
+            document.getElementById('spMissions').textContent = d.opportunitesOuvertes || '0';
+        }).catch(() => {
+            document.getElementById('spOps').textContent = '1';
+            document.getElementById('spVolume').textContent = '1,9M€';
+            document.getElementById('spMissions').textContent = '4';
+        });
+})();
+
+// ── Analyse DVF ────────────────────────────────────────────────
+var stepTimeout;
+
+function setExemple(adresse) {
+    document.getElementById('adresseInput').value = adresse;
+    document.getElementById('adresseInput').focus();
+}
+
+function showStep(n) {
+    for (var i = 1; i <= 4; i++) {
+        var el = document.getElementById('step' + i);
+        if (el) el.classList.toggle('active', i === n);
+    }
+}
+
+async function lancerAnalyse() {
+    var adresse = document.getElementById('adresseInput').value.trim();
+    if (!adresse) { document.getElementById('adresseInput').focus(); return; }
+
+    var btn = document.getElementById('btnAnalyse');
+    var loading = document.getElementById('loading');
+    var results = document.getElementById('results');
+    var errorMsg = document.getElementById('errorMsg');
+
+    btn.disabled = true;
+    btn.textContent = 'Analyse en cours…';
+    loading.classList.add('visible');
+    results.classList.remove('visible');
+    errorMsg.classList.remove('visible');
+
+    // Animation des étapes
+    showStep(1);
+    var steps = [1,2,3,4];
+    var stepIdx = 0;
+    stepTimeout = setInterval(function() {
+        stepIdx = (stepIdx + 1) % steps.length;
+        showStep(steps[stepIdx]);
+    }, 2000);
+
+    try {
+        var res = await fetch('https://extranet.aoi-network.com/api/public/analyse-dvf', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ adresse: adresse })
+        });
+
+        clearInterval(stepTimeout);
+
+        if (!res.ok) {
+            var errData = await res.json().catch(() => ({}));
+            throw new Error(errData.error || 'Erreur serveur');
+        }
+
+        var data = await res.json();
+        afficherResultats(data);
+
+    } catch (err) {
+        clearInterval(stepTimeout);
+        errorMsg.textContent = err.message || 'Une erreur est survenue. Réessayez.';
+        errorMsg.classList.add('visible');
+    } finally {
+        loading.classList.remove('visible');
+        btn.disabled = false;
+        btn.textContent = 'Analyser →';
+    }
+}
+
+function afficherResultats(data) {
+    var results = document.getElementById('results');
+
+    // Adresse
+    document.getElementById('adresseLabel').textContent = data.adresse || '';
+
+    // Métriques
+    var grid = document.getElementById('metricsGrid');
+    var dvf = data.dvf;
+    var analyse = data.analyse || {};
+    grid.innerHTML = '';
+
+    function metrique(val, lbl, highlight) {
+        var cls = 'metric' + (highlight ? ' highlight' : '');
+        return '<div class="' + cls + '"><span class="metric-val">' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
+    }
+
+    if (dvf && dvf.prixMedianM2) {
+        grid.innerHTML += metrique(dvf.prixMedianM2.toLocaleString('fr-FR') + ' €/m²', 'Prix médian DVF', true);
+    } else {
+        grid.innerHTML += metrique('N/D', 'Prix médian DVF', false);
+    }
+
+    grid.innerHTML += metrique(
+        dvf ? (dvf.nbMutations + ' transactions') : 'N/D',
+        dvf && dvf.periode ? 'Période ' + dvf.periode : 'Transactions',
+        false
+    );
+
+    grid.innerHTML += metrique(
+        analyse.potentielDivision || 'À vérifier',
+        'Potentiel division',
+        analyse.potentielDivision === 'Oui'
+    );
+
+    // Zone PLU
+    if (data.plu || analyse.zonePLU) {
+        grid.innerHTML += metrique(
+            (analyse.zonePLU || data.plu || 'N/D').substring(0, 20),
+            'Zone PLU',
+            false
+        );
+    }
+
+    // Points clés
+    var points = analyse.pointsCles || [];
+    var psec = document.getElementById('pointsSection');
+    if (points.length) {
+        psec.innerHTML = '<div class="points-title">Points clés pour un opérateur</div>'
+            + points.map(function(p) { return '<div class="point-item">' + p + '</div>'; }).join('');
+    } else {
+        psec.innerHTML = '';
+    }
+
+    // Alertes
+    var alertes = analyse.alertes || [];
+    var asec = document.getElementById('alertesSection');
+    if (alertes.length) {
+        asec.innerHTML = alertes.map(function(a) { return '<div class="alerte-item">' + a + '</div>'; }).join('');
+    } else {
+        asec.innerHTML = '';
+    }
+
+    results.classList.add('visible');
+    results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Enter pour lancer
+document.getElementById('adresseInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') lancerAnalyse();
+});
+</script>
+
+</body>
+</html>
