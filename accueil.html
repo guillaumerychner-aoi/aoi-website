@@ -285,10 +285,10 @@
         </div>
     </section>
         <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
-    <div style="background:#f5f3ef;border-top:2px solid var(--orange-200);border-bottom:1px solid var(--gray-200);overflow:hidden;position:relative;">
+    <div style="background:#f5f3ef;border-top:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);overflow:hidden;position:relative;">
         <!-- Dégradés masquants sur les bords -->
-        <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#f5f3ef 60%,transparent);z-index:2;pointer-events:none;"></div>
-        <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#f5f3ef 60%,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
 
         <!-- Track défilant -->
         <div id="bnd-track" style="display:flex;align-items:center;gap:0;white-space:nowrap;padding:0;animation:bndScroll 28s linear infinite;">
@@ -329,14 +329,15 @@
     }
     /* Séparateur de section — plus court que la hauteur totale */
     .bnd-section-sep {
-        display:inline-block;
-        width:1px;
+        display:inline-flex;
+        align-self:center;
+        width:2px;
         height:28px;
         background:var(--orange-300);
         flex-shrink:0;
-        margin:0 12px;
-        vertical-align:middle;
-        opacity:.7;
+        margin:0 16px;
+        border-radius:2px;
+        opacity:.8;
     }
     .bnd-dot {
         width:5px;height:5px;border-radius:50%;
