@@ -63,6 +63,8 @@
         .metric-val{font-size:1.4rem;font-weight:900;color:var(--gray-900);display:block;line-height:1;margin-bottom:4px;}
         .metric.highlight .metric-val{color:var(--orange-600);}
         .metric-lbl{font-size:.62rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;line-height:1.4;}
+        .metric.unavailable{background:var(--gray-50);border-style:dashed;}
+        .metric.unavailable .metric-val{font-size:.78rem !important;color:var(--gray-400) !important;}
 
         .points-section{margin-bottom:16px;}
         .points-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-500);margin-bottom:10px;}
@@ -374,44 +376,47 @@ function afficherResultats(data) {
     var grid = document.getElementById('metricsGrid');
     var dvf = data.dvf;
     var analyse = data.analyse || {};
+    var dvfOk = dvf && dvf.prixMedianM2 && dvf.prixMedianM2 > 0;
+    var pluOk = data.plu && data.plu.length > 5;
     grid.innerHTML = '';
 
-    function metrique(val, lbl, highlight) {
-        var cls = 'metric' + (highlight ? ' highlight' : '');
-        return '<div class="' + cls + '"><span class="metric-val">' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
+    function metrique(val, lbl, highlight, unavailable) {
+        var cls = 'metric' + (highlight ? ' highlight' : '') + (unavailable ? ' unavailable' : '');
+        var valStyle = unavailable ? 'style="font-size:.85rem;color:var(--gray-400);"' : '';
+        return '<div class="' + cls + '"><span class="metric-val" ' + valStyle + '>' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
     }
 
-    if (dvf && dvf.prixMedianM2) {
-        grid.innerHTML += metrique(dvf.prixMedianM2.toLocaleString('fr-FR') + ' €/m²', 'Prix médian DVF', true);
+    if (dvfOk) {
+        grid.innerHTML += metrique(dvf.prixMedianM2.toLocaleString('fr-FR') + ' €/m²', 'Prix médian DVF', true, false);
+        grid.innerHTML += metrique(dvf.nbMutations + ' ventes', dvf.periode ? 'Période ' + dvf.periode : 'Transactions récentes', false, false);
     } else {
-        grid.innerHTML += metrique('N/D', 'Prix médian DVF', false);
+        grid.innerHTML += metrique('Données indisponibles', 'Prix médian DVF · périmètre 500m', false, true);
     }
 
-    grid.innerHTML += metrique(
-        dvf ? (dvf.nbMutations + ' transactions') : 'N/D',
-        dvf && dvf.periode ? 'Période ' + dvf.periode : 'Transactions',
-        false
-    );
+    if (pluOk) {
+        grid.innerHTML += metrique(data.plu.substring(0, 22), 'Zone PLU', false, false);
+    } else {
+        grid.innerHTML += metrique('À consulter en mairie', 'Zone PLU', false, true);
+    }
 
     grid.innerHTML += metrique(
         analyse.potentielDivision || 'À vérifier',
         'Potentiel division',
-        analyse.potentielDivision === 'Oui'
+        analyse.potentielDivision === 'Oui',
+        false
     );
-
-    // Zone PLU
-    if (data.plu || analyse.zonePLU) {
-        grid.innerHTML += metrique(
-            (analyse.zonePLU || data.plu || 'N/D').substring(0, 20),
-            'Zone PLU',
-            false
-        );
-    }
 
     // Points clés
     var points = analyse.pointsCles || [];
     var psec = document.getElementById('pointsSection');
-    if (points.length) {
+    if (!dvfOk && !pluOk) {
+        psec.innerHTML = '<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:14px 16px;font-size:.82rem;color:#92400e;line-height:1.6;">'
+            + '<strong>⚠️ Données API indisponibles pour ce secteur</strong><br>'
+            + 'Les données DVF et PLU n'ont pas pu être récupérées pour cette adresse. '
+            + 'Consultez directement <a href="https://app.dvf.etalab.gouv.fr" target="_blank" style="color:#92400e;">app.dvf.etalab.gouv.fr</a> '
+            + 'et le service urbanisme de la commune.'
+            + '</div>';
+    } else if (points.length) {
         psec.innerHTML = '<div class="points-title">Points clés pour un opérateur</div>'
             + points.map(function(p) { return '<div class="point-item">' + p + '</div>'; }).join('');
     } else {
