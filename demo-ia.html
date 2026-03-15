@@ -23,19 +23,10 @@
         html{scroll-behavior:smooth}
         body{font-family:'Inter',sans-serif;background:var(--gray-50);color:var(--gray-800);line-height:1.6;}
 
-        /* NAV */
-        nav{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;}
-        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-        .nav-logo-box{width:34px;height:34px;background:var(--orange-500);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.8rem;}
-        .nav-logo-text{font-weight:800;font-size:1rem;color:var(--gray-900);}
-        .nav-links{display:flex;align-items:center;gap:16px;}
-        .nav-links a{text-decoration:none;font-size:.85rem;color:var(--gray-500);transition:color .2s;}
-        .nav-links a:hover{color:var(--gray-900);}
-        .btn-nav{background:var(--orange-500);color:#fff;padding:9px 18px;border-radius:8px;font-size:.85rem;font-weight:700;text-decoration:none;transition:all .2s;}
-        .btn-nav:hover{background:var(--orange-600);}
+
 
         /* HERO */
-        .hero{background:var(--gray-900);color:#fff;padding:72px 24px 56px;text-align:center;position:relative;overflow:hidden;}
+        .hero{background:var(--gray-900);color:#fff;padding:108px 24px 56px;text-align:center;position:relative;overflow:hidden;}
         .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;}
         .hero-inner{max-width:640px;margin:0 auto;position:relative;z-index:1;}
         .hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);color:var(--orange-400);padding:5px 14px;border-radius:100px;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:20px;font-weight:600;}
@@ -121,30 +112,71 @@
         .sp-stat{font-size:1.5rem;font-weight:900;color:var(--orange-500);display:block;}
         .sp-lbl{font-size:.68rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;}
 
+        /* Header / Logo repris du site principal */
+        header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);}
+        .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gray-900);}
+        .logo-box{width:42px;height:42px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:10px;display:flex;align-items:center;justify-content:center;}
+        .logo-aoi{color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:-.5px;}
+        .logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;}
+        nav{display:flex;align-items:center;gap:8px;}
+        nav a{text-decoration:none;color:var(--gray-600);font-weight:500;padding:8px 14px;border-radius:8px;transition:all .2s;font-size:.9rem;}
+        nav a:hover{color:var(--orange-600);background:var(--orange-50);}
+        .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:'Inter',sans-serif;}
+        .btn-primary{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;box-shadow:0 4px 14px rgba(249,115,22,.3);}
+        .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,.4);}
+
+        /* Footer */
+        footer{background:var(--gray-900);color:#fff;padding:64px 0 32px;margin-top:64px;}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;align-items:start;}
+        .footer-brand p{color:var(--gray-400);margin-bottom:20px;line-height:1.6;font-size:.9rem;}
+        .footer-social{display:flex;gap:10px;}
+        .footer-social a{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .2s;text-decoration:none;}
+        .footer-social a:hover{background:var(--orange-600);}
+        .footer-column h5{font-weight:600;margin-bottom:18px;color:#fff;font-size:.9rem;}
+        .footer-column ul{list-style:none;}
+        .footer-column li{margin-bottom:10px;}
+        .footer-column a{color:var(--gray-400);text-decoration:none;font-size:.85rem;transition:color .2s;}
+        .footer-column a:hover{color:var(--orange-400);}
+        .footer-bottom{padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+        .footer-bottom p{color:var(--gray-500);font-size:.82rem;}
+        .footer-legal{display:flex;gap:20px;}
+        .footer-legal a{color:var(--gray-500);text-decoration:none;font-size:.82rem;}
+        .footer-legal a:hover{color:var(--orange-400);}
+
+        @media(max-width:768px){
+            nav a:not(.btn){display:none;}
+            .footer-grid{grid-template-columns:1fr;gap:24px;}
+            .footer-bottom{flex-direction:column;text-align:center;}
+        }
         @media(max-width:640px){
             .form-input-wrap{flex-direction:column;}
             .metrics-grid{grid-template-columns:1fr 1fr;}
             .metrics-grid .metric:last-child{grid-column:1/-1;}
             .sp-grid{grid-template-columns:1fr;}
             .form-card{padding:24px 20px;}
-            .nav-links{display:none;}
         }
     </style>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
 </head>
 <body>
 
-<nav>
-    <a href="/" class="nav-logo">
-        <div class="nav-logo-box">AOI</div>
-        <span class="nav-logo-text">Network</span>
-    </a>
-    <div class="nav-links">
-        <a href="/#tarifs">Tarifs</a>
-        <a href="/blog/index.html">Blog</a>
-        <a href="https://extranet.aoi-network.com" target="_blank">Espace membres</a>
+<header id="header">
+    <div class="container">
+        <div class="header-inner" style="display:flex;align-items:center;justify-content:space-between;padding:16px 0;">
+            <a href="/" class="logo">
+                <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                <span class="logo-text">Network</span>
+            </a>
+            <nav>
+                <a href="/accueil.html">La Plateforme</a>
+                <a href="/blog/" style="color:var(--gray-600);">Ressources</a>
+                <a href="https://extranet.aoi-network.com/login" style="display:inline-flex;align-items:center;gap:5px;color:var(--gray-700);font-size:.82rem;font-weight:600;padding:9px 12px;border-radius:10px;text-decoration:none;border:1.5px solid var(--gray-300);background:var(--gray-50);" onmouseover="this.style.borderColor='var(--gray-400)';this.style.background='var(--gray-100)'" onmouseout="this.style.borderColor='var(--gray-300)';this.style.background='var(--gray-50)'">Espace membres</a>
+                <a href="/rejoindre.html" class="btn btn-primary" style="padding:10px 24px;font-size:.9rem;">Nous rejoindre</a>
+            </nav>
+        </div>
     </div>
-    <a href="/rejoindre.html" class="btn-nav">Rejoindre le réseau</a>
-</nav>
+</header>
 
 <!-- HERO -->
 <div class="hero">
@@ -165,7 +197,7 @@
                 id="adresseInput"
                 class="form-input"
                 type="text"
-                placeholder="Ex : 80 rue Gabriel Péri, Châtillon"
+                placeholder="Ex : 12 rue de la Liberté, 75011 Paris"
                 autocomplete="off"
                 maxlength="200"
             />
@@ -404,6 +436,31 @@ document.getElementById('adresseInput').addEventListener('keydown', function(e) 
     if (e.key === 'Enter') lancerAnalyse();
 });
 </script>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="/" class="logo" style="margin-bottom:16px;display:inline-flex;">
+                    <div class="logo-box"><span class="logo-aoi">AOI</span></div>
+                    <span class="logo-text" style="color:#fff;">Network</span>
+                </a>
+                <p>Alliance des Opérateurs Immobiliers.<br>Né de l'expérience terrain, pour ceux qui veulent opérer autrement.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/aoinetwork" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+                    <a href="https://wa.me/33763782041" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-column"><h5>Navigation</h5><ul><li><a href="/accueil.html">La Plateforme</a></li><li><a href="/blog/">Ressources</a></li><li><a href="/accueil.html#tarifs">Tarifs</a></li><li><a href="/accueil.html#faq">FAQ</a></li></ul></div>
+            <div class="footer-column"><h5>Niveaux</h5><ul><li><a href="/accueil.html#tarifs">Accès Initial</a></li><li><a href="/accueil.html#tarifs">Partenaire Métier</a></li><li><a href="/accueil.html#tarifs">Co-Opérateur</a></li></ul></div>
+            <div class="footer-column"><h5>Contact</h5><ul><li><a href="https://wa.me/33763782041" target="_blank" rel="noopener noreferrer">WhatsApp</a></li><li><a href="/rejoindre.html">Nous Rejoindre</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SAS AOI Network &mdash; RCS Nanterre 101 608 164 &mdash; 3 Rue Hébert, 92140 Clamart</p>
+            <div class="footer-legal"><a href="/mentions-legales.html">Mentions légales</a><a href="/cgv.html">CGV</a><a href="/mentions-legales.html#cookies">Confidentialité</a></div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
