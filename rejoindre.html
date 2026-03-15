@@ -458,17 +458,21 @@
                         </div>
 
                         <!-- Action Buttons -->
-                        <div class="action-buttons">
-                            <button type="button" class="btn btn-secondary" id="btnCallback">
-                                <i data-lucide="message-circle"></i>
-                                Échanger avec un fondateur
-                            </button>
-                            <button type="button" class="btn btn-primary" id="btnSubscribe">
+                        <div class="action-buttons" style="display:flex;flex-direction:column;gap:12px;margin-top:32px;">
+                            <!-- CTA principal : souscription directe -->
+                            <button type="button" class="btn btn-primary" id="btnSubscribe" style="padding:20px 28px;font-size:1.05rem;font-weight:700;box-shadow:0 6px 24px rgba(249,115,22,.45);position:relative;overflow:hidden;">
                                 <i data-lucide="zap"></i>
-                                Souscrire directement
+                                Accéder maintenant — dès 99€/mois
+                                <span style="position:absolute;top:0;right:0;background:rgba(255,255,255,.15);font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:0 0 0 8px;">Accès immédiat</span>
+                            </button>
+                            <p style="text-align:center;font-size:.72rem;color:var(--gray-400);margin:0;">Paiement sécurisé Stripe · Accès à la plateforme dans la minute</p>
+                            <!-- CTA secondaire : entretien -->
+                            <button type="button" class="btn btn-secondary" id="btnCallback" style="padding:14px 24px;font-size:.9rem;opacity:.8;">
+                                <i data-lucide="message-circle"></i>
+                                Préférer un entretien avec un fondateur
                             </button>
                         </div>
-                        <p style="text-align:center;font-size:.75rem;color:var(--gray-400);margin-top:12px;">« Échanger » = un fondateur vous rappelle sous 48h · « Souscrire » = accès immédiat après paiement</p>
+                        <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;">Entretien = rappel sous 48h pour échanger sur votre profil</p>
                     </form>
                 </div>
 
