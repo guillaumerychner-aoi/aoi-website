@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Opération AOI Network — Dossier membre</title>
+    <meta name="description" id="metaDesc" content="Opération immobilière structurée via AOI Network — réseau privé d'opérateurs.">
+    <!-- Open Graph pour LinkedIn -->
+    <meta property="og:title" id="ogTitle" content="Opération AOI Network">
+    <meta property="og:description" id="ogDesc" content="Opération structurée hors circuit bancaire — réseau privé d'opérateurs.">
+    <meta property="og:image" content="https://www.aoi-network.com/og-image.png">
+    <meta property="og:url" id="ogUrl" content="https://extranet.aoi-network.com/operation/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;
+            --orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;
+            --orange-700:#c2410c;
+            --gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;
+            --gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;
+            --gray-600:#4b5563;--gray-700:#374151;--gray-800:#141418;
+            --gray-900:#0a0a0f;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--gray-900);color:#fff;min-height:100vh;line-height:1.6;}
+
+        /* NAV */
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+        .nav-logo-box{width:30px;height:30px;background:var(--orange-500);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;color:#fff;}
+        .nav-logo-text{font-weight:800;font-size:.95rem;color:#fff;letter-spacing:.3px;}
+        .nav-cta{background:var(--orange-500);color:#fff;padding:8px 18px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .2s;}
+        .nav-cta:hover{background:var(--orange-600);transform:translateY(-1px);}
+
+        /* HERO OPÉRATION */
+        .op-hero{padding:100px 24px 60px;max-width:900px;margin:0 auto;}
+        .op-badge-row{display:flex;align-items:center;gap:10px;margin-bottom:24px;flex-wrap:wrap;}
+        .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;}
+        .badge-live{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:#4ade80;}
+        .badge-live::before{content:'';width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite;display:inline-block;}
+        .badge-type{background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);color:var(--orange-400);}
+        .badge-city{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--gray-400);}
+        .op-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1;margin-bottom:16px;color:#fff;}
+        .op-title em{color:var(--orange-400);font-style:italic;}
+        .op-desc{font-size:1rem;color:var(--gray-400);max-width:640px;line-height:1.7;margin-bottom:40px;}
+
+        /* METRICS */
+        .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
+        .metric-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 18px;}
+        .metric-card.highlight{border-color:rgba(249,115,22,.3);background:rgba(249,115,22,.06);}
+        .metric-val{font-size:1.7rem;font-weight:900;display:block;line-height:1;margin-bottom:4px;}
+        .metric-val.orange{background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+        .metric-val.green{color:#4ade80;}
+        .metric-label{font-size:.68rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;}
+
+        /* PROFILS RECHERCHÉS */
+        .section-block{margin-bottom:32px;}
+        .section-title{font-size:.72rem;font-weight:700;color:var(--orange-400);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+        .section-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.06);}
+        .profils-list{display:flex;flex-wrap:wrap;gap:10px;}
+        .profil-tag{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:8px 14px;font-size:.8rem;color:var(--gray-300);}
+
+        /* BLOC FLOUTÉ */
+        .blurred-block{position:relative;border-radius:14px;overflow:hidden;margin-bottom:32px;}
+        .blurred-inner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;}
+        .blurred-content{filter:blur(6px);user-select:none;pointer-events:none;}
+        .blurred-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(10,10,15,.6);backdrop-filter:blur(2px);}
+        .blurred-label{font-size:.75rem;font-weight:700;color:var(--orange-400);text-transform:uppercase;letter-spacing:1.5px;text-align:center;}
+        .blurred-cta{background:var(--orange-500);color:#fff;padding:10px 22px;border-radius:8px;font-size:.82rem;font-weight:700;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
+        .blurred-cta:hover{background:var(--orange-600);}
+        .fake-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+        .fake-label{font-size:.8rem;color:var(--gray-400);}
+        .fake-val{font-size:.9rem;font-weight:700;color:#fff;}
+
+        /* PORTEUR */
+        .porteur-card{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px 20px;margin-bottom:32px;}
+        .porteur-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1rem;color:#fff;flex-shrink:0;}
+        .porteur-name{font-weight:700;font-size:.95rem;color:#fff;}
+        .porteur-sub{font-size:.75rem;color:var(--gray-500);}
+        .porteur-badge{margin-left:auto;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.2);color:#4ade80;padding:4px 12px;border-radius:100px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;flex-shrink:0;}
+
+        /* CTA FINAL */
+        .cta-block{background:linear-gradient(135deg,rgba(249,115,22,.12),rgba(249,115,22,.05));border:1px solid rgba(249,115,22,.2);border-radius:20px;padding:40px 32px;text-align:center;margin:48px 0;}
+        .cta-block h3{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;margin-bottom:10px;}
+        .cta-block p{color:var(--gray-400);font-size:.9rem;max-width:500px;margin:0 auto 28px;}
+        .cta-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange-500);color:#fff;padding:16px 32px;border-radius:10px;font-weight:700;font-size:1rem;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(249,115,22,.3);}
+        .cta-primary:hover{background:var(--orange-600);transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,115,22,.4);}
+        .cta-note{font-size:.72rem;color:var(--gray-600);margin-top:14px;}
+
+        /* FOOTER */
+        .op-footer{border-top:1px solid rgba(255,255,255,.06);padding:24px;text-align:center;}
+        .op-footer a{color:var(--gray-500);font-size:.8rem;text-decoration:none;}
+        .op-footer a:hover{color:var(--orange-400);}
+
+        /* LOADING */
+        .loading-state{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px;}
+        .spinner{width:36px;height:36px;border:3px solid rgba(249,115,22,.2);border-top-color:var(--orange-500);border-radius:50%;animation:spin .8s linear infinite;}
+        @keyframes spin{to{transform:rotate(360deg)}}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+        .error-state{text-align:center;padding:80px 24px;}
+        .error-state h2{font-size:1.4rem;color:#fff;margin-bottom:10px;}
+        .error-state p{color:var(--gray-500);margin-bottom:24px;}
+
+        @media(max-width:640px){
+            .metrics-grid{grid-template-columns:1fr 1fr;}
+            .metrics-grid .metric-card:last-child{grid-column:1/-1;}
+            .op-hero{padding:80px 16px 40px;}
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="https://www.aoi-network.com" class="nav-logo">
+        <div class="nav-logo-box">AOI</div>
+        <span class="nav-logo-text">Network</span>
+    </a>
+    <a href="https://www.aoi-network.com/rejoindre.html" class="nav-cta">Rejoindre le réseau</a>
+</nav>
+
+<!-- CONTENU DYNAMIQUE -->
+<main id="mainContent">
+    <div class="loading-state">
+        <div class="spinner"></div>
+        <p style="color:var(--gray-500);font-size:.85rem;">Chargement du dossier…</p>
+    </div>
+</main>
+
+<footer class="op-footer">
+    <a href="https://www.aoi-network.com">© AOI Network — Réseau privé d'opérateurs immobiliers</a>
+    &nbsp;·&nbsp;
+    <a href="https://www.aoi-network.com/mentions-legales.html">Mentions légales</a>
+</footer>
+
+<script>
+(function() {
+    // Extraire l'ID depuis l'URL : /operation/[id]
+    var pathParts = window.location.pathname.split('/').filter(Boolean);
+    var opId = pathParts[pathParts.length - 1];
+
+    if (!opId || opId === 'operation') {
+        renderError('Aucune opération spécifiée.', 'Vérifiez le lien partagé.');
+        return;
+    }
+
+    var API = 'https://extranet.aoi-network.com/api/public/sep/' + opId;
+
+    fetch(API)
+        .then(function(r) {
+            if (!r.ok) throw new Error(r.status + '');
+            return r.json();
+        })
+        .then(function(d) { renderOperation(d); })
+        .catch(function(e) {
+            if (e.message === '404') {
+                renderError('Opération introuvable.', 'Ce lien n\'est peut-être plus valide.');
+            } else if (e.message === '410') {
+                renderError('Opération clôturée.', 'Cette opération est terminée.');
+            } else {
+                renderError('Erreur de chargement.', 'Réessayez dans quelques instants.');
+            }
+        });
+
+    function statusLabel(s) {
+        var map = {
+            structuration: 'En structuration',
+            closing: 'Closing en cours',
+            en_cours: 'En cours',
+        };
+        return map[s] || s;
+    }
+
+    function formatMontant(n) {
+        if (!n) return null;
+        if (n >= 1000000) return (n/1000000).toFixed(2).replace('.',',').replace(/,?0+$/, '') + 'M€';
+        if (n >= 1000) return Math.round(n/1000) + ' k€';
+        return n + ' €';
+    }
+
+    function getInitials(prenom, societe) {
+        if (prenom) return prenom.charAt(0).toUpperCase();
+        if (societe) return societe.charAt(0).toUpperCase();
+        return 'A';
+    }
+
+    function renderOperation(d) {
+        // Mettre à jour les meta OG
+        var titre = d.title || 'Opération AOI Network';
+        document.getElementById('pageTitle').textContent = titre + ' — AOI Network';
+        document.getElementById('ogTitle').setAttribute('content', titre + ' — AOI Network');
+        document.getElementById('metaDesc').setAttribute('content', 'Opération ' + (d.city || 'Île-de-France') + ' structurée via AOI Network — réseau privé d\'opérateurs.');
+        document.getElementById('ogDesc').setAttribute('content', 'Opération ' + (d.city || 'Île-de-France') + ' — ' + (d.rentabilite ? d.rentabilite + '% de renta estimée' : 'Dossier membre AOI'));
+        document.getElementById('ogUrl').setAttribute('content', window.location.href);
+
+        var profils = Array.isArray(d.searchingFor) ? d.searchingFor : [];
+        var margeFmt = formatMontant(d.margeBrute);
+        var rentaFmt = d.rentabilite ? d.rentabilite + '%' : null;
+
+        var participantsText = d.participationsCount > 0
+            ? d.participationsCount + ' intérêt' + (d.participationsCount > 1 ? 's' : '') + ' exprimé' + (d.participationsCount > 1 ? 's' : '')
+            : 'Soyez le premier à rejoindre';
+
+        var porteurHtml = '';
+        if (d.porteur) {
+            var initiale = getInitials(d.porteur.prenom, d.porteur.societe);
+            porteurHtml = '<div class="porteur-card">'
+                + '<div class="porteur-avatar">' + initiale + '</div>'
+                + '<div>'
+                + '<div class="porteur-name">' + (d.porteur.prenom ? d.porteur.prenom + ' — ' : '') + (d.porteur.societe || 'Opérateur AOI') + '</div>'
+                + '<div class="porteur-sub">' + (d.porteur.ville || d.city || 'Île-de-France') + ' · Membre Co-Opérateur AOI</div>'
+                + '</div>'
+                + '<span class="porteur-badge">Vérifié ✓</span>'
+                + '</div>';
+        }
+
+        var profilsHtml = '';
+        if (profils.length > 0) {
+            profilsHtml = '<div class="section-block">'
+                + '<div class="section-title">Profils recherchés</div>'
+                + '<div class="profils-list">'
+                + profils.map(function(p) { return '<span class="profil-tag">' + p + '</span>'; }).join('')
+                + '</div></div>';
+        }
+
+        var html = '<div class="op-hero">'
+
+            // Badges
+            + '<div class="op-badge-row">'
+            + '<span class="badge badge-live">' + statusLabel(d.status) + '</span>'
+            + '<span class="badge badge-type">Projet SEP · AOI Network</span>'
+            + '<span class="badge badge-city">📍 ' + (d.city || 'Île-de-France') + '</span>'
+            + '</div>'
+
+            // Titre
+            + '<h1 class="op-title">' + titre + '</h1>'
+
+            // Description
+            + (d.descriptionPublique ? '<p class="op-desc">' + d.descriptionPublique + '</p>' : '')
+
+            // Porteur
+            + porteurHtml
+
+            // Métriques visibles
+            + '<div class="metrics-grid">'
+            + (margeFmt ? '<div class="metric-card highlight"><span class="metric-val orange">' + margeFmt + '</span><span class="metric-label">Marge brute estimée</span></div>' : '')
+            + (rentaFmt ? '<div class="metric-card"><span class="metric-val orange">' + rentaFmt + '</span><span class="metric-label">Rentabilité estimée</span></div>' : '<div class="metric-card"><span class="metric-val" style="color:#fff;">—</span><span class="metric-label">Rentabilité</span></div>')
+            + '<div class="metric-card"><span class="metric-val" style="color:#fff;">' + participantsText + '</span><span class="metric-label">Activité réseau</span></div>'
+            + '</div>'
+
+            // Profils
+            + profilsHtml
+
+            // Bloc flouté — détails financiers réservés membres
+            + '<div class="section-block">'
+            + '<div class="section-title">Structure de l\'opération</div>'
+            + '<div class="blurred-block">'
+            + '<div class="blurred-inner">'
+            + '<div class="blurred-content">'
+            + '<div class="fake-row"><span class="fake-label">Montant recherché (SEP)</span><span class="fake-val">███ k€</span></div>'
+            + '<div class="fake-row"><span class="fake-label">Apport porteur</span><span class="fake-val">███ k€</span></div>'
+            + '<div class="fake-row"><span class="fake-label">Répartition bénéfices</span><span class="fake-val">██ / ██ %</span></div>'
+            + '<div class="fake-row"><span class="fake-label">Durée de portage estimée</span><span class="fake-val">██ mois</span></div>'
+            + '<div class="fake-row" style="border:none;"><span class="fake-label">Documents disponibles</span><span class="fake-val">3 fichiers</span></div>'
+            + '</div>'
+            + '</div>'
+            + '<div class="blurred-overlay">'
+            + '<span class="blurred-label">🔒 Réservé aux membres Co-Opérateur</span>'
+            + '<a href="https://www.aoi-network.com/rejoindre.html" class="blurred-cta">Accéder au dossier complet →</a>'
+            + '</div>'
+            + '</div>'
+            + '</div>'
+
+            // CTA final
+            + '<div class="cta-block">'
+            + '<h3>Vous voulez <em style="color:var(--orange-400);font-style:italic;">rejoindre cette opération</em> ?</h3>'
+            + '<p>Accédez au dossier complet, aux conditions de la SEP et entrez directement en contact avec l\'opérateur porteur.</p>'
+            + '<a href="https://www.aoi-network.com/rejoindre.html" class="cta-primary">Rejoindre AOI Network</a>'
+            + '<p class="cta-note">Accès immédiat · dès 99€/mois · Paiement Stripe sécurisé</p>'
+            + '</div>'
+
+            + '</div>'; // end op-hero
+
+        document.getElementById('mainContent').innerHTML = html;
+    }
+
+    function renderError(title, subtitle) {
+        document.getElementById('mainContent').innerHTML
+            = '<div class="error-state">'
+            + '<h2>' + title + '</h2>'
+            + '<p>' + subtitle + '</p>'
+            + '<a href="https://www.aoi-network.com" style="display:inline-block;background:var(--orange-500);color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;text-decoration:none;">Retour au site</a>'
+            + '</div>';
+    }
+})();
+</script>
+</body>
+</html>
