@@ -57,7 +57,7 @@
         .result-adresse{background:var(--orange-50);border:1px solid var(--orange-200);border-radius:10px;padding:12px 16px;font-size:.85rem;color:var(--orange-700);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
         .result-adresse svg{flex-shrink:0;}
 
-        .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;}
+        .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;}
         .metric{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:12px;padding:16px 14px;text-align:center;}
         .metric.highlight{background:var(--orange-50);border-color:var(--orange-200);}
         .metric-val{font-size:1.4rem;font-weight:900;color:var(--gray-900);display:block;line-height:1;margin-bottom:4px;}
@@ -372,39 +372,57 @@ window.afficherResultats = function(data) {
     // Adresse
     document.getElementById('adresseLabel').textContent = data.adresse || '';
 
-    // Métriques
     var grid = document.getElementById('metricsGrid');
     var dvf = data.dvf;
     var analyse = data.analyse || {};
-    var dvfOk = dvf && dvf.prixMedianM2 && dvf.prixMedianM2 > 0;
+    var ptt = dvf && dvf.prixParTaille;
+    var ptt_appart = dvf && dvf.prixParType && dvf.prixParType.appartements;
+    var ptt_maison = dvf && dvf.prixParType && dvf.prixParType.maisons;
+    var dvfOk = dvf && dvf.nbMutations > 0;
     var pluOk = data.plu && data.plu.length > 5;
     grid.innerHTML = '';
 
+    function fmt(v) { return v ? v.toLocaleString('fr-FR') + ' €/m²' : '—'; }
     function metrique(val, lbl, highlight, unavailable) {
         var cls = 'metric' + (highlight ? ' highlight' : '') + (unavailable ? ' unavailable' : '');
-        var valStyle = unavailable ? 'style="font-size:.85rem;color:var(--gray-400);"' : '';
-        return '<div class="' + cls + '"><span class="metric-val" ' + valStyle + '>' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
+        return '<div class="' + cls + '"><span class="metric-val">' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
     }
 
-    if (dvfOk) {
-        grid.innerHTML += metrique(dvf.prixMedianM2.toLocaleString('fr-FR') + ' €/m²', 'Prix médian DVF', true, false);
-        grid.innerHTML += metrique(dvf.nbMutations + ' ventes', dvf.periode ? 'Période ' + dvf.periode : 'Transactions récentes', false, false);
-    } else {
-        grid.innerHTML += metrique('Données indisponibles', 'Prix médian DVF · périmètre 500m', false, true);
-    }
-
+    // Zone PLU en premier
     if (pluOk) {
-        grid.innerHTML += metrique(data.plu.substring(0, 22), 'Zone PLU', false, false);
+        grid.innerHTML += metrique(data.plu.substring(0, 24), 'Zone PLU', false, false);
     } else {
-        grid.innerHTML += metrique('À consulter en mairie', 'Zone PLU', false, true);
+        grid.innerHTML += metrique('À vérifier en mairie', 'Zone PLU', false, true);
     }
 
-    grid.innerHTML += metrique(
-        analyse.potentielDivision || 'À vérifier',
-        'Potentiel division',
-        analyse.potentielDivision === 'Oui',
-        false
-    );
+    // Critères DVF
+    if (dvfOk) {
+        var rayon = dvf.rayon || 300;
+        var periode = dvf.periodeMin && dvf.periodeMax ? dvf.periodeMin + '–' + dvf.periodeMax : 'depuis 2023';
+        var criteres = dvf.nbMutations + ' ventes · ' + rayon + 'm · ' + periode;
+
+        // Par taille si disponible
+        if (ptt && (ptt.petits.prixM2 || ptt.moyens.prixM2 || ptt.grands.prixM2)) {
+            if (ptt.petits.prixM2) grid.innerHTML += metrique(fmt(ptt.petits.prixM2), '< T2 · ' + ptt.petits.nb + ' vente(s)', true, false);
+            if (ptt.moyens.prixM2) grid.innerHTML += metrique(fmt(ptt.moyens.prixM2), 'T2–T3 · ' + ptt.moyens.nb + ' vente(s)', true, false);
+            if (ptt.grands.prixM2) grid.innerHTML += metrique(fmt(ptt.grands.prixM2), '≥ T4 · ' + ptt.grands.nb + ' vente(s)', true, false);
+        } else if (dvf.prixGlobal) {
+            // Fallback : prix global si pas de segmentation possible
+            grid.innerHTML += metrique(fmt(dvf.prixGlobal), 'Prix médian · ' + dvf.nbMutations + ' ventes', true, false);
+        }
+
+        // Appart vs Maison si les deux existent
+        if (ptt_appart && ptt_appart.nb > 0 && ptt_maison && ptt_maison.nb > 0) {
+            grid.innerHTML += metrique(fmt(ptt_appart.prixM2), 'Appartements · ' + ptt_appart.nb + ' ventes', false, false);
+            grid.innerHTML += metrique(fmt(ptt_maison.prixM2), 'Maisons · ' + ptt_maison.nb + ' ventes', false, false);
+        }
+
+        // Note critères
+        grid.innerHTML += '<div class="metric" style="grid-column:1/-1;background:var(--orange-50);border-color:var(--orange-200);padding:8px 12px;"><span style="font-size:.72rem;color:var(--orange-700);">📊 ' + criteres + ' · Transactions depuis le 01/01/2023 uniquement (pertinence marché)</span></div>';
+
+    } else {
+        grid.innerHTML += metrique('Données indisponibles', 'DVF · périmètre 300–500m', false, true);
+    }
 
     // Points clés
     var points = analyse.pointsCles || [];
