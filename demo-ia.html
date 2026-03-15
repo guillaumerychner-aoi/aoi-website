@@ -390,7 +390,12 @@ window.afficherResultats = function(data) {
 
     // Zone PLU en premier
     if (pluOk) {
-        grid.innerHTML += metrique(data.plu.substring(0, 24), 'Zone PLU', false, false);
+        // Séparer "Zone U3e | E7 T4 H14 A10" en code + indices
+        var pluParts = data.plu.split(' | ');
+        var pluCode = pluParts[0] || data.plu;
+        var pluIndices = pluParts[1] || '';
+        var pluLabel = pluIndices ? 'Zone PLU · ' + pluIndices : 'Zone PLU';
+        grid.innerHTML += metrique(pluCode.substring(0, 18), pluLabel, false, false);
     } else {
         grid.innerHTML += metrique('À vérifier en mairie', 'Zone PLU', false, true);
     }
