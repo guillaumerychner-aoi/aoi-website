@@ -74,6 +74,105 @@
 
         .alerte-item{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;background:#fef3c7;border-radius:6px;font-size:.82rem;color:#92400e;margin-bottom:6px;}
         .alerte-item::before{content:'⚠️';flex-shrink:0;}
+        /* SECTIONS ANALYSE ENRICHIE */
+        .analyse-section{margin-bottom:20px;border-radius:14px;overflow:hidden;border:1px solid var(--gray-200);}
+        .analyse-section-header{
+            display:flex;align-items:center;justify-content:space-between;
+            padding:12px 16px;background:var(--gray-50);
+            border-bottom:1px solid var(--gray-200);
+        }
+        .analyse-section-title{
+            display:flex;align-items:center;gap:8px;
+            font-size:.72rem;font-weight:700;text-transform:uppercase;
+            letter-spacing:1.5px;color:var(--gray-700);
+        }
+        .analyse-section-title span{
+            width:20px;height:20px;border-radius:6px;
+            display:flex;align-items:center;justify-content:center;font-size:11px;
+        }
+        .analyse-section-badge{
+            font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+            padding:2px 8px;border-radius:100px;
+        }
+        .badge-free{background:#dcfce7;color:#15803d;}
+        .badge-locked{background:rgba(99,57,255,.1);color:#6339ff;border:1px solid rgba(99,57,255,.2);}
+
+        .analyse-rows{padding:0;}
+        .analyse-row{
+            display:flex;align-items:center;justify-content:space-between;
+            padding:11px 16px;border-bottom:1px solid var(--gray-100);
+            gap:12px;
+        }
+        .analyse-row:last-child{border-bottom:none;}
+        .analyse-row-label{
+            font-size:.82rem;color:var(--gray-600);font-weight:500;flex-shrink:0;
+            display:flex;align-items:center;gap:6px;
+        }
+        .analyse-row-label .row-icon{font-size:13px;}
+        .analyse-row-value{
+            font-size:.85rem;font-weight:700;color:var(--gray-900);
+            text-align:right;
+        }
+        .analyse-row-value.orange{color:var(--orange-600);}
+        .analyse-row-value.green{color:#16a34a;}
+        .analyse-row-value.red{color:#dc2626;}
+
+        /* FLOUTÉ */
+        .blurred-value{
+            font-size:.85rem;font-weight:700;
+            color:transparent;
+            text-shadow:0 0 8px rgba(99,57,255,.6);
+            background:linear-gradient(90deg,rgba(99,57,255,.15),rgba(249,115,22,.1));
+            border-radius:4px;padding:1px 8px;
+            user-select:none;pointer-events:none;
+            position:relative;
+        }
+        .lock-row{
+            display:flex;align-items:center;gap:4px;
+        }
+        .lock-icon{
+            width:14px;height:14px;opacity:.4;flex-shrink:0;
+        }
+
+        /* SCORE CARD */
+        .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px;}
+        .score-card{
+            background:var(--gray-50);border-radius:10px;padding:14px;
+            border:1px solid var(--gray-200);text-align:center;
+        }
+        .score-val{font-size:1.6rem;font-weight:900;line-height:1;margin-bottom:4px;display:block;}
+        .score-val.blurred-score{
+            color:transparent;
+            text-shadow:0 0 12px rgba(99,57,255,.5);
+        }
+        .score-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:1px;color:var(--gray-500);}
+        .score-bar{height:4px;border-radius:2px;background:var(--gray-200);margin-top:8px;overflow:hidden;}
+        .score-fill{height:100%;border-radius:2px;transition:width .6s ease;}
+
+        /* DVF ENRICHI */
+        .dvf-table{width:100%;border-collapse:collapse;}
+        .dvf-table th{
+            font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;
+            color:var(--gray-400);padding:8px 12px;text-align:left;
+            border-bottom:1px solid var(--gray-100);background:var(--gray-50);
+        }
+        .dvf-table td{
+            font-size:.82rem;padding:9px 12px;border-bottom:1px solid var(--gray-100);
+            color:var(--gray-700);
+        }
+        .dvf-table tr:last-child td{border-bottom:none;}
+        .dvf-table .val-orange{color:var(--orange-600);font-weight:700;}
+
+        /* MINI TREND */
+        .trend-up{color:#16a34a;font-size:.72rem;font-weight:700;}
+        .trend-down{color:#dc2626;font-size:.72rem;font-weight:700;}
+        .trend-flat{color:var(--gray-400);font-size:.72rem;}
+
+        @media(max-width:640px){
+            .score-grid{grid-template-columns:1fr;}
+            .analyse-row-label{font-size:.78rem;}
+        }
+
 
         /* PAYWALL — version premium */
         .paywall{
@@ -282,24 +381,177 @@
                 <span id="adresseLabel"></span>
             </div>
 
-            <div class="metrics-grid" id="metricsGrid"></div>
+            <!-- SECTION 1 — Marché DVF (visible) -->
+            <div class="analyse-section" id="sectionDVF">
+                <div class="analyse-section-header">
+                    <div class="analyse-section-title">
+                        <span style="background:var(--orange-100);">📊</span>
+                        Marché immobilier local
+                    </div>
+                    <span class="analyse-section-badge badge-free">Données publiques</span>
+                </div>
+                <div class="analyse-rows" id="dvfRows"></div>
+            </div>
 
+            <!-- SECTION 2 — DVF enrichi flouté -->
+            <div class="analyse-section">
+                <div class="analyse-section-header">
+                    <div class="analyse-section-title">
+                        <span style="background:#dbeafe;">📈</span>
+                        Analyse marché approfondie
+                    </div>
+                    <span class="analyse-section-badge badge-locked">🔒 Membres AOI</span>
+                </div>
+                <div class="analyse-rows">
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📐</span>Prix médian < 50 m²</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">5 890 €/m²</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📐</span>Prix médian 50–80 m²</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">6 210 €/m²</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📐</span>Prix médian > 80 m²</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">6 650 €/m²</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📅</span>Évolution prix 12 mois</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">+3,2 %</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">🔄</span>Taux de rotation marché</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">Élevé</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">💰</span>Rendement locatif estimé</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">4,8 % brut</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📊</span>Score de liquidité secteur</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">7,4 / 10</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3 — Urbanisme visible -->
+            <div class="analyse-section" id="sectionPLU">
+                <div class="analyse-section-header">
+                    <div class="analyse-section-title">
+                        <span style="background:#dcfce7;">🏛️</span>
+                        Zonage PLU détecté
+                    </div>
+                    <span class="analyse-section-badge badge-free">Données publiques</span>
+                </div>
+                <div class="analyse-rows" id="pluRows"></div>
+            </div>
+
+            <!-- SECTION 4 — Règles urbanisme floutées -->
+            <div class="analyse-section">
+                <div class="analyse-section-header">
+                    <div class="analyse-section-title">
+                        <span style="background:#f3e8ff;">📏</span>
+                        Règles d'urbanisme applicables
+                    </div>
+                    <span class="analyse-section-badge badge-locked">🔒 Membres AOI</span>
+                </div>
+                <div class="analyse-rows">
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">⬛</span>Emprise au sol maximale</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">45 %</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📏</span>Hauteur maximale</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">12 m / R+3</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">🌿</span>Taux de pleine terre min.</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">30 %</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">🛣️</span>Distance à l'alignement</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">0 m (à l'alignement)</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">↔️</span>Recul / limites séparatives</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">3 m min.</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">🚗</span>Stationnement requis</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">1 place / logement</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">🚪</span>Largeur d'accès minimale</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">3,5 m</span></div>
+                    </div>
+                    <div class="analyse-row">
+                        <span class="analyse-row-label"><span class="row-icon">📋</span>Servitudes actives</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value">2 détectées</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 5 — Scoring opérateur flouté -->
+            <div class="analyse-section">
+                <div class="analyse-section-header">
+                    <div class="analyse-section-title">
+                        <span style="background:var(--orange-100);">🎯</span>
+                        Scoring opérateur AOI
+                    </div>
+                    <span class="analyse-section-badge badge-locked">🔒 Membres AOI</span>
+                </div>
+                <div class="score-grid">
+                    <div class="score-card">
+                        <span class="score-val blurred-score">8.2</span>
+                        <div class="score-bar"><div class="score-fill" style="width:0%;background:var(--orange-400);"></div></div>
+                        <span class="score-lbl">Divisibilité parcellaire</span>
+                    </div>
+                    <div class="score-card">
+                        <span class="score-val blurred-score">7.5</span>
+                        <div class="score-bar"><div class="score-fill" style="width:0%;background:#6339ff;"></div></div>
+                        <span class="score-lbl">Tension locative</span>
+                    </div>
+                    <div class="score-card">
+                        <span class="score-val blurred-score">SEP</span>
+                        <div class="score-bar" style="display:none;"></div>
+                        <span class="score-lbl">Montage recommandé</span>
+                    </div>
+                    <div class="score-card">
+                        <span class="score-val blurred-score">Faible</span>
+                        <div class="score-bar" style="display:none;"></div>
+                        <span class="score-lbl">Risque réglementaire</span>
+                    </div>
+                </div>
+                <div style="padding:0 14px 14px;">
+                    <div class="analyse-row" style="background:rgba(99,57,255,.04);border-radius:8px;border:1px solid rgba(99,57,255,.1);">
+                        <span class="analyse-row-label"><span class="row-icon">🤖</span>Analyse IA complète</span>
+                        <div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="blurred-value" style="font-size:.75rem;">Disponible dans le logiciel MdB</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Points clés et alertes -->
             <div class="points-section" id="pointsSection"></div>
-
             <div id="alertesSection"></div>
 
             <!-- Paywall -->
             <div class="paywall">
-                <h3>Accédez au dossier <em style="color:var(--orange-400);font-style:italic;">complet</em></h3>
-                <p>Cette analyse est un aperçu. Les membres AOI Network accèdent à l'analyse complète sur chaque opération — avec les données cadastrales, la simulation financière, et les associés SEP disponibles.</p>
-                <div class="paywall-features">
-                    <div class="paywall-feature">Données DVF complètes + historique 5 ans</div>
-                    <div class="paywall-feature">Simulation financière (TVA, IS, marge nette)</div>
-                    <div class="paywall-feature">Recherche d'associés SEP dans le réseau</div>
-                    <div class="paywall-feature">Alertes passoires DPE dans votre zone</div>
+                <div class="paywall-inner">
+                    <div class="paywall-eyebrow">⚡ Membres AOI Network</div>
+                    <h3>Accédez au dossier <em>complet</em></h3>
+                    <p>Règles PLU exactes, analyse marché affinée, scoring opérateur, montage recommandé — et si vous uploadez le PDF du règlement PLU dans le logiciel MdB, l'IA extrait automatiquement toutes les règles de votre zone.</p>
+                    <div class="paywall-places">🏆 50 places Fondateurs — tarif figé à vie</div>
+                    <div class="paywall-features">
+                        <div class="paywall-feature">Règles PLU complètes (PDF + IA)</div>
+                        <div class="paywall-feature">DVF affiné par surface</div>
+                        <div class="paywall-feature">Scoring divisibilité parcellaire</div>
+                        <div class="paywall-feature">Montage SEP / MdB / PAT recommandé</div>
+                        <div class="paywall-feature">Associés SEP dans le réseau</div>
+                        <div class="paywall-feature">Alertes DPE passoires</div>
+                    </div>
+                    <a href="/rejoindre.html" class="btn-rejoindre">Rejoindre AOI Network →</a>
+                    <div class="paywall-note">Accès immédiat · dès 99€/mois · Stripe sécurisé</div>
                 </div>
-                <a href="/rejoindre.html" class="btn-rejoindre">Rejoindre AOI Network</a>
-                <p class="paywall-note">Accès immédiat · dès 99€/mois · Stripe sécurisé</p>
             </div>
 
         </div>
@@ -451,60 +703,82 @@ window.afficherResultats = function(data) {
         return '<div class="' + cls + '"><span class="metric-val">' + val + '</span><span class="metric-lbl">' + lbl + '</span></div>';
     }
 
-    // Zone PLU en premier
-    if (pluOk) {
-        // Séparer "Zone U3e | E7 T4 H14 A10" en code + indices
-        var pluParts = data.plu.split(' | ');
-        var pluCode = pluParts[0] || data.plu;
-        var pluIndices = pluParts[1] || '';
-        var pluLabel = pluIndices ? 'Zone PLU · ' + pluIndices : 'Zone PLU';
-        grid.innerHTML += metrique(pluCode.substring(0, 18), pluLabel, false, false);
-    } else {
-        grid.innerHTML += metrique('À vérifier en mairie', 'Zone PLU', false, true);
+    function lockRow(label, icon, fakeVal) {
+        return '<div class="analyse-row">'
+            + '<span class="analyse-row-label"><span class="row-icon">' + icon + '</span>' + label + '</span>'
+            + '<div class="lock-row"><svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>'
+            + '<span class="blurred-value">' + fakeVal + '</span></div></div>';
     }
 
-    // Critères DVF
-    if (dvfOk) {
-        var rayon = dvf.rayon || 300;
-        var periode = dvf.periodeMin && dvf.periodeMax ? dvf.periodeMin + '–' + dvf.periodeMax : 'depuis 2023';
-        var criteres = dvf.nbMutations + ' ventes · ' + rayon + 'm · ' + periode;
-
-        // Par taille si disponible
-        if (ptt && (ptt.petits.prixM2 || ptt.moyens.prixM2 || ptt.grands.prixM2)) {
-            if (ptt.petits.prixM2) grid.innerHTML += metrique(fmt(ptt.petits.prixM2), '< T2 · ' + ptt.petits.nb + ' vente(s)', true, false);
-            if (ptt.moyens.prixM2) grid.innerHTML += metrique(fmt(ptt.moyens.prixM2), 'T2–T3 · ' + ptt.moyens.nb + ' vente(s)', true, false);
-            if (ptt.grands.prixM2) grid.innerHTML += metrique(fmt(ptt.grands.prixM2), '≥ T4 · ' + ptt.grands.nb + ' vente(s)', true, false);
-        } else if (dvf.prixGlobal) {
-            // Fallback : prix global si pas de segmentation possible
-            grid.innerHTML += metrique(fmt(dvf.prixGlobal), 'Prix médian · ' + dvf.nbMutations + ' ventes', true, false);
-        }
-
-        // Appart vs Maison si les deux existent
-        if (ptt_appart && ptt_appart.nb > 0 && ptt_maison && ptt_maison.nb > 0) {
-            grid.innerHTML += metrique(fmt(ptt_appart.prixM2), 'Appartements · ' + ptt_appart.nb + ' ventes', false, false);
-            grid.innerHTML += metrique(fmt(ptt_maison.prixM2), 'Maisons · ' + ptt_maison.nb + ' ventes', false, false);
-        }
-
-        // Note critères
-        grid.innerHTML += '<div class="metric" style="grid-column:1/-1;background:var(--orange-50);border-color:var(--orange-200);padding:8px 12px;"><span style="font-size:.72rem;color:var(--orange-700);">📊 ' + criteres + ' · Transactions depuis le 01/01/2023 uniquement (pertinence marché)</span></div>';
-
-    } else {
-        grid.innerHTML += metrique('Données indisponibles', 'DVF · périmètre 300–500m', false, true);
+    function freeRow(label, icon, val, color) {
+        return '<div class="analyse-row">'
+            + '<span class="analyse-row-label"><span class="row-icon">' + icon + '</span>' + label + '</span>'
+            + '<span class="analyse-row-value' + (color ? ' ' + color : '') + '">' + val + '</span></div>';
     }
 
-    // Points clés
+    // ── SECTION DVF ──────────────────────────────────────────────
+    var dvfSection = document.getElementById('dvfRows');
+    if (dvfSection) {
+        var dvfHtml = '';
+        var rayon = dvf && dvf.rayon || 300;
+        var periode = dvf && dvf.periodeMin && dvf.periodeMax ? dvf.periodeMin + '–' + dvf.periodeMax : '2023–2025';
+
+        if (dvfOk) {
+            dvfHtml += freeRow('Périmètre analysé', '📍', rayon + ' m autour de l'adresse', '');
+            dvfHtml += freeRow('Transactions (période)', '📅', dvf.nbMutations + ' ventes · ' + periode, 'orange');
+            if (ptt && ptt.petits && ptt.petits.prixM2) dvfHtml += freeRow('Prix médian studios / T1', '🏠', fmt(ptt.petits.prixM2) + '/m² (' + ptt.petits.nb + ' ventes)', 'orange');
+            if (ptt && ptt.moyens && ptt.moyens.prixM2) dvfHtml += freeRow('Prix médian T2–T3', '🏠', fmt(ptt.moyens.prixM2) + '/m² (' + ptt.moyens.nb + ' ventes)', 'orange');
+            if (ptt && ptt.grands && ptt.grands.prixM2) dvfHtml += freeRow('Prix médian T4+', '🏠', fmt(ptt.grands.prixM2) + '/m² (' + ptt.grands.nb + ' ventes)', 'orange');
+            if (ptt_appart && ptt_appart.nb > 0) dvfHtml += freeRow('Prix médian appartements', '🏢', fmt(ptt_appart.prixM2) + '/m² (' + ptt_appart.nb + ' ventes)', '');
+            if (ptt_maison && ptt_maison.nb > 0) dvfHtml += freeRow('Prix médian maisons', '🏡', fmt(ptt_maison.prixM2) + '/m² (' + ptt_maison.nb + ' ventes)', '');
+            if (!dvfHtml.includes('Prix médian') && dvf.prixGlobal) dvfHtml += freeRow('Prix médian global', '📊', fmt(dvf.prixGlobal) + '/m² (' + dvf.nbMutations + ' ventes)', 'orange');
+        } else {
+            dvfHtml += '<div class="analyse-row"><span style="font-size:.82rem;color:var(--gray-400);">Données DVF non disponibles pour ce secteur</span></div>';
+        }
+        dvfSection.innerHTML = dvfHtml;
+    }
+
+    // ── SECTION PLU ──────────────────────────────────────────────
+    var pluSection = document.getElementById('pluRows');
+    if (pluSection) {
+        var pluHtml = '';
+        if (pluOk) {
+            var pluParts = data.plu.split(' | ');
+            var pluCode = pluParts[0] || data.plu;
+            var pluIndices = pluParts[1] || '';
+            pluHtml += freeRow('Zone PLU', '🗺️', '<strong>' + pluCode + '</strong>', '');
+            if (pluIndices) {
+                var indices = pluIndices.split(' ');
+                indices.forEach(function(idx) {
+                    if (idx.startsWith('E')) pluHtml += freeRow('Indice Emprise (E)', '⬛', idx, '');
+                    else if (idx.startsWith('T')) pluHtml += freeRow('Indice Toit (T)', '🏘️', idx, '');
+                    else if (idx.startsWith('H')) pluHtml += freeRow('Indice Hauteur (H)', '📏', idx, '');
+                    else if (idx.startsWith('A')) pluHtml += freeRow('Indice Alignement (A)', '🛣️', idx, '');
+                    else pluHtml += freeRow('Indice ' + idx, '📋', idx, '');
+                });
+            }
+            pluHtml += freeRow('Source', '✅', 'API Urbanisme · data.gouv.fr', 'green');
+        } else {
+            pluHtml += '<div class="analyse-row"><span style="font-size:.82rem;color:var(--gray-400);">Zone PLU non disponible via l'API — uploadez le règlement dans le logiciel MdB</span></div>';
+        }
+        pluSection.innerHTML = pluHtml;
+    }
+
+    // ── POINTS CLÉS ──────────────────────────────────────────────
     var points = analyse.pointsCles || [];
     var psec = document.getElementById('pointsSection');
     if (!dvfOk && !pluOk) {
-        psec.innerHTML = '<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:14px 16px;font-size:.82rem;color:#92400e;line-height:1.6;">'
+        psec.innerHTML = '<div style="background:#fef3c7;border:1px solid #fcd34d;border-radius:10px;padding:14px 16px;font-size:.82rem;color:#92400e;line-height:1.6;margin-bottom:16px;">'
             + '<strong>⚠️ Données API indisponibles pour ce secteur</strong><br>'
-            + "Les données DVF et PLU n'ont pas pu être récupérées pour cette adresse. "
-            + 'Consultez directement <a href="https://app.dvf.etalab.gouv.fr" target="_blank" style="color:#92400e;">app.dvf.etalab.gouv.fr</a> '
-            + 'et le service urbanisme de la commune.'
+            + "Les données DVF et PLU n'ont pas pu être récupérées. "
+            + 'Consultez <a href="https://app.dvf.etalab.gouv.fr" target="_blank" style="color:#92400e;">app.dvf.etalab.gouv.fr</a> '
+            + 'et uploadez le règlement PLU dans le logiciel MdB pour une analyse complète.'
             + '</div>';
     } else if (points.length) {
-        psec.innerHTML = '<div class="points-title">Points clés pour un opérateur</div>'
-            + points.map(function(p) { return '<div class="point-item">' + p + '</div>'; }).join('');
+        psec.innerHTML = '<div class="analyse-section" style="margin-bottom:16px;">'
+            + '<div class="analyse-section-header"><div class="analyse-section-title"><span style="background:#fef9c3;">💡</span>Points clés opérateur</div><span class="analyse-section-badge badge-free">IA AOI</span></div>'
+            + '<div class="analyse-rows">' + points.map(function(p) { return '<div class="analyse-row"><span class="analyse-row-label" style="flex:1;max-width:100%;"><span class="row-icon">→</span>' + p + '</span></div>'; }).join('') + '</div>'
+            + '</div>';
     } else {
         psec.innerHTML = '';
     }
@@ -517,6 +791,13 @@ window.afficherResultats = function(data) {
     } else {
         asec.innerHTML = '';
     }
+
+    // Animer les score bars (flouté mais animé pour l'effet)
+    setTimeout(function() {
+        var fills = document.querySelectorAll('.score-fill');
+        var targets = [82, 75, 0, 0];
+        fills.forEach(function(f, i) { if (targets[i]) f.style.width = targets[i] + '%'; });
+    }, 400);
 
     results.classList.add('visible');
     results.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
