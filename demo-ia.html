@@ -639,7 +639,7 @@ window.lancerAnalyse = async function() {
     var errorMsg = document.getElementById('errorMsg');
 
     btn.disabled = true;
-    btn.textContent = 'Analyse en cours…';
+    btn.textContent = 'Analyse en cours...';
     loading.classList.add('visible');
     results.classList.remove('visible');
     errorMsg.classList.remove('visible');
@@ -677,7 +677,7 @@ window.lancerAnalyse = async function() {
     } finally {
         loading.classList.remove('visible');
         btn.disabled = false;
-        btn.textContent = 'Analyser →';
+        btn.textContent = 'Analyser ->';
     }
 }
 
@@ -724,14 +724,14 @@ window.afficherResultats = function(data) {
         var periode = dvf && dvf.periodeMin && dvf.periodeMax ? dvf.periodeMin + '–' + dvf.periodeMax : '2023–2025';
 
         if (dvfOk) {
-            dvfHtml += freeRow('Périmètre analysé', '📍', rayon + ' m autour de l'adresse', '');
-            dvfHtml += freeRow('Transactions (période)', '📅', dvf.nbMutations + ' ventes · ' + periode, 'orange');
-            if (ptt && ptt.petits && ptt.petits.prixM2) dvfHtml += freeRow('Prix médian studios / T1', '🏠', fmt(ptt.petits.prixM2) + '/m² (' + ptt.petits.nb + ' ventes)', 'orange');
-            if (ptt && ptt.moyens && ptt.moyens.prixM2) dvfHtml += freeRow('Prix médian T2–T3', '🏠', fmt(ptt.moyens.prixM2) + '/m² (' + ptt.moyens.nb + ' ventes)', 'orange');
-            if (ptt && ptt.grands && ptt.grands.prixM2) dvfHtml += freeRow('Prix médian T4+', '🏠', fmt(ptt.grands.prixM2) + '/m² (' + ptt.grands.nb + ' ventes)', 'orange');
-            if (ptt_appart && ptt_appart.nb > 0) dvfHtml += freeRow('Prix médian appartements', '🏢', fmt(ptt_appart.prixM2) + '/m² (' + ptt_appart.nb + ' ventes)', '');
-            if (ptt_maison && ptt_maison.nb > 0) dvfHtml += freeRow('Prix médian maisons', '🏡', fmt(ptt_maison.prixM2) + '/m² (' + ptt_maison.nb + ' ventes)', '');
-            if (!dvfHtml.includes('Prix médian') && dvf.prixGlobal) dvfHtml += freeRow('Prix médian global', '📊', fmt(dvf.prixGlobal) + '/m² (' + dvf.nbMutations + ' ventes)', 'orange');
+            dvfHtml += freeRow('Périmètre analysé', '[loc]', rayon + ' m autour de l\'adresse', '');
+            dvfHtml += freeRow('Transactions (période)', '[date]', dvf.nbMutations + ' ventes · ' + periode, 'orange');
+            if (ptt && ptt.petits && ptt.petits.prixM2) dvfHtml += freeRow('Prix médian studios / T1', '[home]', fmt(ptt.petits.prixM2) + '/m² (' + ptt.petits.nb + ' ventes)', 'orange');
+            if (ptt && ptt.moyens && ptt.moyens.prixM2) dvfHtml += freeRow('Prix médian T2–T3', '[home]', fmt(ptt.moyens.prixM2) + '/m² (' + ptt.moyens.nb + ' ventes)', 'orange');
+            if (ptt && ptt.grands && ptt.grands.prixM2) dvfHtml += freeRow('Prix médian T4+', '[home]', fmt(ptt.grands.prixM2) + '/m² (' + ptt.grands.nb + ' ventes)', 'orange');
+            if (ptt_appart && ptt_appart.nb > 0) dvfHtml += freeRow('Prix médian appartements', '[imm]', fmt(ptt_appart.prixM2) + '/m² (' + ptt_appart.nb + ' ventes)', '');
+            if (ptt_maison && ptt_maison.nb > 0) dvfHtml += freeRow('Prix médian maisons', '[house]', fmt(ptt_maison.prixM2) + '/m² (' + ptt_maison.nb + ' ventes)', '');
+            if (!dvfHtml.includes('Prix médian') && dvf.prixGlobal) dvfHtml += freeRow('Prix médian global', '[data]', fmt(dvf.prixGlobal) + '/m² (' + dvf.nbMutations + ' ventes)', 'orange');
         } else {
             dvfHtml += '<div class="analyse-row"><span style="font-size:.82rem;color:var(--gray-400);">Données DVF non disponibles pour ce secteur</span></div>';
         }
@@ -746,20 +746,20 @@ window.afficherResultats = function(data) {
             var pluParts = data.plu.split(' | ');
             var pluCode = pluParts[0] || data.plu;
             var pluIndices = pluParts[1] || '';
-            pluHtml += freeRow('Zone PLU', '🗺️', '<strong>' + pluCode + '</strong>', '');
+            pluHtml += freeRow('Zone PLU', '[map]', '<strong>' + pluCode + '</strong>', '');
             if (pluIndices) {
                 var indices = pluIndices.split(' ');
                 indices.forEach(function(idx) {
-                    if (idx.startsWith('E')) pluHtml += freeRow('Indice Emprise (E)', '⬛', idx, '');
-                    else if (idx.startsWith('T')) pluHtml += freeRow('Indice Toit (T)', '🏘️', idx, '');
-                    else if (idx.startsWith('H')) pluHtml += freeRow('Indice Hauteur (H)', '📏', idx, '');
-                    else if (idx.startsWith('A')) pluHtml += freeRow('Indice Alignement (A)', '🛣️', idx, '');
-                    else pluHtml += freeRow('Indice ' + idx, '📋', idx, '');
+                    if (idx.startsWith('E')) pluHtml += freeRow('Indice Emprise (E)', '[emp]', idx, '');
+                    else if (idx.startsWith('T')) pluHtml += freeRow('Indice Toit (T)', '[zone]', idx, '');
+                    else if (idx.startsWith('H')) pluHtml += freeRow('Indice Hauteur (H)', '[h]', idx, '');
+                    else if (idx.startsWith('A')) pluHtml += freeRow('Indice Alignement (A)', '[road]', idx, '');
+                    else pluHtml += freeRow('Indice ' + idx, '[serv]', idx, '');
                 });
             }
-            pluHtml += freeRow('Source', '✅', 'API Urbanisme · data.gouv.fr', 'green');
+            pluHtml += freeRow('Source', '[ok]', 'API Urbanisme · data.gouv.fr', 'green');
         } else {
-            pluHtml += '<div class="analyse-row"><span style="font-size:.82rem;color:var(--gray-400);">Zone PLU non disponible via l'API — uploadez le règlement dans le logiciel MdB</span></div>';
+            pluHtml += '<div class="analyse-row"><span style="font-size:.82rem;color:var(--gray-400);">Zone PLU non disponible via l\'API — uploadez le règlement dans le logiciel MdB</span></div>';
         }
         pluSection.innerHTML = pluHtml;
     }
@@ -776,8 +776,8 @@ window.afficherResultats = function(data) {
             + '</div>';
     } else if (points.length) {
         psec.innerHTML = '<div class="analyse-section" style="margin-bottom:16px;">'
-            + '<div class="analyse-section-header"><div class="analyse-section-title"><span style="background:#fef9c3;">💡</span>Points clés opérateur</div><span class="analyse-section-badge badge-free">IA AOI</span></div>'
-            + '<div class="analyse-rows">' + points.map(function(p) { return '<div class="analyse-row"><span class="analyse-row-label" style="flex:1;max-width:100%;"><span class="row-icon">→</span>' + p + '</span></div>'; }).join('') + '</div>'
+            + '<div class="analyse-section-header"><div class="analyse-section-title"><span style="background:#fef9c3;">[tip]</span>Points clés opérateur</div><span class="analyse-section-badge badge-free">IA AOI</span></div>'
+            + '<div class="analyse-rows">' + points.map(function(p) { return '<div class="analyse-row"><span class="analyse-row-label" style="flex:1;max-width:100%;"><span class="row-icon">-></span>' + p + '</span></div>'; }).join('') + '</div>'
             + '</div>';
     } else {
         psec.innerHTML = '';
