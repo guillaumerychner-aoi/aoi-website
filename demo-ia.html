@@ -75,17 +75,64 @@
         .alerte-item{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;background:#fef3c7;border-radius:6px;font-size:.82rem;color:#92400e;margin-bottom:6px;}
         .alerte-item::before{content:'⚠️';flex-shrink:0;}
 
-        /* PAYWALL */
-        .paywall{background:var(--gray-900);border-radius:14px;padding:28px 24px;text-align:center;margin-top:20px;position:relative;overflow:hidden;}
-        .paywall::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);pointer-events:none;}
-        .paywall h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:8px;}
-        .paywall p{color:rgba(255,255,255,.5);font-size:.82rem;max-width:400px;margin:0 auto 20px;line-height:1.6;}
-        .paywall-features{display:flex;flex-direction:column;gap:6px;margin-bottom:24px;text-align:left;max-width:360px;margin-left:auto;margin-right:auto;}
-        .paywall-feature{display:flex;align-items:center;gap:8px;font-size:.8rem;color:rgba(255,255,255,.6);}
-        .paywall-feature::before{content:'✓';color:var(--orange-400);font-weight:700;flex-shrink:0;}
-        .btn-rejoindre{display:inline-flex;align-items:center;gap:8px;background:var(--orange-500);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .2s;}
-        .btn-rejoindre:hover{background:var(--orange-600);transform:translateY(-1px);}
-        .paywall-note{font-size:.7rem;color:rgba(255,255,255,.25);margin-top:12px;}
+        /* PAYWALL — version premium */
+        .paywall{
+            background:linear-gradient(135deg,#0d0b1a 0%,#1a1040 100%);
+            border-radius:20px;padding:36px 28px;text-align:center;margin-top:24px;
+            position:relative;overflow:hidden;
+            border:1px solid rgba(99,57,255,.2);
+        }
+        .paywall::before{
+            content:'';position:absolute;top:-60px;right:-60px;
+            width:280px;height:280px;
+            background:radial-gradient(circle,rgba(99,57,255,.2) 0%,transparent 70%);
+            pointer-events:none;
+        }
+        .paywall::after{
+            content:'';position:absolute;bottom:-40px;left:-40px;
+            width:200px;height:200px;
+            background:radial-gradient(circle,rgba(249,115,22,.15) 0%,transparent 70%);
+            pointer-events:none;
+        }
+        .paywall-inner{position:relative;z-index:1;}
+        .paywall-eyebrow{
+            display:inline-flex;align-items:center;gap:6px;
+            background:rgba(99,57,255,.15);border:1px solid rgba(99,57,255,.3);
+            color:#a78bfa;padding:4px 12px;border-radius:100px;
+            font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+            margin-bottom:14px;
+        }
+        .paywall h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:#fff;margin-bottom:10px;line-height:1.2;}
+        .paywall h3 em{color:var(--orange-400);font-style:italic;}
+        .paywall p{color:rgba(255,255,255,.45);font-size:.85rem;max-width:420px;margin:0 auto 24px;line-height:1.7;}
+        .paywall-features{
+            display:grid;grid-template-columns:1fr 1fr;
+            gap:8px;margin-bottom:28px;
+            max-width:400px;margin-left:auto;margin-right:auto;
+        }
+        .paywall-feature{
+            display:flex;align-items:center;gap:8px;
+            font-size:.78rem;color:rgba(255,255,255,.55);
+            background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+            border-radius:8px;padding:9px 12px;text-align:left;
+        }
+        .paywall-feature::before{content:'✓';color:var(--orange-400);font-weight:800;flex-shrink:0;font-size:.85rem;}
+        .btn-rejoindre{
+            display:inline-flex;align-items:center;gap:8px;
+            background:linear-gradient(135deg,var(--orange-500),var(--orange-600));
+            color:#fff;padding:16px 36px;border-radius:12px;
+            font-weight:700;font-size:1rem;text-decoration:none;
+            transition:all .25s;
+            box-shadow:0 8px 24px rgba(249,115,22,.4);
+        }
+        .btn-rejoindre:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(249,115,22,.5);}
+        .paywall-note{font-size:.7rem;color:rgba(255,255,255,.2);margin-top:14px;}
+        .paywall-places{
+            display:inline-flex;align-items:center;gap:8px;
+            background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);
+            color:var(--orange-400);padding:6px 16px;border-radius:100px;
+            font-size:.72rem;font-weight:700;margin-bottom:20px;
+        }
 
         /* LOADING */
         .loading{display:none;text-align:center;padding:32px 0;}
@@ -107,12 +154,14 @@
         .exemple-btn{background:#fff;border:1px solid var(--gray-200);border-radius:6px;padding:6px 12px;font-size:.78rem;color:var(--gray-600);cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif;}
         .exemple-btn:hover{border-color:var(--orange-300);color:var(--orange-600);background:var(--orange-50);}
 
-        /* SOCIAL PROOF */
-        .social-proof{background:#fff;border-radius:16px;padding:28px 24px;margin:40px 0;border:1px solid var(--gray-100);}
-        .sp-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gray-400);text-align:center;margin-bottom:16px;}
-        .sp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;}
-        .sp-stat{font-size:1.5rem;font-weight:900;color:var(--orange-500);display:block;}
-        .sp-lbl{font-size:.68rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;}
+        /* SOCIAL PROOF — bandeau ticker */
+        .social-proof{background:#f5f3ef;border-top:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);overflow:hidden;position:relative;margin:40px 0;}
+        @keyframes bndScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+        .bnd-item{display:inline-flex;align-items:center;gap:16px;padding:16px 40px;border-right:1px solid var(--gray-200);flex-shrink:0;}
+        .bnd-value{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:900;color:var(--gray-900);line-height:1;letter-spacing:-.5px;}
+        .bnd-value.orange{color:var(--orange-600);}
+        .bnd-label{font-size:.56rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:1.5px;line-height:1.55;max-width:110px;}
+        .bnd-section-sep{display:inline-flex;align-self:center;width:2px;height:24px;background:var(--orange-300);flex-shrink:0;margin:0 12px;border-radius:2px;opacity:.8;}
 
         /* Header / Logo repris du site principal */
         header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);}
@@ -256,46 +305,60 @@
         </div>
     </div>
 
-    <!-- Social proof -->
+    <!-- Social proof — bandeau ticker -->
     <div class="social-proof">
-        <div class="sp-title">Le réseau AOI Network en ce moment</div>
-        <div class="sp-grid">
-            <div>
-                <span class="sp-stat" id="spOps">—</span>
-                <span class="sp-lbl">Opération en structuration</span>
-            </div>
-            <div>
-                <span class="sp-stat" id="spVolume">—</span>
-                <span class="sp-lbl">Volume SEP en cours</span>
-            </div>
-            <div>
-                <span class="sp-stat" id="spMissions">—</span>
-                <span class="sp-lbl">Appels d'offres privés</span>
-            </div>
-        </div>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:60px;background:linear-gradient(90deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
+        <div style="position:absolute;right:0;top:0;bottom:0;width:60px;background:linear-gradient(270deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
+        <div id="bndTrackDemo" style="display:flex;align-items:center;gap:0;white-space:nowrap;padding:0;animation:bndScroll 24s linear infinite;"></div>
     </div>
 
 </div>
 
 <script>
-// ── Chargement stats réseau ────────────────────────────────────
+// ── Bandeau ticker stats réseau ───────────────────────────────
 (function() {
     function fmt(n) {
-        if (!n) return '—';
-        if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',') + 'M€';
+        if (!n || n === 0) return '—';
+        if (n > 100000000) n = n / 100;
+        if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',').replace(/,0$/,'') + 'M€';
         if (n >= 1000) return Math.round(n/1000) + 'k€';
-        return n + '€';
+        return Math.round(n) + '€';
+    }
+    function buildTicker(items) {
+        var track = document.getElementById('bndTrackDemo');
+        if (!track) return;
+        var html = '';
+        for (var pass = 0; pass < 2; pass++) {
+            items.forEach(function(item, idx) {
+                if (idx === 3) html += '<span class="bnd-section-sep"></span>';
+                html += '<div class="bnd-item"><div>'
+                    + '<div class="bnd-value' + (item.orange ? ' orange' : '') + '">' + item.value + '</div>'
+                    + '<div class="bnd-label">' + item.label.replace('\n','<br>') + '</div>'
+                    + '</div></div>';
+                if (idx === items.length - 1) html += '<span class="bnd-section-sep"></span>';
+            });
+        }
+        track.innerHTML = html;
     }
     fetch('https://extranet.aoi-network.com/api/public/stats')
-        .then(r => r.json())
-        .then(d => {
-            document.getElementById('spOps').textContent = d.sepActives || '1';
-            document.getElementById('spVolume').textContent = fmt(d.volumeSEP);
-            document.getElementById('spMissions').textContent = d.opportunitesOuvertes || '0';
-        }).catch(() => {
-            document.getElementById('spOps').textContent = '1';
-            document.getElementById('spVolume').textContent = '1,9M€';
-            document.getElementById('spMissions').textContent = '4';
+        .then(function(r){ return r.json(); })
+        .then(function(d) {
+            buildTicker([
+                { value: d.sepActives || '0',          label: 'Opération\nen structuration',       orange: false },
+                { value: fmt(d.volumeSEP),              label: 'Volume SEP\nen cours',              orange: true  },
+                { value: fmt(d.margeCumulee),           label: 'Marges brutes\nattendues',          orange: false },
+                { value: d.opportunitesOuvertes || '0', label: 'Appels d\'offres\nprivés ouverts', orange: false },
+                { value: fmt(d.budgetAO),               label: 'Budget\nappels d\'offres',         orange: false },
+            ]);
+        })
+        .catch(function() {
+            buildTicker([
+                { value: '1',     label: 'Opération\nen structuration',       orange: false },
+                { value: '1,9M€', label: 'Volume SEP\nen cours',              orange: true  },
+                { value: '487k€', label: 'Marges brutes\nattendues',          orange: false },
+                { value: '4',     label: 'Appels d\'offres\nprivés ouverts', orange: false },
+                { value: '37k€',  label: 'Budget\nappels d\'offres',         orange: false },
+            ]);
         });
 })();
 
