@@ -230,11 +230,15 @@
             <div style="animation:fadeUp .7s ease .2s both;margin-bottom:40px;">
                 <div class="hero-rotating-block" id="heroRotatingBlock" style="position:relative;height:80px;max-width:600px;margin:0 auto;overflow:hidden;">
                     <div class="hero-rotating-item" data-index="0" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s ease;">
-                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-400);">Opérateurs</span>
-                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Montez vos deals avec un logiciel IA et trouvez des associés SEP entre pairs.</span>
+                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-400);">J'ai le deal, je cherche l'associé</span>
+                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Structurez votre opération en SEP et trouvez le co-opérateur qu'il vous faut.</span>
                     </div>
                     <div class="hero-rotating-item" data-index="1" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;">
-                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#60a5fa;">Prestataires</span>
+                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#f59e0b;">J'ai la capacité, je cherche le deal</span>
+                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Accédez à un deal flow qualifié, structuré par des opérateurs vérifiés.</span>
+                    </div>
+                    <div class="hero-rotating-item" data-index="2" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;">
+                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#60a5fa;">Partenaires Métier</span>
                         <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Recevez des missions qualifiées sans prospecter.</span>
                     </div>
                 </div>
@@ -242,6 +246,7 @@
                 <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;">
                     <div class="hero-rot-dot" data-index="0" style="width:6px;height:6px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 8px rgba(249,115,22,.4);transition:all .4s;"></div>
                     <div class="hero-rot-dot" data-index="1" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s;"></div>
+                    <div class="hero-rot-dot" data-index="2" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s;"></div>
                 </div>
                 <!-- Barre de progression -->
                 <div style="width:60px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;margin:20px auto 0;overflow:hidden;">
@@ -419,10 +424,15 @@
                 <h2 style="color:var(--gray-900);font-size:2rem;margin-bottom:32px;">Vous vous reconnaissez ?</h2>
                 
                 <!-- Onglets -->
-                <div class="recognition-tabs" style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;">
+                <div class="recognition-tabs" style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;">
                     <button class="recognition-tab active" data-tab="operateurs" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid transparent;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
                         <i data-lucide="building-2" style="width:20px;height:20px;"></i>
-                        Opérateurs
+                        J'ai le deal, je cherche l'associé
+                        <span class="tab-progress" style="position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);border-radius:0 0 10px 10px;width:0;transition:none;"></span>
+                    </button>
+                    <button class="recognition-tab" data-tab="capitalises" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid var(--gray-300);background:var(--gray-100);color:var(--gray-500);font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
+                        <i data-lucide="coins" style="width:20px;height:20px;"></i>
+                        J'ai la capacité, je cherche le deal
                         <span class="tab-progress" style="position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);border-radius:0 0 10px 10px;width:0;transition:none;"></span>
                     </button>
                     <button class="recognition-tab" data-tab="prestataires" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid var(--gray-300);background:var(--gray-100);color:var(--gray-500);font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
@@ -479,6 +489,41 @@
                     </div>
                 </div>
                 
+                <!-- Contenu Co-Opérateurs capitalisés -->
+                <div class="recognition-content" id="content-capitalises" style="display:none;">
+                    <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Opérateurs avec fonds disponibles · Co-Opérateurs cherchant du deal flow structuré</p>
+                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
+                        <div class="pain-card-v2 highlight" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="search" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Deal flow introuvable</div><div class="pain-detail">Des fonds disponibles, mais pas d'opérations suffisamment structurées pour s'associer en confiance</div></div>
+                        </div>
+                        <div class="pain-card-v2 highlight" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="file-question" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Dossiers non vérifiés</div><div class="pain-detail">Des opérations présentées sans simulation sérieuse ni cadre juridique préparé</div></div>
+                        </div>
+                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="user-question" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Opérateurs non qualifiés</div><div class="pain-detail">Difficile de trouver un pair avec un track record réel et une vraie maîtrise des montages</div></div>
+                        </div>
+                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shield-x" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Absence de cadre</div><div class="pain-detail">Co-production sans SEP formalisée, sans simulation partagée, sans data room</div></div>
+                        </div>
+                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="hourglass" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Temps de sourcing</div><div class="pain-detail">Chercher soi-même des opérations co-productibles prend un temps que vous n'avez pas</div></div>
+                        </div>
+                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
+                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="circle-off" style="width:17px;height:17px;color:#d97706;"></i></span>
+                            <div><div class="pain-keyword">Fonds sous-déployés</div><div class="pain-detail">Du capital disponible qui attend des opérations à la hauteur de vos exigences</div></div>
+                        </div>
+                    </div>
+                    <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(245,158,11,.3);">
+                        <span style="color:#fff;font-size:.95rem;font-weight:600;">Accédez au deal flow du réseau</span>
+                        <span style="color:rgba(255,255,255,.7);font-size:.85rem;">Dossiers structurés · SEP vérifiées · Opérateurs qualifiés</span>
+                    </div>
+                </div>
+
                 <!-- Contenu Prestataires -->
                 <div class="recognition-content" id="content-prestataires" style="display:none;">
                     <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Tous les professionnels liés à l'immobilier — architectes, MOE, constructeurs, artisans, notaires, courtiers, géomètres, fournisseurs…</p>
@@ -522,7 +567,7 @@
     <script>
     // Auto-switch onglets reconnaissance avec barre de progression
     (function() {
-        var tabs = ['operateurs', 'prestataires'];
+        var tabs = ['operateurs', 'capitalises', 'prestataires'];
         var currentIndex = 0;
         var DURATION = 6000; // 6 secondes par onglet
         var paused = false;
@@ -550,6 +595,10 @@
             activeBtn.classList.add('active');
             if (tabId === 'operateurs') {
                 activeBtn.style.background = 'linear-gradient(135deg,#f97316,#ea580c)';
+                activeBtn.style.borderColor = 'transparent';
+                activeBtn.style.color = '#fff';
+            } else if (tabId === 'capitalises') {
+                activeBtn.style.background = 'linear-gradient(135deg,#f59e0b,#d97706)';
                 activeBtn.style.borderColor = 'transparent';
                 activeBtn.style.color = '#fff';
             } else {
@@ -1307,91 +1356,6 @@
         </div>
     </section>
 
-    <!-- ═══ DEAL FLOW PUBLIC ═══ -->
-    <section style="padding:80px 0;background:var(--gray-900);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at top left,rgba(249,115,22,.1) 0%,transparent 60%);pointer-events:none;"></div>
-        <div class="container" style="position:relative;z-index:1;">
-            <div style="text-align:center;margin-bottom:48px;">
-                <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.12);border:1px solid rgba(249,115,22,.25);color:var(--orange-400);padding:6px 16px;border-radius:100px;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:20px;">
-                    <span style="width:6px;height:6px;border-radius:50%;background:var(--orange-400);animation:pulse 1.5s infinite;display:inline-block;"></span>
-                    Deal flow en cours dans le réseau
-                </div>
-                <h2 style="font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:12px;">Ce qui circule <em style="color:var(--orange-400);font-style:italic;">en ce moment</em><br>entre les membres</h2>
-                <p style="color:var(--gray-400);font-size:.95rem;max-width:560px;margin:0 auto;">Les membres Co-Opérateur accèdent aux dossiers complets, aux associés disponibles et aux conditions de structuration.</p>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto 40px;">
-                <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
-                    <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;">
-                        <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#22c55e;">&#x2713; Clôturée</span>
-                        <span style="font-size:.65rem;color:var(--gray-500);">Hauts-de-Seine · 92</span>
-                    </div>
-                    <div style="padding:20px;">
-                        <div style="font-size:.7rem;font-weight:700;color:var(--orange-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Paiement à terme · Division</div>
-                        <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2;">Immeuble acquis le matin,<br>revendu l'après-midi</div>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-                            <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;">
-                                <div style="font-size:1.1rem;font-weight:800;color:#22c55e;">219k€</div>
-                                <div style="font-size:.62rem;color:var(--gray-500);">marge brute</div>
-                            </div>
-                            <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;">
-                                <div style="font-size:1.1rem;font-weight:800;color:#fff;">0€</div>
-                                <div style="font-size:.62rem;color:var(--gray-500);">apport à l'achat</div>
-                            </div>
-                        </div>
-                        <div style="font-size:.75rem;color:var(--gray-400);line-height:1.5;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;">Structuration PAT total · Foncier cédé sans versement · 5 mois de portage</div>
-                    </div>
-                </div>
-                <div style="background:rgba(255,255,255,.04);border:1px solid rgba(249,115,22,.2);border-radius:16px;overflow:hidden;">
-                    <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;">
-                        <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange-400);">&#9679; En structuration</span>
-                        <span style="font-size:.65rem;color:var(--gray-500);">Hauts-de-Seine · 92</span>
-                    </div>
-                    <div style="padding:20px;">
-                        <div style="font-size:.7rem;font-weight:700;color:var(--orange-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Division · 7 lots</div>
-                        <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2;">Zéro crédit bancaire.<br>Marge cible ~300k€</div>
-                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;">
-                            <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;">
-                                <div style="font-size:1.1rem;font-weight:800;color:var(--orange-400);">~38%</div>
-                                <div style="font-size:.62rem;color:var(--gray-500);">renta estimée</div>
-                            </div>
-                            <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;position:relative;overflow:hidden;">
-                                <div style="filter:blur(6px);user-select:none;"><div style="font-size:1.1rem;font-weight:800;color:#fff;">1 associé</div><div style="font-size:.62rem;color:var(--gray-500);">recherché</div></div>
-                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><span style="font-size:.6rem;font-weight:700;color:var(--orange-400);letter-spacing:.5px;text-transform:uppercase;background:rgba(10,10,15,.8);padding:3px 8px;border-radius:4px;">Membres</span></div>
-                            </div>
-                        </div>
-                        <div style="position:relative;overflow:hidden;background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;">
-                            <div style="filter:blur(5px);user-select:none;font-size:.75rem;color:var(--gray-400);line-height:1.5;">Structure SEP bilatérale · Apport foncier opérateur · Recherche 150k€ · Sortie 18 mois</div>
-                            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><span style="font-size:.65rem;font-weight:700;color:var(--orange-400);background:rgba(10,10,15,.85);padding:4px 12px;border-radius:4px;border:1px solid rgba(249,115,22,.3);">Accès membres uniquement</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;">
-                    <div style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between;">
-                        <span style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#3b82f6;">&#9679; Opportunité ouverte</span>
-                        <span style="font-size:.65rem;color:var(--gray-500);">Île-de-France</span>
-                    </div>
-                    <div style="padding:20px;">
-                        <div style="font-size:.7rem;font-weight:700;color:#3b82f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Prestataires · MOE / Archi</div>
-                        <div style="font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.2;">Mission qualifiée —<br>opérateur membre AOI</div>
-                        <div style="margin-bottom:14px;position:relative;overflow:hidden;border-radius:8px;">
-                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;filter:blur(5px);user-select:none;">
-                                <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;"><div style="font-size:1.1rem;font-weight:800;color:#fff;">45k€</div><div style="font-size:.62rem;color:var(--gray-500);">budget mission</div></div>
-                                <div style="background:rgba(255,255,255,.03);border-radius:8px;padding:10px 12px;"><div style="font-size:1.1rem;font-weight:800;color:#fff;">Dès avril</div><div style="font-size:.62rem;color:var(--gray-500);">démarrage</div></div>
-                            </div>
-                            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><span style="font-size:.65rem;font-weight:700;color:#3b82f6;background:rgba(10,10,15,.85);padding:4px 12px;border-radius:4px;border:1px solid rgba(59,130,246,.3);">Accès membres uniquement</span></div>
-                        </div>
-                        <div style="font-size:.75rem;color:var(--gray-400);line-height:1.5;padding:10px;background:rgba(255,255,255,.03);border-radius:8px;">Dossier qualifié · Client solvable · Brief disponible à l'inscription</div>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align:center;">
-                <p style="font-size:.85rem;color:var(--gray-400);margin-bottom:20px;">Ces opportunités sont visibles en détail par les membres Co-Opérateur et Partenaire Métier.</p>
-                <a href="/rejoindre.html" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:10px;font-size:1rem;padding:18px 36px;">Accéder au réseau complet</a>
-                <p style="font-size:.7rem;color:var(--gray-600);margin-top:12px;">Accès immédiat · dès 99€/mois · Stripe sécurisé</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Stats réseau live -->
     <section style="padding:32px 0;background:var(--gray-900);border-top:1px solid rgba(255,255,255,.04);">
         <div class="container">
@@ -1606,7 +1570,7 @@
                     </div>
                 </div>
             </div>
-            <h2>Chaque deal raté faute de financement est un deal <span style="color:var(--orange-400);">que vous ne récupérerez jamais.</span></h2>
+            <h2>Le réseau se construit maintenant.<br><span style="color:var(--orange-400);">Les premières co-productions se font entre les premiers membres.</span></h2>
             <p style="color:var(--gray-300);font-size:1.1rem;">AOI se construit maintenant, avec ses premiers membres. Les places de Membres Fondateurs sont limitées et les tarifs de lancement ne seront pas éternels.</p>
             <div class="cta-buttons">
                 <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1.1rem;padding:18px 40px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
@@ -1694,7 +1658,11 @@
             var bar=document.getElementById('heroProgressBar');
             if(!items.length||!bar)return;
             var current=0,total=items.length,dur=3000;
-            function getColor(i){return i===0?'var(--orange-400)':'#60a5fa';}
+            function getColor(i){
+                if(i===0)return'var(--orange-400)';
+                if(i===1)return'#f59e0b';
+                return'#60a5fa';
+            }
             function resetBar(){
                 bar.style.transition='none';bar.style.width='0%';bar.style.background=getColor(current);
                 void bar.offsetWidth;
