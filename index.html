@@ -41,6 +41,7 @@
         header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--gray-100);transition:all .3s ease}header.scrolled{box-shadow:0 4px 20px rgba(0,0,0,.08)}.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 0}.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gray-900)}.logo-box{width:48px;height:48px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:12px;display:flex;align-items:center;justify-content:center}.logo-aoi{color:#fff;font-family:'Inter',sans-serif;font-weight:800;font-size:1rem;letter-spacing:-0.5px}.logo-text{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}nav{display:flex;align-items:center;gap:8px}nav a{text-decoration:none;color:var(--gray-600);font-weight:500;padding:8px 16px;border-radius:8px;transition:all .2s ease}nav a:hover{color:var(--orange-600);background:var(--orange-50)}.nav-extranet{background:var(--gray-900)!important;color:#fff!important;margin-left:8px}.nav-extranet:hover{background:var(--gray-700)!important;color:#fff!important}.mobile-menu-btn{display:none;background:0 0;border:none;cursor:pointer;padding:8px}
         .hero{min-height:100vh;display:flex;align-items:center;background:linear-gradient(180deg,var(--orange-50) 0%,#fff 100%);padding-top:100px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-50%;right:-25%;width:80%;height:150%;background:radial-gradient(ellipse,var(--orange-100) 0%,transparent 70%);opacity:.6;pointer-events:none}.hero-content{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1}.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;padding:8px 16px;border-radius:100px;font-size:.875rem;font-weight:500;color:var(--orange-700);border:1px solid var(--orange-200);margin-bottom:24px;box-shadow:0 2px 8px rgba(249,115,22,.1)}.hero h1{margin-bottom:24px;color:var(--gray-900)}.hero h1 span{color:var(--orange-600)}.hero-description{font-size:1.25rem;margin-bottom:32px;color:var(--gray-600)}.hero-cta{display:flex;gap:16px;margin-bottom:48px;flex-wrap:wrap}.hero-visual{position:relative}.hero-image{width:100%;border-radius:24px;box-shadow:0 25px 50px -12px rgba(0,0,0,.15);border:1px solid var(--gray-200)}.floating-card{position:absolute;background:#fff;border-radius:16px;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);border:1px solid var(--gray-100);animation:float 4s ease-in-out infinite}.floating-card-1{bottom:-30px;left:-30px;display:flex;align-items:center;gap:12px}.floating-card-1 .icon{width:48px;height:48px;background:var(--orange-100);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--orange-600)}.floating-card-1 .text strong{display:block;color:var(--gray-900)}.floating-card-1 .text span{font-size:.875rem;color:var(--gray-500)}.floating-card-2{top:40px;right:-20px;text-align:center;animation-delay:1s}.floating-card-2 .value{font-size:1.5rem;font-weight:700;color:var(--orange-600)}.floating-card-2 .label{font-size:.75rem;color:var(--gray-500);text-transform:uppercase;letter-spacing:.5px}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}@keyframes fadeComp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}@keyframes shimmer{0%{background-position:0% center}50%{background-position:100% center}100%{background-position:0% center}}@keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(20px,-30px)}66%{transform:translate(-15px,20px)}}@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,.4)}50%{opacity:.7;box-shadow:0 0 0 6px rgba(74,222,128,0)}}@keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
         .hero-v3{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#0a0a0f;position:relative;overflow:hidden;padding:140px 24px 50px}
+        @media(max-width:900px){.hero-split-grid{grid-template-columns:1fr!important;gap:40px!important;min-height:auto!important;padding-bottom:40px!important;} .hero-split-grid>div:last-child{display:none!important;}}
         .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 20%,transparent 100%)}
         .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}.orb-1{width:500px;height:500px;background:rgba(249,115,22,.08);top:-100px;right:-100px;animation:orbFloat 8s ease-in-out infinite}.orb-2{width:400px;height:400px;background:rgba(37,99,235,.06);bottom:-80px;left:-120px;animation:orbFloat 10s ease-in-out infinite reverse}.orb-3{width:300px;height:300px;background:rgba(249,115,22,.05);top:40%;left:10%;animation:orbFloat 12s ease-in-out infinite 2s}
         .hero-v3-inner{position:relative;z-index:2;text-align:center;max-width:900px}
@@ -174,119 +175,203 @@
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
-        <div class="hero-v3-inner">
-            <!-- Badge Fondateur — remplace sector-tag -->
-            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px;animation:fadeUp .7s ease both;flex-wrap:wrap;">
-                <div style="display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:100px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.2);">
-                    <span style="width:6px;height:6px;background:#4ade80;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px rgba(74,222,128,.15);animation:pulse 2s ease infinite;flex-shrink:0;"></span>
-                    <span style="font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-400);">Membres Fondateurs</span>
+        <!-- HERO SPLIT — gauche texte / droite produit -->
+        <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;min-height:calc(100vh - 80px);overflow:visible;" class="hero-split-grid">
+
+            <!-- COLONNE GAUCHE -->
+            <div style="animation:fadeUp .7s ease both;">
+
+                <!-- Badge -->
+                <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:100px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);margin-bottom:32px;">
+                    <span style="width:5px;height:5px;background:#4ade80;border-radius:50%;flex-shrink:0;animation:pulse 2s ease infinite;"></span>
+                    <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange-400);">50 places · Membres Fondateurs</span>
                 </div>
-                <span style="font-size:.65rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:1px;">Immobilier opérationnel · MdB · Promoteurs · Aménageurs</span>
-            </div>
-            
-            <!-- Symbole IA 2026 — sparkle + orbit -->
-            <div style="margin-bottom:24px;animation:fadeUp .7s ease .03s both;">
-                <div style="width:72px;height:72px;position:relative;margin:0 auto;">
-                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="aiG1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fb923c"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
-                            <linearGradient id="aiG2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f97316" stop-opacity=".6"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".2"/></linearGradient>
-                            <filter id="aiGlow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-                        </defs>
-                        <!-- Orbit ring -->
-                        <ellipse cx="36" cy="36" rx="32" ry="12" stroke="url(#aiG2)" stroke-width=".8" transform="rotate(-25 36 36)" opacity=".5">
-                            <animate attributeName="opacity" values=".3;.6;.3" dur="4s" repeatCount="indefinite"/>
-                        </ellipse>
-                        <!-- Orbiting dot -->
-                        <circle r="2" fill="var(--orange-400)" opacity=".8">
-                            <animateMotion dur="4s" repeatCount="indefinite" path="M36,36 m-32,0 a32,12 -25 1,1 64,0 a32,12 -25 1,1 -64,0" rotate="auto"/>
-                        </circle>
-                        <!-- Main sparkle / 4-point star -->
-                        <path d="M36 8 C37 24, 37 24, 52 28 C37 30, 37 30, 36 48 C35 30, 35 30, 20 28 C35 24, 35 24, 36 8Z" fill="url(#aiG1)" filter="url(#aiGlow)">
-                            <animate attributeName="d" dur="5s" repeatCount="indefinite" values="
-                                M36 8 C37 24,37 24,52 28 C37 30,37 30,36 48 C35 30,35 30,20 28 C35 24,35 24,36 8Z;
-                                M36 10 C37.5 24,37.5 24,50 28 C37.5 30,37.5 30,36 46 C34.5 30,34.5 30,22 28 C34.5 24,34.5 24,36 10Z;
-                                M36 8 C37 24,37 24,52 28 C37 30,37 30,36 48 C35 30,35 30,20 28 C35 24,35 24,36 8Z
-                            "/>
-                        </path>
-                        <!-- Small secondary sparkle -->
-                        <path d="M52 14 C52.5 18,52.5 18,56 19 C52.5 20,52.5 20,52 24 C51.5 20,51.5 20,48 19 C51.5 18,51.5 18,52 14Z" fill="var(--orange-300)" opacity=".7">
-                            <animate attributeName="opacity" values=".4;.9;.4" dur="3s" begin="1s" repeatCount="indefinite"/>
-                        </path>
-                        <!-- Tiny sparkle -->
-                        <path d="M18 44 C18.3 46,18.3 46,20 46.5 C18.3 47,18.3 47,18 49 C17.7 47,17.7 47,16 46.5 C17.7 46,17.7 46,18 44Z" fill="var(--orange-300)" opacity=".5">
-                            <animate attributeName="opacity" values=".3;.8;.3" dur="2.5s" begin=".5s" repeatCount="indefinite"/>
-                        </path>
-                        <!-- Center core dot -->
-                        <circle cx="36" cy="28" r="2" fill="#fff" opacity=".9">
-                            <animate attributeName="opacity" values=".7;1;.7" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                    </svg>
-                </div>
-            </div>
-            <p class="hero-v3-eyebrow"><span class="live-dot"></span>Réseau opérationnel + <span>IA intégrée</span> pour les professionnels de l'immobilier</p>
-            <h1>L'immobilier opérationnel<br><span class="gradient">a trouvé son réseau.</span></h1>
-            <!-- Bloc rotatif opérateurs/prestataires -->
-            <div style="animation:fadeUp .7s ease .2s both;margin-bottom:40px;">
-                <div class="hero-rotating-block" id="heroRotatingBlock" style="position:relative;height:80px;max-width:600px;margin:0 auto;overflow:hidden;">
-                    <div class="hero-rotating-item" data-index="0" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:1;transform:translateY(0);transition:opacity .5s ease,transform .5s ease;">
-                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--orange-400);">J'ai le deal, je cherche l'associé</span>
-                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Structurez votre opération en SEP et trouvez le co-opérateur qu'il vous faut.</span>
+
+                <!-- Titre manifeste — structure éditoriale -->
+                <div style="margin-bottom:28px;">
+                    <!-- 3 lignes blanches — très grandes -->
+                    <div style="font-family:'Playfair Display',serif;font-size:clamp(2.3rem,3.2vw,3.4rem);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;">
+                        <div style="white-space:nowrap;">Certains ont le deal, pas les fonds.</div>
+                        <div style="white-space:nowrap;margin-top:.2em;">D'autres ont les fonds, pas le deal.</div>
+                        <div style="margin-top:.2em;">Les prestataires ont le talent,<br>pas toujours les clients.</div>
                     </div>
-                    <div class="hero-rotating-item" data-index="1" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;">
-                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#f59e0b;">J'ai la capacité, je cherche le deal</span>
-                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Accédez à un deal flow qualifié, structuré par des opérateurs vérifiés.</span>
-                    </div>
-                    <div class="hero-rotating-item" data-index="2" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;">
-                        <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#60a5fa;">Partenaires Métier</span>
-                        <span style="font-size:1rem;color:var(--gray-400);line-height:1.5;">Recevez des missions qualifiées sans prospecter.</span>
+
+                    <!-- Trait séparateur -->
+                    <div style="width:36px;height:1.5px;background:linear-gradient(90deg,var(--orange-500),transparent);margin:20px 0;border-radius:2px;"></div>
+
+                    <!-- Chute orange — plus petite, italique -->
+                    <div style="font-family:'Playfair Display',serif;font-size:clamp(1rem,1.4vw,1.35rem);font-weight:600;font-style:italic;line-height:1.5;background:linear-gradient(135deg,var(--orange-400) 0%,#f59e0b 60%,var(--orange-500) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease infinite;">
+                        AOI réunit tout ce monde — et l'IA<br>pour ne plus opérer à l'aveugle.
                     </div>
                 </div>
-                <!-- Dots indicateurs -->
-                <div style="display:flex;gap:8px;justify-content:center;margin-top:16px;">
-                    <div class="hero-rot-dot" data-index="0" style="width:6px;height:6px;border-radius:50%;background:var(--orange-400);box-shadow:0 0 8px rgba(249,115,22,.4);transition:all .4s;"></div>
-                    <div class="hero-rot-dot" data-index="1" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s;"></div>
-                    <div class="hero-rot-dot" data-index="2" style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);transition:all .4s;"></div>
+
+                <!-- CTA unique -->
+                <div style="margin-bottom:20px;">
+                    <a href="/rejoindre.html" class="btn btn-primary" style="font-size:.95rem;padding:15px 32px;border-radius:10px;"><i data-lucide="shield-check" style="width:16px;height:16px;"></i>Vérifier mon éligibilité</a>
                 </div>
-                <!-- Barre de progression -->
-                <div style="width:60px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;margin:20px auto 0;overflow:hidden;">
-                    <div id="heroProgressBar" style="height:100%;width:0%;border-radius:2px;background:var(--orange-400);"></div>
+
+                <!-- Proof items IA -->
+                <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
+                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
+                        DVF temps réel
+                    </span>
+                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
+                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
+                        PLU automatique
+                    </span>
+                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
+                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
+                        Scoring IA
+                    </span>
+                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
+                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
+                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
+                        Mémorandum PDF
+                    </span>
                 </div>
+
             </div>
-            <div class="hero-v3-cta">
-                <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1.05rem;padding:18px 40px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
-                <a href="/demo-ia.html" class="btn btn-ghost" style="border-color:rgba(249,115,22,.35);color:var(--orange-400);"><i data-lucide="search"></i>Analyser une adresse gratuitement</a>
-            </div>
-            <!-- Preuves en ligne légère -->
-            <div class="hero-proofs" style="display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;animation:fadeUp .7s ease .3s both;">
-                <span style="display:inline-flex;align-items:center;gap:6px;color:var(--gray-400);font-size:.85rem;"><i data-lucide="ban" style="width:16px;height:16px;color:var(--orange-400);"></i>0€ d'emprunt bancaire</span>
-                <span class="proof-sep" style="color:rgba(255,255,255,.15);">|</span>
-                <span style="display:inline-flex;align-items:center;gap:6px;color:var(--gray-400);font-size:.85rem;"><i data-lucide="cpu" style="width:16px;height:16px;color:var(--orange-400);"></i>Simulation IA en 3 clics</span>
-                <span class="proof-sep" style="color:rgba(255,255,255,.15);">|</span>
-                <span style="display:inline-flex;align-items:center;gap:6px;color:var(--gray-400);font-size:.85rem;"><i data-lucide="users" style="width:16px;height:16px;color:var(--orange-400);"></i>Co-opération SEP entre pairs</span>
-                <span class="proof-sep" style="color:rgba(255,255,255,.15);">|</span>
-                <span style="display:inline-flex;align-items:center;gap:6px;color:var(--gray-400);font-size:.85rem;"><i data-lucide="zap" style="width:16px;height:16px;color:var(--orange-400);"></i>Prestataires en 48h</span>
-            </div>
-            <!-- Stats fondateurs -->
-            <div style="max-width:580px;margin:0 auto;padding:28px 0 0;animation:fadeUp .7s ease .4s both;">
-                <div class="hero-stats-row" style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:24px 0;overflow:hidden;">
-                    <div style="text-align:center;padding:0 20px;">
-                        <span style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1,17M€</span>
-                        <span style="font-size:.7rem;color:var(--gray-500);line-height:1.35;margin-top:4px;display:block;">marge cumulée<br>sur 4 deals</span>
+
+            <!-- COLONNE DROITE — mockup réseau vivant -->
+            <div style="animation:fadeUp .7s ease .15s both;position:relative;padding-bottom:20px;">
+
+                <!-- Halo ambiance -->
+                <div style="position:absolute;inset:-40px;background:radial-gradient(ellipse at 60% 40%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;"></div>
+
+                <!-- Header mockup extranet -->
+                <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px 14px 0 0;padding:10px 16px;display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
+                    <div style="display:flex;align-items:center;gap:7px;">
+                        <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif;">AOI</div>
+                        <span style="font-size:.75rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Network</span>
+                        <span style="font-size:.65rem;color:var(--gray-500);font-family:'Inter',sans-serif;">· Espace membres</span>
                     </div>
-                    <div class="stat-sep" style="width:1px;height:44px;background:rgba(255,255,255,.07);"></div>
-                    <div style="text-align:center;padding:0 20px;">
-                        <span style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;display:block;line-height:1;">4</span>
-                        <span style="font-size:.7rem;color:var(--gray-500);line-height:1.35;margin-top:4px;display:block;">opérations structurées<br>hors circuit bancaire</span>
-                    </div>
-                    <div class="stat-sep" style="width:1px;height:44px;background:rgba(255,255,255,.07);"></div>
-                    <div style="text-align:center;padding:0 20px;">
-                        <span style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:#fff;display:block;line-height:1;">0€</span>
-                        <span style="font-size:.7rem;color:var(--gray-500);line-height:1.35;margin-top:4px;display:block;">d'apport personnel<br>dans 3 cas sur 4</span>
+                    <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+                        <span style="width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></span>
+                        <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;">3 projets en cours</span>
                     </div>
                 </div>
-                <p style="text-align:center;font-size:.6rem;color:var(--gray-600);margin-top:10px;">Résultats réels sur les 4 dernières opérations structurées par les fondateurs</p>
+
+                <!-- Tabs -->
+                <div style="background:rgba(255,255,255,.02);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);padding:0 16px;display:flex;gap:20px;position:relative;z-index:1;">
+                    <span style="font-size:.7rem;font-weight:700;color:var(--orange-400);padding:8px 0;border-bottom:2px solid var(--orange-400);font-family:'Inter',sans-serif;">Projets SEP</span>
+                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Appels d'offres</span>
+                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Annuaire</span>
+                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Bibliothèque</span>
+                </div>
+
+                <!-- Cards projets -->
+                <div style="display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:0 0 14px 14px;padding:12px;position:relative;z-index:1;">
+
+                    <!-- Card 1 — J'ai le deal (orange) -->
+                    <div style="background:#0f0f16;border:1px solid rgba(249,115,22,.2);border-left:3px solid var(--orange-500);border-radius:10px;padding:12px 14px;">
+                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;">
+                            <div>
+                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--orange-400);background:rgba(249,115,22,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">En structuration</span>
+                                    <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;">· Mon projet</span>
+                                </div>
+                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Division 4 lots — Essonne (91)</span>
+                            </div>
+                            <div style="text-align:right;">
+                                <span style="font-size:.52rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;margin-bottom:1px;">marge est.</span>
+                                <span style="font-size:.85rem;font-weight:800;color:var(--orange-400);font-family:'Inter',sans-serif;">26,4%</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="users" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;color:var(--orange-400);"></i>Co-opérateur SEP recherché</span>
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Géomètre</span>
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Notaire</span>
+                        </div>
+                        <!-- Frise progression co-opérateurs -->
+                        <div style="margin-bottom:10px;">
+                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                                <span style="font-size:.58rem;color:var(--gray-500);font-family:'Inter',sans-serif;">Co-opérateurs</span>
+                                <span style="font-size:.62rem;font-weight:700;color:var(--orange-400);font-family:'Inter',sans-serif;">72%</span>
+                            </div>
+                            <div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;">
+                                <div style="width:72%;height:100%;background:linear-gradient(90deg,var(--orange-500),#f59e0b);border-radius:2px;"></div>
+                            </div>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;gap:16px;">
+                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Marge brute est.</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">195 000 €</span></div>
+                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Budget total</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">680 000 €</span></div>
+                            </div>
+                            <span style="font-size:.6rem;color:var(--gray-600);font-family:'Inter',sans-serif;">📍 Cergy-Pontoise · avr. 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 — J'ai la capacité (ambre) -->
+                    <div style="background:#0f0f16;border:1px solid rgba(245,158,11,.2);border-left:3px solid #f59e0b;border-radius:10px;padding:12px 14px;">
+                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;">
+                            <div>
+                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#f59e0b;background:rgba(245,158,11,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">En closing</span>
+                                </div>
+                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Surélévation R+2 — Bordeaux Bastide</span>
+                            </div>
+                            <div style="text-align:right;">
+                                <span style="font-size:.52rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;margin-bottom:1px;">marge est.</span>
+                                <span style="font-size:.85rem;font-weight:800;color:#f59e0b;font-family:'Inter',sans-serif;">29,0%</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="handshake" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;color:#f59e0b;"></i>Associé SEP recherché</span>
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Constructeur</span>
+                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">MOE</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <div style="display:flex;gap:16px;">
+                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Marge brute est.</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">420 000 €</span></div>
+                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Budget total</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">1 450 000 €</span></div>
+                            </div>
+                            <span style="font-size:.6rem;color:var(--gray-600);font-family:'Inter',sans-serif;">📍 Bordeaux · juin 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 — Appel d'offres prestataire (bleu) -->
+                    <div style="background:#0f0f16;border:1px solid rgba(96,165,250,.2);border-left:3px solid #60a5fa;border-radius:10px;padding:12px 14px;">
+                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
+                            <div>
+                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#60a5fa;background:rgba(96,165,250,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">Appel d'offres</span>
+                                </div>
+                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Maîtrise d'œuvre — Division 3 lots</span>
+                            </div>
+                            <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;white-space:nowrap;">Normandie</span>
+                        </div>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+                            <span style="font-size:.62rem;color:#60a5fa;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="briefcase" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;"></i>Mission ouverte · Candidature libre</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <span style="font-size:.72rem;color:var(--gray-400);font-family:'Inter',sans-serif;">Budget travaux estimé : <strong style="color:#fff;">180 000 €</strong></span>
+                            <span style="font-size:.6rem;color:#4ade80;font-family:'Inter',sans-serif;">● 2 candidatures reçues</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Badges flottants autour -->
+                <div style="position:absolute;top:-12px;right:-8px;background:rgba(15,15,22,.95);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
+                    <i data-lucide="folder-open" style="width:12px;height:12px;color:var(--orange-400);"></i>
+                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Bibliothèque de contrats SEP</span>
+                </div>
+
+                <div style="position:absolute;bottom:8px;right:-12px;background:rgba(15,15,22,.95);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
+                    <i data-lucide="zap" style="width:12px;height:12px;color:#60a5fa;"></i>
+                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Mission reçue · 48h</span>
+                </div>
+
+                <div style="position:absolute;bottom:-16px;left:0;background:rgba(15,15,22,.95);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
+                    <i data-lucide="image" style="width:12px;height:12px;color:#f59e0b;"></i>
+                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Portfolio de réalisations</span>
+                </div>
+
             </div>
+
         </div>
     </section>
         <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
@@ -700,9 +785,9 @@
     <section class="platform-preview" id="plateforme">
         <div class="container">
             <div class="section-header">
-                <div class="section-label"><i data-lucide="layout-dashboard"></i> Votre bureau de guerre</div>
-                <h2>Une plateforme <span>conçue pour closer des deals</span></h2>
-                <p>Projets SEP, MasterClass, appels d'offres privés, bibliothèque de contrats — tout ce dont vous avez besoin pour structurer et closer, au même endroit.</p>
+                <div class="section-label"><i data-lucide="layout-dashboard"></i> La plateforme</div>
+                <h2>Le seul outil qui connaît <span>votre opération avant vous.</span></h2>
+                <p>Réseau de co-opération, appels d'offres privés, bibliothèque de contrats SEP, logiciel IA — tout au même endroit. Pour ne plus jamais opérer à l'aveugle.</p>
             </div>
             
             <!-- Vidéo animée Extranet -->
@@ -880,7 +965,10 @@
             <div style="text-align:center;margin-top:56px;padding:40px 32px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:20px;">
                 <p style="color:#fff;font-size:1.2rem;font-weight:700;margin-bottom:8px;font-family:'Playfair Display',serif;">Vos concurrents structurent déjà sans les banques.</p>
                 <p style="color:var(--gray-400);font-size:.95rem;margin-bottom:24px;">Chaque mois sans AOI, c'est potentiellement un deal perdu faute de financement ou de réseau.</p>
-                <a href="#tarifs" class="btn btn-primary" style="font-size:1rem;"><i data-lucide="arrow-right"></i>Voir les tarifs</a>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                    <a href="#tarifs" class="btn btn-primary" style="font-size:1rem;"><i data-lucide="arrow-right"></i>Voir les tarifs</a>
+                    <a href="/demo-ia.html" class="btn btn-ghost" style="border-color:rgba(249,115,22,.35);color:var(--orange-400);font-size:1rem;"><i data-lucide="search"></i>Analyser une adresse gratuitement</a>
+                </div>
                 <p style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:16px;color:var(--gray-500);font-size:.78rem;"><i data-lucide="smartphone" style="width:14px;height:14px;color:var(--orange-400);"></i> Disponible sur mobile — pilotez vos opérations depuis le terrain</p>
             </div>
         </div>
@@ -1040,92 +1128,54 @@
         </div>
     </section>
 
-    <section class="cas-reels" id="temoignages">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-label"><i data-lucide="target"></i> Cas réels</div>
-                <h2>Des deals sauvés <span>par la structuration</span></h2>
-                <p>Deux opérations que personne ne voulait financer. Deux méthodes. Deux résultats.</p>
+    <!-- ═══ SECTION EXCLUSIVITÉ — ce qu'il se passe à l'intérieur ═══ -->
+    <section style="padding:72px 0;background:var(--gray-900);position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(249,115,22,.07) 0%,transparent 60%);pointer-events:none;"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div style="text-align:center;margin-bottom:48px;">
+                <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 16px;border-radius:100px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);margin-bottom:16px;">
+                    <span style="width:5px;height:5px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></span>
+                    <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange-400);">En ce moment dans le réseau</span>
+                </div>
+                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;margin-bottom:12px;">Ce réseau n'est pas fait <span style="color:var(--orange-400);">pour tout le monde.</span></h2>
+                <p style="color:var(--gray-400);font-size:1rem;max-width:520px;margin:0 auto;">Processus de sélection · Entretien avec un fondateur · Tarif fondateur garanti à vie. Les 50 premières places détermineront la qualité du réseau pour les années à venir.</p>
             </div>
 
-            <div class="cas-grid">
-                <!-- CAS 1 — Paiement à terme -->
-                <div class="cas-card fade-in">
-                    <div class="cas-header">
-                        <div class="cas-tag"><i data-lucide="map-pin" style="width:13px;height:13px;"></i>Hauts-de-Seine (92)</div>
-                        <div class="cas-type">Découpe 5 lots · MdB</div>
-                    </div>
-                    <div class="cas-timeline">
-                        <div class="cas-step cas-step-problem">
-                            <div class="cas-step-dot red"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le blocage</div>
-                                <p>Promesse signée à 1 010 000 €. <strong>12 mois sans financement.</strong> Banques fermées, plateformes trop chères et frileuses face à 5 lots. Bilan plombé par les frais. Avenant signé pour gagner du temps — sans résultat. Les vendeurs allaient remettre en vente.</p>
-                            </div>
-                        </div>
-                        <div class="cas-step cas-step-pivot">
-                            <div class="cas-step-dot orange"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le pivot</div>
-                                <p>Négociation directe avec les vendeurs. Prix renégocié <strong>à la hausse</strong> (1 180 000 €) — en échange d'un <strong>paiement à terme intégral en 24h</strong>, conditionné à la pré-commercialisation.</p>
-                            </div>
-                        </div>
-                        <div class="cas-step cas-step-result">
-                            <div class="cas-step-dot green"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le résultat</div>
-                                <p>5 mois plus tard : 100% des lots vendus, paiement réglé en 24h. <strong>Zéro décaissement, zéro financement, zéro travaux.</strong></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cas-result-box">
-                        <div class="cas-result-number">219 000 €</div>
-                        <div class="cas-result-label">de marge nette — sur un deal que tout le monde avait enterré</div>
-                    </div>
-                    <div class="cas-method-tag"><i data-lucide="clock" style="width:13px;height:13px;"></i>Méthode : Paiement à terme</div>
+            <!-- 4 stats live en ligne -->
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto 48px;">
+                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
+                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</span>
+                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">projets SEP<br>en structuration</span>
                 </div>
-
-                <!-- CAS 2 — SEP -->
-                <div class="cas-card fade-in">
-                    <div class="cas-header">
-                        <div class="cas-tag"><i data-lucide="map-pin" style="width:13px;height:13px;"></i>Normandie</div>
-                        <div class="cas-type">Rénovation-revente · MdB</div>
-                    </div>
-                    <div class="cas-timeline">
-                        <div class="cas-step cas-step-problem">
-                            <div class="cas-step-dot red"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le blocage</div>
-                                <p>Promesse signée, maison à rénover. <strong>Zéro trésorerie</strong> au-delà des études. Track record fragilisé. Financement impossible — même en crowdfunding. Les vendeurs allaient réclamer le dépôt de garantie de 10% et remettre en vente.</p>
-                            </div>
-                        </div>
-                        <div class="cas-step cas-step-pivot">
-                            <div class="cas-step-dot orange"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le pivot</div>
-                                <p>Mise en relation avec <strong>deux opérateurs du réseau</strong>. L'un porte le financement via financement externe, l'autre apporte les fonds propres. <strong>SEP à trois associés</strong> : chacun apporte ce qu'il a.</p>
-                            </div>
-                        </div>
-                        <div class="cas-step cas-step-result">
-                            <div class="cas-step-dot green"></div>
-                            <div class="cas-step-content">
-                                <div class="cas-step-label">Le résultat</div>
-                                <p>Deal sauvé, opération financée. Personne ne porte seul ce qu'il n'a pas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cas-result-box">
-                        <div class="cas-result-number">300 000 € de marge</div>
-                        <div class="cas-result-label">opération sauvée et financée sans fonds propres grâce au réseau</div>
-                    </div>
-                    <div class="cas-method-tag blue"><i data-lucide="users" style="width:13px;height:13px;"></i>Méthode : SEP entre opérateurs</div>
+                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
+                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#fff;display:block;line-height:1;">4</span>
+                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">appels d'offres<br>privés ouverts</span>
+                </div>
+                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
+                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">48h</span>
+                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">délai moyen<br>1ère mission reçue</span>
+                </div>
+                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
+                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#fff;display:block;line-height:1;">50</span>
+                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">places Fondateurs<br>au total · tarif garanti à vie</span>
                 </div>
             </div>
 
-            <!-- TÉMOIGNAGE REDA — Côté Partenaires Métier -->
-            <div style="text-align:center;margin-bottom:16px;">
-                <div class="section-label" style="margin-bottom:0;"><i data-lucide="briefcase"></i> Côté Partenaires Métier</div>
+            <!-- CTA centré -->
+            <div style="text-align:center;">
+                <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1rem;padding:15px 36px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
+                <p style="margin-top:12px;font-size:.78rem;color:var(--gray-600);">Réponse sous 48h · Entretien avec un fondateur</p>
             </div>
+        </div>
+    </section>
+
+    <div style="text-align:center;padding:20px 24px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;">
+        <p style="margin:0;font-size:.95rem;font-weight:600;">⚡ Phase de lancement — 50 places de Membres Fondateurs · Tarif garanti à vie · Une fois complètes, le tarif standard s'appliquera</p>
+    </div>
+
+    <!-- Témoignage Reda -->
+    <div style="background:var(--gray-50);padding:48px 0;border-bottom:1px solid var(--gray-200);">
+        <div class="container" style="max-width:800px;">
             <div class="temoignage-reel fade-in">
                 <div class="temoignage-reel-inner">
                     <div class="temoignage-reel-photo">
@@ -1141,12 +1191,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
-
-    <div style="text-align:center;padding:20px 24px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));color:#fff;">
-        <p style="margin:0;font-size:.95rem;font-weight:600;">⚡ Phase de lancement — 50 places de Membres Fondateurs · Tarif garanti à vie · Une fois complètes, le tarif standard s'appliquera</p>
     </div>
 
     <!-- COMPARATIF SANS AOI vs AVEC AOI -->
@@ -1258,69 +1303,6 @@
     </div>
 
 
-    <!-- QUI EST DANS L'ALLIANCE -->
-    <section style="padding:80px 0;background:var(--gray-900);">
-        <style>
-            .profil-card{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);}
-            .profil-card:nth-child(2){transition-delay:.12s;}
-            .profil-card.visible{opacity:1;transform:translateY(0);}
-            .profil-card{position:relative;border-radius:20px;padding:36px 32px;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column;}
-            .profil-card:hover{transform:translateY(-3px);}
-            .profil-cta{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:10px;font-size:.8rem;font-weight:600;color:#fff;text-decoration:none;transition:all .3s;margin-top:auto;}
-            .profil-cta:hover{transform:translateY(-2px);}
-            .profil-cta svg{transition:transform .2s ease;}
-            .profil-cta:hover svg{transform:translateX(3px);}
-            @media(max-width:768px){
-                .profils-cards{grid-template-columns:1fr!important;}
-                .profil-card{padding:28px 24px!important;}
-            }
-        </style>
-        <div class="container">
-            <div style="text-align:center;margin-bottom:52px;">
-                <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(249,115,22,.15);color:var(--orange-400);padding:6px 16px;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;"><i data-lucide="users" style="width:14px;height:14px;"></i>L'Alliance de l'intérieur</div>
-                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);color:#fff;">Deux profils complémentaires, <span style="color:var(--orange-400);">une même exigence</span></h2>
-                <p style="font-size:.95rem;max-width:520px;margin:12px auto 0;color:var(--gray-400);">Chaque membre apporte sa valeur à l'écosystème. Chaque membre en retire une.</p>
-            </div>
-            <div style="max-width:880px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;" class="profils-cards">
-                <!-- Carte Opérateurs -->
-                <div class="profil-card" style="background:linear-gradient(160deg,rgba(249,115,22,.08) 0%,rgba(249,115,22,.02) 100%);border:1px solid rgba(249,115,22,.15);">
-                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
-                        <div style="width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(249,115,22,.3);"><i data-lucide="building-2" style="width:22px;height:22px;color:#fff;"></i></div>
-                        <div>
-                            <span style="font-weight:700;font-size:1.05rem;color:#fff;display:block;line-height:1.2;">Opérateurs</span>
-                            <span style="font-size:.75rem;color:var(--gray-400);">MdB · Promoteurs · Aménageurs</span>
-                        </div>
-                    </div>
-                    <ul style="list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:10px;">
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="cpu" style="width:15px;height:15px;color:var(--orange-400);flex-shrink:0;"></i>Logiciel IA + données officielles (DVF, PLU, Cadastre) + simulateur d'opérations</li>
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="users" style="width:15px;height:15px;color:var(--orange-400);flex-shrink:0;"></i>Associés SEP & co-opération</li>
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="send" style="width:15px;height:15px;color:var(--orange-400);flex-shrink:0;"></i>Publication de missions & appels d'offres</li>
-                    </ul>
-                    <a href="#tarifs" class="profil-cta" style="background:linear-gradient(135deg,var(--orange-500),var(--orange-600));box-shadow:0 4px 12px rgba(249,115,22,.25);">Accès Co-Opérateur <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-                <!-- Carte Partenaires -->
-                <div class="profil-card" style="background:linear-gradient(160deg,rgba(255,255,255,.06) 0%,rgba(255,255,255,.02) 100%);border:1px solid rgba(255,255,255,.08);">
-                    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;">
-                        <div style="width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;"><i data-lucide="briefcase" style="width:22px;height:22px;color:var(--gray-300);"></i></div>
-                        <div>
-                            <span style="font-weight:700;font-size:1.05rem;color:#fff;display:block;line-height:1.2;">Partenaires Métier</span>
-                            <span style="font-size:.75rem;color:var(--gray-400);">Tous les professionnels liés à l'immobilier</span>
-                        </div>
-                    </div>
-                    <ul style="list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:10px;">
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="inbox" style="width:15px;height:15px;color:var(--gray-400);flex-shrink:0;"></i>Missions qualifiées sans prospecter</li>
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="book-open" style="width:15px;height:15px;color:var(--gray-400);flex-shrink:0;"></i>Annuaire & messagerie entre membres</li>
-                        <li style="display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray-300);"><i data-lucide="trending-up" style="width:15px;height:15px;color:var(--gray-400);flex-shrink:0;"></i>Visibilité auprès d'opérateurs actifs</li>
-                    </ul>
-                    <a href="#tarifs" class="profil-cta" style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);box-shadow:0 2px 8px rgba(0,0,0,.2);">Accès Partenaire <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-                </div>
-            </div>
-        </div>
-        <script>
-        (function(){var cards=document.querySelectorAll('.profil-card');if(!cards.length)return;var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.15});cards.forEach(function(c){io.observe(c);});})();
-        </script>
-    </section>
-
     <!-- COMMENT ÇA MARCHE -->
     <section style="padding:80px 0;background:#fff;">
         <div class="container">
@@ -1356,62 +1338,6 @@
         </div>
     </section>
 
-    <!-- Stats réseau live -->
-    <section style="padding:32px 0;background:var(--gray-900);border-top:1px solid rgba(255,255,255,.04);">
-        <div class="container">
-            <div style="text-align:center;margin-bottom:14px;">
-                <span style="font-size:.63rem;color:var(--gray-500);letter-spacing:1.5px;text-transform:uppercase;font-weight:600;"><span style="width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px;vertical-align:middle;animation:pulse 2s infinite;"></span>Réseau — données en direct</span>
-            </div>
-            <div id="reseauStatsBlock" style="max-width:680px;margin:0 auto;opacity:0;transform:translateY(8px);transition:opacity .5s ease,transform .5s ease;">
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;">
-                    <div style="padding:16px 12px;text-align:center;background:rgba(10,10,15,.6);">
-                        <span id="statCapital" style="font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:900;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">—</span>
-                        <span style="font-size:.62rem;color:var(--gray-500);margin-top:3px;display:block;line-height:1.3;">capital SEP en structuration</span>
-                    </div>
-                    <div style="padding:16px 12px;text-align:center;background:rgba(10,10,15,.6);">
-                        <span id="statSEP" style="font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;display:block;line-height:1;">—</span>
-                        <span style="font-size:.62rem;color:var(--gray-500);margin-top:3px;display:block;line-height:1.3;">opérations en cours</span>
-                    </div>
-                    <div style="padding:16px 12px;text-align:center;background:rgba(10,10,15,.6);">
-                        <span style="font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;display:block;line-height:1;">523k€</span>
-                        <span style="font-size:.62rem;color:var(--gray-500);margin-top:3px;display:block;line-height:1.3;">marges brutes · 2 ops du 1er opérateur</span>
-                    </div>
-                    <div style="padding:16px 12px;text-align:center;background:rgba(10,10,15,.6);" id="statMembresCell">
-                        <span style="font-family:'Inter',sans-serif;font-size:1.5rem;font-weight:900;color:#fff;display:block;line-height:1;">0€</span>
-                        <span style="font-size:.62rem;color:var(--gray-500);margin-top:3px;display:block;line-height:1.3;">emprunt bancaire<br>3 derniers deals</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <script>
-        (function() {
-            function formatCapital(n) {
-                if (n >= 1000000) return (n/1000000).toFixed(1).replace(".",",") + "M\u20ac";
-                if (n >= 1000) return Math.round(n/1000) + "k\u20ac";
-                return n + "\u20ac";
-            }
-            fetch("https://extranet.aoi-network.com/api/public/stats")
-                .then(function(r){ return r.json(); })
-                .then(function(d) {
-                    document.getElementById("statCapital").textContent = formatCapital(d.capitalSEP || 0);
-                    document.getElementById("statSEP").textContent = d.sepActives || "0";
-                    if (d.membres >= 10) {
-                        var cell = document.getElementById("statMembresCell");
-                        cell.querySelector("span").textContent = d.membres;
-                        cell.querySelectorAll("span")[1].textContent = "membres actifs";
-                    }
-                    var b = document.getElementById("reseauStatsBlock");
-                    b.style.opacity = "1"; b.style.transform = "translateY(0)";
-                })
-                .catch(function() {
-                    document.getElementById("statCapital").textContent = "300k\u20ac";
-                    document.getElementById("statSEP").textContent = "1";
-                    var b = document.getElementById("reseauStatsBlock");
-                    b.style.opacity = "1"; b.style.transform = "translateY(0)";
-                });
-        })();
-        </script>
-    </section>
 
     <section class="pricing" id="tarifs">
 
@@ -1651,35 +1577,7 @@
         window.addEventListener('blur',()=>{setTimeout(()=>{if(document.activeElement&&document.activeElement.tagName==='IFRAME'){window.focus();}},0);});
         // Catch any remaining focus steal
 
-        // --- HERO ROTATING BLOCK ---
-        (function(){
-            var items=document.querySelectorAll('#heroRotatingBlock .hero-rotating-item');
-            var dots=document.querySelectorAll('.hero-rot-dot');
-            var bar=document.getElementById('heroProgressBar');
-            if(!items.length||!bar)return;
-            var current=0,total=items.length,dur=3000;
-            function getColor(i){
-                if(i===0)return'var(--orange-400)';
-                if(i===1)return'#f59e0b';
-                return'#60a5fa';
-            }
-            function resetBar(){
-                bar.style.transition='none';bar.style.width='0%';bar.style.background=getColor(current);
-                void bar.offsetWidth;
-                bar.style.transition='width '+dur+'ms linear';bar.style.width='100%';
-            }
-            resetBar();
-            setInterval(function(){
-                var prev=current;current=(current+1)%total;
-                items[prev].style.opacity='0';items[prev].style.transform='translateY(-20px)';
-                setTimeout(function(){items[prev].style.transform='translateY(20px)';},500);
-                items[current].style.opacity='1';items[current].style.transform='translateY(0)';
-                dots.forEach(function(d){d.style.background='rgba(255,255,255,.15)';d.style.boxShadow='none';});
-                dots[current].style.background=getColor(current);
-                dots[current].style.boxShadow='0 0 8px '+(current===0?'rgba(249,115,22,.4)':'rgba(96,165,250,.4)');
-                resetBar();
-            },dur);
-        })();
+        // Bloc rotatif hero supprimé — remplacé par les 3 cartes profils fixes
     </script>
 
 <script>
