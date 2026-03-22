@@ -514,286 +514,116 @@
     })();
     </script>
 
-    <section class="problems" id="problemes">
-        <div class="container">
-            
-            <!-- Vous vous reconnaissez ? (tabs) — EN PREMIER -->
-            <div style="max-width:900px;margin:0 auto 64px;text-align:center;padding:0 20px;box-sizing:border-box;">
-                <h2 style="color:var(--gray-900);font-size:2rem;margin-bottom:32px;">Vous vous reconnaissez ?</h2>
-                
-                <!-- Onglets -->
-                <div class="recognition-tabs" style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;">
-                    <button class="recognition-tab active" data-tab="operateurs" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid transparent;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
-                        <i data-lucide="building-2" style="width:20px;height:20px;"></i>
-                        J'ai le deal, je cherche l'associé
-                        <span class="tab-progress" style="position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);border-radius:0 0 10px 10px;width:0;transition:none;"></span>
-                    </button>
-                    <button class="recognition-tab" data-tab="capitalises" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid var(--gray-300);background:var(--gray-100);color:var(--gray-500);font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
-                        <i data-lucide="coins" style="width:20px;height:20px;"></i>
-                        J'ai la capacité, je cherche le deal
-                        <span class="tab-progress" style="position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);border-radius:0 0 10px 10px;width:0;transition:none;"></span>
-                    </button>
-                    <button class="recognition-tab" data-tab="prestataires" style="display:flex;align-items:center;gap:8px;padding:14px 28px 14px;border-radius:12px;border:2px solid var(--gray-300);background:var(--gray-100);color:var(--gray-500);font-weight:600;font-size:1rem;cursor:pointer;transition:background .3s ease,border-color .3s ease,color .3s ease;position:relative;overflow:hidden;">
-                        <i data-lucide="briefcase" style="width:20px;height:20px;"></i>
-                        Partenaires Métier
-                        <span class="tab-progress" style="position:absolute;bottom:0;left:0;height:3px;background:rgba(255,255,255,.5);border-radius:0 0 10px 10px;width:0;transition:none;"></span>
-                    </button>
+    <section id="problemes" style="background:#0a0a0f;padding:100px 0;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.025) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div style="text-align:center;margin-bottom:72px;">
+                <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 16px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);margin-bottom:20px;">
+                    <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:rgba(255,255,255,.4);">Vous vous reconnaissez ?</span>
                 </div>
-                
-                <style>
-                .pain-card-v2{display:flex;align-items:flex-start;gap:16px;padding:22px 24px;background:#fff;border-radius:16px;border:1px solid var(--gray-200);border-left:4px solid var(--orange-400);transition:all .3s;cursor:default;text-align:left;}
-                .pain-card-v2:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(249,115,22,.1);border-left-color:var(--orange-500);}
-                .pain-card-v2.highlight{background:linear-gradient(135deg,rgba(249,115,22,.03),rgba(249,115,22,.01));border-left-width:5px;}
-                .pain-card-v2 .pain-keyword{font-size:1rem;font-weight:700;color:var(--gray-900);line-height:1.3;margin-bottom:3px;}
-                .pain-card-v2 .pain-detail{font-size:.82rem;color:var(--gray-500);line-height:1.4;}
-                .pain-card-v2-blue{border-left-color:#93c5fd;}
-                .pain-card-v2-blue:hover{box-shadow:0 8px 24px rgba(59,130,246,.1);border-left-color:#3b82f6;}
-                .pain-card-v2-blue.highlight{background:linear-gradient(135deg,rgba(59,130,246,.03),rgba(59,130,246,.01));}
-                @media(max-width:640px){.recognition-grid-v2{grid-template-columns:1fr!important;}}
-                </style>
+                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:#fff;font-weight:600;line-height:1.2;letter-spacing:-.02em;max-width:700px;margin:0 auto;">Trois profils. <span style="background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Une même frustration.</span></h2>
+            </div>
 
-                <!-- Contenu Opérateurs -->
-                <div class="recognition-content" id="content-operateurs" style="display:block;">
-                    <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Marchands de biens • Promoteurs • Aménageurs fonciers</p>
-                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
-                        <div class="pain-card-v2 highlight">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="lock" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Refus bancaire</div><div class="pain-detail">Opération rentable qui vous échappe, faute de financement</div></div>
-                        </div>
-                        <div class="pain-card-v2 highlight">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.15),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="trending-down" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Marge grignotée</div><div class="pain-detail">Conditions de prêt qui absorbent toute votre marge</div></div>
-                        </div>
-                        <div class="pain-card-v2">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="wallet" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Apport insuffisant</div><div class="pain-detail">Fonds propres demandés que vous n'avez pas — ou plus</div></div>
-                        </div>
-                        <div class="pain-card-v2">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shield-alert" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Exposition personnelle</div><div class="pain-detail">Garanties personnelles qui mettent votre patrimoine en jeu</div></div>
-                        </div>
-                        <div class="pain-card-v2">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="gavel" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Passif bancaire</div><div class="pain-detail">Saisie ou fiducie réalisée qui a laissé des traces</div></div>
-                        </div>
-                        <div class="pain-card-v2">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(249,115,22,.1),rgba(249,115,22,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="arrow-right-circle" style="width:17px;height:17px;color:var(--orange-500);"></i></span>
-                            <div><div class="pain-keyword">Besoin de structurer</div><div class="pain-detail">L'envie de monter autrement, sereinement, sans banque</div></div>
-                        </div>
-                    </div>
-                    <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(249,115,22,.3);">
-                        <span style="color:#fff;font-size:.95rem;font-weight:600;">Structurez autrement</span>
-                        <span style="color:rgba(255,255,255,.6);font-size:.85rem;">SEP · Paiement à terme · Co-production</span>
-                    </div>
+            <div class="recog-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:20px;overflow:hidden;">
+
+                <!-- ROW 0 : Headers -->
+                <div class="recog-header" style="background:#0a0a0f;padding:40px 36px 28px;transition:background .3s;">
+                    <span style="display:inline-block;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--orange-400);margin-bottom:14px;">Opérateur · J'ai le deal</span>
+                    <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.4;margin:0;">Vous avez trouvé l'opération.<br>Mais la banque dit non.</p>
                 </div>
-                
-                <!-- Contenu Co-Opérateurs capitalisés -->
-                <div class="recognition-content" id="content-capitalises" style="display:none;">
-                    <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Opérateurs avec fonds disponibles · Co-Opérateurs cherchant du deal flow structuré</p>
-                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
-                        <div class="pain-card-v2 highlight" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="search" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Deal flow introuvable</div><div class="pain-detail">Des fonds disponibles, mais pas d'opérations suffisamment structurées pour s'associer en confiance</div></div>
-                        </div>
-                        <div class="pain-card-v2 highlight" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.15),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="file-question" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Dossiers non vérifiés</div><div class="pain-detail">Des opérations présentées sans simulation sérieuse ni cadre juridique préparé</div></div>
-                        </div>
-                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="user-question" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Opérateurs non qualifiés</div><div class="pain-detail">Difficile de trouver un pair avec un track record réel et une vraie maîtrise des montages</div></div>
-                        </div>
-                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shield-x" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Absence de cadre</div><div class="pain-detail">Co-production sans SEP formalisée, sans simulation partagée, sans data room</div></div>
-                        </div>
-                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="hourglass" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Temps de sourcing</div><div class="pain-detail">Chercher soi-même des opérations co-productibles prend un temps que vous n'avez pas</div></div>
-                        </div>
-                        <div class="pain-card-v2" style="border-left-color:#f59e0b;">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(245,158,11,.1),rgba(245,158,11,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="circle-off" style="width:17px;height:17px;color:#d97706;"></i></span>
-                            <div><div class="pain-keyword">Fonds sous-déployés</div><div class="pain-detail">Du capital disponible qui attend des opérations à la hauteur de vos exigences</div></div>
-                        </div>
-                    </div>
-                    <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#f59e0b,#d97706);border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(245,158,11,.3);">
-                        <span style="color:#fff;font-size:.95rem;font-weight:600;">Accédez au deal flow du réseau</span>
-                        <span style="color:rgba(255,255,255,.7);font-size:.85rem;">Dossiers structurés · SEP vérifiées · Opérateurs qualifiés</span>
-                    </div>
+                <div class="recog-header" style="background:#0a0a0f;padding:40px 36px 28px;transition:background .3s;">
+                    <span style="display:inline-block;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#f59e0b;margin-bottom:14px;">Opérateur · J'ai la capacité</span>
+                    <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.4;margin:0;">Vous avez les fonds.<br>Mais pas les bonnes opérations.</p>
+                </div>
+                <div class="recog-header" style="background:#0a0a0f;padding:40px 36px 28px;transition:background .3s;">
+                    <span style="display:inline-block;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#60a5fa;margin-bottom:14px;">Partenaire Métier</span>
+                    <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.4;margin:0;">Vous avez le talent.<br>Mais pas assez de clients qualifiés.</p>
                 </div>
 
-                <!-- Contenu Prestataires -->
-                <div class="recognition-content" id="content-prestataires" style="display:none;">
-                    <p style="color:var(--gray-500);font-size:.9rem;margin-bottom:28px;font-style:italic;">Tous les professionnels liés à l'immobilier — architectes, MOE, constructeurs, artisans, notaires, courtiers, géomètres, fournisseurs…</p>
-                    <div class="recognition-grid-v2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;text-align:left;margin-bottom:36px;">
-                        <div class="pain-card-v2 pain-card-v2-blue highlight">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="clock" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Temps perdu</div><div class="pain-detail">La prospection dévore votre temps facturable</div></div>
-                        </div>
-                        <div class="pain-card-v2 pain-card-v2-blue highlight">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.15),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="eye-off" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Invisibilité</div><div class="pain-detail">Introuvable sur Google face aux grandes enseignes</div></div>
-                        </div>
-                        <div class="pain-card-v2 pain-card-v2-blue">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="file-x" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Devis sans suite</div><div class="pain-detail">Projets qui tombent à l'eau faute de financement côté opérateur</div></div>
-                        </div>
-                        <div class="pain-card-v2 pain-card-v2-blue">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="shuffle" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Croissance aléatoire</div><div class="pain-detail">Le bouche-à-oreille ne génère pas un flux prévisible</div></div>
-                        </div>
-                        <div class="pain-card-v2 pain-card-v2-blue">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="user-x" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Clients volatils</div><div class="pain-detail">Paient en retard ou disparaissent sans prévenir</div></div>
-                        </div>
-                        <div class="pain-card-v2 pain-card-v2-blue">
-                            <span style="width:38px;height:38px;min-width:38px;background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(59,130,246,.05));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-top:2px;"><i data-lucide="credit-card" style="width:17px;height:17px;color:#3b82f6;"></i></span>
-                            <div><div class="pain-keyword">Impayés</div><div class="pain-detail">Trésorerie fragilisée, encaissements incertains</div></div>
-                        </div>
-                    </div>
-                    <div style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);border-radius:100px;margin-bottom:24px;box-shadow:0 4px 14px rgba(59,130,246,.3);">
-                        <span style="color:#fff;font-size:.95rem;font-weight:600;">Les projets viennent à vous</span>
-                        <span style="color:rgba(255,255,255,.6);font-size:.85rem;">Appels d'offres · Clients qualifiés · Visibilité</span>
-                    </div>
+                <!-- ROW 1 -->
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:var(--orange-500);border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Refus bancaire</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">L'opération est rentable. La banque s'en fiche.</span></div>
                 </div>
-                
-                <a href="#resultats" class="btn" style="background:transparent;color:var(--gray-600);border:1px solid var(--gray-300);box-shadow:none;"><i data-lucide="trophy"></i>Voir comment nos fondateurs ont résolu ça →</a>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#f59e0b;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Deal flow introuvable</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Pas d'opérations suffisamment structurées.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#60a5fa;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Temps perdu à prospecter</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">La recherche de clients dévore votre temps facturable.</span></div>
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:var(--orange-500);border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Marge grignotée</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Les intérêts absorbent ce que vous avez négocié.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#f59e0b;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Dossiers non vérifiés</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Sans simulation sérieuse ni cadre juridique.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#60a5fa;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Invisibilité</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Introuvable face aux grandes enseignes et plateformes.</span></div>
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:var(--orange-500);border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Apport insuffisant</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Fonds propres demandés que vous n'avez pas — ou plus.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#f59e0b;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Opérateurs non qualifiés</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Difficile de trouver un pair avec un vrai track record.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#60a5fa;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Devis sans suite</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Projets qui tombent faute de financement opérateur.</span></div>
+                </div>
+
+                <!-- ROW 4 -->
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:var(--orange-500);border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Exposition personnelle</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Garanties qui mettent votre patrimoine en jeu.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#f59e0b;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Absence de cadre</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Co-production sans SEP, sans simulation partagée.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#60a5fa;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Croissance aléatoire</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Le bouche-à-oreille ne génère pas un flux prévisible.</span></div>
+                </div>
+
+                <!-- ROW 5 -->
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:var(--orange-500);border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Pas d'associé qualifié</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Personne à trouver pour co-structurer en SEP.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#f59e0b;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Fonds sous-déployés</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Du capital qui attend des opérations à la hauteur.</span></div>
+                </div>
+                <div class="recog-item" style="background:#0a0a0f;padding:16px 36px;border-top:1px solid rgba(255,255,255,.05);transition:background .3s;display:flex;align-items:flex-start;gap:12px;">
+                    <span style="width:4px;height:4px;min-width:4px;background:#60a5fa;border-radius:50%;margin-top:7px;flex-shrink:0;"></span><div><span style="font-size:.88rem;font-weight:600;color:#fff;display:block;margin-bottom:2px;">Clients volatils</span><span style="font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.4;">Paient en retard ou disparaissent sans prévenir.</span></div>
+                </div>
+
+                <!-- ROW 6 : Footers -->
+                <div class="recog-footer" style="background:#0a0a0f;padding:24px 36px 40px;border-top:1px solid rgba(249,115,22,.15);transition:background .3s;white-space:nowrap;">
+                    <span style="font-size:.75rem;color:var(--orange-400);font-weight:600;">AOI → </span><span style="font-size:.75rem;color:rgba(255,255,255,.4);">Trouvez un associé SEP qualifié en quelques jours.</span>
+                </div>
+                <div class="recog-footer" style="background:#0a0a0f;padding:24px 36px 40px;border-top:1px solid rgba(245,158,11,.15);transition:background .3s;white-space:nowrap;">
+                    <span style="font-size:.75rem;color:#f59e0b;font-weight:600;">AOI → </span><span style="font-size:.75rem;color:rgba(255,255,255,.4);">Accédez à un deal flow structuré et vétté.</span>
+                </div>
+                <div class="recog-footer" style="background:#0a0a0f;padding:24px 36px 40px;border-top:1px solid rgba(96,165,250,.15);transition:background .3s;white-space:nowrap;">
+                    <span style="font-size:.75rem;color:#60a5fa;font-weight:600;">AOI → </span><span style="font-size:.75rem;color:rgba(255,255,255,.4);">Recevez des missions directement dans votre espace.</span>
+                </div>
+
+            </div>
+
+            <div style="text-align:center;margin-top:48px;">
+                <a href="#resultats" style="display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">
+                    <i data-lucide="trophy" style="width:14px;height:14px;color:var(--orange-400);"></i>
+                    Voir comment nos fondateurs ont résolu ça
+                    <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+                </a>
             </div>
         </div>
+        <style>
+        @media(max-width:900px){
+            .recog-grid{grid-template-columns:1fr!important;}
+            .recog-header,.recog-item,.recog-footer{padding-left:24px!important;padding-right:24px!important;}
+        }
+        .recog-header:hover,.recog-item:hover,.recog-footer:hover{background:#0f0f16!important;}
+        </style>
     </section>
-    
-    <script>
-    // Auto-switch onglets reconnaissance avec barre de progression
-    (function() {
-        var tabs = ['operateurs', 'capitalises', 'prestataires'];
-        var currentIndex = 0;
-        var DURATION = 6000; // 6 secondes par onglet
-        var paused = false;
-        var startTime = null;
-        var elapsed = 0;
-        var animFrame = null;
-        var sectionVisible = false;
-
-        function activateTab(tabId, resetProgress) {
-            currentIndex = tabs.indexOf(tabId);
-            
-            // Reset toutes les barres
-            document.querySelectorAll('.tab-progress').forEach(function(p) { p.style.width = '0'; p.style.transition = 'none'; });
-            
-            // Désactiver tous les onglets
-            document.querySelectorAll('.recognition-tab').forEach(function(t) {
-                t.classList.remove('active');
-                t.style.background = 'var(--gray-100)';
-                t.style.borderColor = 'var(--gray-300)';
-                t.style.color = 'var(--gray-500)';
-            });
-            
-            // Activer l'onglet
-            var activeBtn = document.querySelector('.recognition-tab[data-tab="' + tabId + '"]');
-            activeBtn.classList.add('active');
-            if (tabId === 'operateurs') {
-                activeBtn.style.background = 'linear-gradient(135deg,#f97316,#ea580c)';
-                activeBtn.style.borderColor = 'transparent';
-                activeBtn.style.color = '#fff';
-            } else if (tabId === 'capitalises') {
-                activeBtn.style.background = 'linear-gradient(135deg,#f59e0b,#d97706)';
-                activeBtn.style.borderColor = 'transparent';
-                activeBtn.style.color = '#fff';
-            } else {
-                activeBtn.style.background = 'linear-gradient(135deg,#3b82f6,#1d4ed8)';
-                activeBtn.style.borderColor = 'transparent';
-                activeBtn.style.color = '#fff';
-            }
-            
-            // Changer le contenu
-            document.querySelectorAll('.recognition-content').forEach(function(c) { c.style.display = 'none'; });
-            document.getElementById('content-' + tabId).style.display = 'block';
-            if (typeof lucide !== 'undefined') lucide.createIcons();
-            
-            // Reset timer
-            if (resetProgress) {
-                elapsed = 0;
-                startTime = performance.now();
-            }
-        }
-
-        function updateProgress() {
-            if (!sectionVisible) { animFrame = requestAnimationFrame(updateProgress); return; }
-            if (paused) { animFrame = requestAnimationFrame(updateProgress); return; }
-            
-            var now = performance.now();
-            if (!startTime) startTime = now;
-            elapsed += now - startTime;
-            startTime = now;
-            
-            var progress = Math.min(elapsed / DURATION, 1);
-            var activeBar = document.querySelector('.recognition-tab.active .tab-progress');
-            if (activeBar) { activeBar.style.width = (progress * 100) + '%'; activeBar.style.transition = 'none'; }
-            
-            if (progress >= 1) {
-                // Switch
-                var nextIndex = (currentIndex + 1) % tabs.length;
-                activateTab(tabs[nextIndex], true);
-            }
-            
-            animFrame = requestAnimationFrame(updateProgress);
-        }
-
-        // Clic manuel = switch immédiat + reset timer (pas de pause)
-        document.querySelectorAll('.recognition-tab').forEach(function(tab) {
-            tab.addEventListener('click', function() {
-                var tabId = this.dataset.tab;
-                paused = false;
-                activateTab(tabId, true);
-                startTime = performance.now();
-            });
-        });
-
-        // Hover sur le contenu = pause
-        var contentZone = document.querySelector('.recognition-tabs')?.closest('div[style*="max-width:900px"]') 
-                       || document.querySelector('.recognition-tabs')?.parentElement;
-        
-        if (contentZone) {
-            contentZone.addEventListener('mouseenter', function() {
-                paused = true;
-                startTime = null; // Pour ne pas accumuler le temps de pause
-            });
-            contentZone.addEventListener('mouseleave', function() {
-                paused = false;
-                startTime = performance.now(); // Reprend d'où on en était
-            });
-            // Touch : pause au touch, reprend après 3s sans interaction
-            var touchTimer = null;
-            contentZone.addEventListener('touchstart', function() {
-                paused = true;
-                startTime = null;
-                if (touchTimer) clearTimeout(touchTimer);
-                touchTimer = setTimeout(function() { paused = false; startTime = performance.now(); }, 3000);
-            }, { passive: true });
-        }
-
-        // IntersectionObserver : ne démarre que quand la section est visible
-        var section = document.querySelector('.recognition-tabs');
-        if (section) {
-            var io = new IntersectionObserver(function(entries) {
-                entries.forEach(function(e) {
-                    sectionVisible = e.isIntersecting;
-                    if (e.isIntersecting && !startTime) {
-                        startTime = performance.now();
-                    }
-                    if (!e.isIntersecting) {
-                        startTime = null; // Pause quand hors écran
-                    }
-                });
-            }, { threshold: 0.2 });
-            io.observe(section.closest('div[style*="max-width:900px"]') || section.parentElement);
-        }
-
-        // Lancer
-        startTime = performance.now();
-        animFrame = requestAnimationFrame(updateProgress);
-    })();
-    </script>
 
     <section class="platform-preview" id="plateforme">
         <div class="container">
@@ -1137,47 +967,6 @@
             <div style="text-align:center;margin-top:48px;">
                 <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1.05rem;padding:18px 40px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
                 <p style="margin-top:12px;font-size:.8rem;color:var(--gray-500);">Processus de sélection · Places limitées par région</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ SECTION EXCLUSIVITÉ — ce qu'il se passe à l'intérieur ═══ -->
-    <section style="padding:72px 0;background:var(--gray-900);position:relative;overflow:hidden;">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(249,115,22,.07) 0%,transparent 60%);pointer-events:none;"></div>
-        <div class="container" style="position:relative;z-index:1;">
-            <div style="text-align:center;margin-bottom:48px;">
-                <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 16px;border-radius:100px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);margin-bottom:16px;">
-                    <span style="width:5px;height:5px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></span>
-                    <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange-400);">En ce moment dans le réseau</span>
-                </div>
-                <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:#fff;margin-bottom:12px;">Ce réseau n'est pas fait <span style="color:var(--orange-400);">pour tout le monde.</span></h2>
-                <p style="color:var(--gray-400);font-size:1rem;max-width:520px;margin:0 auto;">Processus de sélection · Entretien avec un fondateur · Tarif fondateur garanti à vie. Les 50 premières places détermineront la qualité du réseau pour les années à venir.</p>
-            </div>
-
-            <!-- 4 stats live en ligne -->
-            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto 48px;">
-                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
-                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</span>
-                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">projets SEP<br>en structuration</span>
-                </div>
-                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
-                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#fff;display:block;line-height:1;">4</span>
-                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">appels d'offres<br>privés ouverts</span>
-                </div>
-                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
-                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;display:block;line-height:1;background:linear-gradient(135deg,var(--orange-400),#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">48h</span>
-                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">délai moyen<br>1ère mission reçue</span>
-                </div>
-                <div style="padding:28px 20px;text-align:center;background:rgba(10,10,15,.7);">
-                    <span style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:800;color:#fff;display:block;line-height:1;">50</span>
-                    <span style="font-size:.65rem;color:var(--gray-500);margin-top:6px;display:block;line-height:1.4;">places Fondateurs<br>au total · tarif garanti à vie</span>
-                </div>
-            </div>
-
-            <!-- CTA centré -->
-            <div style="text-align:center;">
-                <a href="/rejoindre.html" class="btn btn-primary" style="font-size:1rem;padding:15px 36px;"><i data-lucide="shield-check"></i>Vérifier mon éligibilité</a>
-                <p style="margin-top:12px;font-size:.78rem;color:var(--gray-600);">Réponse sous 48h · Entretien avec un fondateur</p>
             </div>
         </div>
     </section>
