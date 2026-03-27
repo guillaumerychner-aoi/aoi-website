@@ -32,7 +32,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
     <style>
         :root{--orange-50:#fff7ed;--orange-100:#ffedd5;--orange-200:#fed7aa;--orange-300:#fdba74;--orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;--orange-700:#c2410c;--gray-50:#f9fafb;--gray-100:#f3f4f6;--gray-200:#e5e7eb;--gray-300:#d1d5db;--gray-400:#9ca3af;--gray-500:#6b7280;--gray-600:#4b5563;--gray-700:#374151;--gray-800:#141418;--gray-900:#0a0a0f}
@@ -133,6 +133,191 @@
         .demo-mobile-poster .poster-title{color:#fff;font-size:.95rem;font-weight:700;position:relative;z-index:1}
         .demo-mobile-poster .poster-sub{color:var(--gray-400);font-size:.75rem;margin-top:4px;position:relative;z-index:1}
         @media(max-width:768px){.key-numbers-grid{grid-template-columns:repeat(2,1fr);gap:32px}.key-number-value{font-size:2.25rem}.masterclass-biblio-grid{grid-template-columns:1fr !important;gap:20px !important;width:calc(100% - 40px) !important;max-width:none !important;padding:0 !important;margin:0 20px !important}.masterclass-biblio-grid>div{padding:16px !important;width:100% !important;box-sizing:border-box !important;overflow:hidden !important}.masterclass-item{gap:8px !important;width:100% !important;box-sizing:border-box !important}.masterclass-item>div:first-child{width:50px !important;min-width:50px !important;height:32px !important}.masterclass-item>div:last-child{overflow:hidden !important}.masterclass-item p{font-size:.75rem !important;white-space:nowrap !important;overflow:hidden !important;text-overflow:ellipsis !important}.recognition-tabs{flex-direction:column !important;gap:10px !important}.recognition-tab{width:100% !important;justify-content:center !important;padding:12px 20px !important;font-size:.9rem !important}.recognition-grid{grid-template-columns:1fr !important;gap:10px !important;padding:0 !important;margin:0 auto 30px auto !important;max-width:100% !important;box-sizing:border-box !important}.recognition-grid>div{padding:14px 12px !important;gap:10px !important}.recognition-grid span{font-size:.85rem !important;line-height:1.4 !important}.recognition-grid i{width:18px !important;height:18px !important;min-width:18px !important}.biblio-grid{gap:6px !important;width:100% !important}.biblio-grid>div{padding:8px !important}.biblio-grid p{font-size:.65rem !important}}
+        /* ══════════ HERO LINEAR v10 ══════════ */
+        :root{--aoi-accent:#C2703E;--aoi-accent-light:#F5E6D8;--aoi-accent-dark:#9A5630;--aoi-emerald:#2D7A5F;--aoi-emerald-light:#E6F2EC;--aoi-violet:#6B4FA0;--aoi-violet-light:#EFEBF7;--aoi-blue:#3B6BA5;--aoi-blue-light:#E8EFF7;--aoi-amber:#A67B3D;--aoi-amber-light:#FBF3E4;--aoi-red:#C0564A;--aoi-red-light:#FBE9E7;--aoi-text:#1A1814;--aoi-text-muted:#8C8579;--aoi-text-light:#B5AFA5;--aoi-border:#E8E5DF;--aoi-border-light:#F0EDE8;--aoi-bg:#FAFAF7;--border-h:rgba(255,255,255,0.07);--border-h2:rgba(255,255,255,0.13);--tp:#ffffff;--ts:rgba(255,255,255,0.52);--tm:rgba(255,255,255,0.3)}
+        .hero-linear{min-height:100vh;display:flex;flex-direction:column;padding:160px 60px 70px;position:relative;overflow-x:clip;overflow-y:visible;background:linear-gradient(135deg,#0a0a0f 0%,#12121a 100%)}.hero-linear::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 40%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none}
+        .hero-linear .hero-grid-ln{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 90% 58% at 50% 20%,#000 0%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 90% 58% at 50% 20%,#000 0%,transparent 100%)}
+        .hero-linear .hero-glow-ln{position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:960px;height:440px;pointer-events:none;background:radial-gradient(ellipse,rgba(194,112,62,0.10) 0%,transparent 64%)}
+        .hero-linear .hero-inner-ln{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto}
+        .hero-linear .hero-badge-ln{display:inline-flex;align-items:center;gap:7px;background:rgba(194,112,62,0.07);border:1px solid rgba(194,112,62,0.18);border-radius:100px;padding:5px 14px 5px 9px;margin-top:40px;margin-bottom:34px;animation:fuLn .55s ease both}
+        .hero-linear .bdot-ln{width:5px;height:5px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+        .hero-linear .btxt-ln{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,.62)}
+        .hero-linear .bcta-ln{font-size:0.78rem;font-weight:600;color:var(--aoi-accent);margin-left:4px}
+        .hero-linear .t1-ln,.hero-linear .t2-ln{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.2vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-.035em;color:#fff}
+        .hero-linear .t1-ln{animation:fuLn .55s ease .06s both;margin-bottom:5px}
+        .hero-linear .t2-ln{animation:fuLn .55s ease .11s both;margin-bottom:18px}
+        .hero-linear .t3-ln{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.6rem);font-weight:600;line-height:1.1;letter-spacing:-.025em;color:rgba(255,255,255,.58);animation:fuLn .55s ease .16s both;margin-bottom:16px}
+        .hero-linear .t4-ln{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.2rem,2vw,1.8rem);font-weight:600;line-height:1.2;letter-spacing:-.01em;color:var(--aoi-accent);animation:fuLn .55s ease .21s both;margin-bottom:36px}
+        .hero-linear .ctas-ln{display:flex;align-items:center;gap:10px;margin-bottom:68px;animation:fuLn .55s ease .26s both}
+        .hero-linear .ct-p-ln{display:inline-flex;align-items:center;gap:7px;background:var(--aoi-accent);color:#fff;font-size:.88rem;font-weight:500;padding:10px 22px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .15s}
+        .hero-linear .ct-p-ln:hover{opacity:.86;transform:translateY(-1px)}
+        .hero-linear .ct-s-ln{display:inline-flex;align-items:center;gap:6px;color:var(--ts);font-size:.88rem;text-decoration:none;padding:10px 18px;border-radius:10px;border:1px solid var(--border-h2);transition:color .18s,border-color .18s}
+        .hero-linear .ct-s-ln:hover{color:var(--tp);border-color:rgba(255,255,255,.22)}
+        .hero-linear .hero-mockup-ln{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;animation:fuLn .75s ease .3s both}
+        .hero-linear .mockup-chrome-ln{background:#0d0d11;border:1px solid rgba(255,255,255,.1);border-bottom:none;border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 -24px 70px -12px rgba(194,112,62,.07),0 0 0 1px rgba(255,255,255,.03)}
+        .hero-linear .tbar-ln{height:38px;display:flex;align-items:center;gap:7px;padding:0 16px;background:#090910;border-bottom:1px solid rgba(255,255,255,.07)}
+        .hero-linear .td-ln{width:10px;height:10px;border-radius:50%}.hero-linear .tr-ln{background:#ff5f57}.hero-linear .ty-ln{background:#ffbd2e}.hero-linear .tg-ln{background:#28c840}
+        .hero-linear .turl-ln{flex:1;margin:0 14px;height:22px;background:rgba(255,255,255,.05);border:.5px solid rgba(255,255,255,.08);border-radius:5px;display:flex;align-items:center;padding:0 9px}
+        .hero-linear .turl-ln span{font-size:.69rem;color:rgba(255,255,255,.33);letter-spacing:.01em}
+        .hero-linear .app-ln{height:660px;background:var(--aoi-bg);font-family:'Outfit',sans-serif;position:relative;overflow:hidden}
+        .hero-linear .sb-ln{position:absolute;left:0;top:0;bottom:0;width:205px;display:flex;flex-direction:column;background:#fff;border-right:1px solid var(--aoi-border);z-index:10}
+        .hero-linear .sb-logo-show-ln{display:flex;padding:10px 16px;border-bottom:1px solid var(--aoi-border);align-items:center;gap:8px}
+        .hero-linear .sb-lb-ln{width:32px;height:32px;background:linear-gradient(135deg,#f97316,#ea580c);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .hero-linear .sb-lb-ln span{color:#fff;font-weight:800;font-size:9px;letter-spacing:-.3px}
+        .hero-linear .sb-lname-ln{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--aoi-text)}
+        .hero-linear .sb-user-ln{padding:8px 14px;border-bottom:1px solid var(--aoi-border);background:#FCFBF9;display:flex;align-items:center;gap:8px}
+        .hero-linear .sb-av-ln{width:28px;height:28px;border-radius:10px;background:var(--aoi-accent-light);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--aoi-accent);flex-shrink:0}
+        .hero-linear .sb-uname-ln{font-size:11px;font-weight:600;color:var(--aoi-text);line-height:1.25}
+        .hero-linear .sb-usub-ln{font-size:9.5px;color:var(--aoi-text-muted);line-height:1.25}
+        .hero-linear .sb-nav-ln{flex:1;padding:10px 8px 8px;overflow-y:auto}
+        .hero-linear .si-ln{display:flex;align-items:center;gap:10px;padding:7px 10px;margin-bottom:2px;border-radius:10px;font-size:12px;color:var(--aoi-text-muted);cursor:pointer;transition:all .15s}
+        .hero-linear .si-ln:hover{background:#F5F3EF;color:var(--aoi-text)}
+        .hero-linear .si-ln.active-ln{background:var(--aoi-accent-light);color:var(--aoi-accent-dark);font-weight:600}
+        .hero-linear .si-ln svg{width:15px;height:15px;stroke-width:1.8px;flex-shrink:0}
+        .hero-linear .si-badge-ln{margin-left:auto;background:var(--aoi-accent);color:#fff;font-size:10px;font-weight:700;padding:1.5px 6px;border-radius:6px}
+        .hero-linear .sb-mdb-wrap-ln{border-top:1px solid var(--aoi-border);padding:10px 8px}
+        .hero-linear .sb-mdb-ln{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:10px;background:#F5F3EF;font-size:11px;font-weight:600;color:var(--aoi-text);cursor:pointer;transition:background .15s}
+        .hero-linear .sb-mdb-ln:hover{background:var(--aoi-border)}
+        .hero-linear .sb-mdb-ln svg{width:14px;height:14px;stroke-width:1.7px}
+        .hero-linear .sb-mdb-ln .ext-ln{margin-left:auto;width:11px;height:11px;opacity:.4}
+        .hero-linear .sb-footer-ln{padding:10px 14px;border-top:1px solid var(--aoi-border);display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--aoi-text-light)}
+        .hero-linear .sb-footer-ln a{color:var(--aoi-text-light);text-decoration:none}
+        .hero-linear .sb-footer-ln a:hover{text-decoration:underline}
+        .hero-linear .main-ln{position:absolute;left:205px;top:0;right:0;bottom:0;overflow:hidden;display:flex;flex-direction:column;padding:16px 20px}
+        .hero-linear .switcher-ln{display:flex;align-items:center;gap:0;margin-bottom:16px;background:#F0EDE8;border-radius:10px;padding:3px;width:fit-content;border:1px solid var(--aoi-border);flex-shrink:0}
+        .hero-linear .sw-ln{padding:5px 14px;border-radius:7px;font-size:11.5px;font-weight:500;color:var(--aoi-text-muted);cursor:pointer;border:none;background:transparent;transition:all .2s;white-space:nowrap}
+        .hero-linear .sw-ln.on-ln{background:#fff;color:var(--aoi-text);font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+        .hero-linear .vl3-ln{display:flex;flex-direction:column;flex:1;overflow:hidden;gap:0}
+        .hero-linear .notifs-ln{display:flex;gap:8px;margin-bottom:14px;flex-shrink:0}
+        .hero-linear .notif-ln{flex:1;display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:13px;cursor:pointer}
+        .hero-linear .nb-ln{background:var(--aoi-blue-light);border:1px solid #D0DFEF}
+        .hero-linear .no-ln{background:var(--aoi-accent-light);border:1px solid #E4CBBA}
+        .hero-linear .ni-ln{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .hero-linear .ni-b-ln{background:#B8CCE4}.hero-linear .ni-o-ln{background:#DEB89B}
+        .hero-linear .n-main-ln{font-size:12px;font-weight:600;line-height:1.2}
+        .hero-linear .nb-ln .n-main-ln{color:var(--aoi-blue)}.hero-linear .no-ln .n-main-ln{color:var(--aoi-accent-dark)}
+        .hero-linear .n-sub-ln{font-size:10px;color:var(--aoi-text-light)}
+        .hero-linear .n-arr-ln{margin-left:auto;opacity:.4}
+        .hero-linear .n-arr-ln svg{width:12px;height:12px}
+        .hero-linear .dh-ln{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:14px;flex-shrink:0}
+        .hero-linear .eyebrow-ln{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--aoi-text-light);margin-bottom:3px}
+        .hero-linear .dh-title-ln{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--aoi-text);line-height:1.1}
+        .hero-linear .dh-sub-ln{font-size:12px;color:var(--aoi-text-muted)}
+        .hero-linear .dh-sub-ln span{color:var(--aoi-accent);font-weight:500}
+        .hero-linear .rating-ln{display:flex;align-items:center;gap:5px;padding:6px 12px;border-radius:10px;background:var(--aoi-amber-light);border:1px solid #ECD9B8;font-size:10.5px;font-weight:600;color:var(--aoi-amber)}
+        .hero-linear .kpis-ln{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px;flex-shrink:0}
+        .hero-linear .kpi-ln{background:#fff;border:1px solid var(--aoi-border);border-radius:14px;padding:13px 14px}
+        .hero-linear .kpi-top-ln{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+        .hero-linear .ki-ln{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+        .hero-linear .ki-ln svg{width:16px;height:16px}
+        .hero-linear .ktag-ln{font-size:9.5px;font-weight:600;padding:2.5px 7px;border-radius:5px}
+        .hero-linear .kval-ln{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--aoi-text);line-height:1}
+        .hero-linear .klabel-ln{font-size:11px;color:var(--aoi-text-muted);margin-top:2px;font-weight:500}
+        .hero-linear .sep-section-ln{flex:1;overflow:hidden;display:flex;flex-direction:column}
+        .hero-linear .sep-hdr-ln{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-shrink:0}
+        .hero-linear .sep-hdr-left-ln{display:flex;align-items:center;gap:6px}
+        .hero-linear .sep-hdr-left-ln svg{width:14px;height:14px;color:var(--aoi-violet)}
+        .hero-linear .sep-hdr-title-ln{font-family:'Fraunces',serif;font-size:13px;font-weight:700;color:var(--aoi-text)}
+        .hero-linear .sep-lnk-ln{font-size:11px;color:var(--aoi-text-light);font-weight:500}
+        .hero-linear .sep-cards-ln{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1;overflow:hidden}
+        .hero-linear .sep-card-ln{background:#fff;border:1px solid var(--aoi-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s}
+        .hero-linear .sep-photo-ln{position:relative;height:100px;background:var(--aoi-border-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .hero-linear .sep-photo-ln img{width:100%;height:100%;object-fit:cover;display:block}
+        .hero-linear .sep-photo-ph-ln{width:100%;height:100%;background:linear-gradient(135deg,#F5F3EF,#EBE7E0);display:flex;align-items:center;justify-content:center}
+        .hero-linear .sep-photo-ph-ln svg{width:28px;height:28px;color:var(--aoi-text-light);opacity:.35}
+        .hero-linear .sep-status-badge-ln{position:absolute;top:8px;left:8px;padding:3px 9px;border-radius:8px;font-size:10px;font-weight:700}
+        .hero-linear .ssb-struct-ln{background:var(--aoi-emerald);color:#fff}
+        .hero-linear .ssb-closing-ln{background:var(--aoi-blue);color:#fff}
+        .hero-linear .ssb-cloture-ln{background:var(--aoi-border);color:var(--aoi-text-light)}
+        .hero-linear .sep-renta-ln{position:absolute;top:8px;right:8px;background:var(--aoi-emerald);color:#fff;padding:4px 8px;border-radius:8px;text-align:center}
+        .hero-linear .sep-renta-val-ln{font-size:13px;font-weight:700;line-height:1}
+        .hero-linear .sep-renta-lbl-ln{font-size:8.5px;opacity:.88}
+        .hero-linear .sep-myproj-ln{position:absolute;bottom:6px;right:6px;background:var(--aoi-blue-light);color:var(--aoi-blue);font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px}
+        .hero-linear .sep-body-ln{padding:10px 12px;display:flex;flex-direction:column;gap:7px;flex:1}
+        .hero-linear .sep-title-row-ln{display:flex;align-items:flex-start;justify-content:space-between;gap:4px}
+        .hero-linear .sep-name-ln{font-family:'Fraunces',serif;font-size:12.5px;font-weight:700;color:var(--aoi-text);line-height:1.25;flex:1}
+        .hero-linear .sep-desc-ln{font-size:10.5px;color:var(--aoi-text-muted);line-height:1.4;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+        .hero-linear .sep-progress-ln{padding:7px 9px;background:#FAFAF7;border-radius:9px;border:1px solid var(--aoi-border-light)}
+        .hero-linear .sep-prog-hdr-ln{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+        .hero-linear .sep-prog-lbl-ln{font-size:10px;color:var(--aoi-text-light);display:flex;align-items:center;gap:3px}
+        .hero-linear .sep-prog-lbl-ln svg{width:10px;height:10px}
+        .hero-linear .sep-prog-pct-ln{font-size:10px;font-weight:700;color:var(--aoi-violet)}
+        .hero-linear .sep-bar-bg-ln{width:100%;background:var(--aoi-border-light);border-radius:100px;height:5px;overflow:hidden;margin-bottom:4px}
+        .hero-linear .sep-bar-fill-ln{height:100%;border-radius:100px;background:linear-gradient(90deg,#6B4FA0,#9B85C8);transition:width .8s ease}
+        .hero-linear .sep-prog-foot-ln{display:flex;justify-content:space-between;font-size:9.5px;color:var(--aoi-text-light)}
+        .hero-linear .sep-profils-ln{padding:6px 8px;background:#FCFBF9;border-radius:8px;border:1px solid var(--aoi-border-light)}
+        .hero-linear .sep-profils-lbl-ln{font-size:9.5px;color:var(--aoi-text-light);margin-bottom:4px;display:flex;align-items:center;gap:3px}
+        .hero-linear .sep-profils-lbl-ln svg{width:10px;height:10px}
+        .hero-linear .sep-tags-ln{display:flex;flex-wrap:wrap;gap:3px}
+        .hero-linear .sep-tag-ln{font-size:9.5px;background:#fff;padding:2px 7px;border-radius:5px;border:1px solid var(--aoi-border-light);color:var(--aoi-text-muted);white-space:nowrap}
+        .hero-linear .sep-city-ln{display:flex;align-items:center;gap:3px;font-size:10px;color:var(--aoi-text-light);margin-top:auto}
+        .hero-linear .sep-city-ln svg{width:10px;height:10px}
+        .hero-linear .vl2-ln{display:none;flex-direction:column;flex:1;overflow:hidden}
+        .hero-linear .kpis-l2-ln{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;flex-shrink:0}
+        .hero-linear .l2-grid-ln{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;overflow:hidden}
+        .hero-linear .card-ln{background:#fff;border:1px solid var(--aoi-border);border-radius:15px;overflow:hidden;display:flex;flex-direction:column}
+        .hero-linear .card-hdr-ln{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--aoi-border);flex-shrink:0}
+        .hero-linear .card-hdr-l-ln{display:flex;align-items:center;gap:6px}
+        .hero-linear .card-hdr-l-ln svg{width:13px;height:13px}
+        .hero-linear .card-ttl-ln{font-family:'Fraunces',serif;font-size:12.5px;font-weight:700;color:var(--aoi-text)}
+        .hero-linear .card-lnk-ln{font-size:10.5px;color:var(--aoi-text-light);font-weight:500}
+        .hero-linear .mitem-ln{display:flex;align-items:flex-start;gap:8px;padding:9px 14px;border-bottom:1px solid #F5F3EF}
+        .hero-linear .mitem-ln:last-child{border-bottom:none}
+        .hero-linear .mdot-ln{width:6px;height:6px;border-radius:50%;margin-top:4px;flex-shrink:0}
+        .hero-linear .mname-ln{font-size:11.5px;font-weight:600;color:var(--aoi-text);margin-bottom:1.5px}
+        .hero-linear .msub-ln{font-size:10px;color:var(--aoi-text-muted)}
+        .hero-linear .mright-ln{text-align:right;flex-shrink:0}
+        .hero-linear .mbudget-ln{font-size:11.5px;font-weight:700;color:var(--aoi-text)}
+        .hero-linear .mdate-ln{font-size:9.5px;color:var(--aoi-text-light);margin-top:2px}
+        .hero-linear .ann-item-ln{display:flex;align-items:center;gap:8px;padding:8px 14px;border-bottom:1px solid #F5F3EF}
+        .hero-linear .ann-item-ln:last-child{border-bottom:none}
+        .hero-linear .aav-ln{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-shrink:0}
+        .hero-linear .aname-ln{font-size:11.5px;font-weight:600;color:var(--aoi-text)}
+        .hero-linear .aspec-ln{font-size:10px;color:var(--aoi-text-muted)}
+        .hero-linear .azone-ln{font-size:9.5px;color:var(--aoi-text-light);margin-left:auto;white-space:nowrap}
+        .hero-linear .vlogiciel-ln{display:none;flex-direction:column;flex:1;overflow:hidden}
+        .hero-linear .lg-tabs-ln{display:flex;gap:0;border-bottom:1px solid var(--aoi-border);margin-bottom:14px;flex-shrink:0}
+        .hero-linear .lg-tab-ln{padding:6px 14px;font-size:11.5px;font-weight:500;color:var(--aoi-text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+        .hero-linear .lg-tab-ln.on-ln{color:var(--aoi-accent);border-bottom-color:var(--aoi-accent);font-weight:600}
+        .hero-linear .lg-kpis-ln{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:#fff;border:1px solid var(--aoi-border);border-radius:14px;overflow:hidden;margin-bottom:14px;flex-shrink:0}
+        .hero-linear .lg-kpi-ln{padding:10px 12px;border-right:1px solid var(--aoi-border)}
+        .hero-linear .lg-kpi-ln:last-child{border-right:none}
+        .hero-linear .lg-kpi-lbl-ln{font-size:8.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--aoi-text-light);margin-bottom:4px}
+        .hero-linear .lg-kpi-val-ln{font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:var(--aoi-text);line-height:1}
+        .hero-linear .lg-kpi-val-ln.green-ln{color:var(--aoi-emerald)}
+        .hero-linear .lg-kpi-val-ln.orange-ln{color:var(--aoi-accent)}
+        .hero-linear .lg-section-ln{background:#fff;border:1px solid var(--aoi-border);border-radius:12px;padding:12px 14px;margin-bottom:10px;flex-shrink:0}
+        .hero-linear .lg-section-title-ln{font-size:11.5px;font-weight:700;color:var(--aoi-text);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+        .hero-linear .lg-section-title-ln svg{width:13px;height:13px;color:var(--aoi-accent)}
+        .hero-linear .lg-row-ln{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+        .hero-linear .lg-field-ln{display:flex;flex-direction:column;gap:3px}
+        .hero-linear .lg-label-ln{font-size:9px;font-weight:600;color:var(--aoi-text-muted);text-transform:uppercase;letter-spacing:.05em}
+        .hero-linear .lg-input-ln{padding:6px 9px;border:1px solid var(--aoi-border);border-radius:8px;font-size:11px;color:var(--aoi-text);background:#fff;font-family:'Outfit',sans-serif}
+        .hero-linear .lg-input-ln.filled-ln{border-color:var(--aoi-emerald);background:var(--aoi-emerald-light);color:var(--aoi-emerald)}
+        .hero-linear .lg-input-ln.highlight-ln{border-color:var(--aoi-accent);background:rgba(194,112,62,.04)}
+        .hero-linear .lg-table-ln{width:100%;border-collapse:collapse;font-size:11px}
+        .hero-linear .lg-table-ln th{font-size:9px;font-weight:600;color:var(--aoi-text-muted);text-transform:uppercase;letter-spacing:.08em;padding:4px 8px;text-align:left;border-bottom:1px solid var(--aoi-border)}
+        .hero-linear .lg-table-ln td{padding:6px 8px;border-bottom:1px solid var(--aoi-border-light);color:var(--aoi-text)}
+        .hero-linear .lg-table-ln tr:last-child td{border-bottom:none}
+        .hero-linear .lg-table-ln .lot-num-ln{font-weight:700;color:var(--aoi-accent);width:16px}
+        .hero-linear .lg-table-ln .lot-price-ln{font-weight:700;text-align:right}
+        .hero-linear .lg-car-ln{background:#FCFBF9;border:1px solid var(--aoi-border-light);border-radius:8px;padding:8px 10px;margin-top:8px}
+        .hero-linear .lg-car-title-ln{font-size:9.5px;font-weight:700;color:var(--aoi-text);margin-bottom:6px;display:flex;align-items:center;gap:4px}
+        .hero-linear .lg-car-title-ln svg{width:11px;height:11px;color:var(--aoi-blue)}
+        .hero-linear .lg-car-row-ln{display:flex;justify-content:space-between;font-size:10px;padding:2px 0}
+        .hero-linear .lg-car-row-ln span:first-child{color:var(--aoi-text-muted)}
+        .hero-linear .lg-car-row-ln span:last-child{font-weight:500;color:var(--aoi-text)}
+        .hero-linear .lg-car-row-ln.negative-ln span:last-child{color:var(--aoi-red)}
+        .hero-linear .lg-car-row-ln.total-ln{border-top:1px solid var(--aoi-border-light);margin-top:4px;padding-top:4px;font-weight:700}
+        .hero-linear .lg-car-row-ln.total-ln span{color:var(--aoi-emerald) !important}
+        .hero-linear .lg-btns-ln{display:flex;gap:6px;margin-top:10px;flex-shrink:0}
+        .hero-linear .lg-btn-ln{display:flex;align-items:center;gap:5px;padding:6px 10px;border-radius:8px;font-size:10px;font-weight:600;border:1px solid var(--aoi-border);background:#fff;color:var(--aoi-text-muted);cursor:pointer}
+        .hero-linear .lg-btn-ln.primary-ln{background:var(--aoi-text);color:#fff;border-color:var(--aoi-text)}
+        .hero-linear .lg-btn-ln svg{width:11px;height:11px}
+        @keyframes fuLn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+        @media(max-width:1050px){.hero-linear{padding:145px 28px 60px}}
+        @media(max-width:780px){.hero-linear{padding:130px 16px 50px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2.5rem}.hero-linear .t3-ln{font-size:1.8rem}.hero-linear .t4-ln{font-size:1.3rem}.hero-linear .hero-mockup-ln{width:100%;overflow:hidden;height:433px}.hero-linear .mockup-chrome-ln{width:1180px;transform:scale(0.62);transform-origin:top left}.hero-linear .sb-ln{width:205px}.hero-linear .sb-lname-ln,.hero-linear .sb-uname-ln,.hero-linear .sb-usub-ln,.hero-linear .si-ln span,.hero-linear .sb-mdb-ln .sb-mdb-lbl-ln{display:initial}.hero-linear .si-ln{justify-content:flex-start;padding:4px 8px 4px 10px}.hero-linear .sb-logo-show-ln{justify-content:flex-start;padding:10px 16px}.hero-linear .sb-user-ln{justify-content:flex-start;padding:8px 12px 8px 10px}.hero-linear .sb-mdb-ln{justify-content:flex-start}.hero-linear .sb-mdb-ln .ext-ln{display:initial}.hero-linear .sb-footer-ln{display:flex}.hero-linear .main-ln{left:205px}.hero-linear .kpis-ln{grid-template-columns:repeat(4,1fr)}.hero-linear .sep-cards-ln{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:480px){.hero-linear{padding:120px 16px 40px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2rem}.hero-linear .t3-ln{font-size:1.5rem}.hero-linear .t4-ln{font-size:1.15rem}.hero-linear .hero-mockup-ln{height:200px}.hero-linear .mockup-chrome-ln{transform:scale(0.29)}}
     </style>
     <link rel="canonical" href="https://www.aoi-network.com/">
     <!-- Vercel Analytics -->
@@ -182,210 +367,352 @@
         <a href="/rejoindre.html" class="btn btn-primary" onclick="toggleMobileMenu()">Vérifier mon éligibilité</a>
     </div>
 
-    <!-- ===== HERO V3 — DARK CINEMATIC ===== -->
-    <section class="hero-v3">
-        <div class="hero-grid-bg"></div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <!-- HERO SPLIT — gauche texte / droite produit -->
-        <div style="position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:40px;align-items:center;min-height:calc(100vh - 80px);overflow:visible;" class="hero-split-grid">
-
-            <!-- COLONNE GAUCHE -->
-            <div style="animation:fadeUp .7s ease both;">
-
-                <!-- Badge -->
-                <div style="display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:100px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.18);margin-bottom:32px;">
-                    <span style="width:5px;height:5px;background:#4ade80;border-radius:50%;flex-shrink:0;animation:pulse 2s ease infinite;"></span>
-                    <span style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:1.4px;color:var(--orange-400);">50 places · Membres Fondateurs</span>
-                </div>
-
-                <!-- Titre manifeste — structure éditoriale -->
-                <div style="margin-bottom:28px;">
-                    <!-- 3 lignes blanches — très grandes -->
-                    <div class="hero-title-main" style="font-family:'Playfair Display',serif;font-size:clamp(2.3rem,3.2vw,3.4rem);font-weight:600;color:#fff;line-height:1.2;letter-spacing:-.02em;">
-                        <div style="white-space:nowrap;">Certains ont le deal, pas les fonds.</div>
-                        <div style="white-space:nowrap;margin-top:.2em;">D'autres ont les fonds, pas le deal.</div>
-                        <div style="margin-top:.2em;">Les prestataires ont le talent,<br>pas toujours les clients.</div>
-                    </div>
-
-                    <!-- Trait séparateur -->
-                    <div style="width:36px;height:1.5px;background:linear-gradient(90deg,var(--orange-500),transparent);margin:20px 0;border-radius:2px;"></div>
-
-                    <!-- Chute orange — plus petite, italique -->
-                    <div style="font-family:'Playfair Display',serif;font-size:clamp(1rem,1.4vw,1.35rem);font-weight:600;font-style:italic;line-height:1.5;background:linear-gradient(135deg,var(--orange-400) 0%,#f59e0b 60%,var(--orange-500) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s ease infinite;">
-                        AOI réunit tout ce monde — et l'IA<br>pour ne plus opérer à l'aveugle.
-                    </div>
-                </div>
-
-                <!-- CTA unique -->
-                <div style="margin-bottom:20px;">
-                    <a href="/rejoindre.html" class="btn btn-primary" style="font-size:.95rem;padding:15px 32px;border-radius:10px;"><i data-lucide="shield-check" style="width:16px;height:16px;"></i>Vérifier mon éligibilité</a>
-                </div>
-
-                <!-- Proof items IA -->
-                <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
-                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
-                        DVF temps réel
-                    </span>
-                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
-                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
-                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
-                        PLU automatique
-                    </span>
-                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
-                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
-                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
-                        Scoring IA
-                    </span>
-                    <span style="color:rgba(255,255,255,.1);font-size:.65rem;">·</span>
-                    <span style="display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:rgba(255,255,255,.3);font-family:'Inter',sans-serif;">
-                        <span style="width:14px;height:14px;background:rgba(139,92,246,.25);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;"><i data-lucide="sparkles" style="width:9px;height:9px;color:#a78bfa;"></i></span>
-                        Mémorandum PDF
-                    </span>
-                </div>
-
-            </div>
-
-            <!-- COLONNE DROITE — mockup réseau vivant -->
-            <div class="mockup-col" style="animation:fadeUp .7s ease .15s both;position:relative;padding-bottom:20px;">
-
-                <!-- Halo ambiance -->
-                <div style="position:absolute;inset:-40px;background:radial-gradient(ellipse at 60% 40%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;"></div>
-
-                <!-- Header mockup extranet -->
-                <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px 14px 0 0;padding:10px 16px;display:flex;align-items:center;gap:10px;position:relative;z-index:1;">
-                    <div style="display:flex;align-items:center;gap:7px;">
-                        <div style="width:28px;height:28px;background:linear-gradient(135deg,var(--orange-500),var(--orange-600));border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800;color:#fff;font-family:'Inter',sans-serif;">AOI</div>
-                        <span style="font-size:.75rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Network</span>
-                        <span style="font-size:.65rem;color:var(--gray-500);font-family:'Inter',sans-serif;">· Espace membres</span>
-                    </div>
-                    <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
-                        <span style="width:6px;height:6px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></span>
-                        <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;">3 projets en cours</span>
-                    </div>
-                </div>
-
-                <!-- Tabs -->
-                <div style="background:rgba(255,255,255,.02);border-left:1px solid rgba(255,255,255,.08);border-right:1px solid rgba(255,255,255,.08);padding:0 16px;display:flex;gap:20px;position:relative;z-index:1;">
-                    <span style="font-size:.7rem;font-weight:700;color:var(--orange-400);padding:8px 0;border-bottom:2px solid var(--orange-400);font-family:'Inter',sans-serif;">Projets SEP</span>
-                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Appels d'offres</span>
-                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Annuaire</span>
-                    <span style="font-size:.7rem;color:var(--gray-600);padding:8px 0;font-family:'Inter',sans-serif;">Bibliothèque</span>
-                </div>
-
-                <!-- Cards projets -->
-                <div style="display:flex;flex-direction:column;gap:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.08);border-radius:0 0 14px 14px;padding:12px;position:relative;z-index:1;">
-
-                    <!-- Card 1 — J'ai le deal (orange) -->
-                    <div style="background:#0f0f16;border:1px solid rgba(249,115,22,.2);border-left:3px solid var(--orange-500);border-radius:10px;padding:12px 14px;">
-                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;">
-                            <div>
-                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--orange-400);background:rgba(249,115,22,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">En structuration</span>
-                                    <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;">· Mon projet</span>
-                                </div>
-                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Division 4 lots — Essonne (91)</span>
-                            </div>
-                            <div style="text-align:right;">
-                                <span style="font-size:.52rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;margin-bottom:1px;">marge est.</span>
-                                <span style="font-size:.85rem;font-weight:800;color:var(--orange-400);font-family:'Inter',sans-serif;">26,4%</span>
-                            </div>
-                        </div>
-                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="users" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;color:var(--orange-400);"></i>Co-opérateur SEP recherché</span>
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Géomètre</span>
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Notaire</span>
-                        </div>
-                        <!-- Frise progression co-opérateurs -->
-                        <div style="margin-bottom:10px;">
-                            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-                                <span style="font-size:.58rem;color:var(--gray-500);font-family:'Inter',sans-serif;">Co-opérateurs</span>
-                                <span style="font-size:.62rem;font-weight:700;color:var(--orange-400);font-family:'Inter',sans-serif;">72%</span>
-                            </div>
-                            <div style="height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;">
-                                <div style="width:72%;height:100%;background:linear-gradient(90deg,var(--orange-500),#f59e0b);border-radius:2px;"></div>
-                            </div>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <div style="display:flex;gap:16px;">
-                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Marge brute est.</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">195 000 €</span></div>
-                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Budget total</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">680 000 €</span></div>
-                            </div>
-                            <span style="font-size:.6rem;color:var(--gray-600);font-family:'Inter',sans-serif;">📍 Cergy-Pontoise · avr. 2026</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 — J'ai la capacité (ambre) -->
-                    <div style="background:#0f0f16;border:1px solid rgba(245,158,11,.2);border-left:3px solid #f59e0b;border-radius:10px;padding:12px 14px;">
-                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;">
-                            <div>
-                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#f59e0b;background:rgba(245,158,11,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">En closing</span>
-                                </div>
-                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Surélévation R+2 — Bordeaux Bastide</span>
-                            </div>
-                            <div style="text-align:right;">
-                                <span style="font-size:.52rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;margin-bottom:1px;">marge est.</span>
-                                <span style="font-size:.85rem;font-weight:800;color:#f59e0b;font-family:'Inter',sans-serif;">29,0%</span>
-                            </div>
-                        </div>
-                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="handshake" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;color:#f59e0b;"></i>Associé SEP recherché</span>
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">Constructeur</span>
-                            <span style="font-size:.62rem;color:var(--gray-400);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;">MOE</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <div style="display:flex;gap:16px;">
-                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Marge brute est.</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">420 000 €</span></div>
-                                <div><span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;display:block;">Budget total</span><span style="font-size:.75rem;font-weight:700;color:#fff;font-family:'Inter',sans-serif;">1 450 000 €</span></div>
-                            </div>
-                            <span style="font-size:.6rem;color:var(--gray-600);font-family:'Inter',sans-serif;">📍 Bordeaux · juin 2026</span>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 — Appel d'offres prestataire (bleu) -->
-                    <div style="background:#0f0f16;border:1px solid rgba(96,165,250,.2);border-left:3px solid #60a5fa;border-radius:10px;padding:12px 14px;">
-                        <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px;">
-                            <div>
-                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-                                    <span style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#60a5fa;background:rgba(96,165,250,.1);padding:2px 7px;border-radius:4px;font-family:'Inter',sans-serif;">Appel d'offres</span>
-                                </div>
-                                <span style="font-size:.82rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Maîtrise d'œuvre — Division 3 lots</span>
-                            </div>
-                            <span style="font-size:.6rem;color:var(--gray-500);font-family:'Inter',sans-serif;white-space:nowrap;">Normandie</span>
-                        </div>
-                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
-                            <span style="font-size:.62rem;color:#60a5fa;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);padding:2px 8px;border-radius:5px;font-family:'Inter',sans-serif;"><i data-lucide="briefcase" style="width:10px;height:10px;display:inline;vertical-align:middle;margin-right:3px;"></i>Mission ouverte · Candidature libre</span>
-                        </div>
-                        <div style="display:flex;justify-content:space-between;align-items:center;">
-                            <span style="font-size:.72rem;color:var(--gray-400);font-family:'Inter',sans-serif;">Budget travaux estimé : <strong style="color:#fff;">180 000 €</strong></span>
-                            <span style="font-size:.6rem;color:#4ade80;font-family:'Inter',sans-serif;">● 2 candidatures reçues</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Badges flottants autour -->
-                <div class="mockup-badge-float" style="position:absolute;top:-12px;right:-8px;background:rgba(15,15,22,.95);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
-                    <i data-lucide="folder-open" style="width:12px;height:12px;color:var(--orange-400);"></i>
-                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Bibliothèque de contrats SEP</span>
-                </div>
-
-                <div class="mockup-badge-float" style="position:absolute;bottom:8px;right:-12px;background:rgba(15,15,22,.95);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
-                    <i data-lucide="zap" style="width:12px;height:12px;color:#60a5fa;"></i>
-                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Mission reçue · 48h</span>
-                </div>
-
-                <div class="mockup-badge-float" style="position:absolute;bottom:-16px;left:0;background:rgba(15,15,22,.95);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:7px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:2;">
-                    <i data-lucide="image" style="width:12px;height:12px;color:#f59e0b;"></i>
-                    <span style="font-size:.65rem;font-weight:600;color:#fff;font-family:'Inter',sans-serif;">Portfolio de réalisations</span>
-                </div>
-
-            </div>
-
+    <!-- ===== HERO LINEAR — Style Linear.app ===== -->
+    <section class="hero-linear">
+      <div class="hero-grid-ln"></div>
+      <div class="hero-glow-ln"></div>
+      <div class="hero-inner-ln">
+        <div class="hero-badge-ln"><span class="bdot-ln"></span><span class="btxt-ln">AOI Network est en ligne — 50 places Membres Fondateurs</span><span class="bcta-ln">Rejoindre →</span></div>
+        <p class="t1-ln">Certains ont le deal, pas les fonds.</p>
+        <p class="t2-ln">D'autres ont les fonds, pas le deal.</p>
+        <p class="t3-ln">Les experts ont le savoir-faire, pas toujours les bons projets.</p>
+        <p class="t4-ln">AOI orchestre leur rencontre — et l'IA éclaire chaque montage.</p>
+        <div class="ctas-ln">
+          <a class="ct-p-ln" href="/rejoindre.html">Vérifier mon éligibilité <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a class="ct-s-ln" href="#plateforme">Voir la démo <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg></a>
         </div>
+      </div>
+
+      <!-- MOCKUP -->
+      <div class="hero-mockup-ln">
+        <div class="mockup-chrome-ln">
+          <!-- Chrome bar -->
+          <div class="tbar-ln">
+            <span class="td-ln tr-ln"></span><span class="td-ln ty-ln"></span><span class="td-ln tg-ln"></span>
+            <div class="turl-ln"><span>extranet.aoi-network.com / dashboard</span></div>
+          </div>
+
+          <!-- APP -->
+          <div class="app-ln">
+
+            <!-- ═══════ SIDEBAR ═══════ -->
+            <div class="sb-ln">
+              <!-- Logo -->
+              <div class="sb-logo-show-ln">
+                <div class="sb-lb-ln"><span>AOI</span></div>
+                <span class="sb-lname-ln">Network</span>
+              </div>
+
+              <!-- User info -->
+              <div class="sb-user-ln">
+                <div class="sb-av-ln" id="sbavLn">GD</div>
+                <div>
+                  <div class="sb-uname-ln" id="sbunameLn">Guillaume D.</div>
+                  <div class="sb-usub-ln" id="sbsubLn">Co-Opérateur · Niveau 3</div>
+                </div>
+              </div>
+
+              <!-- Nav items — populated by JS -->
+              <div class="sb-nav-ln" id="sbnavLn"></div>
+
+              <!-- Logiciel Opérateurs (niveau 3 only) -->
+              <div class="sb-mdb-wrap-ln" id="sbmdbLn">
+                <div class="sb-mdb-ln">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  <span class="sb-mdb-lbl-ln">Logiciel Opérateurs</span>
+                  <svg class="ext-ln" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </div>
+              </div>
+
+              <!-- Retour extranet (visible uniquement en mode logiciel) -->
+              <div id="sb-retour-wrapLn" style="display:none;align-items:center;gap:5px;padding:4px 8px 0;font-size:9.5px;font-weight:600;color:var(--aoi-blue);cursor:pointer;flex-shrink:0">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Retour à l'extranet
+              </div>
+
+              <!-- Footer -->
+              <div class="sb-footer-ln">
+                <a href="#">Paramètres</a>
+                <span>v2.4</span>
+              </div>
+            </div><!-- /sidebar -->
+
+            <!-- ═══════ MAIN ═══════ -->
+            <div class="main-ln">
+              <!-- Switcher -->
+              <div class="switcher-ln">
+                <button class="sw-ln" id="btnl2Ln" onclick="setLevelLn(2)">Partenaire Métier · Niv. 2</button>
+                <button class="sw-ln on-ln" id="btnl3Ln" onclick="setLevelLn(3)">Co-Opérateur · Niv. 3</button>
+                <button class="sw-ln" id="btnlgLn" onclick="setLevelLn('lg')">Logiciel Opérateurs</button>
+              </div>
+
+              <!-- ══ LEVEL 3 VIEW ══ -->
+              <div id="vl3Ln" class="vl3-ln">
+                <!-- Notif banners -->
+                <div class="notifs-ln">
+                  <div class="notif-ln nb-ln">
+                    <div class="ni-ln ni-b-ln"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B6BA5" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                    <div><div class="n-main-ln">3 nouveaux messages</div><div class="n-sub-ln">Cliquer pour consulter</div></div>
+                    <div class="n-arr-ln"><svg viewBox="0 0 24 24" fill="none" stroke="#3B6BA5" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                  </div>
+                  <div class="notif-ln no-ln">
+                    <div class="ni-ln ni-o-ln"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9A5630" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <div><div class="n-main-ln">2 candidatures en attente</div><div class="n-sub-ln">Répondez aux prestataires</div></div>
+                    <div class="n-arr-ln"><svg viewBox="0 0 24 24" fill="none" stroke="#9A5630" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+                  </div>
+                </div>
+
+                <!-- Header -->
+                <div class="dh-ln">
+                  <div>
+                    <div class="eyebrow-ln">Tableau de bord</div>
+                    <div class="dh-title-ln">Bienvenue, Guillaume.</div>
+                    <div class="dh-sub-ln">Co-Opérateur <span>· Niveau 3</span></div>
+                  </div>
+                  <div class="rating-ln">★ 4.8 · (7) · ✦ Qualité</div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="kpis-ln">
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln">
+                      <div class="ki-ln" style="background:var(--aoi-accent-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-accent)" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+                      <span class="ktag-ln" style="background:var(--aoi-accent-light);color:var(--aoi-accent-dark)">2 à traiter</span>
+                    </div>
+                    <div class="kval-ln">4</div><div class="klabel-ln">Mes Opportunités</div>
+                  </div>
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln">
+                      <div class="ki-ln" style="background:var(--aoi-emerald-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-emerald)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                      <span class="ktag-ln" style="background:var(--aoi-emerald-light);color:var(--aoi-emerald)">3 actifs</span>
+                    </div>
+                    <div class="kval-ln">5</div><div class="klabel-ln">Partenariats</div>
+                  </div>
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln">
+                      <div class="ki-ln" style="background:var(--aoi-violet-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-violet)" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+                      <span class="ktag-ln" style="background:var(--aoi-violet-light);color:var(--aoi-violet)">2 en cours</span>
+                    </div>
+                    <div class="kval-ln">3</div><div class="klabel-ln">Opérations SEP</div>
+                  </div>
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln">
+                      <div class="ki-ln" style="background:var(--aoi-blue-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-blue)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                      <span class="ktag-ln" style="background:var(--aoi-blue-light);color:var(--aoi-blue)">Actif</span>
+                    </div>
+                    <div class="kval-ln">3</div><div class="klabel-ln">Niveau</div>
+                  </div>
+                </div>
+
+                <!-- SEP Projects section -->
+                <div class="sep-section-ln">
+                  <div class="sep-hdr-ln">
+                    <div class="sep-hdr-left-ln">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-violet)" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                      <span class="sep-hdr-title-ln">Projets SEP ouverts</span>
+                    </div>
+                    <span class="sep-lnk-ln">Voir tout →</span>
+                  </div>
+
+                  <div class="sep-cards-ln">
+                    <!-- Card 1 — Mon projet -->
+                    <div class="sep-card-ln">
+                      <div class="sep-photo-ln">
+                        <img src="/images/sep-essonne.jpg" alt="Division 4 lots — Essonne">
+                        <span class="sep-status-badge-ln ssb-struct-ln">En structuration</span>
+                        <div class="sep-renta-ln"><div class="sep-renta-val-ln">26,4%</div><div class="sep-renta-lbl-ln">marge est.</div></div>
+                        <span class="sep-myproj-ln">Mon projet</span>
+                      </div>
+                      <div class="sep-body-ln">
+                        <div>
+                          <div class="sep-name-ln">Division 4 lots — Essonne (91)</div>
+                          <div class="sep-desc-ln">Terrain 1 200 m² à diviser en 4 lots constructibles</div>
+                        </div>
+                        <div class="sep-progress-ln">
+                          <div class="sep-prog-hdr-ln">
+                            <div class="sep-prog-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Structuration</div>
+                            <span class="sep-prog-pct-ln">72%</span>
+                          </div>
+                          <div class="sep-bar-bg-ln"><div class="sep-bar-fill-ln" style="width:72%"></div></div>
+                          <div class="sep-prog-foot-ln"><span>489 600 € collectés</span><span>190 400 € restants</span></div>
+                        </div>
+                        <div class="sep-profils-ln">
+                          <div class="sep-profils-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Profils recherchés :</div>
+                          <div class="sep-tags-ln"><span class="sep-tag-ln">Co-opérateur fonds</span><span class="sep-tag-ln">Géomètre</span><span class="sep-tag-ln">Notaire</span></div>
+                        </div>
+                        <div class="sep-city-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Cergy-Pontoise · avr. 2026</div>
+                      </div>
+                    </div>
+
+                    <!-- Card 2 — En closing -->
+                    <div class="sep-card-ln">
+                      <div class="sep-photo-ln">
+                        <img src="/images/sep-bordeaux.jpg" alt="Surélévation R+2 — Bordeaux">
+                        <span class="sep-status-badge-ln ssb-closing-ln">En closing</span>
+                        <div class="sep-renta-ln"><div class="sep-renta-val-ln">29,0%</div><div class="sep-renta-lbl-ln">marge est.</div></div>
+                      </div>
+                      <div class="sep-body-ln">
+                        <div>
+                          <div class="sep-name-ln">Surélévation R+2 — Bordeaux</div>
+                          <div class="sep-desc-ln">Surélévation immeuble existant, 6 appartements</div>
+                        </div>
+                        <div class="sep-progress-ln">
+                          <div class="sep-prog-hdr-ln">
+                            <div class="sep-prog-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Structuration</div>
+                            <span class="sep-prog-pct-ln">94%</span>
+                          </div>
+                          <div class="sep-bar-bg-ln"><div class="sep-bar-fill-ln" style="width:94%"></div></div>
+                          <div class="sep-prog-foot-ln"><span>1 363 000 € collectés</span><span>87 000 € restants</span></div>
+                        </div>
+                        <div class="sep-profils-ln">
+                          <div class="sep-profils-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Profils recherchés :</div>
+                          <div class="sep-tags-ln"><span class="sep-tag-ln">Associé SEP</span><span class="sep-tag-ln">Constructeur</span></div>
+                        </div>
+                        <div class="sep-city-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Bordeaux · juin 2026</div>
+                      </div>
+                    </div>
+
+                    <!-- Card 3 — En structuration -->
+                    <div class="sep-card-ln">
+                      <div class="sep-photo-ln">
+                        <img src="/images/sep-normandie.jpg" alt="Division 3 lots — Normandie">
+                        <span class="sep-status-badge-ln ssb-struct-ln">En structuration</span>
+                        <div class="sep-renta-ln"><div class="sep-renta-val-ln">18,5%</div><div class="sep-renta-lbl-ln">marge est.</div></div>
+                      </div>
+                      <div class="sep-body-ln">
+                        <div>
+                          <div class="sep-name-ln">Division 3 lots — Normandie</div>
+                          <div class="sep-desc-ln">Maison de maître à diviser, 3 logements</div>
+                        </div>
+                        <div class="sep-progress-ln">
+                          <div class="sep-prog-hdr-ln">
+                            <div class="sep-prog-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Structuration</div>
+                            <span class="sep-prog-pct-ln">35%</span>
+                          </div>
+                          <div class="sep-bar-bg-ln"><div class="sep-bar-fill-ln" style="width:35%"></div></div>
+                          <div class="sep-prog-foot-ln"><span>63 000 € collectés</span><span>117 000 € restants</span></div>
+                        </div>
+                        <div class="sep-profils-ln">
+                          <div class="sep-profils-lbl-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Profils recherchés :</div>
+                          <div class="sep-tags-ln"><span class="sep-tag-ln">Co-opérateur fonds</span><span class="sep-tag-ln">Maître d'œuvre</span></div>
+                        </div>
+                        <div class="sep-city-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Normandie · sept. 2026</div>
+                      </div>
+                    </div>
+                  </div><!-- /sep-cards -->
+                </div><!-- /sep-section -->
+              </div><!-- /vl3 -->
+
+              <!-- ══ LEVEL 2 VIEW ══ -->
+              <div id="vl2Ln" class="vl2-ln">
+                <div class="dh-ln" style="margin-bottom:12px">
+                  <div>
+                    <div class="eyebrow-ln">Tableau de bord</div>
+                    <div class="dh-title-ln">Bienvenue, Reda.</div>
+                    <div class="dh-sub-ln" style="color:var(--aoi-blue)">Partenaire Métier <span style="color:var(--aoi-blue);font-weight:500">· Niveau 2</span></div>
+                  </div>
+                  <div class="rating-ln">★ 4.9 · (12) · ✦ Qualité</div>
+                </div>
+                <div class="kpis-l2-ln">
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln"><div class="ki-ln" style="background:var(--aoi-accent-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-accent)" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div><span class="ktag-ln" style="background:var(--aoi-accent-light);color:var(--aoi-accent-dark)">1 en attente</span></div>
+                    <div class="kval-ln">7</div><div class="klabel-ln">Mes Candidatures</div>
+                  </div>
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln"><div class="ki-ln" style="background:var(--aoi-emerald-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-emerald)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><span class="ktag-ln" style="background:var(--aoi-emerald-light);color:var(--aoi-emerald)">2 actifs</span></div>
+                    <div class="kval-ln">3</div><div class="klabel-ln">Partenariats</div>
+                  </div>
+                  <div class="kpi-ln">
+                    <div class="kpi-top-ln"><div class="ki-ln" style="background:var(--aoi-blue-light)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-blue)" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span class="ktag-ln" style="background:var(--aoi-blue-light);color:var(--aoi-blue)">Actif</span></div>
+                    <div class="kval-ln">2</div><div class="klabel-ln">Niveau</div>
+                  </div>
+                </div>
+                <div class="l2-grid-ln">
+                  <div class="card-ln">
+                    <div class="card-hdr-ln">
+                      <div class="card-hdr-l-ln"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-accent)" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg><span class="card-ttl-ln">Missions disponibles</span></div>
+                      <span class="card-lnk-ln">Voir tout →</span>
+                    </div>
+                    <div class="mitem-ln"><div class="mdot-ln" style="background:var(--aoi-accent)"></div><div style="flex:1;min-width:0"><div class="mname-ln">Maîtrise d'œuvre — Division 3 lots</div><div class="msub-ln">Normandie · 2 candidatures reçues</div></div><div class="mright-ln"><div class="mbudget-ln">180 000 €</div><div class="mdate-ln">Budget travaux</div></div></div>
+                    <div class="mitem-ln"><div class="mdot-ln" style="background:var(--aoi-violet)"></div><div style="flex:1;min-width:0"><div class="mname-ln">Géomètre — Bordeaux Bastide</div><div class="msub-ln">Bordeaux · Ouverte · Candidature libre</div></div><div class="mright-ln"><div class="mbudget-ln">8 500 €</div><div class="mdate-ln">Honoraires est.</div></div></div>
+                    <div class="mitem-ln"><div class="mdot-ln" style="background:var(--aoi-blue)"></div><div style="flex:1;min-width:0"><div class="mname-ln">Bureau d'études — Essonne (91)</div><div class="msub-ln">Île-de-France · Mission reçue · 48h</div></div><div class="mright-ln"><div class="mbudget-ln">6 000 €</div><div class="mdate-ln">Honoraires est.</div></div></div>
+                  </div>
+                  <div class="card-ln">
+                    <div class="card-hdr-ln">
+                      <div class="card-hdr-l-ln"><svg viewBox="0 0 24 24" fill="none" stroke="var(--aoi-blue)" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><span class="card-ttl-ln">Annuaire opérateurs</span></div>
+                      <span class="card-lnk-ln">Explorer →</span>
+                    </div>
+                    <div class="ann-item-ln"><div class="aav-ln" style="background:var(--aoi-accent-light);color:var(--aoi-accent)">GD</div><div><div class="aname-ln">Guillaume D.</div><div class="aspec-ln">Co-Opérateur · Opérateur sourcé</div></div><div class="azone-ln">Île-de-France</div></div>
+                    <div class="ann-item-ln"><div class="aav-ln" style="background:var(--aoi-violet-light);color:var(--aoi-violet)">SL</div><div><div class="aname-ln">Sophie L.</div><div class="aspec-ln">Co-Opérateur · Investisseuse</div></div><div class="azone-ln">PACA</div></div>
+                    <div class="ann-item-ln"><div class="aav-ln" style="background:var(--aoi-emerald-light);color:var(--aoi-emerald)">MC</div><div><div class="aname-ln">Marc C.</div><div class="aspec-ln">Co-Opérateur · Promoteur</div></div><div class="azone-ln">Nouvelle-Aquitaine</div></div>
+                  </div>
+                </div>
+              </div><!-- /vl2 -->
+
+              <!-- ══ LOGICIEL VIEW ══ -->
+              <div id="vlogicielLn" class="vlogiciel-ln">
+                <!-- Tabs -->
+                <div class="lg-tabs-ln">
+                  <div class="lg-tab-ln on-ln">Simulation</div>
+                  <div class="lg-tab-ln">Lots</div>
+                  <div class="lg-tab-ln">Calendrier</div>
+                  <div class="lg-tab-ln">Suivi</div>
+                  <div class="lg-tab-ln">Dossier</div>
+                </div>
+                <!-- KPI bar -->
+                <div class="lg-kpis-ln">
+                  <div class="lg-kpi-ln"><div class="lg-kpi-lbl-ln">Coût total</div><div class="lg-kpi-val-ln">636 722 €</div></div>
+                  <div class="lg-kpi-ln"><div class="lg-kpi-lbl-ln">Chiffre d'affaires</div><div class="lg-kpi-val-ln">765 000 €</div></div>
+                  <div class="lg-kpi-ln"><div class="lg-kpi-lbl-ln">Marge nette</div><div class="lg-kpi-val-ln green-ln">128 278 €</div></div>
+                  <div class="lg-kpi-ln"><div class="lg-kpi-lbl-ln">Taux de marge</div><div class="lg-kpi-val-ln orange-ln">20,1 %</div></div>
+                  <div class="lg-kpi-ln"><div class="lg-kpi-lbl-ln">Reste à financer</div><div class="lg-kpi-val-ln">436 722 €</div></div>
+                </div>
+                <!-- Acquisition -->
+                <div class="lg-section-ln">
+                  <div class="lg-section-title-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Acquisition</div>
+                  <div class="lg-row-ln">
+                    <div class="lg-field-ln"><div class="lg-label-ln">Prix net vendeur</div><div class="lg-input-ln filled-ln">420 000 €</div></div>
+                    <div class="lg-field-ln"><div class="lg-label-ln">Frais d'agence TTC</div><div class="lg-input-ln filled-ln">25 000 €</div></div>
+                  </div>
+                  <div class="lg-row-ln">
+                    <div class="lg-field-ln"><div class="lg-label-ln">Frais acquisition</div><div class="lg-input-ln">8 722 €</div></div>
+                    <div class="lg-field-ln"><div class="lg-label-ln">Coût acquisition total</div><div class="lg-input-ln highlight-ln">453 722 €</div></div>
+                  </div>
+                </div>
+                <!-- Lots -->
+                <div class="lg-section-ln">
+                  <div class="lg-section-title-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Lots — <span style="font-weight:400;color:var(--aoi-text-muted);font-size:10.5px">avec compte à rebours</span></div>
+                  <table class="lg-table-ln">
+                    <thead><tr><th>#</th><th>Type</th><th>Désignation</th><th>Surface</th><th style="text-align:right">Prix</th></tr></thead>
+                    <tbody>
+                      <tr><td class="lot-num-ln">1</td><td>Maison</td><td>Maison T4</td><td>95 m²</td><td class="lot-price-ln">320 000 €</td></tr>
+                      <tr><td class="lot-num-ln">2</td><td>Maison</td><td>Maison T3</td><td>75 m²</td><td class="lot-price-ln">265 000 €</td></tr>
+                      <tr><td class="lot-num-ln">3</td><td>Terrain</td><td>Terrain constructible</td><td>450 m²</td><td class="lot-price-ln">180 000 €</td></tr>
+                    </tbody>
+                  </table>
+                  <div class="lg-car-ln">
+                    <div class="lg-car-title-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.07-9.33"/></svg>Compte à Rebours — Lot 1</div>
+                    <div class="lg-car-row-ln"><span>Prix clé en main</span><span>320 000 €</span></div>
+                    <div class="lg-car-row-ln negative-ln"><span>— Travaux</span><span>–120 000 €</span></div>
+                    <div class="lg-car-row-ln negative-ln"><span>— Maîtrise d'œuvre</span><span>–18 000 €</span></div>
+                    <div class="lg-car-row-ln negative-ln"><span>— Bureau d'études</span><span>–3 000 €</span></div>
+                    <div class="lg-car-row-ln negative-ln"><span>— Assurance DO</span><span>–6 500 €</span></div>
+                    <div class="lg-car-row-ln negative-ln"><span>— VRD & raccordements</span><span>–15 000 €</span></div>
+                    <div class="lg-car-row-ln total-ln"><span>= Prix de revente</span><span>152 500 €</span></div>
+                  </div>
+                </div>
+                <!-- PDF buttons -->
+                <div class="lg-btns-ln">
+                  <div class="lg-btn-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>PDF Comité</div>
+                  <div class="lg-btn-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>PDF Financement</div>
+                  <div class="lg-btn-ln primary-ln"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>PDF Bilan complet</div>
+                </div>
+              </div><!-- /vlogiciel -->
+
+            </div><!-- /main -->
+          </div><!-- /app -->
+        </div><!-- /mockup-chrome -->
+      </div><!-- /hero-mockup -->
     </section>
         <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
     <div style="background:#f5f3ef;border-top:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);overflow:hidden;position:relative;">
@@ -514,7 +841,8 @@
     })();
     </script>
 
-    <section id="problemes" style="background:#0a0a0f;padding:100px 0;position:relative;overflow:hidden;">
+    <section id="problemes" style="background:linear-gradient(135deg,#0a0a0f 0%,#12121a 100%);padding:100px 0;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(249,115,22,.08) 0%,transparent 70%);pointer-events:none;"></div>
         <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.025) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;"></div>
         <div class="container" style="position:relative;z-index:1;">
             <div style="text-align:center;margin-bottom:72px;">
@@ -1354,7 +1682,7 @@
     </footer>
 
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         lucide.createIcons();
         const header=document.getElementById('header');window.addEventListener('scroll',()=>{header.classList.toggle('scrolled',window.scrollY>50)});
         function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active')}
@@ -1505,6 +1833,102 @@ if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
 
+<!-- Hero Linear Switcher Script -->
+<script>
+(function(){
+const ICONS_LN = {
+  home:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  user:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+  mail:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`,
+  users:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  brief:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+  folder:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
+  building:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`,
+  part:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  portfolio:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
+  send:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`,
+  grid:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
+  building2:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>`,
+  box:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>`,
+  file:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`,
+  ai:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+  book:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>`,
+  settings:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06-.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>`
+};
+const NAV_LN = {
+  3: [
+    {icon:'home',name:'Accueil',active:true,badge:0},
+    {icon:'user',name:'Mon Profil',active:false,badge:0},
+    {icon:'mail',name:'Messages',active:false,badge:3},
+    {icon:'users',name:'Annuaire',active:false,badge:0},
+    {icon:'brief',name:'Mes Opportunités',active:false,badge:2},
+    {icon:'folder',name:'Projets SEP',active:false,badge:0},
+    {icon:'building',name:'Mes Opérations',active:false,badge:0},
+    {icon:'part',name:'Mes Partenariats',active:false,badge:0}
+  ],
+  2: [
+    {icon:'home',name:'Accueil',active:true,badge:0},
+    {icon:'user',name:'Mon Profil',active:false,badge:0},
+    {icon:'portfolio',name:'Mon Portfolio',active:false,badge:0},
+    {icon:'mail',name:'Messages',active:false,badge:1},
+    {icon:'users',name:'Annuaire',active:false,badge:0},
+    {icon:'brief',name:'Opportunités',active:false,badge:0},
+    {icon:'send',name:'Mes Candidatures',active:false,badge:1},
+    {icon:'part',name:'Mes Partenariats',active:false,badge:0}
+  ]
+};
+const NAV_LG_LN = [
+  {icon:'grid',name:'Tableau de bord',active:false,badge:0},
+  {icon:'building2',name:'Mes opérations',active:true,badge:0},
+  {icon:'box',name:'Stocks',active:false,badge:0},
+  {icon:'file',name:'Synthèse',active:false,badge:0},
+  {icon:'ai',name:'Copilote IA',active:false,badge:0},
+  {icon:'book',name:'Guide',active:false,badge:0},
+  {icon:'settings',name:'Paramètres',active:false,badge:0}
+];
+function renderNavLn(items){
+  return items.map(function(item){
+    return '<div class="si-ln'+(item.active?' active-ln':'')+'">'+(ICONS_LN[item.icon]||'')+'<span>'+item.name+'</span>'+(item.badge>0?'<span class="si-badge-ln">'+item.badge+'</span>':'')+'</div>';
+  }).join('');
+}
+window.setLevelLn = function(level){
+  var isL3 = level === 3;
+  var isL2 = level === 2;
+  var isLG = level === 'lg';
+  document.getElementById('btnl2Ln').classList.toggle('on-ln', isL2);
+  document.getElementById('btnl3Ln').classList.toggle('on-ln', isL3);
+  document.getElementById('btnlgLn').classList.toggle('on-ln', isLG);
+  document.getElementById('vl3Ln').style.display = isL3 ? 'flex' : 'none';
+  document.getElementById('vl2Ln').style.display = isL2 ? 'flex' : 'none';
+  document.getElementById('vlogicielLn').style.display = isLG ? 'flex' : 'none';
+  if(isLG){
+    document.getElementById('sbnavLn').innerHTML = renderNavLn(NAV_LG_LN);
+    document.getElementById('sbmdbLn').style.display = 'none';
+    document.getElementById('sbavLn').textContent = 'AOI';
+    document.getElementById('sbavLn').style.background = 'linear-gradient(135deg,#f97316,#ea580c)';
+    document.getElementById('sbavLn').style.color = '#fff';
+    document.getElementById('sbavLn').style.fontSize = '8px';
+    document.getElementById('sbavLn').style.fontWeight = '800';
+    document.getElementById('sbunameLn').textContent = 'Opérateurs';
+    document.getElementById('sbsubLn').textContent = 'Logiciel AOI Network';
+    document.getElementById('sb-retour-wrapLn').style.display = 'flex';
+  } else {
+    document.getElementById('sbavLn').style.background = '';
+    document.getElementById('sbavLn').style.color = '';
+    document.getElementById('sbavLn').style.fontSize = '';
+    document.getElementById('sbavLn').style.fontWeight = '';
+    document.getElementById('sb-retour-wrapLn').style.display = 'none';
+    document.getElementById('sbnavLn').innerHTML = renderNavLn(NAV_LN[isL3?3:2]);
+    document.getElementById('sbmdbLn').style.display = isL3 ? 'block' : 'none';
+    document.getElementById('sbavLn').textContent = isL3 ? 'GD' : 'RE';
+    document.getElementById('sbunameLn').textContent = isL3 ? 'Guillaume D.' : 'Reda E.';
+    document.getElementById('sbsubLn').textContent = isL3 ? 'Co-Opérateur · Niveau 3' : 'Partenaire · Niveau 2';
+  }
+};
+setLevelLn(3);
+})();
+</script>
+
 <!-- Tracking événements de conversion -->
 <script>
 (function(){
@@ -1516,11 +1940,4 @@ if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
     }
     var pricingLink = e.target.closest('.pricing-card a');
     if(pricingLink){
-      if(typeof fbq==='function') fbq('track','ViewContent',{content_name:'pricing_click'});
-    }
-  });
-  var tarifSection = document.getElementById('tarifs');
-  if(tarifSection){
-    var obs = new IntersectionObserver(function(entries){
-      if(entries[0].isIntersecting){
-        if(typeof fbq==='function') fbq('track','View
+      if(typeof fbq==='function') fbq('track','ViewContent',{content_name:'pric
