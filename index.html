@@ -1507,8 +1507,10 @@
 
         // --- IFRAME MANAGEMENT ---
         // Scale iframes to fit container
-        function scaleIframes(){document.querySelectorAll('.demo-iframe-scaler').forEach(wrap=>{const iframe=wrap.querySelector('.demo-iframe');if(!iframe)return;const s=wrap.clientWidth/960;iframe.style.transform='scale('+s+')';});}
-        scaleIframes();window.addEventListener('resize',scaleIframes);
+        function scaleIframes(){document.querySelectorAll('.demo-iframe-scaler').forEach(wrap=>{const iframe=wrap.querySelector('.demo-iframe');if(!iframe)return;const w=wrap.clientWidth;if(w<1)return;const s=w/960;iframe.style.transform='scale('+s+')';});}
+        if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',function(){setTimeout(scaleIframes,100);});}else{setTimeout(scaleIframes,100);}
+        window.addEventListener('resize',scaleIframes);
+        window.addEventListener('load',scaleIframes);
 
         // Permanent overlay to prevent any focus steal
         document.querySelectorAll('.demo-iframe-scaler').forEach(wrap=>{
