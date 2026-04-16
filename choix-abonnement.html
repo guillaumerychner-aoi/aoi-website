@@ -226,15 +226,15 @@
             
             <!-- Pricing Grid -->
             <div class="pricing-grid">
-                <!-- Niveau 1: Accès Initial -->
+                <!-- Niveau 1: Accès Initial (49€) -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="icon"><i data-lucide="user"></i></div>
+                        <div class="icon"><i data-lucide="briefcase"></i></div>
                         <h3>Accès Initial</h3>
-                        <p class="subtitle">Pour découvrir le réseau</p>
-                        <p style="margin-bottom:4px;min-height:22px;"><span style="font-size:.85rem;color:#9ca3af;text-decoration:line-through;">240€ HT/mois</span> <span style="font-size:.7rem;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;">LANCEMENT</span></p>
-                        <p class="price" id="initialPrice">99€<span>/mois HT</span></p>
-                        <p class="price-info" id="initialPriceInfo">118,80€ TTC • Engagement 12 mois</p>
+                        <p class="subtitle">Le logiciel et les ressources</p>
+                        <p style="margin-bottom:4px;min-height:22px;"><span style="font-size:.85rem;color:#9ca3af;text-decoration:line-through;">99€ HT/mois</span> <span style="font-size:.7rem;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;">LANCEMENT</span></p>
+                        <p class="price" id="initialPrice">49€<span>/mois HT</span></p>
+                        <p class="price-info" id="initialPriceInfo">58,80€ TTC • Engagement 12 mois</p>
                         <p style="font-size:.75rem;color:#ea580c;font-weight:600;margin-top:6px;min-height:20px;">🔥 Tarif fondateur garanti à vie</p>
                         <div class="billing-toggle billing-toggle-n1" style="margin-top:12px;">
                             <button class="active" data-billing="monthly">Mensuel</button>
@@ -252,22 +252,55 @@
                             <li class="disabled"><i data-lucide="x"></i>Publication de projets SEP</li>
                         </ul>
                     </div>
-                    <button class="btn btn-secondary" data-plan="niveau1" data-price="11880" data-billing="monthly">
+                    <button class="btn btn-secondary" data-plan="niveau1" data-price="5880" data-billing="monthly">
                         <i data-lucide="arrow-right"></i>
                         Choisir ce niveau
                     </button>
                     <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
                 </div>
-                
-                <!-- Niveau 2: Partenaire Métier -->
+
+                <!-- Niveau 3: Co-Opérateur (99€) — MEMBRES FONDATEURS -->
+                <div class="pricing-card popular">
+                    <div class="pricing-header">
+                        <div class="icon"><i data-lucide="crown"></i></div>
+                        <h3>Co-Opérateur</h3>
+                        <p class="subtitle">S'associer et co-opérer</p>
+                        <p style="margin-bottom:4px;min-height:22px;"><span style="font-size:.85rem;color:#9ca3af;text-decoration:line-through;">199€ HT/mois</span> <span style="font-size:.7rem;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;">LANCEMENT</span></p>
+                        <p class="price" id="cooperateurPrice">99€<span>/mois HT</span></p>
+                        <p class="price-info" id="cooperateurPriceInfo">118,80€ TTC • Engagement 12 mois</p>
+                        <p style="font-size:.75rem;color:#ea580c;font-weight:600;margin-top:6px;min-height:20px;">🔥 Tarif fondateur garanti à vie</p>
+                        <div class="billing-toggle billing-toggle-n3" style="margin-top:12px;">
+                            <button class="active" data-billing="monthly">Mensuel</button>
+                            <button data-billing="yearly">Annuel</button>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i data-lucide="check"></i><strong>Logiciel Opérateurs + IA + Deal-Builder</strong></li>
+                            <li><i data-lucide="check"></i>Bibliothèque documentaire & MasterClass</li>
+                            <li><i data-lucide="check"></i>Annuaire complet des membres</li>
+                            <li><i data-lucide="check"></i>Messagerie interne illimitée</li>
+                            <li><i data-lucide="check"></i><strong>Création d'opportunités & missions</strong></li>
+                            <li><i data-lucide="check"></i>Candidature aux missions & partenariats</li>
+                            <li><i data-lucide="check"></i><strong>Publication de projets SEP</strong></li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-gold" data-plan="niveau3" data-price="11880" data-billing="monthly">
+                        <i data-lucide="crown"></i>
+                        Devenir Co-Opérateur
+                    </button>
+                    <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
+                </div>
+
+                <!-- Niveau 2: Partenaire Métier (149€) -->
                 <div class="pricing-card">
                     <div class="pricing-header">
-                        <div class="icon"><i data-lucide="briefcase"></i></div>
+                        <div class="icon"><i data-lucide="building-2"></i></div>
                         <h3>Partenaire Métier</h3>
-                        <p class="subtitle">Pour les prestataires</p>
-                        <p style="margin-bottom:4px;min-height:22px;"></p>
-                        <p class="price" id="partenairePrice">329€<span>/mois HT</span></p>
-                        <p class="price-info" id="partenairePriceInfo">394,80€ TTC • Engagement 12 mois</p>
+                        <p class="subtitle">Prestataires et professionnels</p>
+                        <p style="margin-bottom:4px;min-height:22px;"><span style="font-size:.85rem;color:#9ca3af;text-decoration:line-through;">329€ HT/mois</span> <span style="font-size:.7rem;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;">LANCEMENT</span></p>
+                        <p class="price" id="partenairePrice">149€<span>/mois HT</span></p>
+                        <p class="price-info" id="partenairePriceInfo">178,80€ TTC • Engagement 12 mois</p>
                         <p style="font-size:.75rem;color:#2563eb;font-weight:600;margin-top:6px;min-height:20px;">🚀 Premiers inscrits = moins de concurrence</p>
                         <div class="billing-toggle billing-toggle-n2" style="margin-top:12px;">
                             <button class="active" data-billing="monthly">Mensuel</button>
@@ -285,39 +318,9 @@
                             <li class="disabled"><i data-lucide="x"></i>Publication de projets SEP</li>
                         </ul>
                     </div>
-                    <button class="btn btn-primary" data-plan="niveau2" data-price="39480" data-billing="monthly">
+                    <button class="btn btn-primary" data-plan="niveau2" data-price="17880" data-billing="monthly">
                         <i data-lucide="arrow-right"></i>
                         Choisir ce niveau
-                    </button>
-                    <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
-                </div>
-                
-                <!-- Niveau 3: Co-Opérateur -->
-                <div class="pricing-card popular">
-                    <div class="pricing-header">
-                        <div class="icon"><i data-lucide="crown"></i></div>
-                        <h3>Co-Opérateur</h3>
-                        <p class="subtitle">Pour les opérateurs confirmés</p>
-                        <p style="margin-bottom:4px;min-height:22px;"><span style="font-size:.85rem;color:#9ca3af;text-decoration:line-through;">7 990€ HT/an</span> <span style="font-size:.7rem;background:linear-gradient(135deg,#f97316,#ea580c);color:#fff;padding:2px 8px;border-radius:12px;font-weight:700;">LANCEMENT</span></p>
-                        <p class="price">5 990€<span>/an HT</span></p>
-                        <p class="price-info">7 188€ TTC • Engagement 12 mois</p>
-                        <p style="font-size:.75rem;color:#ea580c;font-weight:600;margin-top:6px;min-height:20px;">🔥 Tarif fondateur garanti à vie</p>
-                        <div style="margin-top:12px;min-height:38px;"></div>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i data-lucide="check"></i><strong>Logiciel Opérateurs + IA + Deal-Builder</strong></li>
-                            <li><i data-lucide="check"></i>Bibliothèque documentaire & MasterClass</li>
-                            <li><i data-lucide="check"></i>Annuaire complet des membres</li>
-                            <li><i data-lucide="check"></i>Messagerie interne illimitée</li>
-                            <li><i data-lucide="check"></i><strong>Création d'opportunités & missions</strong></li>
-                            <li><i data-lucide="check"></i>Candidature aux missions & partenariats</li>
-                            <li><i data-lucide="check"></i><strong>Publication de projets SEP</strong></li>
-                        </ul>
-                    </div>
-                    <button class="btn btn-gold" data-plan="niveau3" data-price="718800">
-                        <i data-lucide="crown"></i>
-                        Devenir Co-Opérateur
                     </button>
                     <p style="text-align:center;font-size:.7rem;color:var(--gray-400);margin-top:8px;"><i data-lucide="lock" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>Paiement sécurisé via Stripe · Accès immédiat</p>
                 </div>
@@ -430,7 +433,7 @@
             document.getElementById('recapBar').querySelector('.icon').style.background = 'var(--orange-500)';
         }
         
-        // Billing toggle for Accès Initial (Niveau 1)
+        // Billing toggle for Accès Initial (Niveau 1) — 49€/mois ou 540€/an
         const billingButtonsN1 = document.querySelectorAll('.billing-toggle-n1 button');
         const initialBtn = document.querySelector('[data-plan="niveau1"]');
         const initialPrice = document.getElementById('initialPrice');
@@ -443,20 +446,46 @@
                 
                 const billing = this.dataset.billing;
                 if (billing === 'yearly') {
-                    initialPrice.innerHTML = '1 090€<span>/an HT</span>';
-                    initialPriceInfo.textContent = '1 308€ TTC • 1 mois offert';
-                    initialBtn.dataset.price = '130800';
+                    initialPrice.innerHTML = '540€<span>/an HT</span>';
+                    initialPriceInfo.textContent = '648€ TTC • 1 mois offert';
+                    initialBtn.dataset.price = '64800';
                     initialBtn.dataset.billing = 'yearly';
                 } else {
-                    initialPrice.innerHTML = '99€<span>/mois HT</span>';
-                    initialPriceInfo.textContent = '118,80€ TTC • Engagement 12 mois';
-                    initialBtn.dataset.price = '11880';
+                    initialPrice.innerHTML = '49€<span>/mois HT</span>';
+                    initialPriceInfo.textContent = '58,80€ TTC • Engagement 12 mois';
+                    initialBtn.dataset.price = '5880';
                     initialBtn.dataset.billing = 'monthly';
                 }
             });
         });
-        
-        // Billing toggle for Partenaire Métier
+
+        // Billing toggle for Co-Opérateur (Niveau 3) — 99€/mois ou 1090€/an
+        const billingButtonsN3 = document.querySelectorAll('.billing-toggle-n3 button');
+        const cooperateurBtn = document.querySelector('[data-plan="niveau3"]');
+        const cooperateurPrice = document.getElementById('cooperateurPrice');
+        const cooperateurPriceInfo = document.getElementById('cooperateurPriceInfo');
+
+        billingButtonsN3.forEach(btn => {
+            btn.addEventListener('click', function() {
+                billingButtonsN3.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const billing = this.dataset.billing;
+                if (billing === 'yearly') {
+                    cooperateurPrice.innerHTML = '1 090€<span>/an HT</span>';
+                    cooperateurPriceInfo.textContent = '1 308€ TTC • 1 mois offert';
+                    cooperateurBtn.dataset.price = '130800';
+                    cooperateurBtn.dataset.billing = 'yearly';
+                } else {
+                    cooperateurPrice.innerHTML = '99€<span>/mois HT</span>';
+                    cooperateurPriceInfo.textContent = '118,80€ TTC • Engagement 12 mois';
+                    cooperateurBtn.dataset.price = '11880';
+                    cooperateurBtn.dataset.billing = 'monthly';
+                }
+            });
+        });
+
+        // Billing toggle for Partenaire Métier (Niveau 2) — 149€/mois ou 1640€/an
         const billingButtonsN2 = document.querySelectorAll('.billing-toggle-n2 button');
         const partenaireBtn = document.querySelector('[data-plan="niveau2"]');
         const partenairePrice = document.getElementById('partenairePrice');
@@ -469,14 +498,14 @@
                 
                 const billing = this.dataset.billing;
                 if (billing === 'yearly') {
-                    partenairePrice.innerHTML = '3 620€<span>/an HT</span>';
-                    partenairePriceInfo.textContent = '4 344€ TTC • 1 mois offert';
-                    partenaireBtn.dataset.price = '434400';
+                    partenairePrice.innerHTML = '1 640€<span>/an HT</span>';
+                    partenairePriceInfo.textContent = '1 968€ TTC • 1 mois offert';
+                    partenaireBtn.dataset.price = '196800';
                     partenaireBtn.dataset.billing = 'yearly';
                 } else {
-                    partenairePrice.innerHTML = '329€<span>/mois HT</span>';
-                    partenairePriceInfo.textContent = '394,80€ TTC • Engagement 12 mois';
-                    partenaireBtn.dataset.price = '39480';
+                    partenairePrice.innerHTML = '149€<span>/mois HT</span>';
+                    partenairePriceInfo.textContent = '178,80€ TTC • Engagement 12 mois';
+                    partenaireBtn.dataset.price = '17880';
                     partenaireBtn.dataset.billing = 'monthly';
                 }
             });
