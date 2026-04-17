@@ -719,8 +719,19 @@
         </div><!-- /mockup-chrome -->
       </div><!-- /hero-mockup -->
     </section>
-        <!-- ═══ BANDEAU TICKER — entre hero et problèmes ═══ -->
-    <div style="background:#f5f3ef;border-top:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);overflow:hidden;position:relative;">
+    <!-- ═══════════════════════════════════════════════════════════════════
+         BANDEAU TICKER MÉTRIQUES — MASQUÉ POUR LE MOMENT
+         ═══════════════════════════════════════════════════════════════════
+         Masqué tant que les chiffres réseau sont à zéro (cf. pivot V9 —
+         "les opérateurs n'entrent pas dans un réseau vide"). Afficher
+         un bandeau vide annonce le vide, ce qui dessert le positionnement.
+
+         POUR RÉACTIVER QUAND LES MÉTRIQUES SERONT POSITIVES :
+         → Sur la div #stats-ticker-band ci-dessous, remplacer
+           simplement  display:none  par  display:block  (une seule ligne).
+           Rien d'autre à toucher — le JS et l'API sont déjà branchés.
+         ═══════════════════════════════════════════════════════════════════ -->
+    <div id="stats-ticker-band" style="display:none;background:#f5f3ef;border-top:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);overflow:hidden;position:relative;">
         <!-- Dégradés masquants sur les bords -->
         <div style="position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(90deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
         <div style="position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(270deg,#f5f3ef,transparent);z-index:2;pointer-events:none;"></div>
@@ -728,6 +739,15 @@
         <!-- Track défilant -->
         <div id="bnd-track" style="display:flex;align-items:center;gap:0;white-space:nowrap;padding:0;animation:bndScroll 28s linear infinite;">
         </div>
+    </div>
+
+    <!-- ═══ Séparateur visuel entre sections sombres (hero → Le Constat) ═══
+         Remplace la rupture que le ticker crème apportait naturellement.
+         S'enlèvera de lui-même dès que #stats-ticker-band sera réactivé
+         (il suffira alors de supprimer ce bloc ou de le laisser, l'ensemble
+         restera cohérent). ═══ -->
+    <div aria-hidden="true" style="background:#0a0a0f;padding:32px 0;position:relative;">
+        <div style="max-width:72px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(249,115,22,.55),transparent);"></div>
     </div>
 
     <style>
@@ -980,6 +1000,11 @@
         .recog-header:hover,.recog-item:hover,.recog-footer:hover{background:#0f0f16!important;}
         </style>
     </section>
+
+    <!-- ═══ Séparateur visuel entre sections sombres (Le Constat → La Plateforme) ═══ -->
+    <div aria-hidden="true" style="background:#0a0a0f;padding:32px 0;position:relative;">
+        <div style="max-width:72px;height:1px;margin:0 auto;background:linear-gradient(90deg,transparent,rgba(249,115,22,.55),transparent);"></div>
+    </div>
 
     <section class="platform-preview" id="plateforme">
         <div class="container">
