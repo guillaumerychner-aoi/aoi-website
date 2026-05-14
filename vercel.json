@@ -9,6 +9,16 @@
       "source": "/accueil.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/choix-abonnement",
+      "destination": "/rejoindre.html",
+      "permanent": true
+    },
+    {
+      "source": "/choix-abonnement.html",
+      "destination": "/rejoindre.html",
+      "permanent": true
     }
   ]
 }
