@@ -341,15 +341,15 @@
         .hero-linear .lg-btn-ln svg{width:11px;height:11px}
         @keyframes fuLn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
         @media(max-width:1050px){.hero-linear{padding:145px 28px 60px}}
-        /* ═══ MOBILE MOCKUP — approche `zoom` (met à jour la box layout) ═══
-           Contrairement à transform:scale qui garde la box layout à 1180px (et crée
-           des débordements horizontaux), `zoom` redimensionne vraiment l'élément.
-           Le mockup occupe sa taille zoomée en layout → margin:0 auto le centre,
-           et il ne peut plus créer de scroll horizontal sur la page. */
-        @media(max-width:780px){.hero-linear{padding:130px 16px 50px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2.5rem}.hero-linear .t3-ln{font-size:1.8rem}.hero-linear .t4-ln{font-size:1.3rem}.hero-linear .hero-mockup-ln{width:100%;overflow:hidden}.hero-linear .mockup-sizer-ln{width:100%}.hero-linear .mockup-chrome-ln{width:1180px;zoom:var(--mockup-zoom,0.468);margin:0 auto}.hero-linear .sb-ln{width:205px}.hero-linear .sb-lname-ln,.hero-linear .sb-uname-ln,.hero-linear .sb-usub-ln,.hero-linear .si-ln span,.hero-linear .sb-mdb-ln .sb-mdb-lbl-ln{display:initial}.hero-linear .si-ln{justify-content:flex-start;padding:4px 8px 4px 10px}.hero-linear .sb-logo-show-ln{justify-content:flex-start;padding:10px 16px}.hero-linear .sb-user-ln{justify-content:flex-start;padding:8px 12px 8px 10px}.hero-linear .sb-mdb-ln{justify-content:flex-start}.hero-linear .sb-mdb-ln .ext-ln{display:initial}.hero-linear .sb-footer-ln{display:flex}.hero-linear .main-ln{left:205px}.hero-linear .kpis-ln{grid-template-columns:repeat(4,1fr)}.hero-linear .sep-cards-ln{grid-template-columns:repeat(3,1fr)}}
-        @media(max-width:600px){.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.367)}}
-        @media(max-width:480px){.hero-linear{padding:120px 12px 40px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2rem}.hero-linear .t3-ln{font-size:1.5rem}.hero-linear .t4-ln{font-size:1.15rem}.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.297)}}
-        @media(max-width:400px){.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.237)}}
+        /* ═══ MOBILE MOCKUP — pleine largeur viewport (bord à bord) ═══
+           Sur mobile, le mockup casse les marges latérales du hero (margin-left/right
+           négatif via calc(50% - 50vw)) pour s'étendre de bord à bord — plus de question
+           de marge à droite ou à gauche, plus de centrage à gérer.
+           `zoom` met à jour la box layout, donc aucun scroll horizontal possible. */
+        @media(max-width:780px){.hero-linear{padding:130px 16px 50px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2.5rem}.hero-linear .t3-ln{font-size:1.8rem}.hero-linear .t4-ln{font-size:1.3rem}.hero-linear .hero-mockup-ln{width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);overflow:hidden}.hero-linear .mockup-sizer-ln{width:100%}.hero-linear .mockup-chrome-ln{width:1180px;zoom:var(--mockup-zoom,0.66);margin:0 auto;border-radius:0;border-left:none;border-right:none}.hero-linear .sb-ln{width:205px}.hero-linear .sb-lname-ln,.hero-linear .sb-uname-ln,.hero-linear .sb-usub-ln,.hero-linear .si-ln span,.hero-linear .sb-mdb-ln .sb-mdb-lbl-ln{display:initial}.hero-linear .si-ln{justify-content:flex-start;padding:4px 8px 4px 10px}.hero-linear .sb-logo-show-ln{justify-content:flex-start;padding:10px 16px}.hero-linear .sb-user-ln{justify-content:flex-start;padding:8px 12px 8px 10px}.hero-linear .sb-mdb-ln{justify-content:flex-start}.hero-linear .sb-mdb-ln .ext-ln{display:initial}.hero-linear .sb-footer-ln{display:flex}.hero-linear .main-ln{left:205px}.hero-linear .kpis-ln{grid-template-columns:repeat(4,1fr)}.hero-linear .sep-cards-ln{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:600px){.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.508)}}
+        @media(max-width:480px){.hero-linear{padding:120px 12px 40px}.hero-linear .t1-ln,.hero-linear .t2-ln{font-size:2rem}.hero-linear .t3-ln{font-size:1.5rem}.hero-linear .t4-ln{font-size:1.15rem}.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.402)}}
+        @media(max-width:400px){.hero-linear .mockup-chrome-ln{zoom:var(--mockup-zoom,0.334)}}
     </style>
 
     <!-- ═══════════════════════════════════════════════════════════════
@@ -591,7 +591,7 @@
             .hv3-cartouche{grid-template-columns:1fr;gap:8px;text-align:center;padding-bottom:24px;margin-bottom:24px}
             .hv3-cartouche-l,.hv3-cartouche-r{justify-content:center}
             .hv3-cartouche-rule{display:none}
-            .hv3-kicker{justify-content:center;text-align:center;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+            .hv3-kicker{margin-bottom:28px;gap:10px}
             .hv3-kicker-rule{width:24px}
             .hv3-kicker-text{font-size:.72rem;letter-spacing:.18em;line-height:1.5}
             .hv3-deck{grid-template-columns:1fr;gap:18px;padding:24px 0 28px;margin-bottom:28px}
@@ -1985,24 +1985,22 @@
         function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active')}
         function toggleFaq(btn){const item=btn.parentElement,wasActive=item.classList.contains('active');document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('active'));if(!wasActive)item.classList.add('active');lucide.createIcons()}
         
-        // --- HERO MOCKUP ZOOM (centré, sans débordement layout) ---
-        // Utilise CSS `zoom` (et non transform:scale) pour redimensionner le mockup.
-        // `zoom` met à jour la box layout, donc plus de débordement caché → plus de
-        // scroll horizontal sur la page → les éléments fixed restent bien positionnés.
-        // Le mockup est centré naturellement via margin:0 auto.
+        // --- HERO MOCKUP ZOOM (pleine largeur, bord à bord) ---
+        // Sur mobile, le mockup occupe TOUTE la largeur viewport (100vw). On calcule
+        // le zoom pour que mockup-chrome (1180px natif) tienne pile dans 100vw.
+        // `zoom` met à jour la box layout, donc plus de débordement layout possible.
         (function(){
             const hero = document.querySelector('.hero-linear');
             if (!hero) return;
             const MOCKUP_W = 1180;
-            const SAFETY = 6; // petite respiration latérale
+            const SAFETY = 2; // tiny safety pour les arrondis subpixel
             function adjustMockup(){
                 const vw = document.documentElement.clientWidth || window.innerWidth;
                 if (vw > 780) {
                     hero.style.removeProperty('--mockup-zoom');
                     return;
                 }
-                const padX = vw <= 480 ? 24 : 32; // 12+12 ou 16+16
-                const available = vw - padX - SAFETY;
+                const available = vw - SAFETY;
                 const zoom = available / MOCKUP_W;
                 hero.style.setProperty('--mockup-zoom', zoom);
             }
