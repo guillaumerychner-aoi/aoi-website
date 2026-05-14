@@ -1396,56 +1396,86 @@ setLevelLn(3);
         return isValid;
     }
 
-    // Récupération données
-    function getFormData(){
-        const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => { data[key] = value; });
-        // Source + flags pour le backend (différencie d'un simple callback contact)
-        data.source = 'adhesion_membre';
-        data.requires_account_creation = true;  // Le backend doit créer un compte extranet + envoyer email avec identifiants
-        data.timestamp = new Date().toISOString();
-        return data;
+    // Récupération données — mappage vers le format attendu par /api/subscription/register-checkout
+    // profile_type 'operateur'    → plan 'niveau3' (Co-Opérateur)
+    // profile_type 'co_operateur' → plan 'niveau3' (Co-Opérateur)
+    // profile_type 'prestataire'  → plan 'niveau2' (Partenaire Métier)
+    function buildRegistrationPayload(){
+        const raw = new FormData(form);
+        const get = (k) => (raw.get(k) || '').toString().trim();
+
+        const profile_type = get('profile_type');
+        const plan = profile_type === 'prestataire' ? 'niveau2' : 'niveau3';
+
+        // activite : pour les prestataires, on prend le métier choisi (ou "metier_autre" si "autre")
+        let activite = '';
+        if (profile_type === 'prestataire') {
+            const metier = get('metier');
+            activite = metier === 'autre' ? get('metier_autre') : metier;
+        }
+
+        return {
+            plan,
+            userData: {
+                email: get('email'),
+                prenom: get('prenom'),
+                nom: get('nom'),
+                telephone: get('telephone'),
+                societe: get('societe'),
+                ville: get('localisation'),
+                activite,
+                profile_type,
+                presentation: get('message'),
+            },
+        };
     }
 
-    // Submit principal
+    // Submit principal — adhésion gratuite, bypass Stripe, création de compte directe
     btnSubmit.addEventListener('click', async function(){
         if (!validateForm()) {
             return;
         }
         const originalLabel = btnSubmit.innerHTML;
-        btnSubmit.innerHTML = 'Envoi en cours…';
+        btnSubmit.innerHTML = 'Création de votre compte…';
         btnSubmit.disabled = true;
 
-        const formData = getFormData();
+        const payload = buildRegistrationPayload();
+        const prenom = payload.userData.prenom;
+
         try {
-            const response = await fetch('https://extranet.aoi-network.com/api/contact/callback', {
+            const response = await fetch('https://extranet.aoi-network.com/api/subscription/register-checkout', {
                 method: 'POST',
-                body: JSON.stringify(formData),
+                body: JSON.stringify(payload),
                 headers: {'Accept':'application/json','Content-Type':'application/json'}
             });
-            if (response.ok) {
-                const prenom = formData.prenom || '';
+
+            const result = await response.json().catch(() => ({}));
+
+            if (response.ok && result.success) {
                 if (prenom) {
                     document.getElementById('successPrenom').textContent = `Bienvenue ${prenom}`;
                 }
                 formWrap.classList.add('hide');
                 successMessage.classList.add('show');
                 window.scrollTo({top:0, behavior:'smooth'});
-                if (typeof fbq === 'function') fbq('track','Lead');
+                if (typeof fbq === 'function') fbq('track','CompleteRegistration');
                 if (typeof lintrk === 'function') lintrk('track',{conversion_id:18956756});
             } else {
-                throw new Error('Erreur serveur');
+                const msg = result?.error || 'Une erreur est survenue. Veuillez réessayer ou nous contacter sur WhatsApp.';
+                alert(msg);
+                btnSubmit.innerHTML = originalLabel;
+                btnSubmit.disabled = false;
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
             }
         } catch (error) {
-            alert('Une erreur est survenue. Veuillez réessayer ou nous contacter sur WhatsApp.');
+            alert('Une erreur réseau est survenue. Veuillez réessayer ou nous contacter sur WhatsApp.');
             btnSubmit.innerHTML = originalLabel;
             btnSubmit.disabled = false;
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
         }
     });
 
-    // Capture d'abandon
+    // Capture d'abandon — reste sur /api/contact/callback (lead, pas création de compte)
     const emailField = form.querySelector('input[name="email"]');
     let captured = false;
     if (emailField) {
@@ -1458,7 +1488,7 @@ setLevelLn(3);
                     headers:{'Content-Type':'application/json','Accept':'application/json'},
                     body: JSON.stringify({
                         email: email,
-                        source: 'abandon_formulaire_rejoindre',
+                        source: 'abandon_formulaire',
                         page: window.location.href,
                         timestamp: new Date().toISOString()
                     })
