@@ -27,7 +27,8 @@ de production de l'ancien site (SEO, favicons, consentement cookies, pixels, red
 ├── support.js                 Runtime de rendu — requis par toutes les pages
 ├── legal-render.js            Rendu typographique des documents légaux
 ├── legal-data.js              Texte CGV + mentions légales
-├── articles-data.js           Texte des 7 guides
+├── articles-index.js          Index des guides : ordre, titres, tags
+├── articles/<slug>.js         Un module par guide, chargé à la demande
 │
 ├── assets/                    Images (illustrations guides, portraits, SEP Normandie)
 ├── favicon.ico, favicon-*.png, apple-touch-icon.png, android-chrome-*.png
@@ -131,3 +132,62 @@ L'écran de confirmation s'affiche alors sans appeler l'API.
 - [ ] Les 7 guides s'affichent depuis la Bibliothèque
 - [ ] Partage d'un lien sur LinkedIn/WhatsApp → aperçu avec `og-image.png`
 - [ ] Resoumettre `sitemap.xml` dans la Search Console
+
+---
+
+## Bibliothèque — les 14 guides
+
+Sept guides d'origine (février-mars 2026) et sept ajoutés en septembre 2026 :
+
+| Slug | Titre court | Date affichée |
+|---|---|---|
+| `choisir-structure-juridique-operation` | SEP, SCCV, SAS, SCI | Mars 2026 |
+| `securiser-promesse-de-vente` | Promesse ou compromis | Avril 2026 |
+| `purger-permis-de-construire` | Purger un permis | Mai 2026 |
+| `assurances-operation-immobiliere` | DO, décennale, TRC | Juin 2026 |
+| `repondre-appel-offres-prive` | Répondre à un appel d'offres | Juillet 2026 |
+| `tva-marchand-de-biens` | TVA marge ou prix total | Août 2026 |
+| `dpe-passoires-operateur` | Passoires thermiques | Septembre 2026 |
+
+Chaque guide est chaîné au suivant par son champ `next`; la chaîne boucle sur
+`sep-immobiliere`. Les cartes correspondantes sont dans le tableau `rows` de
+`ressources.html`, les couvertures dans `assets/blog-*.jpg`, et les URL dans
+`sitemap.xml`.
+
+### Ajouter un guide
+
+1. Créer `articles/<slug>.js` sur le modèle d'un existant : `export const article = { … }`
+   avec les champs `title, lead, tags, meta, crumb, blocks, faq, author, cta, next`.
+2. Ajouter le slug dans `order` et une entrée `{title, tags}` dans `index`,
+   les deux dans `articles-index.js`.
+3. Rebrancher le champ `next` du guide précédent, et celui du nouveau guide.
+4. Ajouter une ligne dans le tableau `rows` de `ressources.html`
+   (`['N° xx', titre, chapô, date, tag1, tag2, 'assets/…jpg', 'article.html?a=<slug>', isNew]`).
+5. Déposer la couverture dans `assets/` (1600 × 893, même langage graphique).
+6. Ajouter l'URL dans `sitemap.xml`.
+7. Ajouter le slug dans l'énumération `options` du bloc `data-props` de `article.html`
+   (métadonnée d'édition, sans effet sur le rendu public).
+
+### Pourquoi un fichier par guide
+
+`article.html` ne charge que l'index (ordre, titres, tags) puis le seul guide demandé.
+L'index sert à construire le bloc « autres guides » sans télécharger leur contenu.
+Charge par page consultée, quel que soit le volume de la bibliothèque :
+
+| Guides publiés | Transféré par page (gzip) |
+|---|---|
+| 14 | ~4,6 Ko |
+| 50 | ~7,3 Ko |
+| 80 | ~9,5 Ko |
+| 120 | ~12,4 Ko |
+
+À titre de comparaison, la version monolithique précédente transférait 37 Ko à 14 guides
+et aurait atteint 212 Ko à 80. Effet secondaire utile : modifier un guide n'invalide
+en cache que son propre fichier.
+
+**Points datés à surveiller.** Deux guides s'appuient sur un état du droit mouvant :
+`dpe-passoires-operateur` (projet de loi « relance et décentralisation du logement »
+adopté par le Sénat le 8 juillet 2026, examen à l'Assemblée prévu à l'automne) et
+`tva-marchand-de-biens` (recodification de la TVA dans le CIBS au 1er septembre 2026).
+Les deux portent une mention de date explicite dans le texte : à relire si la
+situation évolue.

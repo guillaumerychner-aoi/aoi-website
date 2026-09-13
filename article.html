@@ -32,11 +32,14 @@
     <!-- Vercel Analytics -->
     <script defer src="/_vercel/insights/script.js"></script>
     <script type="module">
-      // Titre et description dynamiques selon l'article chargé (?a=slug)
-      import { articles } from './articles-data.js';
-      const s = new URLSearchParams(location.search).get('a') || 'sep-immobiliere';
-      const a = articles[s];
-      if (a) {
+      // Titre, description et canonical dynamiques selon le guide chargé (?a=slug).
+      // Le slug est validé contre l'index avant tout import, et le module du guide
+      // est mutualisé avec celui que charge le gabarit : une seule requête réseau.
+      import { index } from './articles-index.js';
+      const q = new URLSearchParams(location.search).get('a') || 'sep-immobiliere';
+      const s = index[q] ? q : 'sep-immobiliere';
+      import('./articles/' + s + '.js').then(({ article: a }) => {
+        if (!a) return;
         document.title = a.title + ' — AOI Network';
         let d = a.lead || '';
         if (d.length > 170) d = d.slice(0, 170).replace(/\s+\S*$/, '') + '…';
@@ -47,7 +50,7 @@
         set('meta[property="og:title"]', 'content', a.title);
         set('meta[name="twitter:title"]', 'content', a.title);
         set('link[rel="canonical"]', 'href', 'https://www.aoi-network.com/article.html?a=' + s);
-      }
+      }).catch(() => {});
     </script>
 </head>
 <body>
@@ -197,7 +200,7 @@ a{color:#141210;text-decoration:none}a:hover{color:#E4571B}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sep-immobiliere&quot;,&quot;paiement-a-terme&quot;,&quot;division-parcellaire&quot;,&quot;alternatives-credit-bancaire&quot;,&quot;structurer-operation-sans-apport&quot;,&quot;ia-immobilier-operationnel&quot;,&quot;pourquoi-un-reseau&quot;],&quot;default&quot;:&quot;sep-immobiliere&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Article&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sep-immobiliere&quot;,&quot;paiement-a-terme&quot;,&quot;division-parcellaire&quot;,&quot;alternatives-credit-bancaire&quot;,&quot;structurer-operation-sans-apport&quot;,&quot;ia-immobilier-operationnel&quot;,&quot;pourquoi-un-reseau&quot;,&quot;choisir-structure-juridique-operation&quot;,&quot;securiser-promesse-de-vente&quot;,&quot;purger-permis-de-construire&quot;,&quot;assurances-operation-immobiliere&quot;,&quot;repondre-appel-offres-prive&quot;,&quot;tva-marchand-de-biens&quot;,&quot;dpe-passoires-operateur&quot;],&quot;default&quot;:&quot;sep-immobiliere&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Article&quot;}}">
 class Component extends DCLogic {
   state = { menu: false, navNarrow: false, data: null, order: [], slug: null, open: -1, active: 0, progress: 0 };
   componentDidMount() {
@@ -206,11 +209,15 @@ class Component extends DCLogic {
     this._navMq.addEventListener('change', this._onNavMq);
     this.setState({ navNarrow: this._navMq.matches });
     const slug = new URLSearchParams(location.search).get('a') || this.props.slug || 'sep-immobiliere';
-    Promise.all([import('./articles-data.js'), import('./legal-render.js')]).then(([d, r]) => {
+    Promise.all([import('./articles-index.js'), import('./legal-render.js')]).then(([ix, r]) => {
       this._render = r;
-      const s = d.articles[slug] ? slug : 'sep-immobiliere';
-      this.setState({ data: d.articles, order: d.order, slug: s });
-      document.title = (d.articles[s] ? d.articles[s].title : 'Guide') + ' — AOI Network';
+      const s = ix.index[slug] ? slug : 'sep-immobiliere';
+      return import('./articles/' + s + '.js').then(mod => {
+        // L'index fournit titre et tags des autres guides ; seul le guide affiché est chargé en entier.
+        const data = Object.assign({}, ix.index, { [s]: mod.article });
+        this.setState({ data: data, order: ix.order, slug: s });
+        document.title = mod.article.title + ' — AOI Network';
+      });
     });
     this._onScroll = () => {
       if (this._raf) return;

@@ -69,6 +69,49 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=choisir-structure-juridique-operation</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=securiser-promesse-de-vente</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=purger-permis-de-construire</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=assurances-operation-immobiliere</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=repondre-appel-offres-prive</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=tva-marchand-de-biens</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.aoi-network.com/article.html?a=dpe-passoires-operateur</loc>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Légal -->
   <url>
     <loc>https://www.aoi-network.com/cgv.html</loc>
