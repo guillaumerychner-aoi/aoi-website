@@ -4,6 +4,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /demo-extranet.html
 Disallow: /demo-logiciel.html
+Disallow: /demo-ia.html
 Disallow: /choix-abonnement.html
 Disallow: /operation.html
 

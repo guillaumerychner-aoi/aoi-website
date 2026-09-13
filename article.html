@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+    <title>Guides opérationnels — AOI Network</title>
+    <meta name="description" content="Guides opérationnels AOI Network pour structurer vos opérations immobilières : SEP, paiement à terme, division parcellaire, co-production sans banque.">
+    <link rel="canonical" href="https://www.aoi-network.com/article.html">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E4571B">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aoi-network.com/article.html">
+    <meta property="og:title" content="Guides opérationnels — AOI Network">
+    <meta property="og:description" content="Structurer une opération immobilière sans banque : les guides du réseau AOI Network.">
+    <meta property="og:image" content="https://www.aoi-network.com/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="AOI Network">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guides opérationnels — AOI Network">
+    <meta name="twitter:description" content="Structurer une opération immobilière sans banque : les guides du réseau AOI Network.">
+    <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
+
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script type="module">
+      // Titre et description dynamiques selon l'article chargé (?a=slug)
+      import { articles } from './articles-data.js';
+      const s = new URLSearchParams(location.search).get('a') || 'sep-immobiliere';
+      const a = articles[s];
+      if (a) {
+        document.title = a.title + ' — AOI Network';
+        let d = a.lead || '';
+        if (d.length > 170) d = d.slice(0, 170).replace(/\s+\S*$/, '') + '…';
+        const set = (sel, attr, val) => { const el = document.querySelector(sel); if (el) el.setAttribute(attr, val); };
+        set('meta[name="description"]', 'content', d);
+        set('meta[property="og:description"]', 'content', d);
+        set('meta[name="twitter:description"]', 'content', d);
+        set('meta[property="og:title"]', 'content', a.title);
+        set('meta[name="twitter:title"]', 'content', a.title);
+        set('link[rel="canonical"]', 'href', 'https://www.aoi-network.com/article.html?a=' + s);
+      }
+    </script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Bibliothèque AOI — Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FAF7F2;color:#141210;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#141210;text-decoration:none}a:hover{color:#E4571B}
+*{box-sizing:border-box}
+@keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wordUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@media(max-width:1000px){.ar-grid{grid-template-columns:minmax(0,1fr)!important}.ar-toc{position:static!important;max-height:none!important;order:-1}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#FAF7F2;overflow-x:clip;">
+
+<div style="position:fixed;top:0;left:0;right:0;height:3px;background:rgba(20,18,16,.07);z-index:60;"><div style="height:100%;background:#E4571B;width:{{ progress }};"></div></div>
+
+<div style="position:sticky;top:0;z-index:50;background:rgba(250,247,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,18,16,.08);">
+  <div style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px;">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;">
+      <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">AOI</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:22px;">Network</span>
+    </a>
+    <nav style="display:flex;gap:4px;margin-left:auto;align-items:center;flex-wrap:wrap;justify-content:flex-end;">
+      <a href="ressources.html" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Bibliothèque</a>
+      <a href="rejoindre.html" style="padding:9px 16px;font-size:14px;font-weight:700;color:#fff;background:#141210;border-radius:8px;margin-left:6px;" style-hover="background:#E4571B;color:#fff">Rejoindre gratuitement</a>
+    </nav>
+  </div>
+</div>
+
+<section data-screen-label="Hero article" style="max-width:1240px;margin:0 auto;padding:44px 28px 0;">
+  <div style="display:flex;align-items:center;gap:9px;font-family:ui-monospace,monospace;font-size:12px;color:#6B655C;animation:riseIn .6s ease both;">
+    <a href="index.html" style="color:#6B655C;">AOI Network</a><span>/</span><a href="ressources.html" style="color:#6B655C;">Bibliothèque</a><span>/</span><span style="color:#141210;">{{ crumb }}</span>
+  </div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;animation:riseIn .7s ease .1s both;">
+    <sc-for list="{{ tags }}" as="t" hint-placeholder-count="2">
+      <span style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:100px;background:rgba(228,87,27,.09);color:#9A3B10;">{{ t }}</span>
+    </sc-for>
+  </div>
+  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.8vw,68px);line-height:1.03;letter-spacing:-.03em;margin:22px 0 0;max-width:24ch;">
+    <span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:wordUp 1s cubic-bezier(.22,.61,.36,1) .15s both;">{{ title }}</span></span>
+  </h1>
+  <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:clamp(16px,1.5vw,20px);line-height:1.55;color:#4A453E;margin:20px 0 0;max-width:740px;animation:riseIn .8s ease .45s both;">{{ lead }}</p>
+  <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:26px;padding:16px 0;border-top:1px solid rgba(20,18,16,.12);border-bottom:1px solid rgba(20,18,16,.12);animation:riseIn .8s ease .55s both;">
+    <sc-for list="{{ meta }}" as="m" hint-placeholder-count="3">
+      <span style="font-family:ui-monospace,monospace;font-size:12.5px;color:#6B655C;">{{ m }}</span>
+    </sc-for>
+  </div>
+</section>
+
+<section data-screen-label="Corps article" style="max-width:1240px;margin:0 auto;padding:44px 28px 90px;">
+  <div class="ar-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,250px);gap:56px;align-items:start;">
+
+    <article style="min-width:0;">
+      {{ body }}
+
+      <div style="margin-top:56px;padding-top:30px;border-top:1px solid rgba(20,18,16,.12);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;">Questions fréquentes</div>
+        <div style="margin-top:18px;border-top:1px solid rgba(20,18,16,.12);">
+          <sc-for list="{{ faq }}" as="q" hint-placeholder-count="3">
+            <div style="border-bottom:1px solid rgba(20,18,16,.12);">
+              <button onClick="{{ q.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;font-size:16.5px;font-weight:600;color:#141210;">
+                <span>{{ q.q }}</span>
+                <span style="font-family:'Instrument Serif',serif;font-size:26px;line-height:1;color:#E4571B;transition:transform .3s;transform:rotate({{ q.rot }});">+</span>
+              </button>
+              <div style="overflow:hidden;max-height:{{ q.mh }};transition:max-height .4s ease;">
+                <p style="text-align:justify;hyphens:auto;text-align-last:start;margin:0;padding:0 0 20px;font-size:15.5px;line-height:1.6;color:#3B372F;max-width:720px;">{{ q.a }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start;margin-top:48px;padding:26px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:18px;">
+        <span style="width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;">{{ authorIni }}</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#6B655C;">Auteur</div>
+          <div style="font-weight:700;font-size:16px;margin-top:5px;">{{ authorName }}</div>
+          <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.5;color:#4A453E;margin:6px 0 0;">{{ authorBio }}</p>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;background:#0E0D0B;color:#fff;border-radius:20px;padding:clamp(28px,3.4vw,44px);position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 85% 0%,rgba(228,87,27,.25),transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F49A6A;">{{ ctaMark }}</div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3.2vw,42px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px;max-width:22ch;">{{ ctaTitle }}</h3>
+          <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:16px;line-height:1.55;color:rgba(255,255,255,.7);margin:0 0 26px;max-width:600px;">{{ ctaText }}</p>
+          <a href="rejoindre.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:#E4571B;color:#fff;font-weight:700;font-size:16px;border-radius:10px;" style-hover="background:#fff;color:#141210">Rejoindre AOI Network →</a>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:32px;padding-top:24px;border-top:1px solid rgba(20,18,16,.12);">
+        <a href="ressources.html" style="display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:15px;color:#3B372F;" style-hover="color:#E4571B"><span aria-hidden="true">←</span> Tous les guides</a>
+        <a href="{{ nextHref }}" style="display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:15px;color:#E4571B;" style-hover="color:#141210">{{ nextLabel }} <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+
+    <aside class="ar-toc" style="position:sticky;top:92px;max-height:calc(100vh - 130px);overflow-y:auto;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;padding-bottom:12px;border-bottom:1px solid rgba(20,18,16,.14);">Dans cet article</div>
+      <nav style="display:flex;flex-direction:column;margin-top:6px;">
+        <sc-for list="{{ toc }}" as="t" hint-placeholder-count="6">
+          <a href="{{ t.anchor }}" onClick="{{ t.go }}" style="padding:9px 0;font-size:13.5px;line-height:1.4;font-weight:{{ t.weight }};color:{{ t.color }};border-bottom:1px solid rgba(20,18,16,.07);" style-hover="color:#E4571B">{{ t.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="margin-top:22px;padding:20px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:16px;">
+        <div style="font-family:'Instrument Serif',serif;font-size:21px;line-height:1.1;">Adhésion gratuite.</div>
+        <p style="font-size:13.5px;line-height:1.5;color:#4A453E;margin:8px 0 14px;">Contrats types, MasterClass et réseau d'opérateurs.</p>
+        <a href="rejoindre.html" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#E4571B;" style-hover="color:#141210">Rejoindre →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section data-screen-label="Autres guides" style="max-width:1240px;margin:0 auto;padding:0 28px 90px;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;padding-bottom:16px;border-bottom:1px solid rgba(20,18,16,.14);">Autres guides</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px;margin-top:24px;">
+    <sc-for list="{{ others }}" as="o" hint-placeholder-count="3">
+      <a href="{{ o.href }}" style="display:flex;flex-direction:column;gap:10px;padding:24px 22px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:16px;color:#141210;transition:transform .3s,box-shadow .3s;" style-hover="transform:translateY(-4px);box-shadow:0 26px 50px -32px rgba(20,18,16,.4);color:#141210">
+        <span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:.1em;color:#B9B2A7;">{{ o.tag }}</span>
+        <span style="font-family:'Instrument Serif',serif;font-size:21px;line-height:1.1;">{{ o.title }}</span>
+        <span style="font-weight:700;font-size:13.5px;color:#E4571B;margin-top:auto;padding-top:8px;">Lire →</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<footer style="max-width:1240px;margin:0 auto;padding:36px 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:13px;color:#6B655C;border-top:1px solid rgba(20,18,16,.1);">
+  <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:7px;background:#E4571B;color:#fff;font-weight:800;font-size:10px;display:flex;align-items:center;justify-content:center;">AOI</span><span>© 2026 AOI Network — Alliance des Opérateurs Immobiliers</span></div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="mentions-legales.html" style="color:#6B655C;">Mentions légales</a><a href="cgv.html" style="color:#6B655C;">CGV</a><a href="ressources.html" style="color:#6B655C;">Bibliothèque</a></div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;sep-immobiliere&quot;,&quot;paiement-a-terme&quot;,&quot;division-parcellaire&quot;,&quot;alternatives-credit-bancaire&quot;,&quot;structurer-operation-sans-apport&quot;,&quot;ia-immobilier-operationnel&quot;,&quot;pourquoi-un-reseau&quot;],&quot;default&quot;:&quot;sep-immobiliere&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Article&quot;}}">
+class Component extends DCLogic {
+  state = { data: null, order: [], slug: null, open: -1, active: 0, progress: 0 };
+  componentDidMount() {
+    const slug = new URLSearchParams(location.search).get('a') || this.props.slug || 'sep-immobiliere';
+    Promise.all([import('./articles-data.js'), import('./legal-render.js')]).then(([d, r]) => {
+      this._render = r;
+      const s = d.articles[slug] ? slug : 'sep-immobiliere';
+      this.setState({ data: d.articles, order: d.order, slug: s });
+      document.title = (d.articles[s] ? d.articles[s].title : 'Guide') + ' — AOI Network';
+    });
+    this._onScroll = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => {
+        this._raf = null;
+        const doc = document.documentElement;
+        const p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, doc.scrollHeight - window.innerHeight)));
+        const hs = Array.from(document.querySelectorAll('h2[id^="sec-"]'));
+        let idx = 0;
+        hs.forEach((h, i) => { if (h.getBoundingClientRect().top <= 150) idx = i; });
+        if (Math.abs(p - this.state.progress) > 0.004 || idx !== this.state.active) this.setState({ progress: p, active: idx });
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this._onScroll); }
+  renderVals() {
+    const R = this._render, st = this.state;
+    const a = st.data && st.slug ? st.data[st.slug] : null;
+    const blocks = a ? a.blocks : [];
+    const toc = a && R ? R.tocOf(blocks) : [];
+    const others = a ? (st.order || []).filter(s => s !== st.slug).slice(0, 3).map(s => ({
+      href: 'article.html?a=' + s,
+      title: st.data[s].title,
+      tag: (st.data[s].tags || [])[0] || 'Guide',
+    })) : [];
+    const nextSlug = a && a.next ? a.next.slug : null;
+    return {
+      crumb: a ? a.crumb : '',
+      title: a ? a.title : 'Chargement…',
+      lead: a ? a.lead : '',
+      tags: a ? a.tags : [],
+      meta: a ? a.meta : [],
+      body: a && R ? R.renderBlocks(React, blocks, { idPrefix: 'sec' }) : null,
+      progress: Math.round(st.progress * 100) + '%',
+      authorIni: a && a.author ? a.author.ini : 'GR',
+      authorName: a && a.author ? a.author.name : '',
+      authorBio: a && a.author ? a.author.bio : '',
+      ctaMark: a && a.cta ? a.cta.mark : 'Passer à la pratique',
+      ctaTitle: a && a.cta ? a.cta.title : '',
+      ctaText: a && a.cta ? a.cta.text : '',
+      nextLabel: a && a.next ? a.next.label : 'Article suivant',
+      nextHref: nextSlug ? 'article.html?a=' + nextSlug : 'ressources.html',
+      others,
+      toc: toc.map((t, i) => ({
+        label: t.label, anchor: '#' + t.id,
+        weight: i === st.active ? 700 : 500,
+        color: i === st.active ? '#E4571B' : '#4A453E',
+        go: e => { e.preventDefault(); const el = document.getElementById(t.id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' }); },
+      })),
+      faq: (a ? a.faq : []).map((q, i) => {
+        const on = st.open === i;
+        return { q: q.q, a: q.a, rot: on ? '45deg' : '0deg', mh: on ? '320px' : '0px', toggle: () => this.setState({ open: on ? -1 : i }) };
+      }),
+    };
+  }
+}
+</script>
+
+<!-- ═══ Bandeau cookies ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0E0D0B;color:#fff;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.18);font-family:'Manrope',system-ui,sans-serif;font-size:.9rem;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+    <p style="flex:1;min-width:280px;margin:0;line-height:1.55;color:rgba(255,255,255,.72);">
+      Ce site utilise des cookies essentiels et, avec votre accord, des cookies de mesure d'audience.
+      <a href="/mentions-legales.html#cookies" style="color:#F49A6A;text-decoration:underline;">En savoir plus</a>
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="acceptCookies()" style="background:#E4571B;color:#fff;border:none;padding:11px 26px;border-radius:2px;font-weight:700;font-size:.85rem;font-family:inherit;cursor:pointer;letter-spacing:.01em;">Accepter</button>
+      <button onclick="refuseCookies()" style="background:transparent;color:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.22);padding:11px 26px;border-radius:2px;font-weight:600;font-size:.85rem;font-family:inherit;cursor:pointer;">Refuser</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){var c=localStorage.getItem('aoi_cookies');if(!c){var b=document.getElementById('cookieBanner');if(b)b.style.display='block';}})();
+function acceptCookies(){localStorage.setItem('aoi_cookies','accepted');document.getElementById('cookieBanner').style.display='none';if(typeof loadTrackingPixels==='function')loadTrackingPixels();}
+function refuseCookies(){localStorage.setItem('aoi_cookies','refused');document.getElementById('cookieBanner').style.display='none';}
+</script>
+
+<!-- ═══ Pixels de conversion — chargés uniquement après consentement ═══ -->
+<script>
+function loadTrackingPixels(){
+  // LinkedIn Insight Tag
+  _linkedin_partner_id="8742890";
+  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
+  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b,s);})(window.lintrk);
+
+  // Meta Pixel
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2586678501298941');
+  fbq('track','PageView');
+}
+if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
+
+<!-- ═══ Événement InitiateCheckout sur les liens d'adhésion ═══ -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="rejoindre"], a[href*="choix-abonnement"]');
+    if(link){
+      if(typeof fbq==='function') fbq('track','InitiateCheckout');
+      if(typeof lintrk==='function') lintrk('track',{conversion_id:18956748});
+    }
+  });
+})();
+</script>
+</body>
+</html>

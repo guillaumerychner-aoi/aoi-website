@@ -1,4 +1,5 @@
 {
+  "cleanUrls": false,
   "redirects": [
     {
       "source": "/accueil",
@@ -11,12 +12,102 @@
       "permanent": true
     },
     {
+      "source": "/blog",
+      "destination": "/ressources.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/",
+      "destination": "/ressources.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/index.html",
+      "destination": "/ressources.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pourquoi-un-reseau.html",
+      "destination": "/article.html?a=pourquoi-un-reseau",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pourquoi-un-reseau",
+      "destination": "/article.html?a=pourquoi-un-reseau",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sep-immobiliere.html",
+      "destination": "/article.html?a=sep-immobiliere",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sep-immobiliere",
+      "destination": "/article.html?a=sep-immobiliere",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paiement-a-terme.html",
+      "destination": "/article.html?a=paiement-a-terme",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paiement-a-terme",
+      "destination": "/article.html?a=paiement-a-terme",
+      "permanent": true
+    },
+    {
+      "source": "/blog/division-parcellaire.html",
+      "destination": "/article.html?a=division-parcellaire",
+      "permanent": true
+    },
+    {
+      "source": "/blog/division-parcellaire",
+      "destination": "/article.html?a=division-parcellaire",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alternatives-credit-bancaire.html",
+      "destination": "/article.html?a=alternatives-credit-bancaire",
+      "permanent": true
+    },
+    {
+      "source": "/blog/alternatives-credit-bancaire",
+      "destination": "/article.html?a=alternatives-credit-bancaire",
+      "permanent": true
+    },
+    {
+      "source": "/blog/structurer-operation-sans-apport.html",
+      "destination": "/article.html?a=structurer-operation-sans-apport",
+      "permanent": true
+    },
+    {
+      "source": "/blog/structurer-operation-sans-apport",
+      "destination": "/article.html?a=structurer-operation-sans-apport",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-immobilier-operationnel.html",
+      "destination": "/article.html?a=ia-immobilier-operationnel",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ia-immobilier-operationnel",
+      "destination": "/article.html?a=ia-immobilier-operationnel",
+      "permanent": true
+    },
+    {
       "source": "/choix-abonnement",
       "destination": "/rejoindre.html",
       "permanent": true
     },
     {
-      "source": "/choix-abonnement.html",
+      "source": "/ressources",
+      "destination": "/ressources.html",
+      "permanent": true
+    },
+    {
+      "source": "/rejoindre",
       "destination": "/rejoindre.html",
       "permanent": true
     }

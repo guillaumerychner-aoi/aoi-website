@@ -1,155 +1,157 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
     <title>Page introuvable — AOI Network</title>
-    <meta name="robots" content="noindex,nofollow">
+    <meta name="description" content="La page demandée n'existe pas ou a été déplacée.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://www.aoi-network.com/404.html">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600;1,9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root{
-            --ink:#0f0f0f;--cream:#FAF7F2;
-            --gray-400:#9ca3af;--gray-500:#6b7280;--gray-700:#374151;
-            --orange-300:#fdba74;--orange-400:#fb923c;--orange-500:#f97316;--orange-600:#ea580c;--orange-700:#c2410c;
-            --serif:'Fraunces',serif;--mono:'JetBrains Mono',monospace;
-        }
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;background:var(--ink);color:#fff;min-height:100vh;display:flex;flex-direction:column;line-height:1.5;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden;padding-top:40px}
-        body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 65% 45% at 50% 0%,rgba(249,115,22,.11) 0%,transparent 62%),radial-gradient(ellipse 65% 50% at 50% 100%,rgba(249,115,22,.07) 0%,transparent 70%);pointer-events:none;z-index:0}
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E4571B">
 
-        /* ── PRE-LAUNCH BANNER ── */
-        .top-bar{position:fixed;top:0;left:0;right:0;z-index:1100;height:40px;display:flex;align-items:center;justify-content:center;background:#0a0a0f;border-bottom:1px solid rgba(249,115,22,.18);overflow:hidden}
-        .top-bar::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(249,115,22,.06) 40%,rgba(249,115,22,.06) 60%,transparent 100%)}
-        .tb-inner{display:flex;align-items:center;gap:16px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center;padding:0 16px}
-        .tb-rocket{font-size:.85rem}
-        .tb-label{font-family:var(--mono);font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:rgba(255,255,255,.7)}
-        .tb-sep{color:rgba(255,255,255,.18);font-size:.8rem}
-        .tb-tag{font-family:var(--serif);font-style:italic;font-size:.85rem;color:rgba(255,255,255,.55);font-variation-settings:"opsz" 24}
-        .tb-cta{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.7rem;font-weight:500;color:var(--orange-400);text-decoration:none;padding:4px 12px;border:1px solid rgba(249,115,22,.35);border-radius:100px;transition:all .2s;white-space:nowrap;letter-spacing:.05em}
-        .tb-cta:hover{background:rgba(249,115,22,.14);border-color:rgba(249,115,22,.6);color:var(--orange-300)}
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.aoi-network.com/404.html">
+    <meta property="og:title" content="Page introuvable — AOI Network">
+    <meta property="og:description" content="La page demandée n'existe pas ou a été déplacée.">
+    <meta property="og:image" content="https://www.aoi-network.com/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="AOI Network">
 
-        /* ── LOGO en flux normal ── */
-        .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin:56px auto 0;position:relative;z-index:2;flex-shrink:0}
-        .logo-box{background:var(--orange-500);color:#fff;padding:6px 9px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:-.02em;font-size:.95rem}
-        .logo-text{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:#fff;letter-spacing:-.025em}
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Page introuvable — AOI Network">
+    <meta name="twitter:description" content="La page demandée n'existe pas ou a été déplacée.">
+    <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
 
-        /* ── MAIN ── */
-        .container{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px 60px;text-align:center;max-width:760px;margin:0 auto;width:100%}
-
-        /* Cartouche éditorial */
-        .err-mark{font-family:var(--mono);font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:#fff;margin-bottom:32px}
-        .err-mark::before{content:'§ ';color:var(--orange-400)}
-
-        /* Numéro 404 monumental */
-        .err-num{font-family:var(--serif);font-weight:700;font-size:clamp(7rem,18vw,15rem);line-height:.85;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.18);margin-bottom:8px;font-variation-settings:"opsz" 144,"SOFT" 30;user-select:none}
-
-        /* Titre principal */
-        .err-title{font-family:var(--serif);font-weight:700;font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.05;letter-spacing:-.03em;color:#fff;margin:0 0 18px;font-variation-settings:"opsz" 144,"SOFT" 30}
-        .err-title em{font-style:italic;color:var(--orange-400);font-weight:600;font-variation-settings:"opsz" 144,"SOFT" 70}
-
-        /* Sous-titre */
-        .err-deck{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.05rem,1.4vw,1.18rem);line-height:1.5;color:rgba(255,255,255,.65);max-width:540px;margin:0 0 40px;font-variation-settings:"opsz" 24}
-
-        /* CTA primary */
-        .err-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;background:#fff;color:var(--ink);font-family:'Inter',sans-serif;font-size:1rem;font-weight:600;letter-spacing:-.005em;border:1px solid #fff;border-radius:0;text-decoration:none;transition:all .2s}
-        .err-cta:hover{background:var(--orange-500);color:#fff;border-color:var(--orange-500);transform:translateY(-1px);box-shadow:0 12px 28px -8px rgba(249,115,22,.4)}
-        .err-cta svg{width:14px;height:14px;stroke-width:2.2}
-
-        /* Liens secondaires en navigation typo */
-        .err-nav{margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,.12);width:100%;max-width:640px}
-        .err-nav-mark{font-family:var(--mono);font-size:.66rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:rgba(255,255,255,.45);margin-bottom:18px;text-align:center}
-        .err-nav-list{display:flex;flex-wrap:wrap;justify-content:center;gap:24px 32px;align-items:baseline}
-        .err-nav-list a{font-family:var(--serif);font-size:1.02rem;font-weight:500;color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:-.005em;font-variation-settings:"opsz" 24;border-bottom:1px solid transparent;transition:all .2s}
-        .err-nav-list a:hover{color:var(--orange-400);border-bottom-color:var(--orange-400)}
-
-        /* Footer mini */
-        .err-foot{padding:24px;text-align:center;font-family:var(--mono);font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.05em;position:relative;z-index:1}
-        .err-foot a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-        .err-foot a:hover{color:var(--orange-400)}
-
-        @media(max-width:600px){
-            .logo{margin-top:36px}
-            .container{padding:36px 20px 40px}
-            .err-num{margin-bottom:0}
-            .err-nav-list{gap:14px 24px}
-            .err-nav-list a{font-size:.96rem}
-        }
-        @media(max-width:380px){
-            .tb-tag,.tb-sep:nth-of-type(2){display:none}
-            .top-bar{height:36px}
-            body{padding-top:36px}
-            .logo{margin-top:28px}
-        }
-    </style>
+    <!-- Vercel Analytics -->
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <!-- ══ PRE-LAUNCH BANNER ══ -->
-    <div class="top-bar">
-        <div class="tb-inner">
-            <span class="tb-rocket">🚀</span>
-            <span class="tb-label">AOI Network est en ligne&nbsp;!</span>
-            <span class="tb-sep">·</span>
-            <span class="tb-tag">Devenez Membre Fondateur — avantages permanents, places limitées</span>
-            <span class="tb-sep">·</span>
-            <a href="/rejoindre.html" class="tb-cta">Rejoindre <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5h6M5.5 2.5L8 5l-2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<x-dc>
+<helmet>
+<title>Page introuvable — AOI Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#FAF7F2;color:#141210;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+a{color:#141210;text-decoration:none}a:hover{color:#E4571B}
+*{box-sizing:border-box}
+@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wordUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
+@keyframes driftNum{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#FAF7F2;overflow-x:clip;">
+
+<div style="padding:22px 28px;">
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;">
+    <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">AOI</span>
+    <span style="font-family:'Instrument Serif',serif;font-size:22px;">Network</span>
+  </a>
+</div>
+
+<section data-screen-label="404" style="flex:1;display:flex;align-items:center;max-width:1240px;width:100%;margin:0 auto;padding:40px 28px 80px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:56px;align-items:center;width:100%;">
+    <div>
+      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;animation:riseIn .6s ease both;">Erreur 404</div>
+      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,5.2vw,76px);line-height:1.02;letter-spacing:-.03em;margin:22px 0 0;max-width:16ch;">
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:wordUp .9s cubic-bezier(.22,.61,.36,1) .1s both;">Cette page <em style="font-style:italic;color:#E4571B;">n'existe pas,</em></span></span>
+        <span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:wordUp .9s cubic-bezier(.22,.61,.36,1) .25s both;">ou plus.</span></span>
+      </h1>
+      <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:#4A453E;margin:22px 0 30px;max-width:520px;animation:riseIn .8s ease .5s both;">Le lien que vous avez suivi est cassé, déplacé, ou jamais publié. Aucun risque — voici comment retrouver votre chemin.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;animation:riseIn .8s ease .6s both;">
+        <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:#E4571B;color:#fff;font-weight:700;font-size:16px;border-radius:10px;box-shadow:0 14px 32px -12px rgba(228,87,27,.6);" style-hover="background:#141210;color:#fff">Retour à l'accueil →</a>
+        <a href="rejoindre.html" style="display:inline-flex;align-items:center;padding:16px 22px;font-weight:600;font-size:16px;color:#141210;border:1px solid rgba(20,18,16,.2);border-radius:10px;" style-hover="border-color:#141210;color:#141210">Rejoindre le réseau</a>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:28px;animation:riseIn .9s ease .35s both;">
+      <div style="font-family:'Instrument Serif',serif;font-size:clamp(120px,18vw,240px);line-height:.8;letter-spacing:-.05em;color:rgba(20,18,16,.08);animation:driftNum 7s ease-in-out infinite;user-select:none;">404</div>
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#6B655C;padding-bottom:14px;border-bottom:1px solid rgba(20,18,16,.14);">Ou explorez</div>
+        <div style="display:flex;flex-direction:column;">
+          <a href="index.html#reseau" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.09);font-size:15px;font-weight:600;" style-hover="color:#E4571B">Le réseau <span aria-hidden="true">→</span></a>
+          <a href="index.html#plateforme" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.09);font-size:15px;font-weight:600;" style-hover="color:#E4571B">La Plateforme <span aria-hidden="true">→</span></a>
+          <a href="index.html#resultats" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.09);font-size:15px;font-weight:600;" style-hover="color:#E4571B">Résultats <span aria-hidden="true">→</span></a>
+          <a href="index.html#modele" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.09);font-size:15px;font-weight:600;" style-hover="color:#E4571B">Modèle <span aria-hidden="true">→</span></a>
+          <a href="ressources.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid rgba(20,18,16,.09);font-size:15px;font-weight:600;" style-hover="color:#E4571B">Bibliothèque <span aria-hidden="true">→</span></a>
+          <a href="rejoindre.html" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;font-size:15px;font-weight:600;color:#E4571B;" style-hover="color:#141210">Rejoindre AOI <span aria-hidden="true">→</span></a>
         </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <a href="/" class="logo">
-        <div class="logo-box">AOI</div>
-        <span class="logo-text">Network</span>
-    </a>
+<footer style="max-width:1240px;margin:0 auto;width:100%;padding:24px 28px 36px;font-size:13px;color:#6B655C;">© 2026 AOI Network — <a href="mailto:contact@aoi-network.com" style="color:#6B655C;text-decoration:underline;text-underline-offset:2px;">contact@aoi-network.com</a></footer>
 
-    <main class="container">
-        <div class="err-mark">Erreur 404</div>
-        <div class="err-num">404</div>
-        <h1 class="err-title">Cette page <em>n'existe pas,</em> ou plus.</h1>
-        <p class="err-deck">Le lien que vous avez suivi est cassé, déplacé, ou jamais publié. Aucun risque — voici comment retrouver votre chemin.</p>
-        <a href="/" class="err-cta">
-            Retour à l'accueil
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240}}"></script>
 
-        <nav class="err-nav">
-            <div class="err-nav-mark">Ou explorez</div>
-            <div class="err-nav-list">
-                <a href="/#problemes">Adhésion</a>
-                <a href="/#plateforme">La Plateforme</a>
-                <a href="/#resultats">Résultats</a>
-                <a href="/#modele">Modèle</a>
-                <a href="/blog/">Blog</a>
-                <a href="/rejoindre.html">Rejoindre AOI</a>
-            </div>
-        </nav>
-    </main>
-
-    <div class="err-foot">
-        © 2026 AOI Network — <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a>
+<!-- ═══ Bandeau cookies ═══ -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0E0D0B;color:#fff;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.18);font-family:'Manrope',system-ui,sans-serif;font-size:.9rem;">
+  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
+    <p style="flex:1;min-width:280px;margin:0;line-height:1.55;color:rgba(255,255,255,.72);">
+      Ce site utilise des cookies essentiels et, avec votre accord, des cookies de mesure d'audience.
+      <a href="/mentions-legales.html#cookies" style="color:#F49A6A;text-decoration:underline;">En savoir plus</a>
+    </p>
+    <div style="display:flex;gap:10px;flex-shrink:0;">
+      <button onclick="acceptCookies()" style="background:#E4571B;color:#fff;border:none;padding:11px 26px;border-radius:2px;font-weight:700;font-size:.85rem;font-family:inherit;cursor:pointer;letter-spacing:.01em;">Accepter</button>
+      <button onclick="refuseCookies()" style="background:transparent;color:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.22);padding:11px 26px;border-radius:2px;font-weight:600;font-size:.85rem;font-family:inherit;cursor:pointer;">Refuser</button>
     </div>
+  </div>
+</div>
+<script>
+(function(){var c=localStorage.getItem('aoi_cookies');if(!c){var b=document.getElementById('cookieBanner');if(b)b.style.display='block';}})();
+function acceptCookies(){localStorage.setItem('aoi_cookies','accepted');document.getElementById('cookieBanner').style.display='none';if(typeof loadTrackingPixels==='function')loadTrackingPixels();}
+function refuseCookies(){localStorage.setItem('aoi_cookies','refused');document.getElementById('cookieBanner').style.display='none';}
+</script>
 
-    <!-- AOI Tracking Pixels — Chargés uniquement après consentement -->
-    <script>
-    function loadTrackingPixels(){
-      _linkedin_partner_id="8742890";
-      window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-      (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
-      var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
-      b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
-      s.parentNode.insertBefore(b,s);})(window.lintrk);
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init','2586678501298941');
-      fbq('track','PageView');
+<!-- ═══ Pixels de conversion — chargés uniquement après consentement ═══ -->
+<script>
+function loadTrackingPixels(){
+  // LinkedIn Insight Tag
+  _linkedin_partner_id="8742890";
+  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
+  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
+  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
+  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
+  s.parentNode.insertBefore(b,s);})(window.lintrk);
+
+  // Meta Pixel
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init','2586678501298941');
+  fbq('track','PageView');
+}
+if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
+
+<!-- ═══ Événement InitiateCheckout sur les liens d'adhésion ═══ -->
+<script>
+(function(){
+  document.addEventListener('click', function(e){
+    var link = e.target.closest('a[href*="rejoindre"], a[href*="choix-abonnement"]');
+    if(link){
+      if(typeof fbq==='function') fbq('track','InitiateCheckout');
+      if(typeof lintrk==='function') lintrk('track',{conversion_id:18956748});
     }
-    if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
+  });
+})();
+</script>
 </body>
 </html>
