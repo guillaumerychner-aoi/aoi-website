@@ -140,21 +140,38 @@ input::placeholder,textarea::placeholder{color:#A8A196}
             <label style="display:block;font-size:13px;font-weight:600;color:#141210;margin-bottom:8px;">Votre métier <span style="color:#E4571B;">*</span></label>
             <select name="metier" onChange="{{ onMetier }}" style="width:100%;padding:13px 14px;font-size:15px;color:#141210;background:#fff;border:1px solid rgba(20,18,16,.18);border-radius:10px;outline:none;" style-focus="border-color:#3B6BA5">
               <option value="">— Sélectionnez —</option>
-              <option value="architecte">Architecte</option>
-              <option value="agent_immo">Agent immobilier</option>
-              <option value="geometre">Géomètre</option>
-              <option value="bureau_etudes">Bureau d'études</option>
-              <option value="diagnostiqueur">Diagnostiqueur</option>
-              <option value="avocat">Avocat</option>
-              <option value="notaire">Notaire</option>
-              <option value="constructeur">Constructeur</option>
-              <option value="designer">Designer / Décorateur</option>
-              <option value="fournisseur">Fournisseur de matériaux</option>
-              <option value="huissier">Huissier / Commissaire de justice</option>
-              <option value="mairie">Mairie / Collectivité</option>
-              <option value="courtier_finance">Courtier finance</option>
-              <option value="courtier_assurance">Courtier assurance</option>
-              <option value="apporteur">Apporteur d'affaires</option>
+              <optgroup label="Conception & architecture">
+                <option value="architecte_hmonp">Architecte HMONP</option>
+                <option value="architecte_interieur">Architecte d'intérieur</option>
+                <option value="designer_3d">Designer 3D</option>
+                <option value="decorateur">Décorateur</option>
+                <option value="bureau_etudes">Bureau d'études</option>
+              </optgroup>
+              <optgroup label="Maîtrise d'œuvre & technique">
+                <option value="maitre_oeuvre">Maître d'œuvre</option>
+                <option value="geometre">Géomètre</option>
+                <option value="constructeur">Constructeur</option>
+                <option value="entreprise_travaux">Entreprise de travaux</option>
+                <option value="diagnostiqueur">Diagnostiqueur</option>
+              </optgroup>
+              <optgroup label="Fournisseurs">
+                <option value="fournisseur_materiaux">Fournisseur de matériaux</option>
+                <option value="fournisseur_outillages">Fournisseur d'outillages</option>
+                <option value="cuisiniste">Cuisiniste</option>
+              </optgroup>
+              <optgroup label="Commercial">
+                <option value="commercialisateur">Commercialisateur</option>
+                <option value="agent_immobilier">Agent immobilier</option>
+                <option value="apporteur_affaires">Apporteur d'affaires</option>
+              </optgroup>
+              <optgroup label="Juridique & finance">
+                <option value="notaire">Notaire</option>
+                <option value="avocat">Avocat spécialisé</option>
+                <option value="commissaire_justice">Commissaire de justice</option>
+                <option value="expert_comptable">Expert-comptable</option>
+                <option value="courtier_financement">Courtier en financement</option>
+                <option value="courtier_assurance">Courtier en assurance</option>
+              </optgroup>
               <option value="autre">Autre — précisez ci-dessous</option>
             </select>
             <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:12.5px;line-height:1.45;color:#6B655C;margin:8px 0 0;">Choisissez le plus proche, ou « Autre » pour préciser un métier non listé. Aucun métier de l'immobilier n'est exclu.</p>
@@ -219,6 +236,11 @@ input::placeholder,textarea::placeholder{color:#A8A196}
           <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;margin-top:20px;">Demande reçue</div>
           <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,3.6vw,48px);line-height:1.02;letter-spacing:-.02em;margin:12px 0 18px;">{{ successName }}<em style="color:#E4571B;">.</em></h2>
           <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:16px;line-height:1.55;color:#3B372F;margin:0 0 14px;max-width:620px;">Votre demande d'adhésion a bien été enregistrée. <strong>Vérifiez votre boîte mail</strong> — vous allez recevoir un message avec vos identifiants d'accès à l'extranet AOI Network. Pensez à regarder vos spams si vous ne voyez rien arriver.</p>
+          <sc-if value="{{ emailKo }}" hint-placeholder-val="{{ false }}">
+            <div style="background:#FBF3E4;border:1px solid #E3CDA0;border-radius:12px;padding:16px 18px;margin:0 0 14px;">
+              <p style="font-size:14.5px;line-height:1.55;color:#6B4A12;margin:0;"><strong>L'envoi de vos identifiants a échoué.</strong> Votre compte est bien créé, mais le message n'est pas parti. Définissez votre mot de passe ici : <a href="https://extranet.aoi-network.com/mot-de-passe-oublie" style="color:#9A3B10;text-decoration:underline;">réinitialiser mon mot de passe</a>. Si le problème persiste, écrivez-nous.</p>
+            </div>
+          </sc-if>
           <p style="font-size:14px;line-height:1.55;color:#6B655C;margin:0;">Une question ? Contactez-nous sur <a href="https://wa.me/33763782041" target="_blank" rel="noopener noreferrer" style="color:#E4571B;">WhatsApp</a> ou par <a href="mailto:contact@aoi-network.com" style="color:#E4571B;">email</a>.</p>
         </div>
       </sc-if>
@@ -267,7 +289,7 @@ input::placeholder,textarea::placeholder{color:#A8A196}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280},&quot;demoMode&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Formulaire&quot;}}">
 class Component extends DCLogic {
-  state = { menu: false, navNarrow: false, profile: '', metier: '', cgv: false, submitted: false, name: '', err: null, sending: false, apiError: '' };
+  state = { menu: false, navNarrow: false, profile: '', metier: '', cgv: false, submitted: false, name: '', err: null, sending: false, apiError: '', emailKo: false };
   captured = false;
   formRef = React.createRef();
   componentDidMount() {
@@ -307,6 +329,7 @@ class Component extends DCLogic {
       profile: sel,
       showForm: !this.state.submitted,
       submitted: this.state.submitted,
+      emailKo: this.state.emailKo,
       successName: this.state.name ? 'Bienvenue ' + this.state.name : 'Bienvenue dans AOI',
       isPrestataire: sel === 'prestataire',
       metierAutre: this.state.metier === 'autre',
@@ -346,6 +369,14 @@ class Component extends DCLogic {
         for (const n of ['prenom', 'nom', 'email', 'telephone', 'localisation']) {
           if (!String(fd.get(n) || '').trim()) { this.setState({ err: n }); focusField(n); return; }
         }
+        // Le métier alimente `profils` côté extranet : sans lui, le prestataire
+        // n'apparaît dans aucun filtre de l'annuaire et ne reçoit aucune consultation.
+        if (sel === 'prestataire') {
+          if (!String(fd.get('metier') || '').trim()) { this.setState({ err: 'metier' }); focusField('metier'); return; }
+          if (String(fd.get('metier') || '') === 'autre' && !String(fd.get('metier_autre') || '').trim()) {
+            this.setState({ err: 'metier_autre' }); focusField('metier_autre'); return;
+          }
+        }
         if (!this.state.cgv) {
           this.setState({ err: 'cgv' });
           const el = form.querySelector('[name="accept_cgv"]');
@@ -359,8 +390,9 @@ class Component extends DCLogic {
         if (profile_type === 'prestataire') { const m = get('metier'); activite = m === 'autre' ? get('metier_autre') : m; }
         const payload = { plan, userData: { email: get('email'), prenom: get('prenom'), nom: get('nom'), telephone: get('telephone'), societe: get('societe'), ville: get('localisation'), activite, profile_type, presentation: get('message') } };
         const prenom = payload.userData.prenom;
-        const succeed = () => {
-          this.setState({ submitted: true, sending: false, name: prenom });
+        const succeed = (emailSent) => {
+          // emailSent === false : le compte existe mais les identifiants ne sont pas partis.
+          this.setState({ submitted: true, sending: false, name: prenom, emailKo: emailSent === false });
           if (typeof fbq === 'function') fbq('track', 'CompleteRegistration');
           if (typeof lintrk === 'function') lintrk('track', { conversion_id: 18956756 });
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -375,7 +407,7 @@ class Component extends DCLogic {
           .then(r => r.json().catch(() => ({})).then(j => ({ ok: r.ok, j })))
           .then(({ ok, j }) => {
             if (ok && j && j.success) {
-              succeed();
+              succeed(j.emailSent);
             } else if (j && j.error) {
               this.setState({ sending: false, err: 'api', apiError: j.error });
             } else {
