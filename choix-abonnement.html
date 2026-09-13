@@ -118,6 +118,15 @@ class Component extends DCLogic {
 </script>
 
 <!-- ═══ Bandeau cookies ═══ -->
+<style>
+@media (max-width:640px){
+  #cookieBanner{padding:13px 16px !important;font-size:.83rem !important;}
+  #cookieBanner p{line-height:1.45 !important;}
+  #cookieBanner > div{gap:11px !important;}
+  #cookieBanner > div > div{width:100%;display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;}
+  #cookieBanner button{width:100%;padding:12px 8px !important;justify-content:center;}
+}
+</style>
 <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0E0D0B;color:#fff;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.18);font-family:'Manrope',system-ui,sans-serif;font-size:.9rem;">
   <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
     <p style="flex:1;min-width:280px;margin:0;line-height:1.55;color:rgba(255,255,255,.72);">
