@@ -1,5 +1,29 @@
 # Visuels de la scène AOI
 
+## Couvertures des guides 14 à 21
+
+Huit couvertures originales, générées avec l’outil intégré `imagegen` à partir
+des références de la collection fournies. Elles reprennent les objets en métal
+graphite, les lignes gravées et les accents lumineux orange sur fond noir.
+Chaque visuel mesure 1672 × 941 pixels. Les originaux ont été encodés en WebP
+qualité 88, sans changement de composition, pour les cartes et les pages d’article.
+
+Les scènes sont des métaphores éditoriales du sujet du guide, pas des schémas
+techniques ou juridiques. Les consignes conservées figurent dans
+`aoi-guide-prompts.json` : résumé des briefs pour les guides 14 et 15,
+consignes finales pour les guides 16 à 21.
+
+| Fichier | Sujet |
+| --- | --- |
+| `blog-contrats-construction-ccmi-tce.webp` | Trois types de contrats et de constructions |
+| `blog-deux-notaires-vente-immobiliere.webp` | Deux notaires autour d’un même contrat |
+| `blog-tva-mixte-comptabilite-lot-par-lot.webp` | Lots distincts d’une opération et pièces comptables |
+| `blog-plans-principe-execution.webp` | Du plan au bâtiment |
+| `blog-qui-mandate-qui-operation-immobiliere.webp` | Contrats et métiers autour d’une opération |
+| `blog-vendre-a-un-marchand-de-biens.webp` | Vente et projet de transformation |
+| `blog-sous-traitance-obligations-operateur.webp` | Chaîne des intervenants du chantier |
+| `blog-etude-sol-g1-g2.webp` | Reconnaissance du sol sous une construction |
+
 ## Illustration de la bibliothèque
 
 `aoi-ressources-collaboration.webp` accompagne le guide à la une de `ressources.html`.

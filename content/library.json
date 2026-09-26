@@ -1,0 +1,246 @@
+{
+  "legacyOrder": [
+    "sep-immobiliere",
+    "paiement-a-terme",
+    "division-parcellaire",
+    "alternatives-credit-bancaire",
+    "structurer-operation-sans-apport",
+    "ia-immobilier-operationnel",
+    "pourquoi-un-reseau",
+    "choisir-structure-juridique-operation",
+    "securiser-promesse-de-vente",
+    "purger-permis-de-construire",
+    "assurances-operation-immobiliere",
+    "repondre-appel-offres-prive",
+    "tva-marchand-de-biens",
+    "dpe-passoires-operateur"
+  ],
+  "legacyCards": [
+    {
+      "number": "N° 01",
+      "title": "SEP immobilière : qu'est-ce que c'est et pourquoi l'utiliser en 2026 ?",
+      "description": "La Société en Participation permet à des opérateurs de s'associer sur une opération sans créer de structure juridique. Souplesse, discrétion, fiscalité transparente.",
+      "date": "Février 2026",
+      "tags": [
+        "SEP",
+        "Structuration"
+      ],
+      "image": "assets/blog-sep.jpg",
+      "href": "article.html?a=sep-immobiliere",
+      "slug": "sep-immobiliere"
+    },
+    {
+      "number": "N° 02",
+      "title": "Paiement à terme : acquérir sans banque ni financement externe",
+      "description": "Comment acheter, transformer et revendre un bien immobilier sans crédit bancaire, sans frais financiers et sans mobiliser de trésorerie. Réservé aux professionnels.",
+      "date": "Février 2026",
+      "tags": [
+        "Financement",
+        "MdB"
+      ],
+      "image": "assets/blog-pat.jpg",
+      "href": "article.html?a=paiement-a-terme",
+      "slug": "paiement-a-terme"
+    },
+    {
+      "number": "N° 03",
+      "title": "Division parcellaire : les 3 autorisations d'urbanisme à connaître",
+      "description": "Déclaration préalable, permis d'aménager ou PCVD ? Quand utiliser chaque autorisation, les délais, et les pièges à éviter.",
+      "date": "Février 2026",
+      "tags": [
+        "Urbanisme",
+        "MdB"
+      ],
+      "image": "assets/blog-division.jpg",
+      "href": "article.html?a=division-parcellaire",
+      "slug": "division-parcellaire"
+    },
+    {
+      "number": "N° 04",
+      "title": "Marchand de biens : 5 alternatives au crédit bancaire en 2026",
+      "description": "SEP, paiement à terme, co-production, crowdfunding, portage foncier — panorama complet des solutions de financement hors circuit bancaire.",
+      "date": "Février 2026",
+      "tags": [
+        "Financement",
+        "Stratégie"
+      ],
+      "image": "assets/blog-alternatives.jpg",
+      "href": "article.html?a=alternatives-credit-bancaire",
+      "slug": "alternatives-credit-bancaire"
+    },
+    {
+      "number": "N° 05",
+      "title": "Comment structurer une opération immobilière sans apport personnel",
+      "description": "Refus bancaire, fonds propres insuffisants, passif bancaire — les principes pour monter une opération rentable malgré ces obstacles.",
+      "date": "Février 2026",
+      "tags": [
+        "Stratégie",
+        "SEP"
+      ],
+      "image": "assets/blog-sans-apport.jpg",
+      "href": "article.html?a=structurer-operation-sans-apport",
+      "slug": "structurer-operation-sans-apport"
+    },
+    {
+      "number": "N° 06",
+      "title": "IA et immobilier opérationnel : pourquoi c'est indispensable en 2026",
+      "description": "DVF, PLU, Cadastre, DPE en temps réel — comment l'IA détecte ce que l'opérateur n'a pas vu, avant qu'il s'engage.",
+      "date": "Mars 2026",
+      "tags": [
+        "IA",
+        "MdB"
+      ],
+      "image": "assets/blog-ia.jpg",
+      "href": "article.html?a=ia-immobilier-operationnel",
+      "slug": "ia-immobilier-operationnel"
+    },
+    {
+      "number": "N° 07",
+      "title": "SEP, SCCV, SAS, SCI : quelle structure pour votre opération ?",
+      "description": "SEP, SCCV, SAS ou SCI : le choix se fait avant la promesse, pas à la revente. Responsabilité, fiscalité, TVA — ce que chaque forme implique réellement.",
+      "date": "Mars 2026",
+      "tags": [
+        "Structuration",
+        "Juridique"
+      ],
+      "image": "assets/blog-structure.jpg",
+      "href": "article.html?a=choisir-structure-juridique-operation",
+      "slug": "choisir-structure-juridique-operation"
+    },
+    {
+      "number": "N° 08",
+      "title": "Promesse ou compromis : sécuriser l'avant-contrat d'une opération",
+      "description": "Enregistrement sous dix jours, indemnité d'immobilisation, clause de substitution, conditions suspensives utiles : sécuriser l'avant-contrat d'une opération.",
+      "date": "Avril 2026",
+      "tags": [
+        "Acquisition",
+        "Juridique"
+      ],
+      "image": "assets/blog-promesse.jpg",
+      "href": "article.html?a=securiser-promesse-de-vente",
+      "slug": "securiser-promesse-de-vente"
+    },
+    {
+      "number": "N° 09",
+      "title": "Purger un permis de construire : les trois horloges à surveiller",
+      "description": "Recours des tiers, retrait administratif, contrôle de légalité : trois délais distincts, et une réforme de fin 2025 que beaucoup ignorent encore.",
+      "date": "Mai 2026",
+      "tags": [
+        "Urbanisme",
+        "Juridique"
+      ],
+      "image": "assets/blog-permis.jpg",
+      "href": "article.html?a=purger-permis-de-construire",
+      "slug": "purger-permis-de-construire"
+    },
+    {
+      "number": "N° 10",
+      "title": "DO, décennale, TRC : qui assure quoi sur une opération",
+      "description": "Dommages-ouvrage, décennale, tous risques chantier : qui souscrit quoi, à quel moment, et les cinq points à vérifier sur une attestation.",
+      "date": "Juin 2026",
+      "tags": [
+        "Assurance",
+        "Travaux"
+      ],
+      "image": "assets/blog-assurances.jpg",
+      "href": "article.html?a=assurances-operation-immobiliere",
+      "slug": "assurances-operation-immobiliere"
+    },
+    {
+      "number": "N° 11",
+      "title": "Répondre à un appel d'offres privé : ce que l'opérateur regarde vraiment",
+      "description": "Ce qu'un opérateur regarde vraiment dans une offre, l'anatomie d'une réponse qui passe, et les six erreurs qui éliminent d'emblée.",
+      "date": "Juillet 2026",
+      "tags": [
+        "Prestataires",
+        "Méthode"
+      ],
+      "image": "assets/blog-appel-offres.jpg",
+      "href": "article.html?a=repondre-appel-offres-prive",
+      "slug": "repondre-appel-offres-prive"
+    },
+    {
+      "number": "N° 12",
+      "title": "TVA du marchand de biens : le régime se décide à l'achat",
+      "description": "Marge ou prix total : la condition d'identité, le piège du terrain détaché, et la recodification entrée en vigueur au 1er septembre 2026.",
+      "date": "Août 2026",
+      "tags": [
+        "Fiscalité",
+        "MdB"
+      ],
+      "image": "assets/blog-tva.jpg",
+      "href": "article.html?a=tva-marchand-de-biens",
+      "slug": "tva-marchand-de-biens"
+    },
+    {
+      "number": "N° 13",
+      "title": "Passoires thermiques : l'état de la règle, et ce qu'elle change pour un opérateur",
+      "description": "Calendrier en vigueur, réforme du calcul de janvier 2026, projet de loi en cours d'examen : l'état de la règle et sa lecture opérationnelle.",
+      "date": "Septembre 2026",
+      "tags": [
+        "Rénovation",
+        "Stratégie"
+      ],
+      "image": "assets/blog-dpe.jpg",
+      "href": "article.html?a=dpe-passoires-operateur",
+      "slug": "dpe-passoires-operateur"
+    }
+  ],
+  "newGuides": [
+    "contrats-construction-ccmi-tce",
+    "deux-notaires-vente-immobiliere",
+    "tva-mixte-comptabilite-lot-par-lot",
+    "plans-principe-execution",
+    "qui-mandate-qui-operation-immobiliere",
+    "vendre-a-un-marchand-de-biens",
+    "sous-traitance-obligations-operateur",
+    "etude-sol-g1-g2"
+  ],
+  "related": {
+    "assurances-operation-immobiliere": [
+      "contrats-construction-ccmi-tce",
+      "sous-traitance-obligations-operateur",
+      "qui-mandate-qui-operation-immobiliere"
+    ],
+    "securiser-promesse-de-vente": [
+      "deux-notaires-vente-immobiliere",
+      "vendre-a-un-marchand-de-biens",
+      "paiement-a-terme"
+    ],
+    "tva-marchand-de-biens": [
+      "tva-mixte-comptabilite-lot-par-lot",
+      "division-parcellaire",
+      "choisir-structure-juridique-operation"
+    ],
+    "division-parcellaire": [
+      "etude-sol-g1-g2",
+      "plans-principe-execution",
+      "vendre-a-un-marchand-de-biens"
+    ],
+    "choisir-structure-juridique-operation": [
+      "qui-mandate-qui-operation-immobiliere",
+      "contrats-construction-ccmi-tce",
+      "tva-mixte-comptabilite-lot-par-lot"
+    ],
+    "repondre-appel-offres-prive": [
+      "sous-traitance-obligations-operateur",
+      "plans-principe-execution",
+      "qui-mandate-qui-operation-immobiliere"
+    ],
+    "dpe-passoires-operateur": [
+      "plans-principe-execution",
+      "contrats-construction-ccmi-tce",
+      "etude-sol-g1-g2"
+    ],
+    "paiement-a-terme": [
+      "vendre-a-un-marchand-de-biens",
+      "deux-notaires-vente-immobiliere",
+      "securiser-promesse-de-vente"
+    ],
+    "purger-permis-de-construire": [
+      "plans-principe-execution",
+      "vendre-a-un-marchand-de-biens",
+      "etude-sol-g1-g2"
+    ]
+  }
+}

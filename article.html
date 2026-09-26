@@ -37,6 +37,7 @@
       import { index } from './articles-index.js';
       const q = new URLSearchParams(location.search).get('a') || 'sep-immobiliere';
       const s = index[q] ? q : 'sep-immobiliere';
+      if (index[s].href?.startsWith('guides/')) location.replace(index[s].href + location.hash);
       import('./articles/' + s + '.js').then(({ article: a }) => {
         if (!a) return;
         document.title = a.title + ' — AOI Network';
@@ -48,7 +49,7 @@
         set('meta[name="twitter:description"]', 'content', d);
         set('meta[property="og:title"]', 'content', a.title);
         set('meta[name="twitter:title"]', 'content', a.title);
-        set('link[rel="canonical"]', 'href', 'https://www.aoi-network.com/article.html?a=' + s);
+        set('link[rel="canonical"]', 'href', 'https://www.aoi-network.com/' + (index[s].href || 'article.html?a=' + s));
       }).catch(() => {});
     </script>
 
@@ -92,7 +93,7 @@ class Component extends DCLogic {
       const s = ix.index[slug] ? slug : 'sep-immobiliere';
       return import('./articles/' + s + '.js').then(mod => {
         // L'index fournit titre et tags des autres guides ; seul le guide affiché est chargé en entier.
-        const data = Object.assign({}, ix.index, { [s]: mod.article });
+        const data = Object.assign({}, ix.index, { [s]: Object.assign({}, ix.index[s], mod.article) });
         this.setState({ data: data, order: ix.order, slug: s });
         document.title = mod.article.title + ' — AOI Network';
       });
@@ -117,8 +118,8 @@ class Component extends DCLogic {
     const a = st.data && st.slug ? st.data[st.slug] : null;
     const blocks = a ? a.blocks : [];
     const toc = a && R ? R.tocOf(blocks) : [];
-    const others = a ? (st.order || []).filter(s => s !== st.slug).slice(0, 3).map(s => ({
-      href: 'article.html?a=' + s,
+    const others = a ? (a.related || st.order || []).filter(s => s !== st.slug).slice(0, 3).map(s => ({
+      href: st.data[s].href || 'article.html?a=' + s,
       tocOpen: !window.matchMedia('(max-width:960px)').matches,
       title: st.data[s].title,
       tag: (st.data[s].tags || [])[0] || 'Guide',
@@ -146,7 +147,7 @@ class Component extends DCLogic {
       ctaTitle: a && a.cta ? a.cta.title : '',
       ctaText: a && a.cta ? a.cta.text : '',
       nextLabel: a && a.next ? a.next.label : 'Article suivant',
-      nextHref: nextSlug ? 'article.html?a=' + nextSlug : 'ressources.html',
+      nextHref: nextSlug ? (st.data[nextSlug]?.href || 'article.html?a=' + nextSlug) : 'ressources.html',
       others,
       toc: toc.map((t, i) => ({
         label: t.label, anchor: '#' + t.id,

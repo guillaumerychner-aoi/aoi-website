@@ -89,7 +89,7 @@
 .success-card p:not(.eyebrow){font-size:15px;line-height:1.9;color:#617058;margin:23px 0}
 .success-card>.text-link{display:flex;margin-top:25px}
 
-/* Library: the existing fourteen guides, now in one visual family. */
+/* Library: featured article and guide collection. */
 .featured-guide{display:grid;grid-template-columns:1.12fr 1fr;background:#eaece2;border:1px solid #d5d9cb;border-radius:8px;overflow:hidden}
 .featured-visual{position:relative;min-height:480px;overflow:hidden}
 .featured-visual>img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
@@ -279,3 +279,28 @@
 @media print{.reader-sidebar,.reading-progress,.page-invitation,.article-invitation,.related-guides,.document-actions{display:none!important}.aoi-inner .page-hero{background:white;color:#111;padding:20px 0}.aoi-inner .page-title{font-size:40px}.page-lead,.page-title em{color:#333}.reader-layout{display:block}.legal-content{padding:0;border:0}.prose h2{break-after:avoid}.prose-table,.prose-box{break-inside:avoid}.page-section{padding:20px 0}}
 
 .prose #cookies{scroll-margin-top:112px}
+
+/* Guides 14–21 : covers and complete, progressively enhanced HTML articles. */
+.page-ressources .guide-image{aspect-ratio:16/9;filter:none;background:#0b0d10}
+.guide-image>img{display:block;width:100%;height:100%;object-fit:cover}
+.guide-new{position:absolute;right:16px;top:17px;padding:4px 9px;border-radius:2px;background:#e8c3a0;color:#342716;font-size:10px;font-weight:700;letter-spacing:.03em}
+.guide-hero-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:center}
+.page-guide .article-hero .page-title{font-size:clamp(39px,4.2vw,60px);line-height:1.08}
+.page-guide .article-hero .page-lead{font-size:15px;line-height:1.85;margin-top:26px}
+.guide-hero-visual{margin:0;border:1px solid #d2dcc21f;border-radius:6px;overflow:hidden;background:#0b0d10}
+.guide-hero-visual img{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
+.page-guide .article-meta a{text-decoration:underline;text-underline-offset:4px}
+.page-guide .reader-toc a[aria-current=location]{font-weight:700;color:#a75b30}
+.page-guide .prose h2[id]{scroll-margin-top:16px}
+.guide-notice{padding:21px 24px;border:1px solid #d6d8c9;border-left:3px solid #b38a5f;border-radius:4px;background:#eeeee3;margin-bottom:33px}
+.guide-notice>strong{display:block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:#826747;margin-bottom:9px}
+.guide-notice p{font-size:12px;line-height:1.9;color:#64705b;margin:0}
+.guide-warning{font-size:11px;line-height:1.85;color:#697360;margin:24px 0;overflow-wrap:anywhere}
+.page-guide .prose table{min-width:660px}
+.page-guide .prose tbody th{font-size:13px;letter-spacing:normal;background:#f0f2e9;font-weight:600}
+.page-guide .prose-rows>div{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:24px}
+.page-guide .prose-rows>div>strong{white-space:normal;text-align:left}
+.page-guide #auteur{scroll-margin-top:112px}
+@media(max-width:960px){.guide-hero-layout{grid-template-columns:1fr;gap:30px}.guide-hero-visual{max-width:720px}.page-guide .article-hero .page-title{max-width:850px;font-size:clamp(38px,5.8vw,56px)}.page-guide .reader-sidebar{position:static}}
+@media(max-width:600px){.page-guide .article-hero .page-title{font-size:37px}.page-guide .article-hero .page-lead{font-size:14px;line-height:1.85;margin-top:21px}.guide-hero-layout{gap:25px}.guide-notice{padding:18px;margin-bottom:27px}.guide-notice p{font-size:11px}.page-guide .prose-rows>div{grid-template-columns:1fr;gap:5px;font-size:13px}.page-guide .article-meta{line-height:1.8}.guide-warning{font-size:11px}.guide-new{right:14px}}
+@media print{.guide-hero-layout{display:block}.guide-hero-visual{max-width:440px;margin-top:20px}.page-guide .article-meta{color:#333}.guide-notice{break-inside:avoid}.page-guide .prose table{min-width:0}.page-guide .guide-warning{color:#333}}
