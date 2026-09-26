@@ -1,5 +1,19 @@
 # Visuels de la scène AOI
 
+## Illustration de la bibliothèque
+
+`aoi-ressources-collaboration.webp` accompagne le guide à la une de `ressources.html`.
+Photographie illustrative générée avec l’outil intégré `imagegen`, 1536 × 1024 pixels,
+puis encodée en WebP sans changement de composition. Elle représente des personnes
+fictives travaillant sur des plans ; ce n’est pas une photographie d’une réunion AOI.
+L’ancienne photo de Normandie reste utilisée par la fiche opération illustrative.
+
+Consigne de génération :
+
+Use case: photorealistic-natural. Asset: one premium editorial photograph for the featured guide of AOI Network, a French real-estate professionals' knowledge library. Article theme: good property projects are built together. Create a genuinely photographic overhead view of a shared working table where three professionals are calmly studying the same property project. Only three natural human hands and forearms enter from different edges, no faces: one with a cream linen sleeve rests on a closed forest-green dossier, one in a charcoal-green overshirt lightly points with an ordinary graphite pencil at the central plan, one in a pale blue cotton shirt rests near an open notebook. Anatomically correct relaxed hands, normal fingers, no handshakes or stacked hands. Centerpiece: one large off-white architectural floor plan with restrained fine graphite lines, accompanied by a small tidy stack of cream working documents and a plain open notebook. These are illustrative working papers, no legible words, logos, brands, numbers or invented typography anywhere. Desk surface: subtly textured warm pale limestone or matte ivory wood. Deep forest-green folder, one slim brushed-copper pencil and muted natural stationery accents. Minimal but lived-in, a few slight paper curls and pencil marks. The composition should immediately convey shared knowledge, practical methods and collaboration; calm, professional and warm. True 90-degree overhead documentary still-life photography, natural soft side window light, delicate realistic shadows, tactile paper and textile detail, sophisticated architectural magazine art direction, no CGI look, no gloss, no stock-photo business clichés, no laptop, no coffee cups, no models of houses, no city skyline, no diagram overlay, no text overlay, no watermark. Landscape 3:2 composition with the shared plan and all important gestures inside the central 70 percent, safely crop-able to a 5:4 desktop card and a wide mobile card. Restrained warm ivory #f5f3ed, deep green #111715 and copper #b46b3b palette, softly desaturated but luminous. Output one full photographic image at high resolution.
+
+## Visuels de l’accueil
+
 Ces quatre visuels ont été créés avec l’outil intégré de génération d’images (`imagegen`), puis encodés en WebP pour la page. Les PNG originaux n’ont pas été retouchés pour cette conversion. Aucune API externe ni clé utilisateur n’a été utilisée.
 
 Ce sont des illustrations : les personnages ne sont pas des membres réels d’AOI et l’immeuble ne représente pas une opération du réseau.

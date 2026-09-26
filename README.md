@@ -36,6 +36,8 @@ cette livraison.
   prestataires et partenaires réunis, rappel des conditions avant le consentement.
   Le métier sélectionné déclenche une confirmation d’exemption lorsqu’il est concerné.
 - **Bibliothèque** : une lecture à la une et 13 autres guides, soit 14 au total.
+  Une illustration dédiée de travail collectif sur des plans accompagne le guide
+  « Les bons projets se construisent à plusieurs ».
 - **Guides** : nouvelle typographie, sommaire, progression de lecture, tableaux
   défilables sur mobile et FAQ accessibles. Les promesses de vérification des opérations,
   des membres et des missions ont été corrigées dans trois guides pour correspondre aux CGV.

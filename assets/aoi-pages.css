@@ -92,7 +92,7 @@
 /* Library: the existing fourteen guides, now in one visual family. */
 .featured-guide{display:grid;grid-template-columns:1.12fr 1fr;background:#eaece2;border:1px solid #d5d9cb;border-radius:8px;overflow:hidden}
 .featured-visual{position:relative;min-height:480px;overflow:hidden}
-.featured-visual>img{width:100%;height:100%;object-fit:cover;filter:saturate(.72);transition:transform .6s var(--ease)}
+.featured-visual>img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
 .featured-guide:hover .featured-visual>img{transform:scale(1.025)}
 .image-tag{position:absolute;left:25px;top:25px;background:var(--paper);padding:6px 12px;border-radius:3px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
 .featured-copy{padding:45px 42px;display:flex;flex-direction:column;align-items:flex-start}
