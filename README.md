@@ -26,15 +26,19 @@ cette livraison.
 
 ## Ce qui a changé
 
-- **Accueil** : précision de l’exemption dans le parcours prestataires/partenaires,
+- **Accueil** : accès direct à l’adhésion dès le premier écran, bénéfices concrets par profil,
+  expression « place de marché » dans la présentation de l’extranet, bouton d’inscription
+  dans les démonstrations et précision de l’exemption dans le parcours prestataires/partenaires,
   les commissions et la FAQ. L’animation au scroll, les trois profils visibles,
   les deux cartes de démonstration et la présentation des tarifs sont conservés.
-- **Rejoindre** : formulaire en trois étapes visuelles, choix de profil explicite,
+- **Rejoindre** : titre et explication adaptés au profil choisi ; création du compte
+  annoncée avant la présentation ou la consultation des projets. Formulaire en trois étapes visuelles, choix de profil explicite,
   prestataires et partenaires réunis, rappel des conditions avant le consentement.
   Le métier sélectionné déclenche une confirmation d’exemption lorsqu’il est concerné.
 - **Bibliothèque** : une lecture à la une et 13 autres guides, soit 14 au total.
 - **Guides** : nouvelle typographie, sommaire, progression de lecture, tableaux
-  défilables sur mobile et FAQ accessibles.
+  défilables sur mobile et FAQ accessibles. Les promesses de vérification des opérations,
+  des membres et des missions ont été corrigées dans trois guides pour correspondre aux CGV.
 - **CGV et mentions légales** : nouvelle mise en page de lecture avec sommaire.
 - **Adhésion, opération, démo IA et page 404** : nouvelles compositions adaptées
   au mobile, navigation et pied de page communs.
@@ -124,7 +128,8 @@ Les vérifications couvrent le rendu sur ordinateur et mobile, les parcours de
 navigation, les documents, les guides et les données envoyées par les trois
 profils du formulaire avec des réponses API simulées. Aucune inscription réelle
 n’a été envoyée ; l’API de production et les paiements n’ont pas été testés.
-Le texte des 14 guides est inchangé et le nouveau fichier légal est intact.
+Les 14 guides sont conservés. Trois guides comportent des corrections ciblées des
+  promesses commerciales ; les 11 autres modules sont inchangés. Le fichier légal est intact.
 
 ## Ajouter ou modifier un guide
 

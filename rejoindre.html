@@ -46,7 +46,7 @@
   <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="index.html#reseau">Le réseau</a><a href="index.html#rejoindre">Votre place</a><a href="index.html#plateforme">La plateforme</a><a href="index.html#origine">Notre histoire</a><a href="index.html#modele">Le modèle</a><a href="ressources.html">Ressources</a><a href="https://extranet.aoi-network.com/login">Espace membres ↗</a><a class="mobile-join" href="rejoindre.html">Rejoindre gratuitement →</a></nav>
 </header>
 <main id="contenu"><x-dc>
-<section class="page-hero section-dark join-hero" id="top"><div class="wrap"><p class="eyebrow copper">Votre place dans le réseau</p><h1 class="page-title">La prochaine rencontre<br> <em>commence avec vous.</em></h1><div class="hero-bottom"><p class="page-lead">Un projet, une expertise, une envie de vous associer.<br> Présentez-vous, nous faisons le lien.</p><span class="hero-free"><strong>0 €</strong><span>Adhésion gratuite<br> Sans engagement</span></span></div></div></section>
+<section class="page-hero section-dark join-hero" id="top"><div class="wrap"><p class="eyebrow copper">{{ joinEyebrow }}</p><h1 class="page-title">{{ joinTitle }}<br> <em>{{ joinEmphasis }}</em></h1><div class="hero-bottom"><p class="page-lead">{{ joinLead }}</p><span class="hero-free"><strong>0 €</strong><span>Adhésion gratuite<br> Sans engagement</span></span></div></div></section>
 <section class="page-section"><div class="wrap join-layout">
   <div class="join-main">
     <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
@@ -143,6 +143,12 @@ class Component extends DCLogic {
   renderVals() {
     const sel = this.state.profile;
     const err = this.state.err;
+    const journey = ({
+      operateur: {joinEyebrow:'Votre parcours opérateur', joinTitle:'Votre projet.', joinEmphasis:'Les bonnes rencontres.', joinLead:'Créez votre compte gratuit, puis présentez vos besoins depuis votre espace membre pour rencontrer les professionnels ou associés utiles à votre opération.'},
+      co_operateur: {joinEyebrow:'Votre parcours co-opérateur', joinTitle:'Des projets à découvrir.', joinEmphasis:'Un compte pour commencer.', joinLead:'Créez votre compte gratuit, puis consultez les dossiers partagés par les membres et échangez avec leurs porteurs depuis votre espace membre.'},
+      prestataire: {joinEyebrow:'Votre parcours prestataire & partenaire', joinTitle:'Votre savoir-faire.', joinEmphasis:'Visible dans le réseau.', joinLead:'Créez votre compte gratuit, puis complétez votre profil métier pour présenter votre activité et répondre aux consultations du réseau.'}
+    })[sel] || {joinEyebrow:'Votre place dans le réseau', joinTitle:'La prochaine rencontre', joinEmphasis:'commence avec vous.', joinLead:'Créez votre compte gratuit pour présenter vos projets, proposer vos compétences ou découvrir les dossiers partagés par les membres.'};
+
     const defs = [
       ['operateur', "Je porte un projet", 'Opérateur : marchand de biens, promoteur, lotisseur ou aménageur.'],
       ['co_operateur', "Je souhaite m’associer", 'Co-opérateur : vous étudiez les dossiers et échangez avec leurs porteurs.'],
@@ -158,6 +164,7 @@ class Component extends DCLogic {
       deskDisp: this.state.navNarrow ? 'none' : 'flex',
       panelDisp: this.state.navNarrow ? 'block' : 'none',
       formRef: this.formRef,
+      ...journey,
       profile: sel, metier: this.state.metier, showWelcomeEmail: !this.state.emailKo,
       showForm: !this.state.submitted,
       submitted: this.state.submitted,

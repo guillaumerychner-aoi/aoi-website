@@ -205,3 +205,25 @@
 /* Commission exemptions are visible at each relevant entry. */
 .profile-exemption{font-size:12px;line-height:1.75;color:#57654e;margin:0 0 22px}.profile-exemption a,.commission-exempt a{text-decoration:underline;text-underline-offset:3px}.commission-exempt p{font-size:13px}.commission-basis{min-height:69px}
 @media(max-width:700px){.commission-exempt p{font-size:12px}.commission-basis{min-height:0}}
+
+/* Conversion: an immediate, explicit entry before the scroll story. */
+.film-intro{max-width:680px;margin-inline:auto}
+.film-hero-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:24px}
+.film-hero-actions .button{min-height:52px;font-size:14px;padding:14px 24px}
+.hero-access{font-size:12px;line-height:1.5;color:#b5c0af}
+.demo-conversion-actions{display:flex;align-items:center;gap:12px}
+.demo-conversion-actions .button{min-height:49px;font-size:12px;padding:12px 16px;gap:16px}
+.demo-viewer-note{font-size:11px}
+@media(max-width:700px){
+ .film-intro{max-width:355px}
+ .film-hero-actions{margin-top:21px;gap:11px}
+ .film-hero-actions .button{font-size:13px;min-height:51px;padding:13px 20px}
+ .hero-access{font-size:11px}
+ .demo-viewer-footer{gap:14px}
+ .demo-conversion-actions{flex-direction:column;align-items:stretch;gap:10px;order:-1}
+ .demo-conversion-actions .button{width:100%;justify-content:space-between;min-height:46px;font-size:12px}
+ .demo-conversion-actions .demo-join{order:-1}
+ .demo-conversion-actions .demo-next{order:0}
+ .demo-screen{max-height:max(130px,calc(100dvh - 355px))}
+ .demo-viewer-note{font-size:10px;line-height:1.6}
+}
