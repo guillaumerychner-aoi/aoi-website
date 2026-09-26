@@ -175,6 +175,11 @@ input::placeholder,textarea::placeholder{color:#A8A196}
               <option value="autre">Autre — précisez ci-dessous</option>
             </select>
             <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:12.5px;line-height:1.45;color:#6B655C;margin:8px 0 0;">Choisissez le plus proche, ou « Autre » pour préciser un métier non listé. Aucun métier de l'immobilier n'est exclu.</p>
+            <sc-if value="{{ isReglementee }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:14px;padding:13px 15px;background:rgba(30,107,75,.06);border:1px solid rgba(30,107,75,.25);border-radius:10px;animation:riseIn .35s ease both;">
+                <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:13px;line-height:1.5;color:#1E4D38;margin:0;"><strong>Profession réglementée :</strong> votre participation au réseau est entièrement gratuite, y compris lorsque vous êtes retenu sur une mission. Vos honoraires sont fixés selon les règles de votre profession et restent intégralement les vôtres.</p>
+              </div>
+            </sc-if>
             <sc-if value="{{ metierAutre }}" hint-placeholder-val="{{ false }}">
               <div style="margin-top:16px;animation:riseIn .35s ease both;">
                 <label style="display:block;font-size:13px;font-weight:600;color:#141210;margin-bottom:8px;">Précisez votre métier <span style="color:#E4571B;">*</span></label>
@@ -333,6 +338,8 @@ class Component extends DCLogic {
       successName: this.state.name ? 'Bienvenue ' + this.state.name : 'Bienvenue dans AOI',
       isPrestataire: sel === 'prestataire',
       metierAutre: this.state.metier === 'autre',
+      // Métiers exonérés de commission (Article 6 des CGV) — liste alignée sur NON_COMMISSIONABLE_CATEGORIES de l'extranet
+      isReglementee: ['notaire', 'avocat', 'expert_comptable', 'commissaire_justice'].includes(this.state.metier),
       onMetier: e => this.setState({ metier: e.target.value }),
       onCgv: e => this.setState({ cgv: e.target.checked, err: null }),
       clearErr: () => { if (this.state.err) this.setState({ err: null }); },
