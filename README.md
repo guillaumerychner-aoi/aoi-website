@@ -1,193 +1,139 @@
 # AOI Network — site vitrine
 
-Site statique, sans build et sans dépendance npm. Déploiement Vercel sur `www.aoi-network.com`.
+Refonte complète · Septembre 2026 · CGV v5.4
 
-Cette version est la refonte graphique de septembre 2026, réintégrée avec les éléments
-de production de l'ancien site (SEO, favicons, consentement cookies, pixels, redirections).
+Site statique en français, sans compilation. Les 12 pages HTML et le gabarit des
+14 guides reprennent la charte de l’accueil : vert profond, crème, cuivre,
+Instrument Serif et Manrope. Les polices sont hébergées dans le dépôt.
 
----
+## Installer avec GitHub Desktop
 
-## Arborescence
+1. Décompresser `AOI-Network-Repo-Complet.zip`.
+2. Dans GitHub Desktop, ouvrir le dépôt du site, puis **Repository → Show in Explorer**
+   (ou **Show in Finder** sur Mac).
+3. Copier **le contenu** du dossier extrait `aoi-website-main` à la racine de ce dépôt.
+   Accepter le remplacement des fichiers existants. Conserver le dossier `.git`.
+   Ne pas créer un sous-dossier `aoi-website-main` dans le dépôt existant.
+4. Revenir dans GitHub Desktop et vérifier les changements.
+5. Créer un commit, par exemple :
+   `Harmonise le site AOI et précise les exemptions de commission`.
+6. Utiliser **Push origin** lorsque la version est prête à être mise en ligne.
+   Si le dépôt est relié à Vercel, le push peut déclencher son déploiement habituel.
 
-```
-/
-├── index.html                 Accueil
-├── rejoindre.html             Adhésion (formulaire → API extranet)
-├── ressources.html            Bibliothèque (remplace /blog/)
-├── article.html               Gabarit unique des 7 guides (?a=slug)
-├── operation.html             Fiche opération publique
-├── choix-abonnement.html      Bascule vers l'adhésion gratuite
-├── demo-ia.html               Analyse d'adresse
-├── demo-extranet.html         Démo animée (affichée en cadre sur l'accueil)
-├── demo-logiciel.html         Démo animée (affichée en cadre sur l'accueil)
-├── cgv.html
-├── mentions-legales.html
-├── 404.html
-│
-├── support.js                 Runtime de rendu — requis par toutes les pages
-├── legal-render.js            Rendu typographique des documents légaux
-├── legal-data.js              Texte CGV + mentions légales
-├── articles-index.js          Index des guides : ordre, titres, tags
-├── articles/<slug>.js         Un module par guide, chargé à la demande
-│
-├── assets/                    Images (illustrations guides, portraits, SEP Normandie)
-├── favicon.ico, favicon-*.png, apple-touch-icon.png, android-chrome-*.png
-├── og-image.png, site.webmanifest
-├── robots.txt, sitemap.xml, vercel.json
-└── README.md
-```
+L’archive contient l’ensemble du site, sans dépendances de prévisualisation ni
+historique Git. Aucun commit, push ou déploiement n’a été effectué pour préparer
+cette livraison.
 
-Les pages chargent `support.js`, `legal-data.js` et `articles-data.js` en modules ES :
-pas d'ouverture en `file://`. Pour tester en local : `npx serve` ou
-`python3 -m http.server` à la racine.
+## Ce qui a changé
 
----
+- **Accueil** : précision de l’exemption dans le parcours prestataires/partenaires,
+  les commissions et la FAQ. L’animation au scroll, les trois profils visibles,
+  les deux cartes de démonstration et la présentation des tarifs sont conservés.
+- **Rejoindre** : formulaire en trois étapes visuelles, choix de profil explicite,
+  prestataires et partenaires réunis, rappel des conditions avant le consentement.
+  Le métier sélectionné déclenche une confirmation d’exemption lorsqu’il est concerné.
+- **Bibliothèque** : une lecture à la une et 13 autres guides, soit 14 au total.
+- **Guides** : nouvelle typographie, sommaire, progression de lecture, tableaux
+  défilables sur mobile et FAQ accessibles.
+- **CGV et mentions légales** : nouvelle mise en page de lecture avec sommaire.
+- **Adhésion, opération, démo IA et page 404** : nouvelles compositions adaptées
+  au mobile, navigation et pied de page communs.
+- **Démos extranet et logiciel** : palette et polices harmonisées, séquences
+  animées existantes conservées.
 
-## Système graphique
+## Professions exemptées de commission
 
-- Fond crème `#FAF7F2` · encre `#141210` · texte courant `#3B372F` · gris secondaire `#6B655C`
-- Accent orange `#E4571B` (foncé `#9A3B10`, clair `#F49A6A`) · sombre `#0E0D0B`
-- Titres **Instrument Serif** · texte **Manrope** (Google Fonts, chargées par page)
-- Styles 100 % en ligne : aucune feuille de style globale à maintenir
-- Alternance clair / sombre : le noir ne sert que deux fois par page au maximum
+Le fichier `legal-data.js` fourni a été intégré à l’identique : **CGV v5.4**.
+La liste utilisée par les rappels du site et le formulaire est celle des CGV :
 
----
+- Notaires
+- Avocats
+- Commissaires de justice
+- Experts-comptables
+- Fiscalistes
+- Commissaires aux comptes
 
-## Ce qui est branché et fonctionnel
+Le message porte sur l’absence de commission AOI sur leurs missions. Les autres
+modalités sont accessibles dans les CGV, notamment l’article 6
+(`cgv.html#sec-6`). Le fichier contractuel n’a pas été réécrit pour la refonte.
 
-**Inscription** — `POST https://extranet.aoi-network.com/api/subscription/register-checkout`
-avec la charge utile historique : `{ plan, userData }`, `plan = 'niveau2'` pour les prestataires
-et `'niveau3'` sinon ; `userData = { email, prenom, nom, telephone, societe, ville, activite,
-profile_type, presentation }`.
-⚠️ Le mode démo du formulaire a été **désactivé** (`rejoindre.html`, ~ligne 321) : l'inscription
-part réellement en production. Voir « Repasser en mode démo » plus bas si besoin de tester.
+## Vérifier en local
 
-**Capture d'abandon** — `POST .../api/contact/callback` à la perte de focus du champ email
-(`source: 'abandon_formulaire'`).
+Depuis la racine du dépôt :
 
-**Consentement & pixels** — bandeau cookies sur les 10 pages publiques, aux couleurs de la refonte.
-Les pixels ne se chargent qu'après acceptation. Clé `localStorage: aoi_cookies` — identique
-à l'ancien site, les consentements déjà donnés sont donc conservés.
-- Meta Pixel `2586678501298941` (PageView, InitiateCheckout, CompleteRegistration)
-- LinkedIn Insight `8742890` (conversions `18956748` clic adhésion, `18956756` inscription)
-- Vercel Analytics (`/_vercel/insights/script.js`)
-
-**SEO** — `lang="fr"`, `<title>`, meta description, canonical, Open Graph, Twitter Card et
-favicons sur chaque page. `article.html` met à jour titre, description et canonical
-dynamiquement selon le slug chargé.
-
-**Redirections** (`vercel.json`) — les 7 anciennes URL `/blog/*.html` redirigent en 301 vers
-`/article.html?a=slug`, `/blog/` vers `/ressources.html`, `/accueil*` vers `/`.
-Le référencement acquis est donc transféré.
-
-**Liens** — extranet, WhatsApp `wa.me/33763782041`, `contact@aoi-network.com`, LinkedIn.
-
----
-
-## Reste à faire
-
-1. **Fiche opération** — `operation.html` affiche un exemple statique. Rebrancher
-   `fetch('https://extranet.aoi-network.com/api/public/sep/' + id)` (id lu dans l'URL) et
-   injecter `title, city, status, descriptionPublique, porteur{prenom,societe,ville},
-   margeBrute, rentabilite, participationsCount, searchingFor[]`, plus les états
-   « introuvable » (404), « clôturée » (410) et « erreur de chargement ».
-2. **Analyse d'adresse** — `demo-ia.html` affiche des valeurs illustratives. Rebrancher
-   DVF / API Urbanisme / Cadastre et la limite de 5 analyses par heure.
-3. **Chiffres d'exemple** — le déroulé d'opération de l'accueil (620 k€ / 520 k€ / 260 k€,
-   308 k€ de missions) est un exemple cohérent, **à remplacer par les vrais chiffres**.
-4. **Newsletter** — le formulaire `POST .../api/newsletter` de l'ancien site n'a pas été repris
-   dans la refonte. À replacer si souhaité.
-5. **Menu mobile plein écran** — remplacé par une navigation qui se replie. À rétablir si tu y tiens.
-6. **Icônes Lucide** — remplacées par des repères typographiques (une dépendance externe
-   et le scintillement au chargement en moins). Rien à faire, sauf si tu veux les réintroduire.
-7. **Stripe** — aucun lien de paiement n'existait dans le parcours d'adhésion (l'ancien code le
-   contournait : « adhésion gratuite, bypass Stripe »). Rien n'a été perdu. Si une option payante
-   revient, elle devra être ajoutée côté extranet.
-
----
-
-## Repasser le formulaire en mode démo
-
-Dans `rejoindre.html`, remplacer la ligne
-
-```js
-// [PROD] Mode démo désactivé : l'inscription appelle réellement l'API extranet.
+```bash
+python3 -m http.server 8000
 ```
 
-par
+Puis ouvrir `http://localhost:8000`. Les modules JavaScript nécessitent un serveur
+HTTP ; l’ouverture directe des pages en `file://` ne convient pas.
 
-```js
-if (this.props.demoMode ?? true) { setTimeout(succeed, 600); return; }
-```
+## Fichiers principaux
 
-L'écran de confirmation s'affiche alors sans appeler l'API.
+| Fichier | Rôle |
+| --- | --- |
+| `index.html` | Accueil et scène animée au défilement |
+| `rejoindre.html` | Formulaire d’adhésion |
+| `ressources.html` | Bibliothèque de 14 guides |
+| `article.html?a=slug` | Gabarit des guides |
+| `cgv.html`, `mentions-legales.html` | Documents légaux |
+| `choix-abonnement.html` | Adhésion gratuite et logiciel optionnel |
+| `operation.html` | Exemple illustratif de fiche opération |
+| `demo-ia.html` | Démonstration de restitution avec données fictives |
+| `demo-extranet.html`, `demo-logiciel.html` | Séquences animées des outils |
+| `404.html` | Page introuvable et liens de retour |
+| `assets/aoi-home.css` | Charte, composants communs et accueil |
+| `assets/aoi-pages.css` | Mises en page intérieures |
+| `assets/aoi-demos.css` | Charte des interfaces de démonstration |
+| `assets/aoi-home.js`, `assets/aoi-site.js` | Navigation, cookies et interactions |
+| `assets/aoi-scene.js` | Progression de l’animation d’accueil au scroll |
+| `assets/aoi-fonts.css`, `assets/fonts/` | Polices locales et licences |
+| `legal-data.js`, `legal-render.js` | Source légale et rendu des documents |
+| `articles-index.js`, `articles/` | Index et contenus des guides |
+| `support.js` | Runtime existant des pages dynamiques, à conserver |
+| `vercel.json` | Configuration et redirections existantes |
 
----
+Les visuels de la scène d’accueil sont décrits dans `assets/aoi-visuals.md`.
 
-## Vérifications après mise en ligne
+## Intégrations conservées
 
-- [ ] Inscription réelle depuis `rejoindre.html` → l'utilisateur apparaît dans l'extranet
-- [ ] Bandeau cookies : accepter → Meta Pixel et LinkedIn visibles dans les DevTools
-- [ ] `/blog/sep-immobiliere.html` redirige bien en 301 vers `/article.html?a=sep-immobiliere`
-- [ ] Les 7 guides s'affichent depuis la Bibliothèque
-- [ ] Partage d'un lien sur LinkedIn/WhatsApp → aperçu avec `og-image.png`
-- [ ] Resoumettre `sitemap.xml` dans la Search Console
+Le formulaire appelle l’API d’adhésion existante :
+`POST https://extranet.aoi-network.com/api/subscription/register-checkout`.
+Son contrat reste `{ plan, userData }`, avec `niveau2` pour les prestataires et
+`niveau3` pour les autres profils. `userData` contient les champs historiques :
+`email, prenom, nom, telephone, societe, ville, activite, profile_type, presentation`.
 
----
+La capture d’abandon existante appelle `/api/contact/callback` à la perte de focus
+d’un email valide. Éviter de saisir de vraies coordonnées pendant une simple revue.
+Les réponses HTTP en erreur, les réponses mal formées et les échecs réseau
+n’affichent désormais plus de fausse confirmation d’inscription.
 
-## Bibliothèque — les 14 guides
+Les identifiants Meta et LinkedIn, les événements de conversion, Vercel Analytics
+et la clé de consentement `aoi_cookies` sont conservés. Les traceurs restent
+conditionnés au consentement. Les liens vers l’extranet, WhatsApp et le contact,
+les métadonnées SEO, le sitemap et les redirections existantes sont conservés.
 
-Sept guides d'origine (février-mars 2026) et sept ajoutés en septembre 2026 :
+## Portée des exemples et des vérifications
 
-| Slug | Titre court | Date affichée |
-|---|---|---|
-| `choisir-structure-juridique-operation` | SEP, SCCV, SAS, SCI | Mars 2026 |
-| `securiser-promesse-de-vente` | Promesse ou compromis | Avril 2026 |
-| `purger-permis-de-construire` | Purger un permis | Mai 2026 |
-| `assurances-operation-immobiliere` | DO, décennale, TRC | Juin 2026 |
-| `repondre-appel-offres-prive` | Répondre à un appel d'offres | Juillet 2026 |
-| `tva-marchand-de-biens` | TVA marge ou prix total | Août 2026 |
-| `dpe-passoires-operateur` | Passoires thermiques | Septembre 2026 |
+`operation.html` reste une fiche illustrative, sans connexion à une opération
+réelle de l’extranet. `demo-ia.html` présente des valeurs fictives fixes, clairement
+signalées : aucune analyse réelle de l’adresse saisie n’est exécutée. Les démos
+extranet et logiciel sont des simulations animées.
 
-Chaque guide est chaîné au suivant par son champ `next`; la chaîne boucle sur
-`sep-immobiliere`. Les cartes correspondantes sont dans le tableau `rows` de
-`ressources.html`, les couvertures dans `assets/blog-*.jpg`, et les URL dans
-`sitemap.xml`.
+Les vérifications couvrent le rendu sur ordinateur et mobile, les parcours de
+navigation, les documents, les guides et les données envoyées par les trois
+profils du formulaire avec des réponses API simulées. Aucune inscription réelle
+n’a été envoyée ; l’API de production et les paiements n’ont pas été testés.
+Le texte des 14 guides est inchangé et le nouveau fichier légal est intact.
 
-### Ajouter un guide
+## Ajouter ou modifier un guide
 
-1. Créer `articles/<slug>.js` sur le modèle d'un existant : `export const article = { … }`
-   avec les champs `title, lead, tags, meta, crumb, blocks, faq, author, cta, next`.
-2. Ajouter le slug dans `order` et une entrée `{title, tags}` dans `index`,
-   les deux dans `articles-index.js`.
-3. Rebrancher le champ `next` du guide précédent, et celui du nouveau guide.
-4. Ajouter une ligne dans le tableau `rows` de `ressources.html`
-   (`['N° xx', titre, chapô, date, tag1, tag2, 'assets/…jpg', 'article.html?a=<slug>', isNew]`).
-5. Déposer la couverture dans `assets/` (1600 × 893, même langage graphique).
-6. Ajouter l'URL dans `sitemap.xml`.
-7. Ajouter le slug dans l'énumération `options` du bloc `data-props` de `article.html`
-   (métadonnée d'édition, sans effet sur le rendu public).
+1. Créer ou éditer `articles/<slug>.js` sur le modèle des modules existants.
+2. Pour un nouveau guide, l’ajouter à `articles-index.js` et au tableau `rows`
+   de `ressources.html`, puis mettre à jour le nombre de guides affiché.
+3. Mettre à jour les liens `next` et déposer sa couverture dans `assets/`.
+4. Ajouter son URL au `sitemap.xml` et son slug dans les options d’édition
+   du bloc `data-props` d’`article.html`.
 
-### Pourquoi un fichier par guide
-
-`article.html` ne charge que l'index (ordre, titres, tags) puis le seul guide demandé.
-L'index sert à construire le bloc « autres guides » sans télécharger leur contenu.
-Charge par page consultée, quel que soit le volume de la bibliothèque :
-
-| Guides publiés | Transféré par page (gzip) |
-|---|---|
-| 14 | ~4,6 Ko |
-| 50 | ~7,3 Ko |
-| 80 | ~9,5 Ko |
-| 120 | ~12,4 Ko |
-
-À titre de comparaison, la version monolithique précédente transférait 37 Ko à 14 guides
-et aurait atteint 212 Ko à 80. Effet secondaire utile : modifier un guide n'invalide
-en cache que son propre fichier.
-
-**Points datés à surveiller.** Deux guides s'appuient sur un état du droit mouvant :
-`dpe-passoires-operateur` (projet de loi « relance et décentralisation du logement »
-adopté par le Sénat le 8 juillet 2026, examen à l'Assemblée prévu à l'automne) et
-`tva-marchand-de-biens` (recodification de la TVA dans le CIBS au 1er septembre 2026).
-Les deux portent une mention de date explicite dans le texte : à relire si la
-situation évolue.
+Un seul guide est chargé à la demande. Le rendu commun est dans `legal-render.js`
+et sa présentation dans `assets/aoi-pages.css`.

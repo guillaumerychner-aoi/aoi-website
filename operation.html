@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8">
@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#E4571B">
+    <meta name="theme-color" content="#111715">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -31,124 +31,28 @@
     <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
 
     <!-- Vercel Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
+
+<link rel="stylesheet" href="assets/aoi-fonts.css">
+<link rel="stylesheet" href="assets/aoi-home.css">
+<link rel="stylesheet" href="assets/aoi-pages.css">
+<script defer src="assets/aoi-site.js"></script>
 </head>
-<body>
-<x-dc>
-<helmet>
-<title>Opération AOI Network — Dossier membre</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-html,body{margin:0;padding:0;background:#0E0D0B;color:#fff;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
-a{color:#fff;text-decoration:none}a:hover{color:#F49A6A}
-*{box-sizing:border-box}
-@keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes wordUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
-@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
-@keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
-@media(max-width:780px){.op-metrics{grid-template-columns:minmax(0,1fr)!important}}
-</style>
-</helmet>
+<body class="aoi-inner page-operation">
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol><symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol><symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol></svg>
+<header class="site-header" id="site-header">
+  <a class="brand" href="index.html" aria-label="AOI Network, accueil"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a>
+  <nav class="desktop-nav" aria-label="Navigation principale"><a href="index.html#reseau">Le réseau</a><a href="index.html#plateforme">La plateforme</a><a href="index.html#origine">Notre histoire</a><a href="index.html#modele">Le modèle</a><a href="ressources.html">Ressources</a></nav>
+  <div class="header-actions"><a class="members-link" href="https://extranet.aoi-network.com/login">Espace membres <svg class="icon"><use href="#diagonal"/></svg></a><a class="button button-small button-orange header-join" href="rejoindre.html">Rejoindre AOI <svg class="icon"><use href="#arrow"/></svg></a><button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="index.html#reseau">Le réseau</a><a href="index.html#rejoindre">Votre place</a><a href="index.html#plateforme">La plateforme</a><a href="index.html#origine">Notre histoire</a><a href="index.html#modele">Le modèle</a><a href="ressources.html">Ressources</a><a href="https://extranet.aoi-network.com/login">Espace membres ↗</a><a class="mobile-join" href="rejoindre.html">Rejoindre gratuitement →</a></nav>
+</header>
+<main id="contenu"><x-dc>
+<section class="page-hero section-dark operation-hero" id="top"><div class="wrap"><p class="eyebrow copper">Opérations · {{ city }}</p><span class="example-label">Exemple de fiche · Données illustratives</span><h1 class="page-title">{{ title }}</h1><p class="page-lead">{{ description }}</p><div class="article-tags"><span>{{ status }}</span><span>Société en participation</span><span>{{ city }}</span></div></div></section>
+<section class="page-section"><div class="wrap operation-layout"><article><figure class="operation-visual"><img src="assets/aoi-building-before.webp" alt="Illustration d’un bien immobilier à réinventer" width="1536" height="1024"><figcaption>Illustration · Cette image ne représente pas une opération proposée à la vente.</figcaption></figure><div class="operation-metrics"><div><span>Marge brute estimée</span><strong>{{ marge }}</strong></div><div><span>Rentabilité estimée</span><strong>{{ renta }}</strong></div><div><span>Montage présenté</span><strong>SEP</strong></div></div><p class="example-note">Ces informations illustrent la présentation d’un dossier. Les opérations disponibles et leurs documents sont à consulter dans l’extranet.</p><section class="operation-needs"><p class="eyebrow">Les compétences autour du projet</p><h2>Un dossier.<br> <em>Plusieurs savoir-faire.</em></h2><div class="operation-tags"><sc-for list="{{ profils }}" as="p" hint-placeholder-count="3"><span>{{ p }}</span></sc-for></div></section><div class="exemption-note"><span class="exemption-zero" aria-hidden="true">0 %</span><div><strong>Professions réglementées : aucune commission sur vos missions.</strong><p>Notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes. Les professions concernées sont définies dans les <a href="cgv.html#sec-6">CGV</a>.</p></div></div></article><aside class="operation-aside"><div class="contact-card"><p class="eyebrow copper">L’espace des collaborations</p><h2>Rencontrez les<br> <em>porteurs de projets.</em></h2><p>Rejoignez AOI pour consulter les dossiers partagés, présenter votre métier et échanger avec les membres.</p><a class="button button-orange" href="rejoindre.html?profil=co-operateur">Rejoindre le réseau <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><a class="text-link light" href="https://extranet.aoi-network.com/login">Déjà membre ? <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div><div class="operation-contact"><p>Vous préférez échanger d’abord ?</p><a class="text-link" href="https://wa.me/33763782041" target="_blank" rel="noopener">Parlons de votre projet <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div></aside></div></section>
 
-<div style="min-height:100vh;background:#0E0D0B;position:relative;overflow-x:clip;">
-<div style="position:absolute;top:0;left:0;right:0;height:70vh;background:radial-gradient(ellipse 65% 60% at 50% 0%,rgba(228,87,27,.16),transparent 70%);pointer-events:none;"></div>
-
-<div style="position:sticky;top:0;z-index:50;background:rgba(14,13,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1);">
-  <div style="max-width:1000px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:20px;">
-    <a href="index.html" style="display:flex;align-items:center;gap:10px;">
-      <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;">AOI</span>
-      <span style="font-family:'Instrument Serif',serif;font-size:22px;color:#fff;">Network</span>
-    </a>
-    <a href="rejoindre.html" style="margin-left:auto;padding:9px 16px;font-size:14px;font-weight:700;color:#141210;background:#fff;border-radius:8px;" style-hover="background:#E4571B;color:#fff">Rejoindre gratuitement</a>
-  </div>
-</div>
-
-<section data-screen-label="Dossier opération" style="max-width:1000px;margin:0 auto;padding:60px 28px 80px;position:relative;">
-  <div style="font-family:ui-monospace,monospace;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);animation:riseIn .6s ease both;"><span style="color:#F49A6A;">§</span> Opération · {{ city }}</div>
-
-  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:22px;animation:riseIn .7s ease .1s both;">
-    <span style="display:inline-flex;align-items:center;gap:7px;padding:6px 13px;font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(74,222,128,.34);background:rgba(74,222,128,.08);border-radius:100px;color:#4ADE80;"><span style="width:6px;height:6px;border-radius:50%;background:#4ADE80;animation:livePulse 1.5s infinite;"></span>{{ status }}</span>
-    <span style="padding:6px 13px;font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(228,87,27,.34);background:rgba(228,87,27,.07);border-radius:100px;color:#F49A6A;">Projet SEP · AOI Network</span>
-    <span style="padding:6px 13px;font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);border-radius:100px;color:rgba(255,255,255,.75);">{{ city }}</span>
-  </div>
-
-  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5.4vw,66px);line-height:1.04;letter-spacing:-.03em;margin:26px 0 0;max-width:18ch;">
-    <span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:wordUp .9s cubic-bezier(.22,.61,.36,1) .15s both;">{{ title }}</span></span>
-  </h1>
-  <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:rgba(255,255,255,.7);margin:18px 0 0;max-width:640px;animation:riseIn .8s ease .45s both;">{{ description }}</p>
-
-  <div style="display:flex;align-items:center;gap:18px;padding:20px 22px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:16px;margin-top:34px;animation:riseIn .8s ease .55s both;">
-    <span style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">{{ initial }}</span>
-    <span style="display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;">
-      <span style="font-weight:600;font-size:15px;color:#fff;">{{ porteur }}</span>
-      <span style="font-family:ui-monospace,monospace;font-size:12px;color:rgba(255,255,255,.5);">{{ porteurSub }}</span>
-    </span>
-    <span style="font-family:ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#F49A6A;border:1px solid rgba(228,87,27,.34);padding:6px 11px;border-radius:100px;white-space:nowrap;">✓ Vérifié</span>
-  </div>
-
-  <div class="op-metrics" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);animation:riseIn .8s ease .65s both;">
-    <div style="padding:24px 22px 24px 0;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:7px;">
-      <span style="font-family:ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);">Marge brute estimée</span>
-      <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.4vw,42px);line-height:1;color:#F49A6A;">{{ marge }}</span>
-    </div>
-    <div style="padding:24px 22px;border-right:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:7px;">
-      <span style="font-family:ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);">Rentabilité estimée</span>
-      <span style="font-family:'Instrument Serif',serif;font-size:clamp(30px,3.4vw,42px);line-height:1;color:#F49A6A;">{{ renta }}</span>
-    </div>
-    <div style="padding:24px 0 24px 22px;display:flex;flex-direction:column;gap:7px;">
-      <span style="font-family:ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);">Activité réseau</span>
-      <span style="font-size:17px;font-weight:600;line-height:1.3;color:#fff;">{{ activite }}</span>
-    </div>
-  </div>
-
-  <div data-reveal="" style="margin-top:44px;">
-    <div style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);">Profils recherchés</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
-      <sc-for list="{{ profils }}" as="p" hint-placeholder-count="3">
-        <span style="padding:8px 15px;font-size:13.5px;font-weight:600;color:#fff;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);border-radius:100px;">{{ p }}</span>
-      </sc-for>
-    </div>
-  </div>
-
-  <div data-reveal="" style="margin-top:44px;">
-    <div style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);">Structure de l'opération</div>
-    <div style="position:relative;margin-top:14px;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03);">
-      <div style="padding:26px 24px;filter:blur(5px);user-select:none;pointer-events:none;opacity:.65;">
-        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);"><span style="font-size:14px;color:rgba(255,255,255,.7);">Montant recherché (SEP)</span><span style="font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:#fff;">███ k€</span></div>
-        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);"><span style="font-size:14px;color:rgba(255,255,255,.7);">Apport porteur</span><span style="font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:#fff;">███ k€</span></div>
-        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);"><span style="font-size:14px;color:rgba(255,255,255,.7);">Répartition bénéfices</span><span style="font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:#fff;">██ / ██ %</span></div>
-        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);"><span style="font-size:14px;color:rgba(255,255,255,.7);">Durée de portage estimée</span><span style="font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:#fff;">██ mois</span></div>
-        <div style="display:flex;justify-content:space-between;gap:16px;padding:11px 0;"><span style="font-size:14px;color:rgba(255,255,255,.7);">Documents disponibles</span><span style="font-family:ui-monospace,monospace;font-size:14px;font-weight:700;color:#fff;">3 fichiers</span></div>
-      </div>
-      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(180deg,rgba(14,13,11,.55),rgba(14,13,11,.85));text-align:center;padding:24px;">
-        <div style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.75);">Réservé aux membres co-opérateurs</div>
-        <a href="rejoindre.html" style="display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:#E4571B;color:#fff;font-weight:700;font-size:15px;border-radius:10px;" style-hover="background:#fff;color:#141210">Accéder au dossier complet →</a>
-      </div>
-      <div style="position:absolute;top:0;bottom:0;width:40%;left:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:shimmer 6s linear infinite;pointer-events:none;"></div>
-    </div>
-  </div>
-
-  <div data-reveal="" style="margin-top:56px;padding:40px 36px;border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(255,255,255,.03);">
-    <div style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#F49A6A;">Passer à l'action</div>
-    <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin:14px 0 14px;">Vous voulez <em style="font-style:italic;color:#F49A6A;">rejoindre cette opération</em> ?</h3>
-    <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:16px;line-height:1.55;color:rgba(255,255,255,.7);margin:0 0 26px;max-width:620px;">Accédez au dossier complet, aux conditions de la SEP et entrez directement en contact avec l'opérateur porteur.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
-      <a href="rejoindre.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:#E4571B;color:#fff;font-weight:700;font-size:16px;border-radius:10px;" style-hover="background:#fff;color:#141210">Rejoindre AOI Network →</a>
-      <a href="https://wa.me/33763782041" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;padding:16px 22px;font-weight:600;font-size:15px;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:10px;" style-hover="border-color:#fff;color:#fff">Discuter sur WhatsApp</a>
-    </div>
-    <div style="font-size:13px;color:rgba(255,255,255,.45);margin-top:16px;">Adhésion gratuite · Sans engagement</div>
-  </div>
-</section>
-
-<footer style="max-width:1000px;margin:0 auto;padding:36px 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:13px;color:rgba(255,255,255,.45);border-top:1px solid rgba(255,255,255,.1);">
-  <span>© 2026 AOI Network — Alliance des Opérateurs Immobiliers</span>
-  <div style="display:flex;gap:20px;flex-wrap:wrap;"><a href="mentions-legales.html" style="color:rgba(255,255,255,.45);">Mentions légales</a><a href="cgv.html" style="color:rgba(255,255,255,.45);">CGV</a><a href="index.html" style="color:rgba(255,255,255,.45);">Accueil</a></div>
-</footer>
-
-</div>
-</x-dc>
+</x-dc></main>
+<footer class="site-footer section-dark"><div class="wrap"><div class="footer-top"><a class="brand" href="index.html"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a><p>Alliance des Opérateurs Immobiliers</p><a href="mailto:contact@aoi-network.com">contact@aoi-network.com <svg class="icon"><use href="#diagonal"/></svg></a></div><p class="footer-exemption"><a href="cgv.html#sec-6">Professions réglementées définies aux CGV : aucune commission sur leurs missions.</a></p><div class="footer-bottom"><span>© 2026 AOI Network</span><div><a href="ressources.html">Ressources</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">Conditions générales</a><button id="cookie-settings" type="button">Cookies</button></div><a href="#top" class="back-to-top">Retour en haut ↑</a></div></div></footer>
+<aside class="cookie-banner" id="cookie-banner" aria-label="Choix des cookies" hidden><div><strong>Votre visite, votre choix.</strong><p>Avec votre accord, des cookies nous aident à mesurer l’audience et nos campagnes. <a href="mentions-legales.html#cookies">En savoir plus</a></p></div><div class="cookie-actions"><button type="button" id="cookies-reject">Refuser</button><button type="button" id="cookies-accept">Accepter</button></div></aside>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1100},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Lotissement de 6 lots à viabiliser&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Opération&quot;},&quot;city&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Essonne&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Opération&quot;},&quot;status&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;En structuration&quot;,&quot;Closing en cours&quot;,&quot;En cours&quot;],&quot;default&quot;:&quot;En structuration&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Opération&quot;},&quot;marge&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;420 k€&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Chiffres&quot;},&quot;renta&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;23 %&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Chiffres&quot;}}">
 class Component extends DCLogic {
   componentDidMount() {
@@ -178,72 +82,6 @@ class Component extends DCLogic {
     };
   }
 }
-</script>
-
-<!-- ═══ Bandeau cookies ═══ -->
-<style>
-@media (max-width:640px){
-  #cookieBanner{padding:13px 16px !important;font-size:.83rem !important;}
-  #cookieBanner p{line-height:1.45 !important;}
-  #cookieBanner > div{gap:11px !important;}
-  #cookieBanner > div > div{width:100%;display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;}
-  #cookieBanner button{width:100%;padding:12px 8px !important;justify-content:center;}
-}
-</style>
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0E0D0B;color:#fff;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.18);font-family:'Manrope',system-ui,sans-serif;font-size:.9rem;">
-  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
-    <p style="flex:1;min-width:280px;margin:0;line-height:1.55;color:rgba(255,255,255,.72);">
-      Ce site utilise des cookies essentiels et, avec votre accord, des cookies de mesure d'audience.
-      <a href="/mentions-legales.html#cookies" style="color:#F49A6A;text-decoration:underline;">En savoir plus</a>
-    </p>
-    <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="acceptCookies()" style="background:#E4571B;color:#fff;border:none;padding:11px 26px;border-radius:2px;font-weight:700;font-size:.85rem;font-family:inherit;cursor:pointer;letter-spacing:.01em;">Accepter</button>
-      <button onclick="refuseCookies()" style="background:transparent;color:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.22);padding:11px 26px;border-radius:2px;font-weight:600;font-size:.85rem;font-family:inherit;cursor:pointer;">Refuser</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){var c=localStorage.getItem('aoi_cookies');if(!c){var b=document.getElementById('cookieBanner');if(b)b.style.display='block';}})();
-function acceptCookies(){localStorage.setItem('aoi_cookies','accepted');document.getElementById('cookieBanner').style.display='none';if(typeof loadTrackingPixels==='function')loadTrackingPixels();}
-function refuseCookies(){localStorage.setItem('aoi_cookies','refused');document.getElementById('cookieBanner').style.display='none';}
-</script>
-
-<!-- ═══ Pixels de conversion — chargés uniquement après consentement ═══ -->
-<script>
-function loadTrackingPixels(){
-  // LinkedIn Insight Tag
-  _linkedin_partner_id="8742890";
-  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
-  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
-  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
-  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b,s);})(window.lintrk);
-
-  // Meta Pixel
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','2586678501298941');
-  fbq('track','PageView');
-}
-if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
-
-<!-- ═══ Événement InitiateCheckout sur les liens d'adhésion ═══ -->
-<script>
-(function(){
-  document.addEventListener('click', function(e){
-    var link = e.target.closest('a[href*="rejoindre"], a[href*="choix-abonnement"]');
-    if(link){
-      if(typeof fbq==='function') fbq('track','InitiateCheckout');
-      if(typeof lintrk==='function') lintrk('track',{conversion_id:18956748});
-    }
-  });
-})();
-</script>
+</script><noscript><p class="no-script">Activez JavaScript pour consulter ce contenu ou contactez <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a>.</p></noscript>
 </body>
 </html>

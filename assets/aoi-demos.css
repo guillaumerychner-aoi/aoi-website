@@ -1,0 +1,15 @@
+/* Demonstration interfaces share AOI's colors and local typefaces. */
+:root{--bg:#f5f3ed;--w:#fffefb;--g50:#faf9f4;--g100:#f0f1e9;--g200:#d9dfcf;--g300:#bfc9b2;--g400:#95a286;--g500:#6e7d60;--g600:#56664b;--g700:#3b4e31;--g800:#263721;--g900:#111715;--o50:#fbf1e5;--o100:#f4dfc7;--o500:#ed6e36;--o600:#b46b3b}
+body{font-family:'Manrope',Arial,sans-serif!important;background:#111715!important}
+.demo,.demo-container{font-family:'Manrope',Arial,sans-serif;background:#f5f3ed;border-color:#a9b99550;box-shadow:0 30px 70px #0005}
+.sidebar,.sb{background:#f5f3ed;border-right-color:#d4dcc8}
+.sidebar-logo,.sb-logo{border-bottom-color:#d4dcc8}
+.sidebar-logo .logo-box,.sb-logo .bx{background:#111715;color:#eab08a;border:1px solid #9b7855;border-radius:5px}
+.sidebar-logo .logo-text,.sb-logo .t{font-family:'Instrument Serif',Georgia,serif;font-size:17px;font-weight:400;color:#263721}
+.sidebar-nav a.active,.sb-nav a.active{background:#233421;color:#f5f3ed}
+.page-header h1,.scene-label h2,.transition-text h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.page-header h1{font-size:24px}
+input,textarea,select,button{font-family:inherit}
+.transition-overlay{background:#111715e8}
+.scene-label h2,.transition-text h2{color:#eab08a}
+.rot{background:#111715}

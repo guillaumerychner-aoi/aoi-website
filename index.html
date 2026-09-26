@@ -1,555 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-    <title>AOI Network — Réseau & logiciel IA pour marchands de biens, promoteurs et aménageurs fonciers</title>
-    <meta name="description" content="Réseau privé + logiciel IA pour opérateurs immobiliers. DVF, PLU, Cadastre en temps réel sur chaque dossier. SEP, paiement à terme, co-production sans banque. 50 places Fondateurs.">
-    <link rel="canonical" href="https://www.aoi-network.com/">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#E4571B">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.aoi-network.com/">
-    <meta property="og:title" content="AOI Network — Alliance des Opérateurs Immobiliers">
-    <meta property="og:description" content="Structurez vos opérations sans banque. SEP, paiements différés, co-production entre opérateurs.">
-    <meta property="og:image" content="https://www.aoi-network.com/og-image.png">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:site_name" content="AOI Network">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AOI Network — Alliance des Opérateurs Immobiliers">
-    <meta name="twitter:description" content="Structurez vos opérations sans banque. SEP, paiements différés, co-production entre opérateurs.">
-    <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
-
-    <!-- Vercel Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AOI Network — Les bonnes rencontres font les grandes opérations.</title>
+  <meta name="description" content="Rejoignez les premiers membres d’AOI Network. Un réseau privé d’opérateurs, de co-opérateurs et d’experts pour structurer vos opérations immobilières. Adhésion gratuite.">
+  <link rel="canonical" href="https://www.aoi-network.com/">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#111715">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.aoi-network.com/">
+  <meta property="og:title" content="AOI Network — Les bonnes rencontres font les grandes opérations.">
+  <meta property="og:description" content="Les projets, les capitaux, les compétences. Un réseau immobilier à construire ensemble. Rejoignez les premiers membres.">
+  <meta property="og:image" content="https://www.aoi-network.com/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="AOI Network">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AOI Network — Le réseau prend forme.">
+  <meta name="twitter:description" content="Opérateurs, co-opérateurs, experts : prenez votre place dans les opérations de demain.">
+  <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
+  <link rel="stylesheet" href="assets/aoi-fonts.css">
+  <link rel="stylesheet" href="assets/aoi-home.css">
+  <link rel="preload" as="image" href="assets/aoi-people.webp">
+  <script defer src="assets/aoi-scene.js"></script>
+  <script defer src="assets/aoi-home.js"></script>
 </head>
 <body>
-<x-dc>
-<helmet>
-<title>AOI Network — Proposition page d'accueil</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-html,body{margin:0;padding:0;background:#FAF7F2;color:#141210;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
-a{color:#141210;text-decoration:none}a:hover{color:#E4571B}
-*{box-sizing:border-box}
-@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes wordUp{from{transform:translateY(110%)}to{transform:translateY(0)}}
-@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(228,87,27,.55)}70%{box-shadow:0 0 0 10px rgba(228,87,27,0)}100%{box-shadow:0 0 0 0 rgba(228,87,27,0)}}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-@keyframes glowRing{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.6);opacity:0}}
-@keyframes kenBurns{from{transform:scale(1.12) translateY(-1.5%)}to{transform:scale(1) translateY(0)}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes spinRev{to{transform:rotate(-360deg)}}
-@keyframes drawLine{to{stroke-dashoffset:0}}
-@container (max-width:1080px){.nav-link{display:none}}
-@container (max-width:700px){.nav-members{display:none}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes sweep{0%{transform:translateX(0);opacity:0}8%{opacity:1}70%{transform:translateX(240%);opacity:1}86%,100%{transform:translateX(240%);opacity:0}}
-@keyframes dotWave{0%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-.18em)}}
-@keyframes popIn{0%{opacity:0;transform:scale(.86)}100%{opacity:1;transform:scale(1)}}
-@keyframes slideR{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideL{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideU{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
-@keyframes ping{0%{transform:scale(1);opacity:.9}70%{transform:scale(5);opacity:0}100%{transform:scale(5);opacity:0}}
-@keyframes haloBurst{0%{transform:scale(.98);opacity:.9}60%{transform:scale(1.12);opacity:0}100%{transform:scale(1.12);opacity:0}}
-@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:1}50%{transform:translate(-50%,-50%) scale(1.08);opacity:.82}}
-@keyframes flow{from{stroke-dashoffset:0.14}to{stroke-dashoffset:-0.86}}
-@keyframes drawUp{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}
-@keyframes drawIn{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:scaleX(1)}}
-</style>
-</helmet>
-
-<div style="min-height:100vh;background:#FAF7F2;overflow-x:clip;">
-
-<!-- NAV -->
-<div style="position:sticky;top:0;z-index:50;background:rgba(250,247,242,.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,18,16,.08);">
-  <div style="max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:28px;container-type:inline-size;">
-    <a href="#top" style="display:flex;align-items:center;gap:10px;">
-      <span style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#F26A1B,#E4571B);color:#fff;font-weight:800;font-size:12px;letter-spacing:-.02em;display:flex;align-items:center;justify-content:center;">AOI</span>
-      <span style="font-family:'Instrument Serif',serif;font-size:22px;letter-spacing:-.01em;">Network</span>
-    </a>
-    <button onClick="{{ toggleMenu }}" class="nav-burger" aria-label="Menu" style="display:{{ burgerDisp }};margin-left:auto;align-items:center;gap:8px;padding:9px 13px;background:none;border:1px solid rgba(20,18,16,.18);border-radius:8px;font-family:inherit;font-size:13px;font-weight:600;color:#141210;cursor:pointer;">{{ menuLabel }}</button>
-    <nav class="nav-desk" style="display:{{ deskDisp }};gap:4px;margin-left:auto;flex-wrap:nowrap;justify-content:flex-end;align-items:center;">
-      <a href="#reseau" class="nav-link" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Le réseau</a>
-      <a href="#plateforme" class="nav-link" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Plateforme</a>
-      <a href="#resultats" class="nav-link" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Résultats</a>
-      <a href="#modele" class="nav-link" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Modèle</a>
-      <a href="ressources.html" class="nav-link" style="padding:8px 12px;font-size:14px;font-weight:500;color:#4A453E;border-radius:8px;" style-hover="color:#141210;background:rgba(20,18,16,.05)">Ressources</a>
-      <a href="https://extranet.aoi-network.com/login" class="nav-members" style="padding:8px 14px;font-size:14px;font-weight:600;color:#141210;border:1px solid rgba(20,18,16,.18);border-radius:8px;margin-left:8px;white-space:nowrap;" style-hover="border-color:#141210">Espace membres</a>
-      <a href="#rejoindre" style="padding:9px 16px;font-size:14px;font-weight:700;color:#fff;background:#141210;border-radius:8px;margin-left:4px;white-space:nowrap;" style-hover="background:#E4571B;color:#fff">Rejoindre gratuitement</a>
-    </nav>
-  </div>
-  <div class="nav-panel" style="display:{{ panelDisp }};max-height:{{ menuH }};overflow:hidden;transition:max-height .35s cubic-bezier(.22,.61,.36,1);border-top:1px solid rgba(20,18,16,.08);">
-    <div style="display:flex;flex-direction:column;padding:6px 22px 16px;">
-      <a href="#reseau" onClick="{{ closeMenu }}" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Le réseau</a>
-      <a href="#plateforme" onClick="{{ closeMenu }}" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Plateforme</a>
-      <a href="#resultats" onClick="{{ closeMenu }}" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Résultats</a>
-      <a href="#modele" onClick="{{ closeMenu }}" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Modèle</a>
-      <a href="ressources.html" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Bibliothèque</a>
-      <a href="https://extranet.aoi-network.com/login" style="padding:13px 0;font-size:15px;font-weight:600;color:#3B372F;border-bottom:1px solid rgba(20,18,16,.08);">Espace membres</a>
-      <a href="#rejoindre" onClick="{{ closeMenu }}" style="margin-top:14px;padding:14px 18px;text-align:center;font-size:15px;font-weight:700;color:#fff;background:#E4571B;border-radius:9px;">Rejoindre gratuitement</a>
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol><symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol><symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol></svg>
+<header class="site-header" id="site-header">
+  <a class="brand" href="#top" aria-label="AOI Network, accueil"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a>
+  <nav class="desktop-nav" aria-label="Navigation principale"><a href="#reseau">Le réseau</a><a href="#plateforme">La plateforme</a><a href="#origine">Notre histoire</a><a href="#modele">Le modèle</a><a href="ressources.html">Ressources</a></nav>
+  <div class="header-actions"><a class="members-link" href="https://extranet.aoi-network.com/login">Espace membres <svg class="icon"><use href="#diagonal"/></svg></a><a class="button button-small button-orange header-join" href="#rejoindre">Rejoindre AOI <svg class="icon"><use href="#arrow"/></svg></a><button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#reseau">Le réseau</a><a href="#rejoindre">Votre place</a><a href="#plateforme">La plateforme</a><a href="#origine">Notre histoire</a><a href="#modele">Le modèle</a><a href="ressources.html">Ressources</a><a href="https://extranet.aoi-network.com/login">Espace membres ↗</a><a class="mobile-join" href="rejoindre.html">Rejoindre gratuitement →</a></nav>
+</header>
+<main id="contenu">
+  <section class="opening film-opening" id="top" aria-labelledby="hero-title">
+    <div class="film-hero wrap">
+      <p class="eyebrow copper">Alliance des Opérateurs Immobiliers</p>
+      <h1 id="hero-title">Les bonnes rencontres<br><em>font les grandes opérations.</em></h1>
+      <p class="film-intro">Un projet. Des compétences. Des associés.<br class="mobile-break"> AOI fait le lien.</p>
     </div>
-  </div>
-</div>
-
-<!-- HERO — l'opération au centre, réseau autour -->
-<section id="top" data-screen-label="Hero" style="position:relative;background:#0E0D0B;color:#fff;overflow:hidden;"><img src="assets/sep-normandie.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;opacity:.4;animation:kenBurns 24s ease-out both;"><div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;"><div style="position:absolute;top:0;bottom:0;width:46%;left:-46%;background:linear-gradient(90deg,rgba(228,87,27,0) 0%,rgba(255,214,184,.1) 45%,rgba(255,226,206,.16) 55%,rgba(228,87,27,0) 100%);animation:sweep 11s cubic-bezier(.5,0,.5,1) infinite;"></div><div style="position:absolute;top:0;bottom:0;width:2px;left:-46%;background:linear-gradient(180deg,rgba(244,154,106,0),rgba(255,226,206,.5),rgba(244,154,106,0));margin-left:23%;animation:sweep 11s cubic-bezier(.5,0,.5,1) infinite;"></div></div><div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,13,11,.72) 0%,rgba(14,13,11,.4) 45%,rgba(14,13,11,.97) 100%);pointer-events:none;"></div><div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,13,11,.8) 0%,rgba(14,13,11,.3) 55%,rgba(14,13,11,.15) 100%);pointer-events:none;"></div><div style="position:relative;max-width:1240px;margin:0 auto;padding:104px 24px 88px;display:grid;grid-template-columns:{{ heroCols }};gap:{{ heroGap }};align-items:center;" class="hero-grid"><div><div style="display:flex;align-items:center;gap:14px;margin-bottom:30px;animation:riseIn .6s ease both;"><span style="width:32px;height:1px;background:#E4571B;flex-shrink:0;"></span><span style="font-size:{{ ebSize }};font-weight:700;letter-spacing:{{ ebLS }};text-transform:uppercase;color:rgba(255,255,255,.75);">La place de marché des opérations immobilières</span></div><h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:{{ h1Size }};line-height:1.02;letter-spacing:-.03em;margin:0;max-width:16ch;text-wrap:balance;"><span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:{{ heroAnim }} .9s cubic-bezier(.22,.61,.36,1) .1s both;">Le deal. Les fonds.</span></span><span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:{{ heroAnim }} .9s cubic-bezier(.22,.61,.36,1) .22s both;">Le savoir-faire.</span></span><span style="display:block;overflow:hidden;padding-bottom:.14em;line-height:1.06;"><span style="display:inline-block;animation:{{ heroAnim }} .9s cubic-bezier(.22,.61,.36,1) .34s both;"><em style="font-style:italic;color:#F49A6A;">Ici, les trois se trouvent.</em></span></span></h1><div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:{{ trioTop }};font-size:{{ trioSize }};font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.7);animation:riseIn .8s ease .6s both;"><span>Réseau privé</span><span style="width:5px;height:5px;border-radius:50%;background:#E4571B;"></span><span>Logiciel d'opération</span><span style="width:5px;height:5px;border-radius:50%;background:#E4571B;"></span><span>Avec, ou plutôt sans banque</span></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:36px;animation:riseIn .8s ease .75s both;"><a href="#rejoindre" style="display:inline-flex;align-items:center;gap:10px;padding:{{ ctaPad }};background:#E4571B;color:#fff;font-weight:700;font-size:{{ ctaSize }};border-radius:10px;box-shadow:0 12px 30px -10px rgba(228,87,27,.7);transition:transform .2s,background .2s;" style-hover="background:#fff;color:#141210;transform:translateY(-2px)">Rejoindre gratuitement <span aria-hidden="true">→</span></a><a href="#reseau" style="display:inline-flex;align-items:center;padding:{{ cta2Pad }};color:#fff;font-weight:600;font-size:{{ ctaSize }};border:1px solid rgba(255,255,255,.35);border-radius:10px;backdrop-filter:blur(8px);" style-hover="border-color:#fff;color:#fff">Voir comment ça marche</a></div><div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:18px;animation:riseIn .8s ease .85s both;">Adhésion gratuite · Sans engagement<sc-if value="{{ showFounder }}" hint-placeholder-val="{{ true }}"><span> · Cercle Fondateur 2026, places limitées</span></sc-if></div></div><div style="position:relative;width:{{ stageW }};aspect-ratio:{{ stageAR }};margin:{{ stageM }};container-type:inline-size;animation:riseIn 1s ease .4s both;"><div style="position:absolute;left:50%;top:53%;width:66%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(228,87,27,.34),rgba(228,87,27,0) 62%);pointer-events:none;animation:breathe 7s ease-in-out infinite;"></div><div style="position:absolute;left:50%;top:53%;width:58%;aspect-ratio:1/1;transform:translate(-50%,-50%);pointer-events:none;"><div style="width:100%;height:100%;border-radius:50%;border:1px dashed rgba(255,255,255,.2);animation:spin 80s linear infinite;"></div></div><svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible;" aria-hidden="true"><path d="M22 22 L36 40" stroke="rgba(244,154,106,.45)" stroke-width="1.4" vector-effect="non-scaling-stroke" fill="none" style="animation:fadeIn .6s ease 1s both;"></path><path d="M22 22 L36 40" stroke="#F49A6A" stroke-width="7" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" opacity=".3" style="filter:blur(3px);animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 1.3s both;"></path><path d="M22 22 L36 40" stroke="#FFE2CE" stroke-width="3" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 1.3s both;"></path><path d="M22 22 L36 40" stroke="#F49A6A" stroke-width="2.2" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.09 0.91" stroke-dashoffset="0.09" opacity=".8" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite 1.2s,fadeIn .6s ease 1.5s both;"></path><circle cx="22" cy="22" r="1.3" fill="#FFE2CE" style="animation:fadeIn .4s ease 1s both;"></circle><circle cx="22" cy="22" r="1.3" fill="none" stroke="#F49A6A" stroke-width="1.2" vector-effect="non-scaling-stroke" style="transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite 1.3s,fadeIn .4s ease 1s both;"></circle><path d="M78 22 L64 40" stroke="rgba(244,154,106,.45)" stroke-width="1.4" vector-effect="non-scaling-stroke" fill="none" style="animation:fadeIn .6s ease 2s both;"></path><path d="M78 22 L64 40" stroke="#F49A6A" stroke-width="7" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" opacity=".3" style="filter:blur(3px);animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 2.3s both;"></path><path d="M78 22 L64 40" stroke="#FFE2CE" stroke-width="3" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 2.3s both;"></path><path d="M78 22 L64 40" stroke="#F49A6A" stroke-width="2.2" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.09 0.91" stroke-dashoffset="0.09" opacity=".8" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite 1.2s,fadeIn .6s ease 2.5s both;"></path><circle cx="78" cy="22" r="1.3" fill="#FFE2CE" style="animation:fadeIn .4s ease 2s both;"></circle><circle cx="78" cy="22" r="1.3" fill="none" stroke="#F49A6A" stroke-width="1.2" vector-effect="non-scaling-stroke" style="transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite 2.3s,fadeIn .4s ease 2s both;"></circle><path d="M50 80 L50 66" stroke="rgba(244,154,106,.45)" stroke-width="1.4" vector-effect="non-scaling-stroke" fill="none" style="animation:fadeIn .6s ease 3s both;"></path><path d="M50 80 L50 66" stroke="#F49A6A" stroke-width="7" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" opacity=".3" style="filter:blur(3px);animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 3.3s both;"></path><path d="M50 80 L50 66" stroke="#FFE2CE" stroke-width="3" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.13 0.87" stroke-dashoffset="0.13" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite,fadeIn .6s ease 3.3s both;"></path><path d="M50 80 L50 66" stroke="#F49A6A" stroke-width="2.2" vector-effect="non-scaling-stroke" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="0.09 0.91" stroke-dashoffset="0.09" opacity=".8" style="animation:flow 2.4s cubic-bezier(.5,0,.5,1) infinite 1.2s,fadeIn .6s ease 3.5s both;"></path><circle cx="50" cy="80" r="1.3" fill="#FFE2CE" style="animation:fadeIn .4s ease 3s both;"></circle><circle cx="50" cy="80" r="1.3" fill="none" stroke="#F49A6A" stroke-width="1.2" vector-effect="non-scaling-stroke" style="transform-box:fill-box;transform-origin:center;animation:ping 2.4s ease-out infinite 3.3s,fadeIn .4s ease 3s both;"></circle></svg><div style="position:absolute;left:50%;top:53%;width:{{ cardW }};transform:translate(-50%,-50%);z-index:2;"><div style="animation:popIn 1s cubic-bezier(.34,1.4,.5,1) .35s both;position:relative;"><div style="position:absolute;inset:-1.6cqw;border-radius:3.4cqw;border:1.5px solid rgba(228,87,27,.7);opacity:0;animation:haloBurst 2.8s ease-out 5.4s infinite;pointer-events:none;"></div><div style="animation:floatY 7s ease-in-out infinite;background:#fff;border-radius:2.4cqw;overflow:hidden;box-shadow:0 6cqw 12cqw -3cqw rgba(0,0,0,.85);display:flex;"><div style="position:relative;width:{{ cardImgW }};flex-shrink:0;"><img src="assets/sep-normandie.jpg" alt="Corps de ferme à diviser, Normandie" style="width:100%;height:100%;object-fit:cover;display:block;"><span style="position:absolute;top:1cqw;left:1cqw;font-size:{{ fsXs }};font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:#141210;color:#fff;padding:.6cqw 1.1cqw;border-radius:100px;">L'opération</span></div><div style="flex:1;min-width:0;padding:1.6cqw 1.8cqw;"><div style="font-family:'Instrument Serif',serif;font-size:{{ fsCardTitle }};line-height:1.05;color:#141210;">Corps de ferme, 6 lots</div><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1cqw;font-size:{{ fsSm }};color:#6B655C;margin-top:.4cqw;"><span>Normandie</span><span style="font-weight:700;color:#141210;">1,4 M€</span></div><div style="margin-top:1cqw;animation:popIn .5s cubic-bezier(.34,1.5,.5,1) 2.5s both;"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:1cqw;font-size:{{ fsSm }};color:#6B655C;"><span>Tour de table</span><span style="font-weight:700;color:#141210;">620 k€</span></div><div style="margin-top:.6cqw;height:.6cqw;border-radius:1cqw;background:#EEE9E1;overflow:hidden;"><div style="height:100%;width:100%;background:#E4571B;border-radius:1cqw;transform-origin:left;animation:drawIn 1.2s cubic-bezier(.22,.61,.36,1) 2.8s both;"></div></div></div><div style="margin-top:1.1cqw;padding-top:1cqw;border-top:1px solid #EEE9E1;display:flex;flex-wrap:wrap;gap:{{ chkGap }};animation:fadeIn .4s ease 3.7s both;"><span style="display:inline-flex;align-items:center;gap:.7cqw;font-size:{{ fsSm }};color:#4A453E;white-space:nowrap;animation:popIn .4s cubic-bezier(.34,1.5,.5,1) 3.8s both;"><svg viewBox="0 0 12 12" style="width:{{ fsIcon }};height:{{ fsIcon }};flex-shrink:0;" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#DFF3E8"></circle><path d="M3.2 6.2 L5.2 8.2 L8.8 4" fill="none" stroke="#1E6B4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine .35s ease 3.9499999999999997s both;"></path></svg>Structuration</span><span style="display:inline-flex;align-items:center;gap:.7cqw;font-size:{{ fsSm }};color:#4A453E;white-space:nowrap;animation:popIn .4s cubic-bezier(.34,1.5,.5,1) 4.15s both;"><svg viewBox="0 0 12 12" style="width:{{ fsIcon }};height:{{ fsIcon }};flex-shrink:0;" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#DFF3E8"></circle><path d="M3.2 6.2 L5.2 8.2 L8.8 4" fill="none" stroke="#1E6B4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine .35s ease 4.300000000000001s both;"></path></svg>Permis</span><span style="display:inline-flex;align-items:center;gap:.7cqw;font-size:{{ fsSm }};color:#4A453E;white-space:nowrap;animation:popIn .4s cubic-bezier(.34,1.5,.5,1) 4.5s both;"><svg viewBox="0 0 12 12" style="width:{{ fsIcon }};height:{{ fsIcon }};flex-shrink:0;" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#DFF3E8"></circle><path d="M3.2 6.2 L5.2 8.2 L8.8 4" fill="none" stroke="#1E6B4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine .35s ease 4.65s both;"></path></svg>Études</span><span style="display:inline-flex;align-items:center;gap:.7cqw;font-size:{{ fsSm }};color:#4A453E;white-space:nowrap;animation:popIn .4s cubic-bezier(.34,1.5,.5,1) 4.85s both;"><svg viewBox="0 0 12 12" style="width:{{ fsIcon }};height:{{ fsIcon }};flex-shrink:0;" aria-hidden="true"><circle cx="6" cy="6" r="6" fill="#DFF3E8"></circle><path d="M3.2 6.2 L5.2 8.2 L8.8 4" fill="none" stroke="#1E6B4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:drawLine .35s ease 5s both;"></path></svg>Travaux</span><span style="display:inline-flex;align-items:center;gap:.35em;font-size:{{ fsSm }};animation:fadeIn .5s ease 5.2s both;"><span style="width:.5em;height:.5em;border-radius:50%;background:#C2BCB2;animation:dotWave 1.4s ease-in-out 0s infinite;"></span><span style="width:.5em;height:.5em;border-radius:50%;background:#C2BCB2;animation:dotWave 1.4s ease-in-out 0.18s infinite;"></span><span style="width:.5em;height:.5em;border-radius:50%;background:#C2BCB2;animation:dotWave 1.4s ease-in-out 0.36s infinite;"></span></span></div><div style="font-size:{{ fsSm }};color:#1E6B4B;font-weight:700;margin-top:.9cqw;animation:popIn .6s cubic-bezier(.34,1.6,.5,1) 5.4s both;">Structurée par le réseau</div></div></div></div></div><div style="position:absolute;left:{{ roleInset }};top:1%;width:42%;z-index:3;animation:slideR .9s cubic-bezier(.22,.61,.36,1) .9s both;"><div style="background:rgba(20,18,16,.5);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:2.6cqw;padding:2.4cqw 2.8cqw;"><div style="display:flex;align-items:center;gap:1.6cqw;font-size:{{ fsSm }};font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F49A6A;"><span style="font-family:'Instrument Serif',serif;font-size:{{ fsAmount }};letter-spacing:0;line-height:1;">01</span>L'opérateur</div><div style="font-family:'Instrument Serif',serif;font-size:{{ fsRole }};line-height:1.02;margin-top:1.4cqw;color:#fff;">Apporte le deal.</div><div style="font-size:clamp(11px,2.35cqw,13px);line-height:1.45;color:rgba(255,255,255,.6);margin-top:1.2cqw;">Sourcing &amp; montage</div></div></div><div style="position:absolute;right:{{ roleInset }};top:1%;width:42%;z-index:3;animation:slideL .9s cubic-bezier(.22,.61,.36,1) 1.9s both;"><div style="background:rgba(20,18,16,.5);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:2.6cqw;padding:2.4cqw 2.8cqw;"><div style="display:flex;align-items:center;gap:1.6cqw;font-size:{{ fsSm }};font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7FD1B0;"><span style="font-family:'Instrument Serif',serif;font-size:{{ fsAmount }};letter-spacing:0;line-height:1;">02</span>Le co-opérateur</div><div style="font-family:'Instrument Serif',serif;font-size:{{ fsRole }};line-height:1.02;margin-top:1.4cqw;color:#fff;">Apporte les fonds.</div><div style="font-size:clamp(11px,2.35cqw,13px);line-height:1.45;color:rgba(255,255,255,.6);margin-top:1.2cqw;">Apport &amp; capitaux propres</div></div></div><div style="position:absolute;left:{{ roleInset }};right:{{ roleInset }};bottom:0;z-index:3;animation:slideU .9s cubic-bezier(.22,.61,.36,1) 2.9s both;"><div style="background:rgba(20,18,16,.5);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:2.6cqw;padding:2.2cqw 0 2.4cqw;overflow:hidden;"><div style="display:flex;align-items:baseline;gap:2.4cqw;flex-wrap:wrap;padding:0 3.2cqw;"><div style="display:flex;align-items:center;gap:1.6cqw;font-size:{{ fsSm }};font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9DBCE6;"><span style="font-family:'Instrument Serif',serif;font-size:{{ fsAmount }};letter-spacing:0;line-height:1;">03</span>Les prestataires</div><div style="font-family:'Instrument Serif',serif;font-size:{{ fsRole2 }};line-height:1.02;color:#fff;">Font aboutir le dossier.</div></div><div style="overflow:hidden;margin-top:2cqw;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);"><div style="display:flex;gap:1.4cqw;width:max-content;animation:ticker 28s linear infinite;"><div style="display:flex;gap:1.4cqw;padding-right:1.4cqw;"><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Notaire</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Architecte</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Designer</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Bureau d'études</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Constructeur · travaux</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Expert-comptable</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Courtier</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Géomètre</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Avocat</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Diagnostiqueur</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Paysagiste</span><span style="display:inline-flex;align-items:center;gap:.5em;padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(157,188,230,.45);background:rgba(157,188,230,.12);font-size:{{ fsSub }};font-weight:600;color:#9DBCE6;white-space:nowrap;">et bien d'autres<span style="display:inline-flex;gap:.3em;"><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out 0s infinite;"></span><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out .18s infinite;"></span><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out .36s infinite;"></span></span></span></div><div style="display:flex;gap:1.4cqw;padding-right:1.4cqw;" aria-hidden="true"><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Notaire</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Architecte</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Designer</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Bureau d'études</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Constructeur · travaux</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Expert-comptable</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Courtier</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Géomètre</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Avocat</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Diagnostiqueur</span><span style="padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);font-size:{{ fsSub }};font-weight:600;color:#fff;white-space:nowrap;">Paysagiste</span><span style="display:inline-flex;align-items:center;gap:.5em;padding:1.1cqw 2cqw;border-radius:100px;border:1px solid rgba(157,188,230,.45);background:rgba(157,188,230,.12);font-size:{{ fsSub }};font-weight:600;color:#9DBCE6;white-space:nowrap;">et bien d'autres<span style="display:inline-flex;gap:.3em;"><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out 0s infinite;"></span><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out .18s infinite;"></span><span style="width:.32em;height:.32em;border-radius:50%;background:#9DBCE6;animation:dotWave 1.4s ease-in-out .36s infinite;"></span></span></span></div></div></div></div></div></div></div></section>
-<div style="max-width:1240px;margin:0 auto;padding:0 28px;"><div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:64px;padding-bottom:18px;border-bottom:1px solid rgba(20,18,16,.14);"><div style="font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9A3B10;">Ce que vous faites ici</div><div style="font-size:13px;color:#6B655C;">Tout est inclus dans l'adhésion gratuite</div></div><div ref="{{ actRef }}" onMouseLeave="{{ actResume }}" style="display:grid;grid-template-columns:{{ actCols }};gap:8px;" class="act-row"><sc-for list="{{ acts }}" as="a" hint-placeholder-count="4"><div onMouseEnter="{{ a.hover }}" style="position:relative;padding:24px 22px 26px;border-radius:14px;cursor:default;transition:background .35s,box-shadow .35s,transform .35s;background:{{ a.bg }};box-shadow:{{ a.shadow }};transform:translateY({{ a.lift }});"><div style="position:absolute;left:22px;right:22px;top:0;height:2px;border-radius:2px;background:rgba(20,18,16,.1);overflow:hidden;"><div style="height:100%;width:{{ a.prog }};background:#E4571B;transition:width .22s linear;"></div></div><div style="font-family:'Instrument Serif',serif;font-size:17px;line-height:1;color:{{ a.numColor }};transition:color .35s;">{{ a.num }}</div><div style="display:flex;align-items:baseline;gap:8px;margin-top:12px;"><span style="font-family:'Instrument Serif',serif;font-size:clamp(22px,2.1vw,29px);line-height:1.02;letter-spacing:-.015em;color:#141210;">{{ a.verb }}</span><span style="font-weight:700;color:#E4571B;font-size:16px;opacity:{{ a.arrowO }};transform:translateX({{ a.arrowX }});transition:opacity .35s,transform .35s;">→</span></div><div style="text-align:justify;hyphens:auto;text-align-last:start;font-size:14px;line-height:1.5;margin-top:10px;color:{{ a.detailColor }};transform:translateY({{ a.detailY }});transition:color .4s,transform .4s;">{{ a.detail }}</div></div></sc-for></div></div>
-<!-- TICKER métiers -->
-<div style="overflow:hidden;padding:18px 0 56px;">
-  <div style="display:flex;gap:0;width:max-content;animation:ticker 40s linear infinite;">
-    <div style="display:flex;gap:40px;padding-right:40px;font-size:14px;font-weight:500;color:#6B655C;white-space:nowrap;">
-      <span>Marchand de biens</span><span>·</span><span>Promoteur</span><span>·</span><span>Aménageur foncier</span><span>·</span><span>Co-opérateur</span><span>·</span><span>Architecte</span><span>·</span><span>Bureau d'études</span><span>·</span><span>Notaire</span><span>·</span><span>Courtier</span><span>·</span><span>Constructeur</span><span>·</span><span>Géomètre</span><span>·</span><span>Apporteur d'affaires</span><span>·</span><span>Avocat</span><span>·</span><span>Expert-comptable</span><span>·</span>
-    </div>
-    <div style="display:flex;gap:40px;padding-right:40px;font-size:14px;font-weight:500;color:#6B655C;white-space:nowrap;" aria-hidden="true">
-      <span>Marchand de biens</span><span>·</span><span>Promoteur</span><span>·</span><span>Aménageur foncier</span><span>·</span><span>Co-opérateur</span><span>·</span><span>Architecte</span><span>·</span><span>Bureau d'études</span><span>·</span><span>Notaire</span><span>·</span><span>Courtier</span><span>·</span><span>Constructeur</span><span>·</span><span>Géomètre</span><span>·</span><span>Apporteur d'affaires</span><span>·</span><span>Avocat</span><span>·</span><span>Expert-comptable</span><span>·</span>
-    </div>
-  </div>
-</div>
-
-<!-- SÉQUENCE PINNÉE : une opération s'assemble -->
-<section id="reseau" class="seq-sec" data-screen-label="Séquence déroulé" ref="{{ seqRef }}" style="background:#0E0D0B;color:#fff;height:{{ secH }};position:relative;">
-  <div class="seq-pin" style="position:{{ pinPos }};top:0;height:{{ pinH }};overflow:{{ pinOv }};display:flex;align-items:center;padding:{{ pinPad }};">
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(228,87,27,.14),transparent 70%);pointer-events:none;"></div>
-    <div style="max-width:1240px;width:100%;margin:0 auto;padding:min(4vh,32px) 28px;display:grid;grid-template-columns:{{ seqCols }};gap:clamp(24px,4vw,64px);align-items:center;position:relative;" class="seq-grid">
-      <div>
-        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;"><span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F49A6A;">Le déroulé d'une opération</span><span style="font-family:ui-monospace,monospace;font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:3px 9px;">Opération-type</span></div>
-        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,min(4vw,5.2vh),56px);line-height:1;letter-spacing:-.025em;margin:12px 0 min(3vh,26px);">1,4 M€ à financer.<br><em style="font-style:italic;color:#F49A6A;">18 mois pour sortir.</em></h2>
-        <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:min(2.2vh,18px);">
-<li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;transition:opacity .4s;opacity:{{ s1o }};"><span style="font-family:ui-monospace,monospace;font-size:clamp(11px,1.7vh,13px);font-weight:600;letter-spacing:.06em;color:#F49A6A;padding-top:3px;">J+0</span><div><div style="font-weight:700;font-size:clamp(15px,2.2vh,18px);line-height:1.25;">L'opération est vérifiée, puis publiée</div><div style="text-align:justify;hyphens:auto;text-align-last:start;color:rgba(255,255,255,.66);font-size:clamp(13px,1.9vh,15px);line-height:1.45;margin-top:3px;">Foncier, faisabilité, pièces : AOI contrôle le dossier avant de le diffuser aux membres.</div></div></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;transition:opacity .4s;opacity:{{ s2o }};"><span style="font-family:ui-monospace,monospace;font-size:clamp(11px,1.7vh,13px);font-weight:600;letter-spacing:.06em;color:#F49A6A;padding-top:3px;">J+12</span><div><div style="font-weight:700;font-size:clamp(15px,2.2vh,18px);line-height:1.25;">Les fonds propres sont réunis en SEP</div><div style="text-align:justify;hyphens:auto;text-align-last:start;color:rgba(255,255,255,.66);font-size:clamp(13px,1.9vh,15px);line-height:1.45;margin-top:3px;">620 k€ apportés par l'opérateur et deux co-opérateurs. Contrat type issu de la bibliothèque.</div></div></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;transition:opacity .4s;opacity:{{ s3o }};"><span style="font-family:ui-monospace,monospace;font-size:clamp(11px,1.7vh,13px);font-weight:600;letter-spacing:.06em;color:#F49A6A;padding-top:3px;">J+30</span><div><div style="font-weight:700;font-size:clamp(15px,2.2vh,18px);line-height:1.25;">Le plan de financement est complet</div><div style="text-align:justify;hyphens:auto;text-align-last:start;color:rgba(255,255,255,.66);font-size:clamp(13px,1.9vh,15px);line-height:1.45;margin-top:3px;">520 k€ de foncier payés à terme par le vendeur. La dette ne couvre plus que le solde : 260 k€.</div></div></li><li style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:start;transition:opacity .4s;opacity:{{ s4o }};"><span style="font-family:ui-monospace,monospace;font-size:clamp(11px,1.7vh,13px);font-weight:600;letter-spacing:.06em;color:#F49A6A;padding-top:3px;">M+18</span><div><div style="font-weight:700;font-size:clamp(15px,2.2vh,18px);line-height:1.25;">Revente : la marge revient aux associés</div><div style="text-align:justify;hyphens:auto;text-align-last:start;color:rgba(255,255,255,.66);font-size:clamp(13px,1.9vh,15px);line-height:1.45;margin-top:3px;">308 k€ de missions confiées aux prestataires du réseau, sur devis. La marge, elle, revient aux seuls associés de la SEP, au prorata des apports.</div></div></li>        </ol>
+    <div class="film-scroll" id="reseau">
+    <div class="network-film" id="network-film" data-phase="0" data-state="start" data-progress="0" aria-labelledby="film-title" aria-describedby="film-description">
+      <p class="film-title" id="film-title">Une opportunité.</p>
+      <p id="film-description" class="sr-only">Faites défiler la page ou utilisez le bouton Étape suivante. Un opérateur porte un projet. Architecte, notaire, bureau d’études, courtier et agent immobilier arrivent l’un après l’autre pour constituer le dossier. Les co-opérateurs rejoignent ensuite l’opération, puis un constructeur ou une entreprise de travaux intervient. La rénovation se révèle seulement après leur arrivée. Les personnes et l’opération représentées sont fictives.</p>
+      <div class="film-stage" id="film-stage" aria-hidden="true">
+        <div class="film-halo"></div>
+        <svg class="film-connections" viewBox="0 0 1200 540" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M210 114 C340 114 360 230 535 230"/><path d="M990 114 C860 114 840 230 665 230"/><path d="M144 295 C320 295 360 258 535 258"/><path d="M1056 295 C880 295 840 258 665 258"/><path d="M285 455 C400 455 480 350 570 300"/><path d="M930 455 C800 455 720 350 630 300"/></g></svg>
+        <figure class="film-property" id="film-property">
+          <div class="film-photo">
+            <img src="assets/aoi-building-before.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+            <img class="film-after" id="film-after" src="assets/aoi-building-after.webp" alt="" width="1536" height="1024" decoding="async">
+            <span class="film-photo-sheen"></span>
+          </div>
+          <figcaption id="film-property-caption">Un bien à réinventer.</figcaption>
+        </figure>
+        <div class="film-documents" id="film-documents">
+          <div class="film-paper film-paper-back"><svg viewBox="0 0 220 160"><path d="M32 126H190M32 28V126"/><path class="document-chart" d="M50 116V87M88 116V68M126 116V51M164 116V34"/></svg></div>
+          <div class="film-paper film-paper-front"><svg viewBox="0 0 220 160"><path class="plan-wall" d="M30 24H190V136H30Z M30 87H95V24M95 87V136M135 24V80H190M135 105V136M95 105H162"/><path d="M52 24v8h25v-8M190 45h-8v22h8M44 136v-8h27v8M145 136v-8h24v8M30 43h8v20h-8"/><path class="plan-door" d="M95 65a22 22 0 0 1-22 22V65M135 80a25 25 0 0 1 25 25h-25"/><rect x="43" y="99" width="38" height="24" rx="2"/><rect x="146" y="37" width="29" height="29" rx="2"/></svg></div>
+          <span class="film-document-label">Le dossier prend forme.</span>
+        </div>
+        <div class="film-person film-operator" id="film-operator"><span class="film-portrait" style="--col:0;--row:0"></span><strong class="film-role" id="film-operator-label">Je porte un projet.</strong></div>
+        <div class="film-person film-expert" data-person="architecte"><span class="film-portrait" style="--col:1;--row:0"></span><strong class="film-role">Architecte</strong></div>
+        <div class="film-person film-expert" data-person="notaire"><span class="film-portrait" style="--col:2;--row:0"></span><strong class="film-role">Notaire</strong></div>
+        <div class="film-person film-expert" data-person="etudes"><span class="film-portrait" style="--col:3;--row:0"></span><strong class="film-role">Bureau d’études</strong></div>
+        <div class="film-person film-expert" data-person="courtier"><span class="film-portrait" style="--col:0;--row:1"></span><strong class="film-role">Courtier</strong></div>
+        <div class="film-person film-expert" data-person="agent"><span class="film-portrait" style="--col:1;--row:1"></span><strong class="film-role">Agent immobilier</strong></div>
+        <div class="film-associates" id="film-associates"><div class="film-associate-faces"><span class="film-portrait" style="--col:2;--row:1"></span><span class="film-portrait" style="--col:3;--row:1"></span></div><strong class="film-role">Co-opérateurs</strong></div>
+        <div class="film-person film-builder" id="film-builder"><span class="film-portrait"></span><strong class="film-role">Entreprise de travaux</strong></div>
       </div>
-      <div style="position:relative;">
-        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-          <div><div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);">Financement couvert <span style="font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.38);">· exemple</span></div>
-          <div style="font-family:'Instrument Serif',serif;font-size:clamp(40px,7.4vh,88px);line-height:.9;letter-spacing:-.03em;margin-top:6px;">{{ amount }}<span style="font-size:.42em;color:rgba(255,255,255,.5);"> / 1,4 M€</span></div></div>
-          <div style="font-family:ui-monospace,monospace;font-size:clamp(13px,2.2vh,17px);font-weight:700;color:{{ coveredColor }};padding-bottom:8px;">{{ covered }}</div>
-        </div>
-        <div style="display:flex;gap:4px;height:clamp(44px,7vh,72px);margin-top:min(3vh,26px);">
-          <div style="width:{{ w1 }};transition:width .8s cubic-bezier(.22,.61,.36,1);border-radius:10px;background:linear-gradient(180deg,#F2803A,#E4571B);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 16px 40px -18px rgba(228,87,27,.9);overflow:hidden;"></div>
-          <div style="width:{{ w2 }};transition:width .8s cubic-bezier(.22,.61,.36,1);border-radius:10px;background:linear-gradient(180deg,#8FDCBC,#5FBF97);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;overflow:hidden;"></div>
-          <div style="width:{{ w3 }};transition:width .8s cubic-bezier(.22,.61,.36,1);border-radius:10px;background:repeating-linear-gradient(135deg,rgba(157,188,230,.9) 0 7px,rgba(157,188,230,.55) 7px 14px);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset;overflow:hidden;"></div>
-        </div>
-        <div style="display:grid;grid-template-columns:44.3fr 37.1fr 18.6fr;gap:4px;margin-top:12px;align-items:start;">
-          <div style="min-width:0;"><div style="opacity:{{ o1s }};transform:translateY({{ y1s }});transition:opacity .5s,transform .5s;"><div style="font-family:ui-monospace,monospace;font-size:clamp(12px,1.9vh,15px);font-weight:700;color:#F2803A;">620 k€</div><div style="font-size:clamp(11px,1.6vh,13px);line-height:1.35;color:rgba(255,255,255,.7);margin-top:2px;">Fonds propres en SEP<br><span style="color:rgba(255,255,255,.45);">opérateur + co-opérateurs</span></div></div></div>
-          <div style="min-width:0;"><div style="opacity:{{ o2s }};transform:translateY({{ y2s }});transition:opacity .5s,transform .5s;"><div style="font-family:ui-monospace,monospace;font-size:clamp(12px,1.9vh,15px);font-weight:700;color:#7FD1B0;">520 k€</div><div style="font-size:clamp(11px,1.6vh,13px);line-height:1.35;color:rgba(255,255,255,.7);margin-top:2px;">Paiement à terme<br><span style="color:rgba(255,255,255,.45);">vendeur réglé à la revente</span></div></div></div>
-          <div style="min-width:0;"><div style="opacity:{{ o3s }};transform:translateY({{ y3s }});transition:opacity .5s,transform .5s;"><div style="font-family:ui-monospace,monospace;font-size:clamp(12px,1.9vh,15px);font-weight:700;color:#9DBCE6;">260 k€</div><div style="font-size:clamp(11px,1.6vh,13px);line-height:1.35;color:rgba(255,255,255,.7);margin-top:2px;">Dette complémentaire<br><span style="color:rgba(255,255,255,.45);">banque ou crowdfunding</span></div></div></div>
-        </div>
-        <div style="margin-top:min(3vh,24px);opacity:{{ braceO }};transition:opacity .6s;">
-          <div style="height:1px;background:linear-gradient(90deg,#F2803A,#7FD1B0);width:{{ braceW }};transform-origin:left;transition:width .8s cubic-bezier(.22,.61,.36,1);"></div>
-          <div style="font-family:'Instrument Serif',serif;font-size:clamp(17px,2.6vh,24px);line-height:1.15;margin-top:10px;">81 % structuré par le réseau. <em style="font-style:italic;color:#9DBCE6;">Le reste seulement en complément.</em></div>
-                  </div>
-        <div style="margin-top:min(2.6vh,22px);padding-top:min(2.2vh,18px);border-top:1px solid rgba(255,255,255,.12);opacity:{{ presO }};transition:opacity .6s;">
-          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;"><div style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9DBCE6;">Missions confiées au réseau</div><div style="font-family:ui-monospace,monospace;font-size:clamp(12px,1.9vh,15px);font-weight:700;color:#fff;">{{ presTotal }} encaissés par 6 intervenants</div></div>
-          <div style="display:flex;gap:6px;margin-top:10px;align-items:stretch;flex-wrap:wrap;"><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO1 }};transform:translateY({{ pY1 }});transition:opacity .45s 0.07s,transform .45s 0.07s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">215</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Constructeur</span></div><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO2 }};transform:translateY({{ pY2 }});transition:opacity .45s 0.14s,transform .45s 0.14s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">26</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Architecte</span></div><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO3 }};transform:translateY({{ pY3 }});transition:opacity .45s 0.21s,transform .45s 0.21s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">22</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Bureau<br>d'études</span></div><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO4 }};transform:translateY({{ pY4 }});transition:opacity .45s 0.28s,transform .45s 0.28s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">18</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Designer</span></div><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO5 }};transform:translateY({{ pY5 }});transition:opacity .45s 0.35s,transform .45s 0.35s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">12</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Géomètre</span></div><div style="flex:{{ tileFlex }};min-width:0;display:flex;flex-direction:column;gap:2px;padding:8px 6px;border:1px solid rgba(255,255,255,.14);border-radius:10px;background:rgba(157,188,230,.07);text-align:center;opacity:{{ pO6 }};transform:translateY({{ pY6 }});transition:opacity .45s 0.42s,transform .45s 0.42s;"><span style="font-family:ui-monospace,monospace;font-size:clamp(11.5px,1.7vh,14px);font-weight:700;color:#BDD4F0;">15</span><span style="font-size:clamp(11px,1.5vh,12px);line-height:1.2;color:rgba(255,255,255,.6);">Assurance<br>&amp; compta</span></div></div>
-          <div style="text-align:justify;hyphens:auto;text-align-last:start;font-size:clamp(11px,1.6vh,13px);line-height:1.45;color:rgba(255,255,255,.5);margin-top:10px;">Montants en k€, payés sur devis à la mission — sans prospection, et sans aucune part dans la marge de l'opération.</div>
-        </div>
+      <div class="film-toolbar"><span class="film-cue" id="film-cue">Au fil du scroll, l’équipe se forme <span aria-hidden="true">↓</span></span><span class="film-status" id="film-status" aria-live="polite" aria-atomic="true"></span><button id="film-control" class="film-control" type="button" aria-label="Étape suivante de la rencontre"><span class="film-control-icon" aria-hidden="true">→</span><span class="film-control-label">Étape suivante</span></button></div>
+      <p class="film-illustration">Scène illustrative · Personnages et projet fictifs</p>
+    </div>
+    </div>
+    <div class="film-invitation wrap">
+      <p>Votre projet, votre métier.<br class="mobile-break"> <em>Votre place est ici.</em></p>
+      <a class="button button-orange" href="#rejoindre">Trouver ma place dans le réseau <svg class="icon"><use href="#arrow"/></svg></a>
+      <span>Adhésion gratuite · Le réseau se construit avec vous.</span>
+    </div>
+  </section>
+  <div class="profession-strip" aria-label="Métiers du réseau"><span>Marchands de biens</span><i>✳</i><span>Promoteurs</span><i>✳</i><span>Architectes</span><i>✳</i><span>Bureaux d’études</span><i>✳</i><span>Aménageurs</span><i>✳</i><span>Entreprises de travaux</span></div>
+  <section class="profiles section-light" id="rejoindre" aria-labelledby="profiles-title">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow" data-reveal>02 — À chacun sa place</p><h2 id="profiles-title" data-reveal>Vous avez quelque chose<br>à <em>faire grandir.</em></h2></div><p data-reveal>Un projet, une expertise, une envie de vous associer.<br>Le réseau commence avec ce que vous apportez.</p></div>
+      <div class="profile-cards">
+        <article class="profile-card" aria-labelledby="profile-operateur-title">
+          <div class="profile-card-intro">
+            <p class="profile-card-type"><span aria-hidden="true">01</span> Opérateur</p>
+            <h3 id="profile-operateur-title">Je porte<br><em>un projet.</em></h3>
+          </div>
+          <div class="profile-card-content">
+            <p class="profile-card-description">Présentez votre opération, trouvez les bons métiers et rencontrez des co-opérateurs.</p>
+            <p class="profile-card-jobs">Marchands de biens, promoteurs, aménageurs.</p>
+            <a class="button button-ink" href="rejoindre.html?profil=operateur">Présenter mon projet <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="profile-card" aria-labelledby="profile-cooperateur-title">
+          <div class="profile-card-intro">
+            <p class="profile-card-type"><span aria-hidden="true">02</span> Co-opérateur</p>
+            <h3 id="profile-cooperateur-title">Je souhaite<br><em>m’associer.</em></h3>
+          </div>
+          <div class="profile-card-content">
+            <p class="profile-card-description">Découvrez les opérations, étudiez les dossiers et échangez avec leurs porteurs.</p>
+            <p class="profile-card-jobs">Professionnels souhaitant s’associer à une opération.</p>
+            <a class="button button-ink" href="rejoindre.html?profil=co-operateur">Rejoindre une opération <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </article>
+        <article class="profile-card" aria-labelledby="profile-prestataire-title">
+          <div class="profile-card-intro">
+            <p class="profile-card-type"><span aria-hidden="true">03</span> Prestataire &amp; partenaire</p>
+            <h3 id="profile-prestataire-title">Je propose<br><em>mon savoir-faire.</em></h3>
+          </div>
+          <div class="profile-card-content">
+            <p class="profile-card-description">Présentez votre métier et répondez aux besoins des opérateurs du réseau.</p>
+            <p class="profile-card-jobs">Architectes, notaires, bureaux d’études, courtiers, agents immobiliers, entreprises de travaux…</p><p class="profile-exemption">Professions réglementées : missions sans commission, <a href="cgv.html#sec-6">selon les CGV</a>.</p>
+            <a class="button button-ink" href="rejoindre.html?profil=prestataire">Proposer mes compétences <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          </div>
+        </article>
       </div>
+      <div class="profiles-note"><span class="asterisk">✳</span><p>Le réseau est en lancement. Les opportunités se développent avec les projets et les compétences de ses premiers membres.</p><a class="text-link" href="#origine">Rencontrer AOI <svg class="icon"><use href="#arrow"/></svg></a></div>
     </div>
-    <div style="position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08);"><div style="height:100%;background:#E4571B;width:{{ progW }};"></div></div>
-  </div>
-</section>
-
-<!-- PLATEFORME -->
-<section id="plateforme" data-screen-label="Plateforme" style="background:#FAF7F2;color:#141210;padding:120px 0;border-top:1px solid rgba(20,18,16,.08);">
-  <div style="max-width:1240px;margin:0 auto;padding:0 28px;">
-    <div data-reveal="" style="max-width:760px;">
-      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;">La plateforme</div>
-      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,4.8vw,68px);line-height:.98;letter-spacing:-.025em;margin:16px 0 20px;">Un extranet pour le réseau. <em style="color:#E4571B;">Un logiciel pour l'opération.</em></h2>
-      <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:17px;line-height:1.55;color:#4A453E;margin:0;">Tout au même endroit : opérations, appels d'offres privés, bibliothèque de contrats SEP, MasterClass des fondateurs — et l'outil qui simule la marge et croise DVF, PLU, cadastre et DPE sur chaque dossier.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:64px;align-items:stretch;">
-      <div data-reveal="" style="grid-row:span 6;display:grid;grid-template-rows:subgrid;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:22px;box-shadow:0 30px 60px -40px rgba(20,18,16,.3);overflow:hidden;">
-        <div style="display:flex;flex-direction:column;gap:8px;padding:28px 28px 12px;"><div style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,32px);line-height:1.05;">L'extranet</div><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#1E6B4B;">Inclus · gratuit</span></div>
-        <ul style="grid-row:span 4;display:grid;grid-template-rows:subgrid;list-style:none;margin:0 28px 22px;padding:0;"><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">01</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Opérations & SEP</strong> — publiez, candidatez, suivez le tour de table</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">02</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Appels d'offres privés</strong> — missions réservées aux membres vérifiés</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">03</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Bibliothèque</strong> — contrats SEP, clauses PAT, checklists division</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">04</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">MasterClass</strong> — division parcellaire, paiement à terme, SEP</span></li></ul>
-        <div style="align-self:end;margin:0 28px 28px;border-radius:14px;overflow:hidden;border:1px solid rgba(20,18,16,.12);aspect-ratio:16/10;background:#0E0D0B;position:relative;box-shadow:0 18px 40px -24px rgba(20,18,16,.55);">
-          <iframe src="demo-extranet.html" title="Démo extranet AOI" tabindex="-1" style="position:absolute;top:0;left:0;width:960px;height:600px;border:none;transform-origin:0 0;transform:scale(var(--fs,1));pointer-events:none;" ref="{{ fr1 }}"></iframe>
-        </div>
+  </section>
+  <section class="platform section-dark" id="plateforme" aria-labelledby="platform-title">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow copper" data-reveal>03 — Le réseau, concrètement</p><h2 id="platform-title" data-reveal>La rencontre est humaine.<br><em>La suite est connectée.</em></h2></div><p data-reveal>L’extranet pour vous rencontrer.<br>Le logiciel pour piloter vos opérations.<br>Deux outils, deux démos à découvrir.</p></div>
+      <div class="demo-cards">
+        <article class="demo-card" aria-labelledby="extranet-card-title">
+          <div class="demo-card-heading"><span class="demo-number">01 / Se rencontrer</span><span class="demo-badge">Accès gratuit</span></div>
+          <h3 id="extranet-card-title">L’extranet</h3>
+          <p class="demo-card-copy">Partagez vos projets, trouvez les bons professionnels et échangez avec le réseau.</p>
+          <a class="demo-launch" href="demo-extranet.html" target="_blank" rel="noopener" data-demo-launch="extranet" aria-haspopup="dialog" aria-label="Voir la démo de l’extranet">
+            <div class="demo-poster"><img src="assets/aoi-extranet-preview.jpg" alt="" width="959" height="570" loading="lazy"><span class="demo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5 20 12 9 19Z"/></svg></span></div>
+            <span class="demo-launch-label">Voir la démo de l’extranet <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span>
+          </a>
+        </article>
+        <article class="demo-card" aria-labelledby="logiciel-card-title">
+          <div class="demo-card-heading"><span class="demo-number">02 / Piloter</span><span class="demo-badge demo-badge-option">Logiciel en option</span></div>
+          <h3 id="logiciel-card-title">Le logiciel d’opération</h3>
+          <p class="demo-card-copy">Simulez votre bilan financier, préparez votre dossier et suivez chaque étape du projet.</p>
+          <a class="demo-launch" href="demo-logiciel.html" target="_blank" rel="noopener" data-demo-launch="logiciel" aria-haspopup="dialog" aria-label="Voir la démo du logiciel">
+            <div class="demo-poster demo-poster-software"><img src="assets/aoi-logiciel-preview.jpg" alt="" width="1363" height="936" loading="lazy"><span class="demo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5 20 12 9 19Z"/></svg></span></div>
+            <span class="demo-launch-label">Voir la démo du logiciel <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span>
+          </a>
+        </article>
       </div>
-      <div data-reveal="" style="grid-row:span 6;display:grid;grid-template-rows:subgrid;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:22px;box-shadow:0 30px 60px -40px rgba(20,18,16,.3);overflow:hidden;">
-        <div style="display:flex;flex-direction:column;gap:8px;padding:28px 28px 12px;"><div style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,32px);line-height:1.05;">Le logiciel d'opération</div><span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9A3B10;">Option · opérateurs</span></div>
-        <ul style="grid-row:span 4;display:grid;grid-template-rows:subgrid;list-style:none;margin:0 28px 22px;padding:0;"><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">01</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Matrice de marge</strong> — simulez, comparez, arbitrez avant de vous engager</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">02</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Compte à rebours</strong> — échéances, phases, points de bascule</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">03</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Données officielles</strong> — DVF, PLU, cadastre et DPE croisés</span></li><li style="display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(20,18,16,.09);"><span style="font-family:ui-monospace,monospace;font-size:11px;font-weight:600;color:#B9B2A7;line-height:1.5;">04</span><span style="display:block;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><strong style="font-weight:700;color:#141210;">Suivi de chantier</strong> — avancement et dépenses, aussi sur mobile</span></li></ul>
-        <div style="align-self:end;margin:0 28px 28px;border-radius:14px;overflow:hidden;border:1px solid rgba(20,18,16,.12);aspect-ratio:16/10;background:#0E0D0B;position:relative;box-shadow:0 18px 40px -24px rgba(20,18,16,.55);">
-          <iframe src="demo-logiciel.html" title="Démo logiciel AOI" tabindex="-1" style="position:absolute;top:0;left:0;width:960px;height:600px;border:none;transform-origin:0 0;transform:scale(var(--fs,1));pointer-events:none;" ref="{{ fr2 }}"></iframe>
-        </div>
+      <p class="demo-caption">Aperçus des interfaces · Démonstrations illustratives</p>
+      <div class="platform-bottom"><p>Un espace commun.<br><em>Vos prochaines collaborations.</em></p><a class="button button-outline" href="rejoindre.html">Découvrir AOI de l’intérieur <svg class="icon"><use href="#arrow"/></svg></a></div>
+    </div>
+    <dialog class="demo-viewer" id="demo-viewer" aria-labelledby="demo-viewer-title">
+      <div class="demo-viewer-heading"><div><p class="demo-viewer-count" id="demo-viewer-count">Démo 1 sur 2 · Accès gratuit</p><h2 id="demo-viewer-title" aria-live="polite">L’extranet</h2></div><button class="demo-close" type="button" id="demo-close" aria-label="Fermer la démonstration" autofocus><span>Fermer</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+      <div class="demo-screen"><iframe id="demo-frame" title="Démonstration de l’extranet AOI" tabindex="-1"></iframe><p class="demo-loading" id="demo-loading" role="status">La démonstration démarre…</p></div>
+      <div class="demo-viewer-footer"><a class="text-link light" id="demo-open" href="demo-extranet.html" target="_blank" rel="noopener">Ouvrir en grand <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a><button class="button button-orange demo-next" id="demo-next" type="button"><span>Voir aussi le logiciel</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div>
+      <p class="demo-viewer-note">Démonstration illustrative · Vous pouvez fermer cette fenêtre à tout moment.</p>
+    </dialog>
+  </section>
+  <section class="origin section-light" id="origine" aria-labelledby="origin-title">
+    <div class="wrap origin-grid">
+      <div class="origin-visual" data-reveal><img src="assets/guillaume.jpg" alt="Guillaume Rychner, fondateur d’AOI Network" width="700" height="820" loading="lazy"><div class="portrait-caption"><span>Guillaume Rychner</span><span>Fondateur — AOI Network</span></div><span class="portrait-index" aria-hidden="true">À l’origine.</span></div>
+      <div class="origin-copy"><p class="eyebrow" data-reveal>04 — Une conviction née sur le terrain</p><h2 id="origin-title" data-reveal>L’immobilier est<br>une histoire<br><em>de personnes.</em></h2><p class="origin-lead" data-reveal>AOI est né d’une expérience d’opérateur : un bon projet avance lorsque les bonnes personnes travaillent ensemble.</p><p data-reveal>Paiement à terme, société en participation, co-production avec les vendeurs… Les méthodes explorées par les fondateurs nourrissent aujourd’hui les ressources et les échanges du réseau.</p><p data-reveal>Nous ouvrons cet espace aux professionnels qui veulent partager leur pratique, rencontrer des partenaires et faire aboutir leurs projets.</p><a href="https://wa.me/33763782041?text=Bonjour%20Guillaume%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20AOI%20Network." class="text-link" target="_blank" rel="noopener">Échanger avec Guillaume <svg class="icon"><use href="#diagonal"/></svg></a><p class="origin-attribution">L’expérience présentée est celle des fondateurs. AOI Network est un réseau en développement.</p></div>
+    </div>
+    <div class="wrap methods"><p class="eyebrow">Des méthodes à partager</p><a href="article.html?a=paiement-a-terme"><span>01 / Structurer</span><strong>Le paiement à terme</strong><svg class="icon"><use href="#diagonal"/></svg></a><a href="article.html?a=sep-immobiliere"><span>02 / S’associer</span><strong>La société en participation</strong><svg class="icon"><use href="#diagonal"/></svg></a><a href="article.html?a=pourquoi-un-reseau"><span>03 / Coopérer</span><strong>La force d’un réseau</strong><svg class="icon"><use href="#diagonal"/></svg></a></div>
+  </section>
+  <section class="business section-light" id="modele" aria-labelledby="model-title">
+    <div class="wrap">
+      <div class="section-heading"><div><p class="eyebrow" data-reveal>05 — Un modèle clair</p><h2 id="model-title" data-reveal>Le réseau est gratuit.<br><em>La suite est à la carte.</em></h2></div><p data-reveal>Rejoignez le réseau sans abonnement.<br>Ajoutez le logiciel si vous en avez besoin.<br>Les commissions dépendent de vos collaborations.</p></div>
+      <div class="access-cards">
+        <article class="access-card access-card-free" aria-labelledby="access-free-title">
+          <div class="access-heading"><h3 id="access-free-title">Adhésion &amp; extranet</h3><span class="access-badge">Pour tous</span></div>
+          <p class="access-price">0 <span>€</span></p><p class="access-term">Sans abonnement d’adhésion.</p>
+          <ul class="access-features"><li>Votre profil et l’annuaire des membres</li><li>Projets, candidatures et échanges</li><li>Bibliothèque et MasterClass</li></ul>
+          <a class="button button-orange" href="rejoindre.html">Rejoindre gratuitement <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </article>
+        <article class="access-card" aria-labelledby="access-software-title">
+          <div class="access-heading"><h3 id="access-software-title">Logiciel d’opération</h3><span class="access-badge">Optionnel</span></div>
+          <p class="access-price">49 <span>€ HT <small>/ mois</small></span></p><p class="access-term">58,80 € TTC / mois par membre · Sans engagement.</p>
+          <ul class="access-features"><li>Simulation du bilan financier</li><li>Dossier d’opération et suivi des phases</li><li>Outils d’aide à la décision avec l’IA</li></ul>
+          <a class="button button-ink" href="demo-logiciel.html" target="_blank" rel="noopener" data-demo-launch="logiciel" aria-haspopup="dialog">Découvrir le logiciel <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </article>
       </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- RÉSULTATS -->
-<section id="resultats" data-screen-label="Résultats" style="max-width:1240px;margin:0 auto;padding:120px 28px;">
-  <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:32px 56px;align-items:end;">
-    <div>
-      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;">Ce que le réseau a déjà produit</div>
-      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.6vw,64px);line-height:.98;letter-spacing:-.025em;margin:16px 0 0;">Plusieurs millions d'euros d'opérations, <em style="color:#E4571B;">structurées sans capitaux ni banque.</em></h2>
-    </div>
-    <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:17px;line-height:1.55;color:#4A453E;margin:0;max-width:480px;">Les montages qui l'ont permis — SEP, paiement à terme, co-production avec le vendeur — sont aujourd'hui dans la bibliothèque du réseau, avec leurs contrats types. Ce sont eux que vous réutilisez sur vos propres opérations.</p>
-  </div>
-
-  <div data-reveal="" style="display:grid;grid-template-columns:{{ redaCols }};gap:{{ redaGap }};align-items:center;max-width:940px;margin:72px auto 0;padding:36px 0;border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);">
-    <img src="assets/reda.jpg" alt="Reda El Ouazai" style="width:92px;height:92px;border-radius:50%;object-fit:cover;">
-    <div>
-      <p style="text-align:justify;hyphens:auto;text-align-last:start;font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(19px,1.9vw,25px);line-height:1.35;margin:0 0 14px;text-wrap:pretty;">« Dès mon inscription, j'ai reçu deux missions en moins d'une semaine — sans avoir eu à prospecter. Les opérateurs du réseau savent ce qu'ils veulent, les briefs sont clairs, et on avance vite. En tant que bureau d'études et maître d'œuvre, c'est exactement le canal de business que je cherchais. »</p>
-      <div style="font-weight:700;font-size:14px;">Reda El Ouazai</div>
-      <div style="font-size:13px;color:#6B655C;">Bureau d'études &amp; maîtrise d'œuvre · membre AOI</div>
-    </div>
-  </div>
-</section>
-
-<!-- MODÈLE (compact) -->
-<section id="modele" data-screen-label="Modèle" style="background:#F1ECE3;padding:96px 0;">
-  <div style="max-width:1240px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start;">
-    <div data-reveal="">
-      <div style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#9A3B10;">Modèle</div>
-      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,4.4vw,60px);line-height:1;letter-spacing:-.025em;margin:16px 0 18px;">L'adhésion est gratuite. <em style="color:#E4571B;">On ne gagne que si vous gagnez.</em></h2>
-      <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:16px;line-height:1.55;color:#4A453E;margin:0;max-width:480px;">Profil, annuaire, candidatures, diffusion d'opportunités, bibliothèque et MasterClass : inclus pour tous. Aucun frais caché, aucun engagement.</p>
-    </div>
-    <div data-reveal="" style="display:flex;flex-direction:column;border-top:1px solid rgba(20,18,16,.15);">
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:18px 0;border-bottom:1px solid rgba(20,18,16,.15);align-items:baseline;"><div><div style="font-weight:700;font-size:16px;">Au succès</div><div style="font-size:14px;color:#4A453E;margin-top:2px;">SEP, tour de table, cession, apport d'affaires</div></div><div style="font-family:'Instrument Serif',serif;font-size:26px;">4,5 %</div></div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:18px 0;border-bottom:1px solid rgba(20,18,16,.15);align-items:baseline;"><div><div style="font-weight:700;font-size:16px;">Missions & marchés travaux</div><div style="font-size:14px;color:#4A453E;margin-top:2px;">À la signature du devis, sans minimum</div></div><div style="font-family:'Instrument Serif',serif;font-size:26px;">10 %</div></div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:18px 0;border-bottom:1px solid rgba(20,18,16,.15);align-items:baseline;"><div><div style="font-weight:700;font-size:16px;">Professions réglementées</div><div style="font-size:14px;color:#4A453E;margin-top:2px;">Notaires, avocats, experts-comptables : vos honoraires restent régis par les règles de votre profession</div></div><div style="font-family:'Instrument Serif',serif;font-size:26px;">0 %</div></div>
-      <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:18px 0;border-bottom:1px solid rgba(20,18,16,.15);align-items:baseline;"><div><div style="font-weight:700;font-size:16px;">À la carte</div><div style="font-size:14px;color:#4A453E;margin-top:2px;">Logiciel d'opération, profil premium, alertes prioritaires</div></div><div style="font-family:'Instrument Serif',serif;font-size:26px;">Option</div></div>
-      <a href="choix-abonnement.html" style="margin-top:18px;font-weight:700;font-size:15px;color:#E4571B;">Voir le détail des conditions →</a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section data-screen-label="FAQ" style="max-width:880px;margin:0 auto;padding:110px 28px 100px;">
-  <h2 data-reveal="" style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4vw,52px);line-height:1;letter-spacing:-.02em;margin:0 0 36px;">Avant de nous rejoindre.</h2>
-  <div style="border-top:1px solid rgba(20,18,16,.15);">
-    <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
-      <div style="border-bottom:1px solid rgba(20,18,16,.15);">
-        <button onClick="{{ q.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;font-size:18px;font-weight:600;color:#141210;">
-          <span>{{ q.q }}</span>
-          <span style="font-family:'Instrument Serif',serif;font-size:28px;line-height:1;color:#E4571B;transition:transform .3s;transform:rotate({{ q.rot }});">+</span>
-        </button>
-        <div style="overflow:hidden;max-height:{{ q.mh }};transition:max-height .4s ease;">
-          <p style="text-align:justify;hyphens:auto;text-align-last:start;margin:0;padding:0 0 22px;font-size:16px;line-height:1.6;color:#4A453E;max-width:700px;">{{ q.a }}</p>
-        </div>
+      <div class="commission-heading"><h3>Et lorsqu’une collaboration se concrétise&nbsp;?</h3><p>Trois cas, selon la mise en relation réalisée par AOI.</p></div>
+      <div class="commission-cards">
+        <article class="commission-card" aria-labelledby="commission-sep-title">
+          <p class="commission-case">Vous réunissez des associés</p><h4 id="commission-sep-title">Co-opération en SEP</h4>
+          <p class="commission-rate">4,5 <span>% HT</span></p><p class="commission-basis">de l’apport de chaque partenaire<br>mis en relation par AOI.</p>
+          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Porteur du projet</dd></div><div><dt>Déclenchement</dt><dd>Tour de table complété</dd></div><div><dt>Minimum</dt><dd>5 000 € HT / partenariat</dd></div></dl>
+        </article>
+        <article class="commission-card" aria-labelledby="commission-cession-title">
+          <p class="commission-case">Vous cédez une opération</p><h4 id="commission-cession-title">Cession d’opération</h4>
+          <p class="commission-rate">4,5 <span>% HT</span></p><p class="commission-basis">du prix de cession entre membres<br>mis en relation par AOI.</p>
+          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Cédant</dd></div><div><dt>Déclenchement</dt><dd>Signature de l’acte de cession</dd></div><div><dt>Minimum</dt><dd>5 000 € HT / cession</dd></div></dl>
+        </article>
+        <article class="commission-card" aria-labelledby="commission-mission-title">
+          <p class="commission-case">Vous remportez une mission</p><h4 id="commission-mission-title">Prestation ou travaux</h4>
+          <p class="commission-rate">10 <span>% HT</span></p><p class="commission-basis">du montant HT du devis retenu<br>lors de l’attribution. Hors professions réglementées définies ci-dessous.</p>
+          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Prestataire retenu</dd></div><div><dt>Déclenchement</dt><dd>Acceptation du devis</dd></div><div><dt>Minimum</dt><dd>Aucun minimum</dd></div></dl>
+        </article>
       </div>
-    </sc-for>
-  </div>
-</section>
-
-<!-- REJOINDRE — AIGUILLAGE -->
-<section data-screen-label="Aiguillage" style="max-width:1240px;margin:0 auto;padding:110px 28px 40px;">
-  <div data-reveal="" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:32px 48px;align-items:end;margin-bottom:48px;">
-    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.4vw,62px);line-height:.98;letter-spacing:-.025em;margin:0;">Trois portes. <em style="color:#E4571B;">Un seul formulaire.</em></h2>
-    <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:17px;line-height:1.55;color:#4A453E;margin:0;max-width:460px;justify-self:end;">Choisissez celle qui vous correspond : le formulaire s'adapte, et vous êtes rencontré individuellement avant d'entrer dans le réseau.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;align-items:stretch;">
-    <a href="rejoindre.html?profil=operateur" data-reveal="" style="display:flex;flex-direction:column;gap:16px;padding:30px 28px 28px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:20px;color:#141210;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(20,18,16,.35);border-color:rgba(228,87,27,.35);color:#141210">
-      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E4571B;">Opérateur</span><span style="font-family:'Instrument Serif',serif;font-size:20px;color:#9A948A;">01</span></div>
-      <div style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1.02;letter-spacing:-.02em;">Je publie une opération.</div>
-      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;"><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#E4571B;font-weight:700;line-height:1.35;">·</span><span>Le réseau se positionne : co-opérateurs, prestataires, structuration.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#E4571B;font-weight:700;line-height:1.35;">·</span><span>Accès au logiciel d'opération : marge, compte à rebours, données officielles.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#E4571B;font-weight:700;line-height:1.35;">·</span><span>0 € jusqu'à l'aboutissement de l'opération.</span></li></ul>
-      <span style="margin-top:auto;padding-top:6px;font-weight:700;font-size:15px;color:#E4571B;">Publier une opération →</span>
-    </a>
-    <a href="rejoindre.html?profil=co-operateur" data-reveal="" style="display:flex;flex-direction:column;gap:16px;padding:30px 28px 28px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:20px;color:#141210;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(20,18,16,.35);border-color:rgba(228,87,27,.35);color:#141210">
-      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#2D7A5F;">Co-opérateur</span><span style="font-family:'Instrument Serif',serif;font-size:20px;color:#9A948A;">02</span></div>
-      <div style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1.02;letter-spacing:-.02em;">J'apporte des fonds.</div>
-      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;"><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#2D7A5F;font-weight:700;line-height:1.35;">·</span><span>Des opérations déjà vérifiées par AOI avant diffusion.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#2D7A5F;font-weight:700;line-height:1.35;">·</span><span>Contrats SEP types et clauses issus de la bibliothèque.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#2D7A5F;font-weight:700;line-height:1.35;">·</span><span>Marge partagée entre associés, au prorata des apports.</span></li></ul>
-      <span style="margin-top:auto;padding-top:6px;font-weight:700;font-size:15px;color:#E4571B;">Voir les opérations →</span>
-    </a>
-    <a href="rejoindre.html?profil=prestataire" data-reveal="" style="display:flex;flex-direction:column;gap:16px;padding:30px 28px 28px;background:#fff;border:1px solid rgba(20,18,16,.1);border-radius:20px;color:#141210;transition:transform .3s,box-shadow .3s,border-color .3s;" style-hover="transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(20,18,16,.35);border-color:rgba(228,87,27,.35);color:#141210">
-      <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3B6BA5;">Prestataire</span><span style="font-family:'Instrument Serif',serif;font-size:20px;color:#9A948A;">03</span></div>
-      <div style="font-family:'Instrument Serif',serif;font-size:clamp(26px,2.4vw,34px);line-height:1.02;letter-spacing:-.02em;">Je propose mon savoir-faire.</div>
-      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;"><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#3B6BA5;font-weight:700;line-height:1.35;">·</span><span>Des appels d'offres privés, sans prospection à froid.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#3B6BA5;font-weight:700;line-height:1.35;">·</span><span>Une fiche expert visible des opérateurs du réseau.</span></li><li style="display:grid;grid-template-columns:16px 1fr;gap:10px;align-items:start;text-align:justify;hyphens:auto;text-align-last:start;font-size:14.5px;line-height:1.45;color:#3B372F;"><span style="color:#3B6BA5;font-weight:700;line-height:1.35;">·</span><span>Payé sur devis, à la mission.</span></li></ul>
-      <span style="margin-top:auto;padding-top:6px;font-weight:700;font-size:15px;color:#E4571B;">Rejoindre l'annuaire →</span>
-    </a>
-  </div>
-</section>
-
-<!-- CODA -->
-<section id="rejoindre" data-screen-label="Coda" style="background:#0E0D0B;color:#fff;padding:120px 0 100px;position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 100%,rgba(228,87,27,.22),transparent 70%);pointer-events:none;"></div>
-  <div style="max-width:1240px;margin:0 auto;padding:0 28px;position:relative;">
-    <div data-reveal="" class="coda-grid" style="display:grid;grid-template-columns:{{ codaCols }};gap:{{ codaGap }};align-items:center;">
-      <div>
-        <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(44px,6.4vw,92px);line-height:.96;letter-spacing:-.03em;margin:0 0 28px;">Le réseau se construit <em style="color:#F49A6A;">maintenant.</em></h2>
-        <p style="text-align:justify;hyphens:auto;text-align-last:start;font-size:17px;line-height:1.55;color:rgba(255,255,255,.68);margin:0 0 32px;max-width:520px;">Adhésion gratuite. Les places du Cercle Fondateur 2026 sont limitées par région pour garantir la qualité des associations. Chaque membre est rencontré individuellement.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="rejoindre.html" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;background:#E4571B;color:#fff;font-weight:700;font-size:16px;border-radius:10px;" style-hover="background:#fff;color:#141210">Rejoindre gratuitement →</a>
-          <a href="https://wa.me/33763782041" style="display:inline-flex;align-items:center;padding:16px 22px;color:#fff;font-weight:600;font-size:16px;border:1px solid rgba(255,255,255,.25);border-radius:10px;" style-hover="border-color:#fff;color:#fff">Discuter sur WhatsApp</a>
-        </div>
-        <div style="font-size:13px;color:rgba(255,255,255,.45);margin-top:18px;">Opérateurs, co-opérateurs et prestataires bienvenus</div>
-      </div>
-      <div style="display:grid;grid-template-columns:{{ quoteCols }};gap:{{ quoteGap }};align-items:start;padding:{{ quotePad }};border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.03);">
-        <img src="assets/guillaume.jpg" alt="Guillaume, fondateur" style="width:64px;height:64px;border-radius:50%;object-fit:cover;">
-        <div>
-          <p style="text-align:justify;hyphens:auto;text-align-last:start;font-family:'Instrument Serif',serif;font-style:italic;font-size:19px;line-height:1.4;margin:0 0 12px;color:rgba(255,255,255,.9);">« Après des années de lenteurs et d'obstacles bancaires, nous avons appris à faire autrement : paiement différé, SEP, co-production avec les vendeurs — et des prestataires qui s'engagent à nos côtés, parce qu'ils travaillent sur des opérations déjà vérifiées. Ces méthodes, nous les avons mises en commun : c'est ce réseau et ces outils que nous vous ouvrons aujourd'hui. »</p>
-          <div style="font-weight:700;font-size:14px;">Guillaume</div>
-          <div style="font-size:12px;color:rgba(255,255,255,.5);">Fondateur — AOI Network</div>
-        </div>
-      </div>
+      <div class="commission-exempt"><span class="exempt-mark" aria-hidden="true">0 %</span><p><strong>Professions réglementées : aucune commission sur vos missions.</strong><br>Notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes. Professions définies dans les <a href="cgv.html#sec-6">CGV</a>.</p></div>
+      <div class="pricing-footer"><p>Dates d’exigibilité, modalités de paiement et révisions d’assiette : les conditions de chaque commission sont détaillées dans les CGV.</p><a class="text-link" href="cgv.html">Consulter les conditions <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer style="max-width:1240px;margin:0 auto;padding:40px 28px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;font-size:13px;color:#6B655C;">
-  <div style="display:flex;align-items:center;gap:10px;"><span style="width:26px;height:26px;border-radius:7px;background:#E4571B;color:#fff;font-weight:800;font-size:10px;display:flex;align-items:center;justify-content:center;">AOI</span><span>© 2026 AOI Network — Alliance des Opérateurs Immobiliers</span></div>
-  <div style="display:flex;gap:20px;"><a href="mentions-legales.html" style="color:#6B655C;">Mentions légales</a><a href="cgv.html" style="color:#6B655C;">CGV</a><a href="ressources.html" style="color:#6B655C;">Ressources</a><a href="https://extranet.aoi-network.com/login" style="color:#6B655C;">Espace membres</a></div>
-</footer>
-
-</div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;spectaculaire&quot;,&quot;sobre&quot;],&quot;default&quot;:&quot;spectaculaire&quot;,&quot;tsType&quot;:&quot;'spectaculaire'|'sobre'&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;showFounder&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
-class Component extends DCLogic {
-  state = { p: 0, open: 0, act: 0, prog: 0, menu: false, narrow: false, medium: false, view: 'desktop' };
-  actRef = React.createRef();
-  actPaused = false;
-  seqRef = React.createRef(); fr1 = React.createRef(); fr2 = React.createRef();
-  componentDidMount() {
-    this._onScroll = () => {
-      if (this._raf) return;
-      this._raf = requestAnimationFrame(() => {
-        this._raf = null;
-        const el = this.seqRef.current; if (!el) return;
-        const r = el.getBoundingClientRect();
-        const total = el.offsetHeight - window.innerHeight;
-        if (this._measure) this._measure();
-        const p = Math.max(0, Math.min(1, -r.top / Math.max(1, total)));
-        if (Math.abs(p - this.state.p) > 0.003 || (p === 0 && this.state.p !== 0) || (p === 1 && this.state.p !== 1)) this.setState({ p });
-      });
-    };
-    const measure = () => {
-      const el = this.seqRef.current;
-      const w = el ? el.getBoundingClientRect().width : window.innerWidth;
-      const n = w < 820;
-      const m = w >= 820 && w < 1080;
-      if (n !== this.state.narrow || m !== this.state.medium) this.setState({ narrow: n, medium: m, menu: n ? false : this.state.menu });
-    };
-    this._measure = measure;
-    if (window.ResizeObserver) {
-      this._ro = new ResizeObserver(measure);
-      this._ro.observe(document.body);
-      requestAnimationFrame(() => { if (this.seqRef.current) this._ro.observe(this.seqRef.current); });
-    }
-    window.addEventListener('resize', measure);
-    requestAnimationFrame(measure);
-    window.addEventListener('scroll', this._onScroll, { passive: true });
-    window.addEventListener('resize', this._onScroll);
-    this._fit = () => [this.fr1, this.fr2].forEach(r => { const f = r.current; if (!f || !f.parentElement) return; f.style.setProperty('--fs', (f.parentElement.clientWidth / 960).toFixed(4)); });
-    window.addEventListener('resize', this._fit); this._fit(); setTimeout(this._fit, 300);
-    if (window.ResizeObserver) {
-      this._fitRo = new ResizeObserver(this._fit);
-      [this.fr1, this.fr2].forEach(r => { if (r.current && r.current.parentElement) this._fitRo.observe(r.current.parentElement); });
-      requestAnimationFrame(() => [this.fr1, this.fr2].forEach(r => { if (r.current && r.current.parentElement) this._fitRo.observe(r.current.parentElement); }));
-    }
-    const STEP = 200, DWELL = 3400;
-    this._actVisible = false;
-    this._actIo = new IntersectionObserver(([en]) => { this._actVisible = en.isIntersecting; }, { threshold: 0.15 });
-    if (this.actRef.current) this._actIo.observe(this.actRef.current);
-    this._actTimer = setInterval(() => {
-      if (this.actPaused || !this._actVisible || document.hidden) return;
-      this.setState(s => { const p = s.prog + STEP / DWELL; return p >= 1 ? { act: (s.act + 1) % 4, prog: 0 } : { prog: p }; });
-    }, STEP);
-    this._onScroll();
-    // reveal on scroll
-    const els = Array.from(document.querySelectorAll('[data-reveal]'));
-    els.forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(26px)'; e.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1)'; });
-    this._io = new IntersectionObserver(entries => {
-      entries.forEach((en, i) => { if (en.isIntersecting) { const e = en.target; e.style.transitionDelay = (Math.min(i, 4) * 80) + 'ms'; e.style.opacity = '1'; e.style.transform = 'none'; this._io.unobserve(e); } });
-    }, { threshold: 0.12 });
-    els.forEach(e => this._io.observe(e));
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll);
-    if (this._ro) this._ro.disconnect();
-    if (this._fitRo) this._fitRo.disconnect();
-    window.removeEventListener('resize', this._measure);
-    if (this._io) this._io.disconnect();
-    clearInterval(this._actTimer);
-    if (this._actIo) this._actIo.disconnect();
-  }
-  renderVals() {
-    const sobre = (this.props.motion ?? 'spectaculaire') === 'sobre';
-    const p = sobre ? 1 : this.state.p;
-    const clamp = x => Math.max(0, Math.min(1, x));
-    const ease = x => 1 - Math.pow(1 - x, 3);
-    const e1 = ease(clamp((p - 0.04) / 0.22));
-    const e2 = ease(clamp((p - 0.32) / 0.22));
-    const e3 = ease(clamp((p - 0.58) / 0.22));
-    const ef = ease(clamp((p - 0.84) / 0.12));
-    const sat = (e, dx, dy) => `translate(${Math.round(dx * (1 - e))}px, ${Math.round(dy * (1 - e))}px) scale(${(0.8 + 0.2 * e).toFixed(3)})`;
-    const stepO = (on) => on ? 1 : 0.32;
-    const pct = Math.round(15 + 85 * e2 * (0.4 + 0.6 * Math.max(e3, ef)));
-    const faqData = [
-      ['Combien coûte l\'adhésion ?', 'Rien. Profil, annuaire, candidatures, diffusion d\'opportunités, bibliothèque et MasterClass sont inclus. Une commission ne s\'applique que lorsqu\'une opération ou une mission aboutit, et jamais aux professions réglementées.'],
-      ['Je suis prestataire : qu\'est-ce que j\'y gagne ?', 'Des appels d\'offres privés sur des opérations vérifiées, une fiche expert visible des opérateurs du réseau, et la possibilité de participer à des SEP en apportant votre savoir-faire.'],
-      ['Je suis notaire, avocat ou expert-comptable : quelles conditions ?', 'Les mêmes avantages que tous les membres, sans aucune commission, y compris lorsque vous êtes retenu sur une mission. Vos honoraires sont fixés selon les règles de votre profession et restent intégralement les vôtres : AOI ne perçoit rien sur votre intervention. Le réseau vous apporte des dossiers qualifiés et des clients opérateurs.'],
-      ['Comment sont sélectionnés les membres ?', 'Chaque demande est étudiée et chaque membre rencontré individuellement. Le réseau reste privé : c\'est ce qui rend les associations et le partage d\'opérations possibles.'],
-      ['Faut-il un apport pour monter une opération ?', 'Pas nécessairement. Paiement à terme, SEP avec le vendeur ou avec un co-opérateur : les fondateurs ont structuré quatre opérations sans prêt bancaire. Les contrats types sont dans la bibliothèque.'],
-      ['Le logiciel est-il obligatoire ?', 'Non. C\'est une option pour les opérateurs qui veulent simuler leur marge, piloter les phases et croiser DVF, PLU, cadastre et DPE sur leurs dossiers.'],
-    ];
-    return {
-      seqRef: this.seqRef, fr1: this.fr1, fr2: this.fr2,
-      actCols: this.state.narrow ? 'minmax(0,1fr)' : (this.state.medium ? 'repeat(2,minmax(0,1fr))' : 'repeat(4,minmax(0,1fr))'),
-      tileFlex: (this.state.narrow || this.state.medium) ? '1 1 28%' : '1 1 0',
-      redaCols: this.state.narrow ? 'minmax(0,1fr)' : 'auto minmax(0,1fr)',
-      redaGap: this.state.narrow ? '18px' : '28px',
-      leadSize: this.state.narrow ? '15.5px' : 'clamp(16px,1.5vw,20px)',
-      roleInset: this.state.narrow ? '5.5%' : '1%',
-      cardW: this.state.narrow ? '76%' : 'min(62%,330px)',
-      cardImgW: this.state.narrow ? '29%' : '38%',
-      fsSm: this.state.narrow ? '10px' : 'clamp(11.5px,1.8cqw,11px)',
-      fsXs: this.state.narrow ? '9px' : 'clamp(10.5px,1.5cqw,10px)',
-      fsIcon: this.state.narrow ? '10px' : 'clamp(12px,2cqw,12px)',
-      fsSub: this.state.narrow ? '10.5px' : 'clamp(12px,2.2cqw,12px)',
-      fsCardTitle: this.state.narrow ? '14px' : 'clamp(15px,3cqw,18px)',
-      fsRole: this.state.narrow ? '15px' : 'clamp(17px,4.4cqw,23px)',
-      fsRole2: this.state.narrow ? '14px' : 'clamp(16px,4cqw,21px)',
-      fsAmount: this.state.narrow ? '14px' : 'clamp(15px,3.6cqw,19px)',
-      chkGap: this.state.narrow ? '3px 9px' : '.5cqw 1.4cqw',
-      ebSize: this.state.narrow ? '10.5px' : '12px',
-      ebLS: this.state.narrow ? '.14em' : '.2em',
-      trioSize: this.state.narrow ? '12.5px' : '14px',
-      trioTop: this.state.narrow ? '26px' : '36px',
-      ctaSize: this.state.narrow ? '14.5px' : '16px',
-      ctaPad: this.state.narrow ? '13px 20px' : '16px 26px',
-      cta2Pad: this.state.narrow ? '13px 18px' : '16px 22px',
-      heroCols: this.state.narrow ? 'minmax(0,1fr)' : (this.state.medium ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,clamp(300px,40vw,540px))'),
-      heroGap: (this.state.narrow || this.state.medium) ? '44px' : '56px 96px',
-      h1Size: this.state.narrow ? '36px' : 'clamp(34px,4.8vw,74px)',
-      stageW: this.state.narrow ? 'calc(100% + 40px)' : 'min(100%,560px)',
-      stageAR: this.state.narrow ? '1/1.12' : '1/.95',
-      stageM: this.state.narrow ? '0 -20px' : '0 auto',
-      quoteCols: this.state.narrow ? 'minmax(0,1fr)' : 'auto minmax(0,1fr)',
-      quoteGap: this.state.narrow ? '16px' : '20px',
-      quotePad: this.state.narrow ? '22px 20px' : '28px',
-      secH: this.state.narrow ? 'auto' : '340vh',
-      pinPos: this.state.narrow ? 'static' : 'sticky',
-      pinH: this.state.narrow ? 'auto' : '100vh',
-      pinOv: this.state.narrow ? 'visible' : 'hidden',
-      pinPad: this.state.narrow ? '72px 0' : '0',
-      seqCols: this.state.narrow ? 'minmax(0,1fr)' : 'minmax(0,1fr) minmax(0,1fr)',
-      codaCols: this.state.narrow ? 'minmax(0,1fr)' : 'minmax(0,1.2fr) minmax(0,1fr)',
-      codaGap: this.state.narrow ? '36px' : '56px',
-      menuLabel: this.state.menu ? 'Fermer' : 'Menu',
-      menuH: this.state.menu ? '520px' : '0px',
-      burgerDisp: (this.state.narrow || this.state.medium) ? 'inline-flex' : 'none',
-      deskDisp: (this.state.narrow || this.state.medium) ? 'none' : 'flex',
-      panelDisp: (this.state.narrow || this.state.medium) ? 'block' : 'none',
-      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
-      closeMenu: () => this.setState({ menu: false }),
-      showFounder: this.props.showFounder ?? true,
-      heroAnim: sobre ? 'none' : 'wordUp',
-      s1o: stepO(p < 0.32), s2o: stepO(p >= 0.32 && p < 0.58), s3o: stepO(p >= 0.58 && p < 0.84), s4o: stepO(p >= 0.84),
-      w1: (44.3 * e2).toFixed(1) + '%', o1s: e2 > 0.12 ? 1 : 0, y1s: e2 > 0.12 ? '0px' : '8px',
-      w2: (37.1 * e3).toFixed(1) + '%', o2s: e3 > 0.12 ? 1 : 0, y2s: e3 > 0.12 ? '0px' : '8px',
-      w3: (18.6 * ef).toFixed(1) + '%', o3s: ef > 0.12 ? 1 : 0, y3s: ef > 0.12 ? '0px' : '8px',
-      amount: (() => { const k = 620 * e2 + 520 * e3 + 260 * ef; return k >= 995 ? (Math.round(k / 10) / 100).toFixed(2).replace(/0$/, '').replace('.', ',') + ' M€' : Math.round(k) + ' k€'; })(),
-      covered: Math.round((620 * e2 + 520 * e3 + 260 * ef) / 14) + ' %',
-      coveredColor: (620 * e2 + 520 * e3 + 260 * ef) > 1360 ? '#7FD1B0' : '#fff',
-      presO: ef > 0.3 ? 1 : 0.25,
-      presTotal: Math.round(308 * (ef > 0.3 ? ef : 0)) + ' k€',
-      pO1: ef > 0.35 ? 1 : 0, pY1: ef > 0.35 ? '0px' : '10px',
-      pO2: ef > 0.4 ? 1 : 0, pY2: ef > 0.4 ? '0px' : '10px',
-      pO3: ef > 0.45 ? 1 : 0, pY3: ef > 0.45 ? '0px' : '10px',
-      pO4: ef > 0.5 ? 1 : 0, pY4: ef > 0.5 ? '0px' : '10px',
-      pO5: ef > 0.55 ? 1 : 0, pY5: ef > 0.55 ? '0px' : '10px',
-      pO6: ef > 0.6 ? 1 : 0, pY6: ef > 0.6 ? '0px' : '10px',
-      braceO: ef > 0.5 ? 1 : 0, braceW: (81.4 * (ef > 0.5 ? 1 : 0)).toFixed(0) + '%',
-      progW: Math.round(p * 100) + '%',
-      actRef: this.actRef,
-      actResume: () => { this.actPaused = false; },
-      acts: [
-        ['01', 'Publier une opération', "Foncier, budget, fonds recherchés, métiers manquants — visible des seuls membres vérifiés."],
-        ['02', 'Entrer au tour de table', "Candidatez à une SEP ou à une co-production déjà structurée par un opérateur."],
-        ["03", "Répondre aux appels d'offres", "Des missions qualifiées sur des opérations vérifiées, réservées au réseau."],
-        ['04', "Piloter l'opération", "Marge, compte à rebours promoteur, phases, DVF, PLU et cadastre sur chaque dossier."],
-      ].map(([num, verb, detail], i) => {
-        const on = this.state.act === i;
-        return { num, verb, detail, bg: on ? '#fff' : 'transparent', shadow: on ? '0 18px 40px -24px rgba(20,18,16,.45)' : 'none', lift: on ? '-3px' : '0px', numColor: on ? '#E4571B' : '#9A948A', prog: on ? Math.round(this.state.prog * 100) + '%' : '0%', arrowO: on ? 1 : 0, arrowX: on ? '0px' : '-6px', detailColor: on ? '#3B372F' : '#6B655C', detailY: on ? '0px' : '4px', hover: () => { this.actPaused = true; this.setState({ act: i, prog: 0 }); } };
-      }),
-      faq: faqData.map(([q, a], i) => {
-        const on = this.state.open === i;
-        return { q, a, rot: on ? '45deg' : '0deg', mh: on ? '300px' : '0px', toggle: () => this.setState({ open: on ? -1 : i }) };
-      }),
-    };
-  }
-}
-</script>
-
-<!-- ═══ Bandeau cookies ═══ -->
-<style>
-@media (max-width:640px){
-  #cookieBanner{padding:13px 16px !important;font-size:.83rem !important;}
-  #cookieBanner p{line-height:1.45 !important;}
-  #cookieBanner > div{gap:11px !important;}
-  #cookieBanner > div > div{width:100%;display:grid !important;grid-template-columns:1fr 1fr;gap:8px !important;}
-  #cookieBanner button{width:100%;padding:12px 8px !important;justify-content:center;}
-}
-</style>
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#0E0D0B;color:#fff;padding:16px 24px;box-shadow:0 -4px 24px rgba(0,0,0,.18);font-family:'Manrope',system-ui,sans-serif;font-size:.9rem;">
-  <div style="max-width:1160px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;">
-    <p style="flex:1;min-width:280px;margin:0;line-height:1.55;color:rgba(255,255,255,.72);">
-      Ce site utilise des cookies essentiels et, avec votre accord, des cookies de mesure d'audience.
-      <a href="/mentions-legales.html#cookies" style="color:#F49A6A;text-decoration:underline;">En savoir plus</a>
-    </p>
-    <div style="display:flex;gap:10px;flex-shrink:0;">
-      <button onclick="acceptCookies()" style="background:#E4571B;color:#fff;border:none;padding:11px 26px;border-radius:2px;font-weight:700;font-size:.85rem;font-family:inherit;cursor:pointer;letter-spacing:.01em;">Accepter</button>
-      <button onclick="refuseCookies()" style="background:transparent;color:rgba(255,255,255,.62);border:1px solid rgba(255,255,255,.22);padding:11px 26px;border-radius:2px;font-weight:600;font-size:.85rem;font-family:inherit;cursor:pointer;">Refuser</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){var c=localStorage.getItem('aoi_cookies');if(!c){var b=document.getElementById('cookieBanner');if(b)b.style.display='block';}})();
-function acceptCookies(){localStorage.setItem('aoi_cookies','accepted');document.getElementById('cookieBanner').style.display='none';if(typeof loadTrackingPixels==='function')loadTrackingPixels();}
-function refuseCookies(){localStorage.setItem('aoi_cookies','refused');document.getElementById('cookieBanner').style.display='none';}
-</script>
-
-<!-- ═══ Pixels de conversion — chargés uniquement après consentement ═══ -->
-<script>
-function loadTrackingPixels(){
-  // LinkedIn Insight Tag
-  _linkedin_partner_id="8742890";
-  window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[];
-  window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-  (function(l){if(!l){window.lintrk=function(a,b){window.lintrk.q.push([a,b])};window.lintrk.q=[]}
-  var s=document.getElementsByTagName("script")[0];var b=document.createElement("script");
-  b.type="text/javascript";b.async=true;b.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";
-  s.parentNode.insertBefore(b,s);})(window.lintrk);
-
-  // Meta Pixel
-  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-  (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init','2586678501298941');
-  fbq('track','PageView');
-}
-if(localStorage.getItem('aoi_cookies')==='accepted'){loadTrackingPixels();}
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2586678501298941&ev=PageView&noscript=1"/></noscript>
-
-<!-- ═══ Événement InitiateCheckout sur les liens d'adhésion ═══ -->
-<script>
-(function(){
-  document.addEventListener('click', function(e){
-    var link = e.target.closest('a[href*="rejoindre"], a[href*="choix-abonnement"]');
-    if(link){
-      if(typeof fbq==='function') fbq('track','InitiateCheckout');
-      if(typeof lintrk==='function') lintrk('track',{conversion_id:18956748});
-    }
-  });
-})();
-</script>
+  </section>
+  <section class="faq section-light" aria-labelledby="faq-title"><div class="wrap faq-grid"><div><p class="eyebrow" data-reveal>Les questions de départ</p><h2 id="faq-title" data-reveal>Faisons<br><em>connaissance.</em></h2><a href="mailto:contact@aoi-network.com" class="text-link">Une autre question ? <svg class="icon"><use href="#arrow"/></svg></a></div><div class="faq-list">
+    <details><summary>Le réseau démarre. Pourquoi le rejoindre maintenant ?<span>+</span></summary><p>Pour nouer les premières relations, faire connaître vos compétences et partager vos besoins dès la construction du réseau. Le nombre d’opportunités dépend des dossiers apportés par les membres et se développe progressivement.</p></details>
+    <details><summary>Qui peut rejoindre AOI ?<span>+</span></summary><p>AOI s’adresse aux professionnels de l’immobilier : opérateurs, co-opérateurs, prestataires et partenaires. Choisissez votre profil lors de l’adhésion et présentez votre activité. Pour une collaboration entre structures, contactez directement l’équipe.</p></details>
+    <details><summary>Y a-t-il déjà des projets dans ma région ?<span>+</span></summary><p>Le réseau et les dossiers se constituent progressivement. Indiquez votre zone d’activité lors de votre inscription, ou échangez avec l’équipe pour connaître les besoins et les projets actuellement partagés.</p></details>
+    <details><summary>Dois-je prendre le logiciel pour rejoindre le réseau ?<span>+</span></summary><p>Non. L’extranet et le socle de l’adhésion sont gratuits. Le logiciel de simulation et de pilotage d’opération est une option payante distincte. Vous pouvez rejoindre le réseau sans souscrire cette option.</p></details>
+    <details><summary>Les professions réglementées paient-elles une commission ?<span>+</span></summary><p>Non. Les missions confiées aux notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes ne donnent lieu à aucune commission au profit d’AOI. Cette liste correspond aux professions réglementées définies dans les <a href="cgv.html#sec-6">CGV</a>. Ces professionnels restent membres à part entière du réseau.</p></details>
+    <details><summary>Comment fonctionnent les coopérations ?<span>+</span></summary><p>Les professionnels échangent sur le dossier et définissent entre eux leurs apports, leurs rôles et leurs engagements, avec les conseils appropriés. AOI facilite la mise en relation et les échanges. Les décisions et les opérations restent sous la responsabilité des participants.</p></details>
+    <details><summary>Puis-je échanger avec vous avant de m’inscrire ?<span>+</span></summary><p>Bien sûr. Écrivez à <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a> ou <a href="https://wa.me/33763782041" target="_blank" rel="noopener">contactez-nous sur WhatsApp</a>. Nous pourrons parler de votre activité et de ce que vous recherchez.</p></details>
+  </div></div></section>
+  <section class="closing section-dark" id="premiers-membres" aria-labelledby="closing-title"><div class="closing-orbits" aria-hidden="true"><span></span><span></span><span></span><i>AOI</i></div><div class="wrap closing-content"><p class="eyebrow copper" data-reveal>Les premières rencontres écrivent la suite.</p><h2 id="closing-title" data-reveal>Le réseau prend forme.<br><em>Prenez-y votre place.</em></h2><p data-reveal>Votre prochain partenaire, votre prochaine équipe,<br>votre prochaine opération. La rencontre peut commencer ici.</p><div class="closing-actions"><a class="button button-orange" href="rejoindre.html">Rejoindre les premiers membres <svg class="icon"><use href="#arrow"/></svg></a><a class="text-link light" href="https://wa.me/33763782041" target="_blank" rel="noopener">Échangeons d’abord <svg class="icon"><use href="#diagonal"/></svg></a></div><span class="closing-note">Adhésion gratuite · Professionnels de l’immobilier</span></div></section>
+</main>
+<footer class="site-footer section-dark"><div class="wrap"><div class="footer-top"><a class="brand" href="#top"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a><p>Alliance des Opérateurs Immobiliers</p><a href="mailto:contact@aoi-network.com">contact@aoi-network.com <svg class="icon"><use href="#diagonal"/></svg></a></div><div class="footer-bottom"><span>© 2026 AOI Network</span><div><a href="ressources.html">Ressources</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">Conditions générales</a><button id="cookie-settings" type="button">Cookies</button></div><a href="#top" class="back-to-top">Retour en haut ↑</a></div></div></footer>
+<aside class="cookie-banner" id="cookie-banner" aria-label="Choix des cookies" hidden><div><strong>Votre visite, votre choix.</strong><p>Avec votre accord, des cookies nous aident à mesurer l’audience et nos campagnes. <a href="mentions-legales.html#cookies">En savoir plus</a></p></div><div class="cookie-actions"><button type="button" id="cookies-reject">Refuser</button><button type="button" id="cookies-accept">Accepter</button></div></aside>
+<noscript><style>.film-control,.film-cue{display:none}.film-expert,.film-associates,.film-documents,.film-builder{display:none}.scene-fallback{opacity:1}.scene-label{opacity:.6}[data-reveal]{opacity:1;transform:none}.demo-viewer{display:none}.desktop-nav{display:flex!important;flex-wrap:wrap}.menu-toggle{display:none}</style></noscript>
 </body>
 </html>
