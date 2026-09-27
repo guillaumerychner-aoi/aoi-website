@@ -1,6 +1,6 @@
 # AOI Network — site vitrine
 
-Liaison AOI / Pièces à l’appui en ligne · 27 septembre 2026 · CGV v5.5
+Présentation AOI alignée sur Pièces à l’appui v2.1 · 27 septembre 2026 · CGV v5.5
 
 Site statique en français, prêt à publier sans compilation. Les 23 pages HTML et les
 22 guides reprennent la charte de l’accueil : vert profond, crème, cuivre,
@@ -8,10 +8,10 @@ Instrument Serif et Manrope. Les polices sont hébergées dans le dépôt.
 
 ## Vérifier immédiatement cette version
 
-Le dossier de cette livraison porte un nom distinct : `AOI-Network-PAA-en-ligne`.
-Ouvrir le fichier `index.html` situé directement dans ce dossier. Sur l’accueil,
-le nouveau bloc « Votre dossier. Des étapes claires. » se trouve après les démonstrations,
-avant « Notre histoire ». Le lien « Accompagnement » figure aussi dans le pied de page.
+Le dossier de cette livraison porte le nom `AOI-Network-PAA-en-ligne`.
+Ouvrir **`pieces-a-lappui.html`** pour voir la mise à jour : « Comprendre l’opération. Éclairer la décision. », engagement d’indépendance dès le hero, trois destinataires et trois missions, accès au rapport et aux honoraires sur PAA. L’identité graphique AOI est conservée ; le logo PAA est repris de sa version v2.1.
+
+Les autres ajustements se trouvent dans la FAQ de `index.html`, le renvoi final de `accompagnement.html` et `cadre-missions.html`. Sur l’accueil, le bloc « Votre dossier. Des étapes claires. » reste situé après les démonstrations, avant « Notre histoire ».
 
 Les fichiers `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html`
 se trouvent au même niveau que `index.html`. Ils sont accessibles en ouverture locale.
@@ -20,7 +20,7 @@ local décrit plus bas. Aucun commit ni push n’est nécessaire pour regarder c
 
 ## Installer avec GitHub Desktop
 
-1. Décompresser `AOI-Network-PAA-en-ligne.zip`.
+1. Décompresser `AOI-Network-PAA-v2.1-aligne.zip`.
 2. Dans GitHub Desktop, ouvrir le dépôt du site, puis **Repository → Show in Explorer**
    (ou **Show in Finder** sur Mac).
 3. Copier **le contenu** du dossier extrait `AOI-Network-PAA-en-ligne` à la racine de ce dépôt.
@@ -28,7 +28,7 @@ local décrit plus bas. Aucun commit ni push n’est nécessaire pour regarder c
    Ne pas créer un sous-dossier `AOI-Network-PAA-en-ligne` dans le dépôt existant.
 4. Revenir dans GitHub Desktop et vérifier les changements.
 5. Créer un commit, par exemple :
-   `Relie AOI au site public Pièces à l’appui`.
+   `Aligne la présentation AOI sur PAA v2.1`.
 6. Utiliser **Push origin** lorsque la version est prête à être mise en ligne.
    Si le dépôt est relié à Vercel, le push peut déclencher son déploiement habituel.
 
@@ -36,7 +36,17 @@ L’archive contient l’ensemble du site, sans dépendances de prévisualisatio
 historique Git. Aucun commit, push ou déploiement n’a été effectué pour préparer
 cette livraison.
 
-## Mise à jour du 27 septembre 2026
+## Alignement avec PAA v2.1
+
+- La présentation PAA s’adresse explicitement aux investisseurs et conseils (dont CGP et représentants de la masse), opérateurs, plateformes et prêteurs.
+- L’indépendance apparaît dès le hero : honoraires rémunérant le travail et conclusions libres, après examen des intérêts du groupe et des intervenants.
+- Les trois missions sont précises : analyse initiale, revue d’avancement, avis de situation et scénarios face aux aléas ou retards. Cette dernière est accessible sans analyse préalable PAA.
+- Les visiteurs peuvent ouvrir directement le rapport, les missions, les honoraires, les engagements d’indépendance et les compétences mobilisables sur PAA.
+- Les prix détaillés restent sur PAA pour éviter une double grille. Le cadre AOI précise l’appui aux échanges et le rôle des professionnels consultés, en cohérence avec PAA.
+
+**Cette version utilise les pages de PAA v2.1. Publier également le dépôt PAA v2.1 livré séparément pour disposer de ces destinations en ligne.** Les fichiers AOI sont statiques : aucune compilation nécessaire. Voir `docs/ALIGNEMENT-PAA-V2.1.md` pour le périmètre et les vérifications.
+
+## Liaison des deux marques déjà présente dans le dépôt
 
 - L’accompagnement AOI devient une option facultative, sur devis, distincte de l’adhésion et du logiciel.
 - Pièces à l’appui est présentée comme une marque exploitée par AOI Network, filiale d’AOI Holding, avec une charte propre et des critères de revue indépendante explicites.
@@ -45,11 +55,11 @@ cette livraison.
 - Les CGV v5.5 précisent le champ des missions commandées séparément. Les articles 2 et 6 de la v5.4 restent identiques, dont les exemptions de commission.
 - Les identités graphiques, l’animation d’accueil, les 22 guides et l’intégration de création de compte sont conservés.
 
-Le site PAA est en ligne sur `https://piecesalappui.fr`. Les cinq liens explicites de découverte et de cadrage sont activés : FAQ de l’accueil, page Accompagnement, puis trois accès dans `pieces-a-lappui.html`. Les demandes PAA ouvrent `https://piecesalappui.fr/contact.html`.
+Le domaine PAA est `https://piecesalappui.fr`. Les demandes PAA ouvrent `https://piecesalappui.fr/contact.html`. Les quatorze accès explicites sont répartis entre la FAQ de l’accueil, Accompagnement, la présentation PAA et le cadre des missions.
 
-La page de présentation sur AOI reste accessible depuis les pieds de page et explique les liens entre les deux marques. Le script `tools/link-paa.mjs` permet d’actualiser ensemble les cinq liens si le domaine change.
+La page de présentation sur AOI reste accessible depuis les pieds de page et explique les liens entre les deux marques. Le script `tools/link-paa.mjs` permet d’actualiser ensemble les quatorze liens si le domaine change, en conservant les chemins et les ancres propres à chaque destination.
 
-**Publier le contenu complet de cette archive dans le dépôt AOI Network.** Les pages `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html` doivent être déployées avec le reste du site. Le contrôle public effectué pendant cette livraison ne retrouvait pas encore ces nouvelles pages.
+**Publier le contenu complet de cette archive dans le dépôt AOI Network.** Les pages `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html` doivent être déployées avec le reste du site.
 
 Voir `docs/MISE-A-JOUR-AOI-PAA-2026-09-27.md` pour la liaison des sites et les éléments de lancement à finaliser. Les documents de mission sont une préparation éditoriale à faire relire avant application.
 

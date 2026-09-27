@@ -49,9 +49,30 @@
 .mission-related h2{font-size:35px;margin-bottom:12px}
 .mission-related p{font-size:14px;max-width:740px;color:#59645b;line-height:1.8}
 .mission-related .text-link{flex-shrink:0}
-.paa-intro-mark{display:inline-flex;gap:12px;align-items:center;font-family:var(--sans);font-size:13px;line-height:1.2;letter-spacing:.04em;margin-bottom:25px;color:#d2ddff}
+.paa-brand{display:block;width:210px;height:auto;margin:0 0 18px}
 .page-pieces-a-lappui .page-hero .hero-actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:28px}
-.paa-intro-mark>span:first-child{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:#071826;border:1px solid #6883bc;color:#a5b5ff;font-size:22px}
+.page-pieces-a-lappui .page-lead strong{color:var(--paper);font-weight:600}
+.paa-commitment{border-left:2px solid var(--copper);padding-left:17px;margin-top:22px;max-width:710px}
+.paa-commitment p{font-size:15px;line-height:1.6;color:var(--paper)}
+.paa-commitment a{display:inline-flex;align-items:center;gap:10px;min-height:34px;font-size:12px;color:var(--copper)}
+.paa-commitment a:hover{text-decoration:underline;text-underline-offset:4px}
+.paa-commitment .icon{width:16px;height:16px}
+.paa-audiences{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px;margin-top:30px}
+.paa-audiences p{padding-left:15px;border-left:1px solid #b2beaa}
+.paa-audiences strong{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.paa-audiences span{display:block;font-size:12px;line-height:1.75;color:#59645b}
+.page-pieces-a-lappui .mission-card{display:flex;flex-direction:column}
+.page-pieces-a-lappui .mission-card p{margin-bottom:22px}
+.page-pieces-a-lappui .mission-card .text-link{margin-top:auto;font-size:12px;gap:12px;justify-content:space-between}
+.paa-offers-link{display:flex;align-items:center;justify-content:space-between;gap:25px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line)}
+.paa-offers-link p{font-size:13px;line-height:1.8;color:#59645b;max-width:490px}
+.paa-offers-link .text-link{font-size:13px;flex-shrink:0}
+.paa-framework{border-top:1px solid var(--line)}
+.paa-framework h2{margin-bottom:27px}
+.paa-framework .mission-prose>p>strong{color:var(--ink);font-weight:600}
+.paa-framework .mission-prose>p>a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:950px){.paa-audiences{gap:15px}.paa-offers-link{align-items:flex-start;flex-direction:column;gap:15px}}
+@media(max-width:640px){.paa-brand{width:190px;margin-bottom:16px}.paa-commitment{padding-left:14px;margin-top:20px}.paa-commitment p{font-size:14px}.paa-audiences{grid-template-columns:1fr;gap:19px}.paa-audiences span{font-size:12px}.page-pieces-a-lappui .mission-grid{margin-top:30px}.paa-framework .mission-prose p{font-size:14px}.paa-offers-link .text-link{white-space:normal}}
 .footer-bottom>div{flex-wrap:wrap}
 @media(max-width:950px){.mission-hero-grid,.mission-home .wrap{grid-template-columns:1fr;gap:35px}.mission-paper{max-width:550px;transform:none}.mission-grid{gap:15px}.mission-card{padding:22px}.mission-split{gap:35px}.mission-related .wrap{align-items:flex-start;flex-direction:column}}
 @media(max-width:640px){.mission-home{padding:45px 0}.mission-home .wrap{gap:24px}.mission-price{padding:22px;align-items:flex-start;flex-direction:column;gap:17px}.mission-grid,.mission-process,.mission-split{grid-template-columns:1fr}.mission-hero-grid .page-title{font-size:48px}.mission-paper{padding:25px 22px}.mission-paper h2{font-size:34px}.mission-paper-row{font-size:12px}.mission-card>span{margin-bottom:18px}.mission-process{gap:20px}.mission-contact .hero-actions{flex-direction:column}.mission-contact .page-lead{font-size:15px}.mission-related h2{font-size:32px}.mission-terms h2{font-size:30px}}

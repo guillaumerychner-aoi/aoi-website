@@ -1,5 +1,5 @@
 // Domaine PAA confirmé : node tools/link-paa.mjs https://piecesalappui.fr
-// Actualise les liens explicites du site et du formulaire, sans toucher aux adhésions.
+// Actualise les accès PAA (missions, rapport, honoraires, cadre et contact).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const raw = process.argv[2];
@@ -12,18 +12,31 @@ try {
   process.exit(1);
 }
 const origin = url.origin.replaceAll('&','&amp;').replaceAll('"','&quot;');
-const targets = { site: origin, contact: `${origin}/contact.html` };
+const targets = {
+  site: origin,
+  contact: `${origin}/contact.html`,
+  report: `${origin}/exemple.html`,
+  analysis: `${origin}/methode.html`,
+  followup: `${origin}/suivi.html`,
+  delays: `${origin}/retards.html`,
+  offers: `${origin}/offres.html`,
+  independence: `${origin}/independance.html#notre-engagement`,
+  expertise: `${origin}/equipe.html#experts-reseau`,
+};
 const updates = [];
-for (const [name, expected] of [['index.html', 1], ['accompagnement.html', 1], ['pieces-a-lappui.html', 3]]) {
+let total = 0;
+for (const [name, expected] of [['index.html', 1], ['accompagnement.html', 1], ['pieces-a-lappui.html', 10], ['cadre-missions.html', 2]]) {
   const path = fileURLToPath(new URL(`../${name}`, import.meta.url));
   const html = readFileSync(path, 'utf8');
   let count = 0;
-  const updated = html.replace(/(<a\b[^>]*\bdata-paa-link="(site|contact)"[^>]*\bhref=")[^"]*(")/g, (_, before, kind, after) => {
+  const updated = html.replace(/(<a\b[^>]*\bdata-paa-link="([a-z]+)"[^>]*\bhref=")[^"]*(")/g, (_, before, kind, after) => {
+    if (!Object.hasOwn(targets, kind)) throw new Error(`Type de lien PAA inconnu : ${kind}. Aucun fichier modifié.`);
     count++;
     return `${before}${targets[kind]}${after}`;
   });
   if (count !== expected) throw new Error(`Repères PAA inattendus dans ${name}. Aucun fichier modifié.`);
+  total += count;
   updates.push([path, updated]);
 }
 for (const [path, updated] of updates) writeFileSync(path, updated);
-console.log('Les cinq liens vers le site PAA et son formulaire sont configurés.');
+console.log(`Les ${total} liens vers les pages PAA sont configurés.`);
