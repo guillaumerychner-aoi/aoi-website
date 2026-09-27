@@ -1,0 +1,57 @@
+/* Accompagnement AOI : composants dans la charte du réseau. */
+.mission-home{padding:64px 0;background:var(--paper);border-bottom:1px solid var(--line)}
+.mission-home .wrap{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:70px}
+.mission-home h2{font-size:clamp(38px,4.1vw,60px);line-height:1.07}
+.mission-home .eyebrow{margin-bottom:18px}
+.mission-home-copy>p{font-size:15px;line-height:1.85;color:#59645b;max-width:490px;margin-bottom:25px}
+.mission-price{display:flex;gap:28px;align-items:center;justify-content:space-between;padding:25px 28px;margin:24px 0 32px;border:1px solid #cad0c4;border-radius:8px;background:#eeece5}
+.mission-price h3{font-family:var(--sans);font-size:17px;font-weight:600;line-height:1.4;margin-bottom:7px}
+.mission-price p{font-size:13px;color:#59645b;max-width:700px;line-height:1.75}
+.mission-price>a{white-space:nowrap;flex-shrink:0}
+.mission-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:60px}
+.mission-hero-grid .page-title{font-size:clamp(52px,6vw,82px)}
+.mission-hero-grid .page-lead{max-width:630px}
+.mission-hero-grid .hero-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.mission-hero-note{font-size:12px;color:#b5c0af;margin-top:18px;line-height:1.8}
+.mission-paper{padding:32px 30px;background:#fcfbf7;color:var(--ink);box-shadow:0 22px 50px #0003;transform:rotate(2deg);border-radius:4px}
+.mission-paper .eyebrow{font-size:10px;color:#657060;margin:0 0 26px}
+.mission-paper h2{font-size:38px;line-height:1.13;margin-bottom:24px}
+.mission-paper-row{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:15px 0;border-top:1px solid var(--line);font-size:13px;line-height:1.5}
+.mission-paper-row span{color:#64715f;text-align:right}
+.mission-paper small{display:block;margin-top:23px;color:#677263;font-size:10px;line-height:1.8}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px;margin-top:38px}
+.mission-card{padding:28px;border:1px solid var(--line);background:#fcfbf7;border-radius:6px}
+.mission-card>span{display:block;color:#846344;font-size:12px;margin-bottom:28px}
+.mission-card h3{font-family:var(--serif);font-size:31px;line-height:1.1;margin-bottom:16px}
+.mission-card p{font-size:14px;color:#59645b;line-height:1.85}
+.mission-process{list-style:none;counter-reset:mission;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+.mission-process li{counter-increment:mission;padding-top:25px;border-top:1px solid var(--line)}
+.mission-process li:before{content:'0' counter(mission);font-size:12px;color:#846344;display:block;margin-bottom:17px}
+.mission-process strong{display:block;font-size:17px;margin-bottom:10px}
+.mission-process p{font-size:14px;color:#59645b;line-height:1.8}
+.mission-split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:start}
+.mission-split h2{font-size:clamp(40px,4.2vw,62px)}
+.mission-prose p{margin:0 0 20px;line-height:1.85;font-size:15px;color:#59645b}
+.mission-prose .text-link{font-size:14px}
+.mission-contact .wrap{max-width:1000px;text-align:center}
+.mission-contact h2{font-size:clamp(45px,5vw,72px)}
+.mission-contact .page-lead{margin:25px auto 30px;max-width:680px}
+.mission-contact .hero-actions{display:flex;justify-content:center;gap:24px;align-items:center;flex-wrap:wrap}
+.mission-contact .mission-hero-note{margin-top:24px}
+.mission-terms{max-width:900px;margin:auto}
+.mission-terms h2{font-size:34px;margin:38px 0 18px}
+.mission-terms h2:first-child{margin-top:0}
+.mission-terms p,.mission-terms li{font-size:15px;line-height:1.9;color:#536050;margin-bottom:15px}
+.mission-terms a{text-decoration:underline;text-underline-offset:3px}
+.mission-terms ul{padding-left:22px}
+.mission-related{background:#eeece5;border-top:1px solid var(--line);padding:48px 0}
+.mission-related .wrap{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.mission-related h2{font-size:35px;margin-bottom:12px}
+.mission-related p{font-size:14px;max-width:740px;color:#59645b;line-height:1.8}
+.mission-related .text-link{flex-shrink:0}
+.paa-intro-mark{display:inline-flex;gap:12px;align-items:center;font-family:var(--sans);font-size:13px;line-height:1.2;letter-spacing:.04em;margin-bottom:25px;color:#d2ddff}
+.page-pieces-a-lappui .page-hero .hero-actions{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin-top:28px}
+.paa-intro-mark>span:first-child{display:inline-flex;width:40px;height:40px;align-items:center;justify-content:center;background:#071826;border:1px solid #6883bc;color:#a5b5ff;font-size:22px}
+.footer-bottom>div{flex-wrap:wrap}
+@media(max-width:950px){.mission-hero-grid,.mission-home .wrap{grid-template-columns:1fr;gap:35px}.mission-paper{max-width:550px;transform:none}.mission-grid{gap:15px}.mission-card{padding:22px}.mission-split{gap:35px}.mission-related .wrap{align-items:flex-start;flex-direction:column}}
+@media(max-width:640px){.mission-home{padding:45px 0}.mission-home .wrap{gap:24px}.mission-price{padding:22px;align-items:flex-start;flex-direction:column;gap:17px}.mission-grid,.mission-process,.mission-split{grid-template-columns:1fr}.mission-hero-grid .page-title{font-size:48px}.mission-paper{padding:25px 22px}.mission-paper h2{font-size:34px}.mission-paper-row{font-size:12px}.mission-card>span{margin-bottom:18px}.mission-process{gap:20px}.mission-contact .hero-actions{flex-direction:column}.mission-contact .page-lead{font-size:15px}.mission-related h2{font-size:32px}.mission-terms h2{font-size:30px}}

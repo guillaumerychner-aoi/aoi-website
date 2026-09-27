@@ -1,22 +1,34 @@
 # AOI Network — site vitrine
 
-Refonte complète · Septembre 2026 · CGV v5.4
+Liaison AOI / Pièces à l’appui en ligne · 27 septembre 2026 · CGV v5.5
 
-Site statique en français, prêt à publier sans compilation. Les 20 pages HTML et les
+Site statique en français, prêt à publier sans compilation. Les 23 pages HTML et les
 22 guides reprennent la charte de l’accueil : vert profond, crème, cuivre,
 Instrument Serif et Manrope. Les polices sont hébergées dans le dépôt.
 
+## Vérifier immédiatement cette version
+
+Le dossier de cette livraison porte un nom distinct : `AOI-Network-PAA-en-ligne`.
+Ouvrir le fichier `index.html` situé directement dans ce dossier. Sur l’accueil,
+le nouveau bloc « Votre dossier. Des étapes claires. » se trouve après les démonstrations,
+avant « Notre histoire ». Le lien « Accompagnement » figure aussi dans le pied de page.
+
+Les fichiers `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html`
+se trouvent au même niveau que `index.html`. Ils sont accessibles en ouverture locale.
+Les pages dynamiques et le fonctionnement complet du site nécessitent le serveur
+local décrit plus bas. Aucun commit ni push n’est nécessaire pour regarder ces ajouts.
+
 ## Installer avec GitHub Desktop
 
-1. Décompresser `AOI-Network-Repo-Complet.zip`.
+1. Décompresser `AOI-Network-PAA-en-ligne.zip`.
 2. Dans GitHub Desktop, ouvrir le dépôt du site, puis **Repository → Show in Explorer**
    (ou **Show in Finder** sur Mac).
-3. Copier **le contenu** du dossier extrait `aoi-website-main` à la racine de ce dépôt.
+3. Copier **le contenu** du dossier extrait `AOI-Network-PAA-en-ligne` à la racine de ce dépôt.
    Accepter le remplacement des fichiers existants. Conserver le dossier `.git`.
-   Ne pas créer un sous-dossier `aoi-website-main` dans le dépôt existant.
+   Ne pas créer un sous-dossier `AOI-Network-PAA-en-ligne` dans le dépôt existant.
 4. Revenir dans GitHub Desktop et vérifier les changements.
 5. Créer un commit, par exemple :
-   `Ajoute huit guides publics et leurs illustrations à la bibliothèque AOI`.
+   `Relie AOI au site public Pièces à l’appui`.
 6. Utiliser **Push origin** lorsque la version est prête à être mise en ligne.
    Si le dépôt est relié à Vercel, le push peut déclencher son déploiement habituel.
 
@@ -24,7 +36,24 @@ L’archive contient l’ensemble du site, sans dépendances de prévisualisatio
 historique Git. Aucun commit, push ou déploiement n’a été effectué pour préparer
 cette livraison.
 
-## Ce qui a changé
+## Mise à jour du 27 septembre 2026
+
+- L’accompagnement AOI devient une option facultative, sur devis, distincte de l’adhésion et du logiciel.
+- Pièces à l’appui est présentée comme une marque exploitée par AOI Network, filiale d’AOI Holding, avec une charte propre et des critères de revue indépendante explicites.
+- Trois nouvelles pages : `accompagnement.html`, `pieces-a-lappui.html`, `cadre-missions.html`. Accueil, tarifs, Rejoindre, FAQ et pieds de page les rendent accessibles.
+- Les demandes d’accompagnement AOI préparent un e-mail. Les demandes de cadrage PAA ouvrent désormais le formulaire du site PAA ; aucun compte AOI n’est créé par ces parcours.
+- Les CGV v5.5 précisent le champ des missions commandées séparément. Les articles 2 et 6 de la v5.4 restent identiques, dont les exemptions de commission.
+- Les identités graphiques, l’animation d’accueil, les 22 guides et l’intégration de création de compte sont conservés.
+
+Le site PAA est en ligne sur `https://piecesalappui.fr`. Les cinq liens explicites de découverte et de cadrage sont activés : FAQ de l’accueil, page Accompagnement, puis trois accès dans `pieces-a-lappui.html`. Les demandes PAA ouvrent `https://piecesalappui.fr/contact.html`.
+
+La page de présentation sur AOI reste accessible depuis les pieds de page et explique les liens entre les deux marques. Le script `tools/link-paa.mjs` permet d’actualiser ensemble les cinq liens si le domaine change.
+
+**Publier le contenu complet de cette archive dans le dépôt AOI Network.** Les pages `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html` doivent être déployées avec le reste du site. Le contrôle public effectué pendant cette livraison ne retrouvait pas encore ces nouvelles pages.
+
+Voir `docs/MISE-A-JOUR-AOI-PAA-2026-09-27.md` pour la liaison des sites et les éléments de lancement à finaliser. Les documents de mission sont une préparation éditoriale à faire relire avant application.
+
+## Fonctionnalités conservées
 
 - **Accueil** : accès direct à l’adhésion dès le premier écran, bénéfices concrets par profil,
   expression « place de marché » dans la présentation de l’extranet, bouton d’inscription
@@ -55,7 +84,7 @@ cette livraison.
 
 ## Professions exemptées de commission
 
-Le fichier `legal-data.js` fourni a été intégré à l’identique : **CGV v5.4**.
+Le fichier `legal-data.js` affiche désormais les **CGV v5.5**. Les données des articles 2 et 6 proviennent sans modification des CGV v5.4 fournies.
 La liste utilisée par les rappels du site et le formulaire est celle des CGV :
 
 - Notaires
@@ -67,7 +96,7 @@ La liste utilisée par les rappels du site et le formulaire est celle des CGV :
 
 Le message porte sur l’absence de commission AOI sur leurs missions. Les autres
 modalités sont accessibles dans les CGV, notamment l’article 6
-(`cgv.html#sec-6`). Le fichier contractuel n’a pas été réécrit pour la refonte.
+(`cgv.html#sec-6`). La v5.5 ajoute l’article 1.5 et précise le champ de l’article 4 ; elle ne modifie pas les barèmes et exemptions de l’article 6.
 
 ## Vérifier en local
 
@@ -86,6 +115,8 @@ HTTP ; l’ouverture directe des pages en `file://` ne convient pas.
 | --- | --- |
 | `index.html` | Accueil et scène animée au défilement |
 | `rejoindre.html` | Formulaire d’adhésion |
+| `accompagnement.html`, `pieces-a-lappui.html`, `cadre-missions.html` | Missions AOI, présentation PAA et cadre des prestations |
+| `assets/aoi-missions.css` | Présentation des nouvelles pages et blocs |
 | `ressources.html` | Bibliothèque de 22 guides, cartes en HTML complet |
 | `article.html?a=slug` | Gabarit des 14 guides historiques |
 | `guides/*.html` | Huit nouveaux guides en HTML complet |
@@ -143,7 +174,7 @@ navigation, les documents, les guides et les données envoyées par les trois
 profils du formulaire avec des réponses API simulées. Aucune inscription réelle
 n’a été envoyée ; l’API de production et les paiements n’ont pas été testés.
 Les 14 guides de la livraison précédente sont conservés sans modification de leurs
-modules. Le formulaire et le fichier légal fourni restent inchangés dans cette livraison.
+modules. Le contrat API et la logique d’inscription restent inchangés ; les évolutions légales de la v5.5 sont détaillées ci-dessus.
 
 Les huit nouveaux guides sont transcrits depuis les PDF fournis, avec adaptation
 du pied de page et de l’appel à l’action à une lecture publique. Leur contenu
