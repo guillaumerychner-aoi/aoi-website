@@ -104,7 +104,7 @@
       <div class="form-heading"><span>03</span><h2>Quelques mots sur vous</h2><small>Facultatif</small></div>
       <label class="field-label" for="message">Votre activité, vos projets, vos attentes</label><textarea id="message" name="message" rows="4" placeholder="Ce que vous faites et ce que vous aimeriez construire avec le réseau…"></textarea>
       <div class="join-terms"><p>L’adhésion est gratuite. Le logiciel et l’<a href="accompagnement.html">accompagnement sur devis</a> sont facultatifs. Les commissions de collaboration sont détaillées dans <a href="index.html#modele">notre modèle</a>.</p><div class="exemption-note"><span class="exemption-zero" aria-hidden="true">0 %</span><div><strong>Professions réglementées : aucune commission sur vos missions.</strong><p>Notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes. Les professions concernées sont définies dans les <a href="cgv.html#sec-6">CGV</a>.</p></div></div></div>
-      <label class="consent-check" style="border-color:{{ cgvBorder }}"><input type="checkbox" name="accept_cgv" onChange="{{ onCgv }}"><span>J’accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions générales</a> et la <a href="mentions-legales.html" target="_blank" rel="noopener">Politique de confidentialité</a> d’AOI. *</span></label>
+      <div class="consent-block" style="border-color:{{ cgvBorder }}; background:{{ cgvBg }}"><label class="consent-check"><input type="checkbox" name="accept_cgv" onChange="{{ onCgv }}"><span>J’accepte les Conditions générales et la Politique de confidentialité d’AOI. *</span></label><p class="consent-links">Lire : <a href="cgv.html" target="_blank" rel="noopener">Conditions générales</a> · <a href="mentions-legales.html" target="_blank" rel="noopener">Politique de confidentialité</a></p></div>
       <sc-if value="{{ errSummary }}" hint-placeholder-val="{{ false }}"><div class="form-error" role="alert"><strong>{{ errTitle }}</strong><p>{{ errDetail }}</p></div></sc-if>
       <button class="button button-orange join-submit" type="submit" disabled="{{ sending }}">{{ btnLabel }}</button><p class="form-footnote">Aucun paiement à l’inscription.</p>
     </form></sc-if>
@@ -202,28 +202,44 @@ class Component extends DCLogic {
         const form = this.formRef.current;
         const fd = new FormData(form);
         const focusField = n => { const el = form.querySelector('[name="' + n + '"]'); if (el) { window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 140, behavior: 'smooth' }); setTimeout(() => el.focus({ preventScroll: true }), 350); } };
+        // Trace de chaque clic sur « Rejoindre » dans l'admin extranet (Leads), aboutie ou bloquée,
+        // pour ne plus avoir à deviner pourquoi une inscription n'a pas abouti.
+        const trace = (resultat) => {
+          const email = String(fd.get('email') || '').trim();
+          if (!email || !email.includes('@')) return;
+          try {
+            fetch('https://extranet.aoi-network.com/api/contact/callback', {
+              method: 'POST', keepalive: true,
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({ email, source: 'clic_inscription', resultat, profil: sel || '', page: window.location.href, timestamp: new Date().toISOString() }),
+            }).catch(() => {});
+          } catch (_) {}
+        };
         if (!sel) {
+          trace('bloque:profil');
           this.setState({ err: 'profile' });
           window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
           return;
         }
         for (const n of ['prenom', 'nom', 'email', 'telephone', 'localisation']) {
-          if (!String(fd.get(n) || '').trim()) { this.setState({ err: n }); focusField(n); return; }
+          if (!String(fd.get(n) || '').trim()) { trace('bloque:' + n); this.setState({ err: n }); focusField(n); return; }
         }
         // Le métier alimente `profils` côté extranet : sans lui, le prestataire
         // n'apparaît dans aucun filtre de l'annuaire et ne reçoit aucune consultation.
         if (sel === 'prestataire') {
-          if (!String(fd.get('metier') || '').trim()) { this.setState({ err: 'metier' }); focusField('metier'); return; }
+          if (!String(fd.get('metier') || '').trim()) { trace('bloque:metier'); this.setState({ err: 'metier' }); focusField('metier'); return; }
           if (String(fd.get('metier') || '') === 'autre' && !String(fd.get('metier_autre') || '').trim()) {
-            this.setState({ err: 'metier_autre' }); focusField('metier_autre'); return;
+            trace('bloque:metier_autre'); this.setState({ err: 'metier_autre' }); focusField('metier_autre'); return;
           }
         }
         if (!this.state.cgv) {
+          trace('bloque:cgv');
           this.setState({ err: 'cgv' });
           const el = form.querySelector('[name="accept_cgv"]');
           if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 180, behavior: 'smooth' });
           return;
         }
+        trace('envoye');
         const get = k => String(fd.get(k) || '').trim();
         const profile_type = sel;
         const plan = profile_type === 'prestataire' ? 'niveau2' : 'niveau3';
@@ -250,12 +266,14 @@ class Component extends DCLogic {
             if (ok && j && j.success) {
               succeed(j.emailSent);
             } else if (j && j.error) {
+              trace('refuse:' + String(j.error).slice(0, 120));
               this.setState({ sending: false, err: 'api', apiError: j.error });
             } else {
+              trace('refuse:sans_reponse');
               this.setState({ sending: false, err: 'api', apiError: 'La création du compte n’a pas été confirmée. Réessayez ou contactez-nous.' });
             }
           })
-          .catch(() => this.setState({ sending: false, err: 'api', apiError: 'La connexion a été interrompue. Réessayez ou contactez-nous avant un nouvel envoi.' }));
+          .catch(() => { trace('refuse:connexion_interrompue'); this.setState({ sending: false, err: 'api', apiError: 'La connexion a été interrompue. Réessayez ou contactez-nous avant un nouvel envoi.' }); });
       },
       profiles: defs.map(([v, title, tagline]) => {
         const on = sel === v;

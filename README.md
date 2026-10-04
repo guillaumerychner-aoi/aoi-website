@@ -230,3 +230,13 @@ Les 14 guides historiques gardent leurs URL `article.html?a=slug` et leur rendu
 dans `legal-render.js`. Pour leurs cartes, modifier `legacyCards` dans
 `content/library.json`. Les nouveaux slugs appelés via l’ancien gabarit redirigent
 vers leur page HTML. La présentation commune est dans `assets/aoi-pages.css`.
+
+## Formulaire d'inscription (oct. 2026)
+
+- `rejoindre.html` : la ligne « J'accepte les Conditions générales » n'a plus de lien dans le label, toute la phrase
+  coche la case ; les liens vers les CGV et la politique de confidentialité sont dessous. Chaque clic sur
+  « Rejoindre AOI Network » envoie une trace à l'extranet (`/api/contact/callback`, source `clic_inscription`),
+  aboutie ou bloquée, visible dans Admin → Leads.
+- `support.js` : React, ReactDOM et Babel sont servis depuis `assets/vendor/` (plus de dépendance à unpkg.com,
+  qui pouvait être bloqué par certains réseaux d'entreprise). Si `support.js` est régénéré depuis `dc-runtime`,
+  reporter les trois constantes `REACT_URL`, `REACT_DOM_URL`, `BABEL_URL`.
