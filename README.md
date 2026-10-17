@@ -1,6 +1,6 @@
 # AOI Network — site vitrine
 
-Refonte « graphite » · octobre 2026 · Pièces à l’appui v2.1 · CGV v5.5
+Refonte « graphite » (v2, corrections du 17 octobre) · octobre 2026 · Pièces à l’appui v2.1 · CGV v5.5
 
 Site statique en français, sans compilation, hébergé sur Vercel. Toutes les pages
 partagent la charte **graphite** : noir graphite, ivoire et orange, avec Instrument
@@ -15,9 +15,16 @@ sont hébergés dans le dépôt : aucune ressource n’est chargée depuis un CD
   « Notre histoire », modèle gratuit, FAQ, appel final.
   La page est en HTML sémantique, avec `assets/aoi-home-graphite.css` et
   `assets/aoi-home-graphite.js`. Elle ne dépend plus de `support.js`.
+  Le film fait apparaître 11 métiers, dont le géomètre-expert et le constructeur
+  (avatars `assets/avatar-geometre.png` et `assets/avatar-constructeur.png`).
+- **Menus** : sur l’accueil, la navigation passe en bouton « Menu » sous 1 080 px.
+  Sur toutes les pages, « Le réseau » mène à `index.html#votre-place`, et le menu
+  mobile est le même panneau plein écran que celui de l’accueil.
 - **Film 3D** (`assets/aoi-film.js`) : module ES qui utilise three.js r184, hébergé
   dans `assets/vendor/`. Si WebGL2 est indisponible, une image fixe le remplace et
-  la section revient à la hauteur d’un écran.
+  la section revient à la hauteur d’un écran. Correctif par rapport au prototype :
+  le pas de temps du rendu ne peut plus devenir négatif. Sinon, au chargement d’une
+  page déjà défilée, une erreur répétée figeait l’image quelques instants.
 - **Charte graphite sur toutes les pages intérieures**. Les jetons sont dans le `:root`
   de `assets/aoi-home.css`. Les anciennes teintes vert-olive des trois feuilles de
   style ont été remplacées par des neutres graphite de même luminosité. L’ancienne

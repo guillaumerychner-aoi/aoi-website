@@ -41,7 +41,7 @@ safe('menu', () => {
   menuBtn.addEventListener('click', () => setMenu(menu.hidden));
   $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) setMenu(false, true); });
-  window.matchMedia('(min-width:860px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+  window.matchMedia('(min-width:1080px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 });
 
 /* ── Défilement amorti (molette uniquement) ── */

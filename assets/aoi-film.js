@@ -203,9 +203,11 @@ export async function createFilm({ host, section, overlay, getProps }) {
     { id: 'etudes', x: 9, z: -22, r0: 0.18, p0: 0.23 },
     { id: 'courtier', x: 22, z: -8, r0: 0.195, p0: 0.25 },
     { id: 'agent', x: 23, z: 9, r0: 0.21, p0: 0.27 },
+    { id: 'geometre', x: -2, z: -27, r0: 0.225, p0: 0.29 },
     { id: 'coop1', x: -22, z: 11, r0: 0.35, p0: 0.38 },
     { id: 'coop2', x: -9, z: 21, r0: 0.37, p0: 0.40 },
     { id: 'builder', x: 11, z: 21, r0: 0.57, p0: 0.595 },
+    { id: 'constructeur', x: 1, z: 25, r0: 0.585, p0: 0.61 },
   ];
   const nodes = [];
   NODES.forEach((N, i) => {
@@ -432,7 +434,7 @@ export async function createFilm({ host, section, overlay, getProps }) {
   const LABELS = {
     operateur: { pos: V(HX + 0.4, 0.6, -HZ - 0.4), a: 0.07, b: 0.5, phase: () => plinthP },
   };
-  nodes.forEach(n => { const win = n.id === 'builder' ? [0.585, 0.8] : n.id.startsWith('coop') ? [0.355, 0.56] : [0.165, 0.5]; LABELS[n.id] = { pos: n.anchor, a: win[0], b: win[1], phase: () => eOut(seg(prog, n.r0, n.r0 + 0.04)) }; });
+  nodes.forEach(n => { const win = (n.id === 'builder' || n.id === 'constructeur') ? [0.585, 0.8] : n.id.startsWith('coop') ? [0.355, 0.56] : [0.165, 0.5]; LABELS[n.id] = { pos: n.anchor, a: win[0], b: win[1], phase: () => eOut(seg(prog, n.r0, n.r0 + 0.04)) }; });
   const fmt = (n) => Math.round(n).toLocaleString('fr-FR');
 
   // Loop
@@ -463,7 +465,7 @@ export async function createFilm({ host, section, overlay, getProps }) {
       N.endMat.color.copy(ORANGE).multiplyScalar(7 * (pp >= 1 ? 1 : 0));
       N.cube.rotation.y = t * 0.5 + N.seed; N.cube.rotation.x = Math.sin(t * 0.4 + N.seed) * 0.25; N.cube.position.y = 1.35 + Math.sin(t * 1.2 + N.seed) * 0.08;
       const connected = pp >= 1;
-      N.pulses.forEach((pu, k) => { pu.visible = connected; if (connected) { const u = (t * N.speed + k / 3 + N.seed) % 1; pu.position.copy(N.pts[Math.floor(u * (N.pts.length - 1))]); } });
+      N.pulses.forEach((pu, k) => { pu.visible = connected; if (connected) { const u = (((t * N.speed + k / 3 + N.seed) % 1) + 1) % 1; pu.position.copy(N.pts[Math.floor(u * (N.pts.length - 1))]); } });
     }
 
     const planP = seg(p, 0.47, 0.55), planK = 4 * (1 - 0.8 * seg(p, 0.72, 0.8));
@@ -572,7 +574,7 @@ export async function createFilm({ host, section, overlay, getProps }) {
   }
   function frame(now) {
     raf = requestAnimationFrame(frame);
-    const dt = Math.min(0.05, (now - last) / 1000); last = now; time += dt;
+    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now; time += dt; // jamais négatif : le premier horodatage rAF peut précéder `last`
     const { rect, p } = readProgress(); target = forced ?? p;
     if (forced == null && (rect.bottom < -40 || rect.top > window.innerHeight + 40)) return;
     prog = reduce ? target : prog + (target - prog) * (1 - Math.exp(-dt * 3.4));

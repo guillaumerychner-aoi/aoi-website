@@ -1,163 +1,242 @@
-# Handoff : AOI Network, refonte « graphite »
+# AOI Network — site vitrine
 
-## Vue d'ensemble
-Refonte visuelle complète du site vitrine AOI Network (aoi-network.com) :
-- **Nouvel accueil.** Il s'ouvre sur un film 3D temps réel piloté par le scroll : une parcelle, le réseau des métiers, le tour de table, la construction, le bilan, puis le réseau d'opérations. Suivent la bande des métiers, « À chacun sa place », les démos plateforme, « Notre histoire », le modèle gratuit, la FAQ et l'appel final.
-- **Nouvelle charte « graphite ».** Noir graphite, ivoire et orange remplacent le vert profond, le crème et le cuivre. Les typographies Instrument Serif et Manrope sont conservées.
-- **Toutes les pages intérieures** (20 fichiers HTML, dont les 8 guides) sont rhabillées par une feuille de thème chargée en dernier. Leur HTML, leurs liens et leurs ancres sont inchangés.
+Présentation AOI alignée sur Pièces à l’appui v2.1 · 27 septembre 2026 · CGV v5.5
 
-Le dossier `site/` est **le dépôt complet, prêt à remplacer le contenu du repo actuel**. Le dossier `.git` du repo existant reste en place.
+Site statique en français, prêt à publier sans compilation. Les 23 pages HTML et les
+22 guides reprennent la charte de l’accueil : vert profond, crème, cuivre,
+Instrument Serif et Manrope. Les polices sont hébergées dans le dépôt.
 
-## À propos des fichiers
-- `site/index.html` est un **prototype haute fidélité fonctionnel**, écrit sous forme de « Design Component ». C'est un HTML qui s'exécute grâce au runtime `site/support.js`. Il s'ouvre et fonctionne tel quel dans un navigateur, mais ce n'est pas du code de production propre : styles en ligne, runtime de prototypage.
-- **La tâche n° 1 est de le recréer en HTML, CSS et JS statiques**, dans les conventions du repo existant : site statique sans build, hébergé sur Vercel, fichiers `assets/aoi-*.css|js`. Supprimer ensuite `support.js`.
-- `site/aoi-film.js` est **déjà du code de production** : un module ES vanilla qui utilise three.js core. Il se garde tel quel.
-- `site/assets/aoi-graphite.css` est le thème des pages intérieures. Il est fonctionnel et peut être livré tel quel, puis fusionné proprement (tâche 3).
+## Vérifier immédiatement cette version
 
-## Fidélité
-**Haute fidélité.** Les couleurs, la typographie, l'espacement, les animations et les textes sont définitifs. Il faut les reproduire au pixel près.
+Le dossier de cette livraison porte le nom `AOI-Network-PAA-en-ligne`.
+Ouvrir **`pieces-a-lappui.html`** pour voir la mise à jour : « Comprendre l’opération. Éclairer la décision. », engagement d’indépendance dès le hero, trois destinataires et trois missions, accès au rapport et aux honoraires sur PAA. L’identité graphique AOI est conservée ; le logo PAA est repris de sa version v2.1.
 
----
+Les autres ajustements se trouvent dans la FAQ de `index.html`, le renvoi final de `accompagnement.html` et `cadre-missions.html`. Sur l’accueil, le bloc « Votre dossier. Des étapes claires. » reste situé après les démonstrations, avant « Notre histoire ».
 
-## Tâches pour Claude Code (dans l'ordre)
-1. **Porter l'accueil en statique.** `index.html` devient du HTML sémantique, avec `assets/aoi-home-graphite.css` (classes, media queries à la place de la logique `vw` en JS) et `assets/aoi-home-graphite.js` (vanilla). Ce JS reproduit tous les comportements listés dans « Interactions ». Conserver tous les `id` d'ancre (voir « Liens et ancres »). Retirer `support.js` et les attributs `data-dc-*`.
-2. **Héberger three.js en local.** `aoi-film.js` importe `https://unpkg.com/three@0.184.0/build/three.module.js`. Copier `three.module.js` et `three.core.js` (r184) dans `assets/vendor/`, puis faire pointer `THREE_URL` vers `./assets/vendor/three.module.js`. Vérifier les en-têtes et la CSP dans `vercel.json`.
-3. **Fusionner le thème.** Une fois validé, reporter les variables de `aoi-graphite.css` dans le `:root` de `aoi-home.css`. Remplacer les couleurs vertes codées en dur dans `aoi-home.css`, `aoi-pages.css` et `aoi-missions.css` (`#2b382a`, `#273626`, `#bcc5b9`, `#202c25`, `#e8ecdf`…) par les jetons ci-dessous. Supprimer les `!important` devenus inutiles, puis supprimer `aoi-graphite.css`.
-4. **Régénération des guides.** S'assurer que `tools/build-guides.mjs` et `templates/ressources.html` produisent des pages qui incluent le thème : `templates/ressources.html` contient déjà le lien. Les guides générés doivent garder `<link rel="stylesheet" href="../assets/aoi-graphite.css">`, ou les jetons fusionnés si la tâche 3 est faite.
-5. **Identité.**
-   - Refaire `og-image.png`, les favicons et `apple-touch-icon` avec le nouveau logotype : « AOI » en Instrument Serif, un carré orange `#f0703a` de 6 × 6, « NETWORK » en Manrope 600 capitales, interlettrage .24em.
-   - Mettre `theme-color` à `#050506` (déjà fait sur les pages intérieures).
-6. **README du repo.** Mettre à jour la description de la charte : graphite, ivoire, orange.
-7. **Recette.** Suivre la liste en bas de document.
+Les fichiers `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html`
+se trouvent au même niveau que `index.html`. Ils sont accessibles en ouverture locale.
+Les pages dynamiques et le fonctionnement complet du site nécessitent le serveur
+local décrit plus bas. Aucun commit ni push n’est nécessaire pour regarder ces ajouts.
 
----
+## Installer avec GitHub Desktop
 
-## Jetons de design
-**Couleurs**
-| Rôle | Valeur |
-|---|---|
-| Fond le plus profond (film, appel final, pied de page) | `#050506` |
-| Fond sombre des sections | `#070708` (plateforme, métiers), `#0b0b0c` (Notre histoire) |
-| Encre | `#141416` |
-| Ivoire (fond clair) | `#f1ede6` ; surfaces claires `#faf8f4`, `#e9e4db` |
-| Orange (CTA, accents) | `#f0703a` ; survol `#ff8650` ; texte sur orange `#140904` |
-| Cuivre (accent italique sur fond sombre) | `#eab08a` |
-| Rouille (accent italique et liens sur fond clair) | `#c4521f` ; libellés `#b4471a` |
-| Texte sur fond sombre | `#f3efe8` (titres), `#ece8e1`, `#cfcac2`, `#b9b4ab`, `#a9a49b`, `#8e897f`, `#6f6a62` |
-| Texte sur fond clair | `#141416`, `#4a4740`, `#5e5a53`, `#6b675f` |
-| Filets | sombre `rgba(255,255,255,.08–.14)` ; clair `rgba(20,20,22,.14–.16)`, filet fort `#141416` |
+1. Décompresser `AOI-Network-PAA-v2.1-aligne.zip`.
+2. Dans GitHub Desktop, ouvrir le dépôt du site, puis **Repository → Show in Explorer**
+   (ou **Show in Finder** sur Mac).
+3. Copier **le contenu** du dossier extrait `AOI-Network-PAA-en-ligne` à la racine de ce dépôt.
+   Accepter le remplacement des fichiers existants. Conserver le dossier `.git`.
+   Ne pas créer un sous-dossier `AOI-Network-PAA-en-ligne` dans le dépôt existant.
+4. Revenir dans GitHub Desktop et vérifier les changements.
+5. Créer un commit, par exemple :
+   `Aligne la présentation AOI sur PAA v2.1`.
+6. Utiliser **Push origin** lorsque la version est prête à être mise en ligne.
+   Si le dépôt est relié à Vercel, le push peut déclencher son déploiement habituel.
 
-**Typographie** (polices locales dans `assets/fonts/aoi-font-0…5.ttf`, voir `assets/aoi-fonts.css`)
-- Titres : `Instrument Serif` 400, italique pour l'accent (`<em>`), interlettrage −.03 à −.045em, interligne .9 à 1.
-  - H1 accueil : `clamp(38px, min(7.4vw, 9.5vh), 124px)`.
-  - H2 des chapitres du film : `clamp(34px, min(5vw, 9.5vh), 80px)`.
-  - H2 des sections : `clamp(44px, 5.6vw, 92px)`.
-  - « 0 € » : `clamp(120px, 19vw, 300px)`.
-- Surtitres : `Manrope` 600, 11px, capitales, interlettrage .22em, orange (fond sombre) ou `#b4471a` (fond clair).
-- Texte courant : `Manrope` 400, 15–16px, interligne 1.65–1.7, **justifié** avec `hyphens:auto` (le `lang="fr"` est obligatoire).
-- Boutons : `Manrope` 700, 13–14px, hauteur 40/50/54/56px, rayon 2px.
+L’archive contient l’ensemble du site, sans dépendances de prévisualisation ni
+historique Git. Aucun commit, push ou déploiement n’a été effectué pour préparer
+cette livraison.
 
-**Divers** : rayon 2px (boutons), 4px (HUD), 10px (écrans de démo) ; ombre des démos `0 60px 120px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.08)`. Courbe d'animation standard : `cubic-bezier(.2,.7,.2,1)`.
+## Alignement avec PAA v2.1
 
----
+- La présentation PAA s’adresse explicitement aux investisseurs et conseils (dont CGP et représentants de la masse), opérateurs, plateformes et prêteurs.
+- L’indépendance apparaît dès le hero : honoraires rémunérant le travail et conclusions libres, après examen des intérêts du groupe et des intervenants.
+- Les trois missions sont précises : analyse initiale, revue d’avancement, avis de situation et scénarios face aux aléas ou retards. Cette dernière est accessible sans analyse préalable PAA.
+- Les visiteurs peuvent ouvrir directement le rapport, les missions, les honoraires, les engagements d’indépendance et les compétences mobilisables sur PAA.
+- Les prix détaillés restent sur PAA pour éviter une double grille. Le cadre AOI précise l’appui aux échanges et le rôle des professionnels consultés, en cohérence avec PAA.
 
-## Accueil : écrans et sections (ordre de la page)
-1. **En-tête fixe** (76px). Fond en dégradé `rgba(5,5,6,.82)` vers transparent, flou de 6px.
-   - Logotype à gauche. Au centre, la nav : Le réseau (`#votre-place`), La plateforme, Notre histoire (`#origine`), Le modèle, Ressources. À droite : Espace membres ↗ et « Rejoindre AOI → ».
-   - **Sous 860px**, la nav et Espace membres sont masqués. Un bouton « Menu » ouvre un panneau plein écran avec tous les liens, en serif 40px, avec des zones de clic de 56px minimum.
-   - **Sous 480px**, le CTA devient « Rejoindre ». **Sous 420px**, le mot « NETWORK » est masqué.
-   - L'en-tête se masque au scroll vers le bas (`translateY(-110%)`, .6s) et réapparaît au scroll vers le haut ou au-dessus de 140px.
-2. **Film 3D** (`#top`, ancres `#reseau` et `#contenu`). La section mesure 1000vh (820vh sous 760px), avec une scène collante de 100svh. Voir « Le film 3D ».
-3. **Bande des métiers.** Deux lignes infinies en Instrument Serif `clamp(30px,4.4vw,80px)` : la première ivoire vers la gauche, la seconde cuivre italique vers la droite. Séparateurs « · » orange. Vitesse de base 38px/s, accélérée par la vitesse de scroll puis amortie (`exp(-4·dt)`).
-4. **À chacun sa place** (`#votre-place`, ancre `#rejoindre`). Fond ivoire. Trois panneaux typographiques **alignés par une sous-grille CSS** de 6 lignes : en-tête, titre, puce 1, puce 2, puce 3, pied de panneau. Au survol, le panneau s'inverse (fond `#141416`, texte ivoire, .55s). Une variante « Avec visuels », avec les rendus encadrés, existe dans le prototype mais n'est pas retenue par défaut.
-5. **Plateforme** (`#plateforme`). Deux démos animées réelles, `demo-extranet.html` et `demo-logiciel.html`.
-   - Chaque démo est dans une iframe rendue à 1000 × 610 puis mise à l'échelle sur la largeur de sa carte (`scale(w/1000)`), avec `pointer-events:none`.
-   - Un clic sur l'écran ou sur « Ouvrir en grand » ouvre la démo dans un nouvel onglet.
-   - Entrée en perspective liée au scroll : `rotateX` 18 → 0°, `rotateY` −12 → 0°, `translateY` 60 → 0px, `scale` .92 → 1.
-6. **Notre histoire** (`#origine`). Portrait `assets/guillaume.jpg` (7:8), textes du fondateur, trois liens vers les méthodes (`article.html?a=paiement-a-terme`, `sep-immobiliere`, `pourquoi-un-reseau`).
-7. **Le modèle** (`#modele`, ancre `#accompagnement`). « 0 € » géant, « Rejoindre AOI est gratuit. Sans abonnement. », CTA. À droite, deux lignes secondaires alignées sur une colonne de libellés de 170px : « En option » (logiciel à 49 € HT/mois) et « Si un deal se fait » (commission de 4,5 % ou 10 % HT, et 0 % pour les professions réglementées). Puis les liens vers les CGV et l'accompagnement.
-8. **FAQ** (`#faq`). Titre collant à gauche, accordéon à droite : 10 questions reprises de l'ancien accueil, une seule ouverte à la fois, la première ouverte par défaut. L'animation passe par `grid-template-rows` de 0fr à 1fr en .5s.
-9. **Appel final** (`#premiers-membres`). Rendu `blog-plans-principe-execution.webp` en fond, voilé par un dégradé radial. Titre « Le réseau prend forme. Prenez-y votre place. », CTA et lien WhatsApp.
-10. **Pied de page.** Logotype, liens Accompagnement, Pièces à l'appui, Mentions légales, CGV et e-mail.
+**Cette version utilise les pages de PAA v2.1. Publier également le dépôt PAA v2.1 livré séparément pour disposer de ces destinations en ligne.** Les fichiers AOI sont statiques : aucune compilation nécessaire. Voir `docs/ALIGNEMENT-PAA-V2.1.md` pour le périmètre et les vérifications.
 
-Les apparitions au scroll (`data-reveal`) se font en fondu et translation de 56px vers 0 (1.2 à 1.4s), avec un décalage de 0,1s entre éléments voisins. Les images utilisent un rideau `clip-path: inset(100% 0 0 0)` vers `inset(0)` en 1.5s. Le `clip-path` doit être posé sur l'**enfant** de l'élément observé : sinon l'IntersectionObserver ne se déclenche pas.
+## Liaison des deux marques déjà présente dans le dépôt
 
----
+- L’accompagnement AOI devient une option facultative, sur devis, distincte de l’adhésion et du logiciel.
+- Pièces à l’appui est présentée comme une marque exploitée par AOI Network, filiale d’AOI Holding, avec une charte propre et des critères de revue indépendante explicites.
+- Trois nouvelles pages : `accompagnement.html`, `pieces-a-lappui.html`, `cadre-missions.html`. Accueil, tarifs, Rejoindre, FAQ et pieds de page les rendent accessibles.
+- Les demandes d’accompagnement AOI préparent un e-mail. Les demandes de cadrage PAA ouvrent désormais le formulaire du site PAA ; aucun compte AOI n’est créé par ces parcours.
+- Les CGV v5.5 précisent le champ des missions commandées séparément. Les articles 2 et 6 de la v5.4 restent identiques, dont les exemptions de commission.
+- Les identités graphiques, l’animation d’accueil, les 22 guides et l’intégration de création de compte sont conservés.
 
-## Le film 3D (`aoi-film.js`)
-- **API.** `createFilm({ host, section, overlay, getProps })` renvoie `{ destroy, snapTo(p), force(p) }`. Le module expose aussi `window.AOIFilm`.
-  - `host` : le conteneur du canvas (absolu, plein cadre, apparition en fondu d'opacité 1,8s).
-  - `section` : la section haute dont la progression va de 0 à 1.
-  - `overlay` : la couche HTML des chapitres et étiquettes.
-  - `getProps()` renvoie `{ glow: 1, quality: 'Haute' }`.
-- **Rendu.** three.js r184 core uniquement :
-  - bloom maison sur 5 niveaux ;
-  - réflexion plane du sol (passe miroir, flou vertical) ;
-  - tone mapping ACES, vignettage, grain, légère aberration chromatique ;
-  - ombres PCF et environnement PMREM procédural.
-- **Contrat HTML** de l'overlay, lu au démarrage :
-  - `[data-chapter][data-a][data-b]` : fondu et translation de 26px selon la progression. `data-static` désactive la translation.
-  - `[data-label="operateur|architecte|notaire|etudes|courtier|agent|coop1|coop2|builder"]` : étiquettes projetées depuis la 3D. Elles sont atténuées si elles passent sous le texte d'un chapitre (`[data-zone]`).
-  - `[data-count][data-a][data-b]` : compteurs en format fr-FR. `[data-bar]` : barre en `scaleX`. `[data-rail]` : jauge verticale. `[data-chapter-num]` : numéro du chapitre.
-  - `[data-goto="0|0.11|0.26|0.42|0.56|0.71|0.85|0.97"]` : points cliquables qui défilent jusqu'au chapitre.
-  - `[data-scrim]` et `[data-hud]` : mise en page portrait.
-- **Chapitres** (progression 0 à 1) :
-  - 0 à .06 : ouverture ;
-  - .08 à .18 : Une opportunité ;
-  - .20 à .33 : Les compétences ;
-  - .36 à .47 : Le tour de table ;
-  - .50 à .62 : Du plan au bâtiment ;
-  - .65 à .79 : Le chantier ;
-  - .81 à .90 : Le bilan (HUD chiffré) ;
-  - .92 à 1 : Le réseau.
-- **Comportements déjà intégrés au module :**
-  - progression amortie (`3.4/s`) ;
-  - parallaxe à la souris, et lumière orange qui suit le curseur sur le sol (souris uniquement) ;
-  - **mode portrait** (ratio < .85) : FOV 52, recul, cadrage remonté, étiquettes à 78 %, HUD en pleine largeur ;
-  - **qualité adaptative** : la densité de pixels baisse sous 42 images/s et remonte au-dessus de 58 ;
-  - `prefers-reduced-motion` : pas d'amorti ni de dérive ;
-  - pause du rendu quand la section est hors écran.
-- **Secours.** Si WebGL2 ou l'import échouent, afficher `assets/blog-plans-principe-execution.webp` en plein cadre et ramener la section à 100vh.
+Le domaine PAA est `https://piecesalappui.fr`. Les demandes PAA ouvrent `https://piecesalappui.fr/contact.html`. Les quatorze accès explicites sont répartis entre la FAQ de l’accueil, Accompagnement, la présentation PAA et le cadre des missions.
 
-## Interactions à reproduire dans `aoi-home-graphite.js`
-- **Défilement amorti** sur la molette uniquement. Interpolation de 0,075 par image, `scrollTo` natif pour garder `position:sticky`. Désactivé avec `prefers-reduced-motion`, Ctrl+molette ou défilement horizontal. Le tactile reste natif.
-- **Bande des métiers** en boucle infinie : le contenu est dupliqué, avec un modulo sur la moitié de `scrollWidth`.
-- **Mise à l'échelle des iframes de démo** via un ResizeObserver sur leur parent.
-- **Entrée en perspective** de la grille des démos au scroll.
-- **En-tête** masqué ou affiché selon le sens du scroll. **Menu mobile** : ouverture et fermeture, fermeture au clic sur un lien.
-- **Accordéon FAQ** avec `aria-expanded`.
-- **Apparitions** par IntersectionObserver, seuil 0,15.
+La page de présentation sur AOI reste accessible depuis les pieds de page et explique les liens entre les deux marques. Le script `tools/link-paa.mjs` permet d’actualiser ensemble les quatorze liens si le domaine change, en conservant les chemins et les ancres propres à chaque destination.
 
-## Liens et ancres (à ne pas casser)
-- **Ancres de l'accueil** utilisées par les autres pages, toutes présentes : `#contenu`, `#top`, `#reseau`, `#rejoindre`, `#plateforme`, `#origine`, `#modele`, `#accompagnement`, `#premiers-membres`, plus `#votre-place` et `#faq`.
-- Tous les liens internes de l'accueil sont **relatifs** : `rejoindre.html?profil=operateur|co-operateur|prestataire`, `ressources.html`, `accompagnement.html`, `cgv.html`, `pieces-a-lappui.html`, `mentions-legales.html`, `article.html?a=…`, `demo-extranet.html`, `demo-logiciel.html`.
-- Liens externes : `https://extranet.aoi-network.com/login`, `https://wa.me/33763782041`, `mailto:contact@aoi-network.com`.
-- **Les pages intérieures n'ont subi qu'une modification** : l'ajout de `<link rel="stylesheet" href="(../)assets/aoi-graphite.css">` après `aoi-missions.css`, et `theme-color` passé à `#050506`. Aucun lien ni contenu n'a été modifié.
-- Les démos (`demo-*.html`) sont inchangées.
+**Publier le contenu complet de cette archive dans le dépôt AOI Network.** Les pages `accompagnement.html`, `pieces-a-lappui.html` et `cadre-missions.html` doivent être déployées avec le reste du site.
 
-## Ressources
-- **Polices** : `assets/fonts/aoi-font-0.ttf` à `aoi-font-5.ttf` (Instrument Serif normal et italique ; Manrope 400, 500, 600 et 700), sous licence OFL.
-- **Images** :
-  - `aoi-people.webp`, une planche de 8 portraits fictifs, découpée en CSS pour les étiquettes : `background-size:320px 240px`, positions de colonne −23, −103, −183 et −263px, de ligne −6 et −126px ;
-  - `aoi-builder.webp` ;
-  - `guillaume.jpg` ;
-  - `blog-plans-principe-execution.webp`, `blog-vendre-a-un-marchand-de-biens.webp`, `blog-deux-notaires-vente-immobiliere.webp` et `blog-qui-mandate-qui-operation-immobiliere.webp` ;
-  - `aoi-extranet-preview.jpg` et `aoi-logiciel-preview.jpg`, en image d'attente possible des iframes.
-- **3D** : entièrement procédurale (aucun modèle à charger) ; textures générées par canvas.
+Voir `docs/MISE-A-JOUR-AOI-PAA-2026-09-27.md` pour la liaison des sites et les éléments de lancement à finaliser. Les documents de mission sont une préparation éditoriale à faire relire avant application.
 
-## Fichiers
-- `site/index.html` : prototype de l'accueil (Design Component), **à porter**.
-- `site/support.js` : runtime du prototype, à supprimer après le portage.
-- `site/aoi-film.js` : moteur du film 3D (production).
-- `site/assets/aoi-graphite.css` : thème des pages intérieures.
-- `site/**` : tout le reste du site d'origine, avec le thème injecté.
+## Fonctionnalités conservées
 
-## Recette
-- [ ] Aucune erreur dans la console sur toutes les pages. L'accueil a été testé en 1440, 924, 393 et 360px de large.
-- [ ] Toutes les ancres listées ci-dessus défilent au bon endroit (en-tête de 76px pris en compte : `scroll-margin-top`).
-- [ ] Le vérificateur de liens ne remonte aucun 404 (pages, `assets/`, `guides/`, `article.html?a=`).
-- [ ] Mobile : menu plein écran, film lisible en portrait, démos à l'échelle, aucun débordement horizontal.
-- [ ] `prefers-reduced-motion` : défilement natif, pas d'amorti.
-- [ ] Performances : au moins 50 images/s en qualité haute sur un portable récent, et la qualité adaptative se déclenche sur machine modeste.
-- [ ] Lighthouse : l'accessibilité doit atteindre au moins 95 (contrastes, `lang="fr"`, `aria-expanded`, `alt`).
-- [ ] Les guides générés par `tools/build-guides.mjs` gardent le thème.
+- **Accueil** : accès direct à l’adhésion dès le premier écran, bénéfices concrets par profil,
+  expression « place de marché » dans la présentation de l’extranet, bouton d’inscription
+  dans les démonstrations et précision de l’exemption dans le parcours prestataires/partenaires,
+  les commissions et la FAQ. L’animation au scroll, les trois profils visibles,
+  les deux cartes de démonstration et la présentation des tarifs sont conservés.
+- **Rejoindre** : titre et explication adaptés au profil choisi ; création du compte
+  annoncée avant la présentation ou la consultation des projets. Formulaire en trois étapes visuelles, choix de profil explicite,
+  prestataires et partenaires réunis, rappel des conditions avant le consentement.
+  Le métier sélectionné déclenche une confirmation d’exemption lorsqu’il est concerné.
+- **Bibliothèque** : une lecture à la une et 21 autres guides, soit 22 au total.
+  Une illustration dédiée de travail collectif sur des plans accompagne le guide
+  « Les bons projets se construisent à plusieurs ». Les huit nouveaux guides
+  apparaissent en premier dans la grille, avec un repère « Nouveau ».
+- **Huit nouveaux articles** : les guides n° 14 à 21 disposent chacun d’une page
+  HTML complète, d’une couverture originale en WebP et de liens vers les sujets proches.
+  Leur contenu, leurs tableaux, leurs FAQ et leurs liens sont présents sans JavaScript.
+  Les titres, descriptions, URL canoniques, aperçus sociaux, données structurées
+  et entrées du sitemap sont renseignés pour chaque page.
+- **Guides** : nouvelle typographie, sommaire, progression de lecture, tableaux
+  défilables sur mobile et FAQ accessibles. Les promesses de vérification des opérations,
+  des membres et des missions ont été corrigées dans trois guides pour correspondre aux CGV.
+- **CGV et mentions légales** : nouvelle mise en page de lecture avec sommaire.
+- **Adhésion, opération, démo IA et page 404** : nouvelles compositions adaptées
+  au mobile, navigation et pied de page communs.
+- **Démos extranet et logiciel** : palette et polices harmonisées, séquences
+  animées existantes conservées.
+
+## Professions exemptées de commission
+
+Le fichier `legal-data.js` affiche désormais les **CGV v5.5**. Les données des articles 2 et 6 proviennent sans modification des CGV v5.4 fournies.
+La liste utilisée par les rappels du site et le formulaire est celle des CGV :
+
+- Notaires
+- Avocats
+- Commissaires de justice
+- Experts-comptables
+- Fiscalistes
+- Commissaires aux comptes
+
+Le message porte sur l’absence de commission AOI sur leurs missions. Les autres
+modalités sont accessibles dans les CGV, notamment l’article 6
+(`cgv.html#sec-6`). La v5.5 ajoute l’article 1.5 et précise le champ de l’article 4 ; elle ne modifie pas les barèmes et exemptions de l’article 6.
+
+## Vérifier en local
+
+Depuis la racine du dépôt :
+
+```bash
+python3 -m http.server 8000
+```
+
+Puis ouvrir `http://localhost:8000`. Les modules JavaScript nécessitent un serveur
+HTTP ; l’ouverture directe des pages en `file://` ne convient pas.
+
+## Fichiers principaux
+
+| Fichier | Rôle |
+| --- | --- |
+| `index.html` | Accueil et scène animée au défilement |
+| `rejoindre.html` | Formulaire d’adhésion |
+| `accompagnement.html`, `pieces-a-lappui.html`, `cadre-missions.html` | Missions AOI, présentation PAA et cadre des prestations |
+| `assets/aoi-missions.css` | Présentation des nouvelles pages et blocs |
+| `ressources.html` | Bibliothèque de 22 guides, cartes en HTML complet |
+| `article.html?a=slug` | Gabarit des 14 guides historiques |
+| `guides/*.html` | Huit nouveaux guides en HTML complet |
+| `content/library.json` | Ordre, cartes et liens entre guides |
+| `templates/ressources.html` | Gabarit de la bibliothèque |
+| `tools/build-guides.mjs` | Générateur sans dépendances des huit pages et de la bibliothèque |
+| `cgv.html`, `mentions-legales.html` | Documents légaux |
+| `choix-abonnement.html` | Adhésion gratuite et logiciel optionnel |
+| `operation.html` | Exemple illustratif de fiche opération |
+| `demo-ia.html` | Démonstration de restitution avec données fictives |
+| `demo-extranet.html`, `demo-logiciel.html` | Séquences animées des outils |
+| `404.html` | Page introuvable et liens de retour |
+| `assets/aoi-home.css` | Charte, composants communs et accueil |
+| `assets/aoi-pages.css` | Mises en page intérieures |
+| `assets/aoi-demos.css` | Charte des interfaces de démonstration |
+| `assets/aoi-home.js`, `assets/aoi-site.js` | Navigation, cookies et interactions |
+| `assets/aoi-guides.js` | Sommaire et progression des nouveaux guides |
+| `assets/aoi-scene.js` | Progression de l’animation d’accueil au scroll |
+| `assets/aoi-fonts.css`, `assets/fonts/` | Polices locales et licences |
+| `legal-data.js`, `legal-render.js` | Source légale et rendu des documents |
+| `articles-index.js`, `articles/` | Index et contenus des guides |
+| `support.js` | Runtime existant des pages dynamiques, à conserver |
+| `vercel.json` | Configuration et redirections existantes |
+
+Les visuels sont décrits dans `assets/aoi-visuals.md` ; les consignes de la nouvelle
+collection sont conservées dans `assets/aoi-guide-prompts.json`.
+
+## Intégrations conservées
+
+Le formulaire appelle l’API d’adhésion existante :
+`POST https://extranet.aoi-network.com/api/subscription/register-checkout`.
+Son contrat reste `{ plan, userData }`, avec `niveau2` pour les prestataires et
+`niveau3` pour les autres profils. `userData` contient les champs historiques :
+`email, prenom, nom, telephone, societe, ville, activite, profile_type, presentation`.
+
+La capture d’abandon existante appelle `/api/contact/callback` à la perte de focus
+d’un email valide. Éviter de saisir de vraies coordonnées pendant une simple revue.
+Les réponses HTTP en erreur, les réponses mal formées et les échecs réseau
+n’affichent désormais plus de fausse confirmation d’inscription.
+
+Les identifiants Meta et LinkedIn, les événements de conversion, Vercel Analytics
+et la clé de consentement `aoi_cookies` sont conservés. Les traceurs restent
+conditionnés au consentement. Les liens vers l’extranet, WhatsApp et le contact,
+les métadonnées SEO, le sitemap et les redirections existantes sont conservés.
+
+## Portée des exemples et des vérifications
+
+`operation.html` reste une fiche illustrative, sans connexion à une opération
+réelle de l’extranet. `demo-ia.html` présente des valeurs fictives fixes, clairement
+signalées : aucune analyse réelle de l’adresse saisie n’est exécutée. Les démos
+extranet et logiciel sont des simulations animées.
+
+Les vérifications couvrent le rendu sur ordinateur et mobile, les parcours de
+navigation, les documents, les guides et les données envoyées par les trois
+profils du formulaire avec des réponses API simulées. Aucune inscription réelle
+n’a été envoyée ; l’API de production et les paiements n’ont pas été testés.
+Les 14 guides de la livraison précédente sont conservés sans modification de leurs
+modules. Le contrat API et la logique d’inscription restent inchangés ; les évolutions légales de la v5.5 sont détaillées ci-dessus.
+
+Les huit nouveaux guides sont transcrits depuis les PDF fournis, avec adaptation
+du pied de page et de l’appel à l’action à une lecture publique. Leur contenu
+juridique et fiscal n’a pas fait l’objet d’une nouvelle validation de fond.
+Dans le PDF du guide 19, la cellule « Urbanisme » était coupée après « attestation
+de no » : elle est reformulée en « Permis et déclarations antérieurs, justificatifs
+de conformité » pour éviter de publier une phrase tronquée.
+
+## Les huit nouveaux guides
+
+| N° | Sujet | Page |
+| --- | --- | --- |
+| 14 | Contrats de construction : CCMI, TCE, contractant général | `guides/contrats-construction-ccmi-tce.html` |
+| 15 | Notaire vendeur et notaire acquéreur | `guides/deux-notaires-vente-immobiliere.html` |
+| 16 | TVA mixte et comptabilité par lot | `guides/tva-mixte-comptabilite-lot-par-lot.html` |
+| 17 | Plans de principe et d’exécution | `guides/plans-principe-execution.html` |
+| 18 | Qui mandate qui | `guides/qui-mandate-qui-operation-immobiliere.html` |
+| 19 | Vendre à un marchand de biens | `guides/vendre-a-un-marchand-de-biens.html` |
+| 20 | Sous-traitance | `guides/sous-traitance-obligations-operateur.html` |
+| 21 | Étude de sol G1 et G2 | `guides/etude-sol-g1-g2.html` |
+
+## Ajouter ou modifier un guide
+
+1. Éditer `articles/<slug>.js`. Pour un ajout, copier la structure d’un guide n° 14
+   à 21, renseigner son contenu et ses métadonnées, puis déposer la couverture dans
+   `assets/`. Conserver un objet JSON valide après `export const article =`.
+2. Ajouter son slug à `newGuides` dans `content/library.json` et renseigner ses
+   liens `related` et `next`. Mettre à jour `dateModified` lors d’une modification.
+3. Exécuter, avec Node.js installé :
+
+   ```bash
+   node tools/build-guides.mjs
+   ```
+
+4. Vérifier les pages localement, puis inclure les fichiers générés dans le commit.
+
+Le générateur reconstruit `ressources.html`, `articles-index.js`, les pages de
+`guides/` et les entrées du sitemap. Ne pas modifier ces fichiers générés directement.
+Pour la structure des pages, modifier `tools/build-guides.mjs` et
+`templates/ressources.html`. Le nombre de guides est calculé automatiquement.
+
+Les 14 guides historiques gardent leurs URL `article.html?a=slug` et leur rendu
+dans `legal-render.js`. Pour leurs cartes, modifier `legacyCards` dans
+`content/library.json`. Les nouveaux slugs appelés via l’ancien gabarit redirigent
+vers leur page HTML. La présentation commune est dans `assets/aoi-pages.css`.
+
+## Formulaire d'inscription (oct. 2026)
+
+- `rejoindre.html` : la ligne « J'accepte les Conditions générales » n'a plus de lien dans le label, toute la phrase
+  coche la case ; les liens vers les CGV et la politique de confidentialité sont dessous. Chaque clic sur
+  « Rejoindre AOI Network » envoie une trace à l'extranet (`/api/contact/callback`, source `clic_inscription`),
+  aboutie ou bloquée, visible dans Admin → Leads.
+- `support.js` : React, ReactDOM et Babel sont servis depuis `assets/vendor/` (plus de dépendance à unpkg.com,
+  qui pouvait être bloqué par certains réseaux d'entreprise). Si `support.js` est régénéré depuis `dc-runtime`,
+  reporter les trois constantes `REACT_URL`, `REACT_DOM_URL`, `BABEL_URL`.
