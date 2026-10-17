@@ -13,7 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#111715">
+    <meta name="theme-color" content="#050506">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -87,7 +87,7 @@ class Component extends DCLogic {
       address: st.q || '12 rue de la Liberté, 75011 Paris',
       steps: defs.map((label, i) => {
         const passed = i < st.step, cur = i === st.step;
-        return { label, mark: passed ? '✓' : cur ? '▸' : '·', markColor: passed ? '#1E6B4B' : cur ? '#ed6e36' : '#C2BCB2', color: passed || cur ? '#151b17' : '#A8A196', weight: cur ? 700 : 500 };
+        return { label, mark: passed ? '✓' : cur ? '▸' : '·', markColor: passed ? '#1E6B4B' : cur ? '#f0703a' : '#C2BCB2', color: passed || cur ? '#141416' : '#A8A196', weight: cur ? 700 : 500 };
       }),
       kpiPrix: '6 240 €/m²',
       kpiVentes: '128',
@@ -126,7 +126,7 @@ class Component extends DCLogic {
         ] },
       ],
       scores: [
-        { k: 'Divisibilité parcellaire', v: '8.2', w: '82%', color: '#ed6e36' },
+        { k: 'Divisibilité parcellaire', v: '8.2', w: '82%', color: '#f0703a' },
         { k: 'Tension locative', v: '7.5', w: '75%', color: '#6339FF' },
         { k: 'Montage recommandé', v: 'SEP', w: '60%', color: '#2D7A5F' },
         { k: 'Risque réglementaire', v: 'Faible', w: '25%', color: '#3B6BA5' },

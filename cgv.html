@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#111715">
+    <meta name="theme-color" content="#050506">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -90,7 +90,7 @@ class Component extends DCLogic {
         label: t.label,
         anchor: '#' + t.id,
         weight: i === this.state.active ? 700 : 500,
-        color: i === this.state.active ? '#ed6e36' : '#52604f',
+        color: i === this.state.active ? '#f0703a' : '#5e5a53',
         go: e => { e.preventDefault(); const el = document.getElementById(t.id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 96, behavior: 'smooth' }); },
       })),
     };

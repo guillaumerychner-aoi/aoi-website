@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>AOI Network — Les bonnes rencontres font les grandes opérations.</title>
   <meta name="description" content="Rejoignez les premiers membres d’AOI Network. Un réseau privé d’opérateurs, de co-opérateurs et d’experts pour structurer vos opérations immobilières. Adhésion gratuite.">
   <link rel="canonical" href="https://www.aoi-network.com/">
@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#111715">
+  <meta name="theme-color" content="#050506">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aoi-network.com/">
   <meta property="og:title" content="AOI Network — Les bonnes rencontres font les grandes opérations.">
@@ -22,208 +22,404 @@
   <meta name="twitter:title" content="AOI Network — Le réseau prend forme.">
   <meta name="twitter:description" content="Opérateurs, co-opérateurs, experts : prenez votre place dans les opérations de demain.">
   <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png">
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="stylesheet" href="assets/aoi-fonts.css">
-  <link rel="stylesheet" href="assets/aoi-home.css">
-  <link rel="preload" as="image" href="assets/aoi-people.webp">
-  <script defer src="assets/aoi-scene.js"></script>
-  <script defer src="assets/aoi-home.js"></script>
-<link rel="stylesheet" href="assets/aoi-missions.css">
+  <link rel="stylesheet" href="assets/aoi-home-graphite.css">
+  <link rel="modulepreload" href="assets/aoi-film.js">
+  <script type="module" src="assets/aoi-home-graphite.js"></script>
 </head>
-<body>
+<body class="home">
 <a class="skip-link" href="#contenu">Aller au contenu</a>
-<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 5l7 7-7 7"/></symbol><symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol><symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol></svg>
-<header class="site-header" id="site-header">
-  <a class="brand" href="#top" aria-label="AOI Network, accueil"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a>
-  <nav class="desktop-nav" aria-label="Navigation principale"><a href="#reseau">Le réseau</a><a href="#plateforme">La plateforme</a><a href="#origine">Notre histoire</a><a href="#modele">Le modèle</a><a href="ressources.html">Ressources</a></nav>
-  <div class="header-actions"><a class="members-link" href="https://extranet.aoi-network.com/login">Espace membres <svg class="icon"><use href="#diagonal"/></svg></a><a class="button button-small button-orange header-join" href="rejoindre.html">Rejoindre AOI <svg class="icon"><use href="#arrow"/></svg></a><button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button></div>
-  <nav class="mobile-nav" id="mobile-nav" aria-label="Navigation mobile" hidden><a href="#reseau">Le réseau</a><a href="#rejoindre">Votre place</a><a href="#plateforme">La plateforme</a><a href="#origine">Notre histoire</a><a href="#modele">Le modèle</a><a href="ressources.html">Ressources</a><a href="https://extranet.aoi-network.com/login">Espace membres ↗</a><a class="mobile-join" href="rejoindre.html">Rejoindre gratuitement →</a></nav>
+
+<header class="hd" id="site-header">
+  <a class="logo" href="#top" aria-label="AOI Network, accueil">
+    <span class="logo-aoi">AOI</span><span class="logo-sq" aria-hidden="true"></span><span class="logo-net">Network</span>
+  </a>
+  <nav class="hd-nav" aria-label="Navigation principale">
+    <a href="#votre-place">Le réseau</a>
+    <a href="#plateforme">La plateforme</a>
+    <a href="#origine">Notre histoire</a>
+    <a href="#modele">Le modèle</a>
+    <a href="ressources.html">Ressources</a>
+  </nav>
+  <div class="hd-actions">
+    <a class="hd-members" href="https://extranet.aoi-network.com/login">Espace membres ↗</a>
+    <a class="btn btn-sm" href="rejoindre.html"><span class="join-lg">Rejoindre AOI →</span><span class="join-sm">Rejoindre</span></a>
+    <button class="hd-menu" type="button" id="menu-toggle" aria-expanded="false" aria-controls="menu-mobile"><span class="hd-menu-label">Menu</span><span class="hd-menu-lines" aria-hidden="true"><span></span><span></span></span></button>
+  </div>
 </header>
+
+<nav class="mnav" id="menu-mobile" aria-label="Navigation mobile" hidden>
+  <a href="#votre-place">Le réseau</a>
+  <a href="#plateforme">La plateforme</a>
+  <a href="#origine">Notre histoire</a>
+  <a href="#modele">Le modèle</a>
+  <a href="ressources.html">Ressources</a>
+  <a class="mnav-members" href="https://extranet.aoi-network.com/login">Espace membres ↗</a>
+  <a class="mnav-join" href="rejoindre.html">Rejoindre gratuitement →</a>
+</nav>
+
 <main id="contenu">
-  <section class="opening film-opening" id="top" aria-labelledby="hero-title">
-    <div class="film-hero wrap">
-      <p class="eyebrow copper">Alliance des Opérateurs Immobiliers</p>
-      <h1 id="hero-title">Les bonnes rencontres<br><em>font les grandes opérations.</em></h1>
-      <p class="film-intro">Le réseau des professionnels de l’immobilier pour présenter vos projets, proposer vos compétences et rencontrer vos prochains partenaires.</p>
-      <div class="film-hero-actions"><a class="button button-orange" href="rejoindre.html">Rejoindre gratuitement <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><p class="hero-access">Adhésion et accès à l’extranet gratuits</p></div>
-    </div>
-    <div class="film-scroll" id="reseau">
-    <div class="network-film" id="network-film" data-phase="0" data-state="start" data-progress="0" aria-labelledby="film-title" aria-describedby="film-description">
-      <p class="film-title" id="film-title">Une opportunité.</p>
-      <p id="film-description" class="sr-only">Faites défiler la page ou utilisez le bouton Étape suivante. Un opérateur porte un projet. Architecte, notaire, bureau d’études, courtier et agent immobilier arrivent l’un après l’autre pour constituer le dossier. Les co-opérateurs rejoignent ensuite l’opération, puis un constructeur ou une entreprise de travaux intervient. La rénovation se révèle seulement après leur arrivée. Les personnes et l’opération représentées sont fictives.</p>
-      <div class="film-stage" id="film-stage" aria-hidden="true">
-        <div class="film-halo"></div>
-        <svg class="film-connections" viewBox="0 0 1200 540" preserveAspectRatio="none"><g fill="none" stroke="currentColor" stroke-width="1.1"><path d="M210 114 C340 114 360 230 535 230"/><path d="M990 114 C860 114 840 230 665 230"/><path d="M144 295 C320 295 360 258 535 258"/><path d="M1056 295 C880 295 840 258 665 258"/><path d="M285 455 C400 455 480 350 570 300"/><path d="M930 455 C800 455 720 350 630 300"/></g></svg>
-        <figure class="film-property" id="film-property">
-          <div class="film-photo">
-            <img src="assets/aoi-building-before.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
-            <img class="film-after" id="film-after" src="assets/aoi-building-after.webp" alt="" width="1536" height="1024" decoding="async">
-            <span class="film-photo-sheen"></span>
-          </div>
-          <figcaption id="film-property-caption">Un bien à réinventer.</figcaption>
-        </figure>
-        <div class="film-documents" id="film-documents">
-          <div class="film-paper film-paper-back"><svg viewBox="0 0 220 160"><path d="M32 126H190M32 28V126"/><path class="document-chart" d="M50 116V87M88 116V68M126 116V51M164 116V34"/></svg></div>
-          <div class="film-paper film-paper-front"><svg viewBox="0 0 220 160"><path class="plan-wall" d="M30 24H190V136H30Z M30 87H95V24M95 87V136M135 24V80H190M135 105V136M95 105H162"/><path d="M52 24v8h25v-8M190 45h-8v22h8M44 136v-8h27v8M145 136v-8h24v8M30 43h8v20h-8"/><path class="plan-door" d="M95 65a22 22 0 0 1-22 22V65M135 80a25 25 0 0 1 25 25h-25"/><rect x="43" y="99" width="38" height="24" rx="2"/><rect x="146" y="37" width="29" height="29" rx="2"/></svg></div>
-          <span class="film-document-label">Le dossier prend forme.</span>
+
+<!-- ═════════ Film 3D ═════════ -->
+<section class="film" id="top" aria-labelledby="hero-title">
+  <span id="reseau" class="anchor"></span>
+  <div class="film-sticky">
+    <div class="film-stage" id="film-stage"></div>
+    <img class="film-fallback" src="assets/blog-plans-principe-execution.webp" alt="" width="1600" height="893" decoding="async">
+    <div class="film-shade" aria-hidden="true"></div>
+    <div class="film-scrim" data-scrim="1" aria-hidden="true"></div>
+
+    <div class="film-overlay" id="film-overlay">
+      <p class="sr-only">Scène illustrative : un opérateur porte un projet ; architecte, notaire, bureau d’études, courtier et agent immobilier rejoignent le dossier ; des co-opérateurs s’associent ; une entreprise de travaux réalise le bâtiment ; le bilan prévisionnel est chiffré. L’opération et les personnages sont fictifs.</p>
+
+      <div class="lbl" data-label="operateur" aria-hidden="true"><div class="lbl-pill is-key"><span class="lbl-face" style="background-position:-23px -6px"></span><span class="lbl-txt"><b>Opérateur</b><i>Je porte un projet</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="architecte" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face" style="background-position:-103px -6px"></span><span class="lbl-txt"><b>Architecte</b><i>Conception · Permis</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="notaire" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face" style="background-position:-183px -6px"></span><span class="lbl-txt"><b>Notaire</b><i>Promesse · Actes</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="etudes" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face" style="background-position:-263px -6px"></span><span class="lbl-txt"><b>Bureau d’études</b><i>Structure · Sols</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="courtier" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face" style="background-position:-23px -126px"></span><span class="lbl-txt"><b>Courtier</b><i>Financement</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="agent" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face" style="background-position:-103px -126px"></span><span class="lbl-txt"><b>Agent immobilier</b><i>Commercialisation</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="coop1" aria-hidden="true"><div class="lbl-pill is-key"><span class="lbl-face" style="background-position:-183px -126px"></span><span class="lbl-txt"><b>Co-opérateur</b><i>Apport en SEP</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="coop2" aria-hidden="true"><div class="lbl-pill is-key"><span class="lbl-face" style="background-position:-263px -126px"></span><span class="lbl-txt"><b>Co-opératrice</b><i>Apport en SEP</i></span></div><div class="lbl-stem"></div></div>
+      <div class="lbl" data-label="builder" aria-hidden="true"><div class="lbl-pill"><span class="lbl-face lbl-face-builder"></span><span class="lbl-txt"><b>Entreprise de travaux</b><i>Gros œuvre · TCE</i></span></div><div class="lbl-stem"></div></div>
+
+      <div class="ch ch-open" data-chapter="0" data-a="0" data-b="0.06">
+        <p class="kicker">Alliance des Opérateurs Immobiliers</p>
+        <h1 id="hero-title">Les bonnes rencontres <em>font les grandes opérations.</em></h1>
+        <p class="ch-open-lead">Le réseau des professionnels de l’immobilier pour présenter vos projets, proposer vos compétences et rencontrer vos prochains partenaires.</p>
+        <div class="ch-open-cta">
+          <a class="btn btn-lg" href="rejoindre.html">Rejoindre gratuitement →</a>
+          <span>Adhésion et extranet gratuits</span>
         </div>
-        <div class="film-person film-operator" id="film-operator"><span class="film-portrait" style="--col:0;--row:0"></span><strong class="film-role" id="film-operator-label">Je porte un projet.</strong></div>
-        <div class="film-person film-expert" data-person="architecte"><span class="film-portrait" style="--col:1;--row:0"></span><strong class="film-role">Architecte</strong></div>
-        <div class="film-person film-expert" data-person="notaire"><span class="film-portrait" style="--col:2;--row:0"></span><strong class="film-role">Notaire</strong></div>
-        <div class="film-person film-expert" data-person="etudes"><span class="film-portrait" style="--col:3;--row:0"></span><strong class="film-role">Bureau d’études</strong></div>
-        <div class="film-person film-expert" data-person="courtier"><span class="film-portrait" style="--col:0;--row:1"></span><strong class="film-role">Courtier</strong></div>
-        <div class="film-person film-expert" data-person="agent"><span class="film-portrait" style="--col:1;--row:1"></span><strong class="film-role">Agent immobilier</strong></div>
-        <div class="film-associates" id="film-associates"><div class="film-associate-faces"><span class="film-portrait" style="--col:2;--row:1"></span><span class="film-portrait" style="--col:3;--row:1"></span></div><strong class="film-role">Co-opérateurs</strong></div>
-        <div class="film-person film-builder" id="film-builder"><span class="film-portrait"></span><strong class="film-role">Entreprise de travaux</strong></div>
+        <div class="ch-open-cue"><span aria-hidden="true"></span>Faites défiler, l’opération se construit</div>
       </div>
-      <div class="film-toolbar"><span class="film-cue" id="film-cue">Au fil du scroll, l’équipe se forme <span aria-hidden="true">↓</span></span><span class="film-status" id="film-status" aria-live="polite" aria-atomic="true"></span><button id="film-control" class="film-control" type="button" aria-label="Étape suivante de la rencontre"><span class="film-control-icon" aria-hidden="true">→</span><span class="film-control-label">Étape suivante</span></button></div>
-      <p class="film-illustration">Scène illustrative · Personnages et projet fictifs</p>
-    </div>
-    </div>
-    <div class="film-invitation wrap">
-      <p>Votre projet, votre métier.<br class="mobile-break"> <em>Votre place est ici.</em></p>
-      <a class="button button-orange" href="#rejoindre">Trouver ma place dans le réseau <svg class="icon"><use href="#arrow"/></svg></a>
-      <span>Adhésion gratuite · Le réseau se construit avec vous.</span>
-    </div>
-  </section>
-  <div class="profession-strip" aria-label="Métiers du réseau"><span>Marchands de biens</span><i>✳</i><span>Promoteurs</span><i>✳</i><span>Architectes</span><i>✳</i><span>Bureaux d’études</span><i>✳</i><span>Aménageurs</span><i>✳</i><span>Entreprises de travaux</span></div>
-  <section class="profiles section-light" id="rejoindre" aria-labelledby="profiles-title">
-    <div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow" data-reveal>02 — À chacun sa place</p><h2 id="profiles-title" data-reveal>Vous avez quelque chose<br>à <em>faire grandir.</em></h2></div><p data-reveal>Un projet, une expertise, une envie de vous associer.<br>Le réseau commence avec ce que vous apportez.</p></div>
-      <div class="profile-cards">
-        <article class="profile-card" aria-labelledby="profile-operateur-title">
-          <div class="profile-card-intro">
-            <p class="profile-card-type"><span aria-hidden="true">01</span> Opérateur</p>
-            <h3 id="profile-operateur-title">Je porte<br><em>un projet.</em></h3>
-          </div>
-          <div class="profile-card-content">
-            <p class="profile-card-description">Présentez vos besoins et rencontrez les professionnels ou associés utiles à votre opération.</p>
-            <p class="profile-card-jobs">Marchands de biens, promoteurs, aménageurs.</p>
-            <a class="button button-ink" href="rejoindre.html?profil=operateur">Créer mon compte gratuit <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-          </div>
-        </article>
-        <article class="profile-card" aria-labelledby="profile-cooperateur-title">
-          <div class="profile-card-intro">
-            <p class="profile-card-type"><span aria-hidden="true">02</span> Co-opérateur</p>
-            <h3 id="profile-cooperateur-title">Je souhaite<br><em>m’associer.</em></h3>
-          </div>
-          <div class="profile-card-content">
-            <p class="profile-card-description">Découvrez les dossiers partagés par les membres et échangez directement avec leurs porteurs.</p>
-            <p class="profile-card-jobs">Professionnels souhaitant s’associer à une opération.</p>
-            <a class="button button-ink" href="rejoindre.html?profil=co-operateur">Créer mon compte gratuit <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-          </div>
-        </article>
-        <article class="profile-card" aria-labelledby="profile-prestataire-title">
-          <div class="profile-card-intro">
-            <p class="profile-card-type"><span aria-hidden="true">03</span> Prestataire &amp; partenaire</p>
-            <h3 id="profile-prestataire-title">Je propose<br><em>mon savoir-faire.</em></h3>
-          </div>
-          <div class="profile-card-content">
-            <p class="profile-card-description">Rendez votre activité visible auprès des opérateurs et répondez aux consultations correspondant à votre métier.</p>
-            <p class="profile-card-jobs">Architectes, notaires, bureaux d’études, courtiers, agents immobiliers, entreprises de travaux…</p><p class="profile-exemption">Professions réglementées : missions sans commission, <a href="cgv.html#sec-6">selon les CGV</a>.</p>
-            <a class="button button-ink" href="rejoindre.html?profil=prestataire">Créer mon compte gratuit <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-          </div>
-        </article>
+
+      <div class="ch ch-step" data-chapter="1" data-a="0.08" data-b="0.18">
+        <p class="kicker">01 — Une opportunité</p>
+        <h2>Tout commence<br><em>par un projet.</em></h2>
+        <p>Un opérateur repère un bien, une parcelle, une possibilité. Il lui manque une équipe.</p>
       </div>
-      <div class="profiles-note"><span class="asterisk">✳</span><p>Le réseau est en lancement. Les opportunités se développent avec les projets et les compétences de ses premiers membres.</p><a class="text-link" href="#origine">Rencontrer AOI <svg class="icon"><use href="#arrow"/></svg></a></div>
-    </div>
-  </section>
-  <section class="platform section-dark" id="plateforme" aria-labelledby="platform-title">
-    <div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow copper" data-reveal>03 — La place de marché AOI</p><h2 id="platform-title" data-reveal>La rencontre est humaine.<br><em>La suite est connectée.</em></h2></div><p data-reveal>L’extranet pour vous rencontrer.<br>Le logiciel pour piloter vos opérations.<br>Deux outils, deux démos à découvrir.</p></div>
-      <div class="demo-cards">
-        <article class="demo-card" aria-labelledby="extranet-card-title">
-          <div class="demo-card-heading"><span class="demo-number">01 / Se rencontrer</span><span class="demo-badge">Accès gratuit</span></div>
-          <h3 id="extranet-card-title">L’extranet</h3>
-          <p class="demo-card-copy">Publiez vos projets et vos besoins, présentez vos compétences et répondez aux consultations entre professionnels.</p>
-          <a class="demo-launch" href="demo-extranet.html" target="_blank" rel="noopener" data-demo-launch="extranet" aria-haspopup="dialog" aria-label="Voir la démo de l’extranet">
-            <div class="demo-poster"><img src="assets/aoi-extranet-preview.jpg" alt="" width="959" height="570" loading="lazy"><span class="demo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5 20 12 9 19Z"/></svg></span></div>
-            <span class="demo-launch-label">Voir la démo de l’extranet <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span>
-          </a>
-        </article>
-        <article class="demo-card" aria-labelledby="logiciel-card-title">
-          <div class="demo-card-heading"><span class="demo-number">02 / Piloter</span><span class="demo-badge demo-badge-option">Logiciel en option</span></div>
-          <h3 id="logiciel-card-title">Le logiciel d’opération</h3>
-          <p class="demo-card-copy">Simulez votre bilan financier, préparez votre dossier et suivez chaque étape du projet.</p>
-          <a class="demo-launch" href="demo-logiciel.html" target="_blank" rel="noopener" data-demo-launch="logiciel" aria-haspopup="dialog" aria-label="Voir la démo du logiciel">
-            <div class="demo-poster demo-poster-software"><img src="assets/aoi-logiciel-preview.jpg" alt="" width="1363" height="936" loading="lazy"><span class="demo-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 5 20 12 9 19Z"/></svg></span></div>
-            <span class="demo-launch-label">Voir la démo du logiciel <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span>
-          </a>
-        </article>
+      <div class="ch ch-step" data-chapter="2" data-a="0.2" data-b="0.33">
+        <p class="kicker">02 — Les compétences</p>
+        <h2>Les bons métiers<br><em>rejoignent le dossier.</em></h2>
+        <p>Architecte, notaire, bureau d’études, courtier, agent immobilier : chacun apporte sa pièce.</p>
       </div>
-      <p class="demo-caption">Aperçus des interfaces · Démonstrations illustratives</p>
-      <div class="platform-bottom"><p>Un espace commun.<br><em>Vos prochaines collaborations.</em></p><a class="button button-outline" href="rejoindre.html">Découvrir AOI de l’intérieur <svg class="icon"><use href="#arrow"/></svg></a></div>
-    </div>
-    <dialog class="demo-viewer" id="demo-viewer" aria-labelledby="demo-viewer-title">
-      <div class="demo-viewer-heading"><div><p class="demo-viewer-count" id="demo-viewer-count">Démo 1 sur 2 · Accès gratuit</p><h2 id="demo-viewer-title" aria-live="polite">L’extranet</h2></div><button class="demo-close" type="button" id="demo-close" aria-label="Fermer la démonstration" autofocus><span>Fermer</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
-      <div class="demo-screen"><iframe id="demo-frame" title="Démonstration de l’extranet AOI" tabindex="-1"></iframe><p class="demo-loading" id="demo-loading" role="status">La démonstration démarre…</p></div>
-      <div class="demo-viewer-footer"><a class="text-link light" id="demo-open" href="demo-extranet.html" target="_blank" rel="noopener">Ouvrir en grand <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a><div class="demo-conversion-actions"><button class="button button-outline demo-next" id="demo-next" type="button"><span>Voir aussi le logiciel</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button><a class="button button-orange demo-join" href="rejoindre.html">Créer mon compte gratuit <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div></div>
-      <p class="demo-viewer-note">Démonstration illustrative · Compte gratuit, logiciel en option à 49 € HT / mois.</p>
-    </dialog>
-  </section>
-<section class="mission-home" id="accompagnement" aria-labelledby="mission-home-title"><div class="wrap"><div><p class="eyebrow">Accompagnement d’opération · Sur devis</p><h2 id="mission-home-title">Votre dossier.<br><em>Des étapes claires.</em></h2></div><div class="mission-home-copy"><p>Un budget à rapprocher des devis, des pièces à réunir, une question à faire confirmer ? Définissons une mission pour examiner votre dossier et préparer les prochaines vérifications.</p><a class="button button-ink" href="accompagnement.html">Parler de mon opération <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div></div></section>
-  <section class="origin section-light" id="origine" aria-labelledby="origin-title">
-    <div class="wrap origin-grid">
-      <div class="origin-visual" data-reveal><img src="assets/guillaume.jpg" alt="Guillaume Rychner, fondateur d’AOI Network" width="700" height="820" loading="lazy"><div class="portrait-caption"><span>Guillaume Rychner</span><span>Fondateur — AOI Network</span></div><span class="portrait-index" aria-hidden="true">À l’origine.</span></div>
-      <div class="origin-copy"><p class="eyebrow" data-reveal>04 — Une conviction née sur le terrain</p><h2 id="origin-title" data-reveal>L’immobilier est<br>une histoire<br><em>de personnes.</em></h2><p class="origin-lead" data-reveal>AOI est né d’une expérience d’opérateur : un bon projet avance lorsque les bonnes personnes travaillent ensemble.</p><p data-reveal>Paiement à terme, société en participation, co-production avec les vendeurs… Les méthodes explorées par les fondateurs nourrissent aujourd’hui les ressources et les échanges du réseau.</p><p data-reveal>Nous ouvrons cet espace aux professionnels qui veulent partager leur pratique, rencontrer des partenaires et faire aboutir leurs projets.</p><a href="https://wa.me/33763782041?text=Bonjour%20Guillaume%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20AOI%20Network." class="text-link" target="_blank" rel="noopener">Échanger avec Guillaume <svg class="icon"><use href="#diagonal"/></svg></a><p class="origin-attribution">L’expérience présentée est celle des fondateurs. AOI Network est un réseau en développement.</p></div>
-    </div>
-    <div class="wrap methods"><p class="eyebrow">Des méthodes à partager</p><a href="article.html?a=paiement-a-terme"><span>01 / Structurer</span><strong>Le paiement à terme</strong><svg class="icon"><use href="#diagonal"/></svg></a><a href="article.html?a=sep-immobiliere"><span>02 / S’associer</span><strong>La société en participation</strong><svg class="icon"><use href="#diagonal"/></svg></a><a href="article.html?a=pourquoi-un-reseau"><span>03 / Coopérer</span><strong>La force d’un réseau</strong><svg class="icon"><use href="#diagonal"/></svg></a></div>
-  </section>
-  <section class="business section-light" id="modele" aria-labelledby="model-title">
-    <div class="wrap">
-      <div class="section-heading"><div><p class="eyebrow" data-reveal>05 — Un modèle clair</p><h2 id="model-title" data-reveal>L’adhésion est gratuite.<br><em>La suite est à la carte.</em></h2></div><p data-reveal>Rejoignez le réseau sans abonnement.<br>Ajoutez le logiciel si vous en avez besoin.<br>Les commissions dépendent de vos collaborations.</p></div>
-      <div class="access-cards">
-        <article class="access-card access-card-free" aria-labelledby="access-free-title">
-          <div class="access-heading"><h3 id="access-free-title">Adhésion &amp; extranet</h3><span class="access-badge">Pour tous</span></div>
-          <p class="access-price">0 <span>€</span></p><p class="access-term">Sans abonnement d’adhésion.</p>
-          <ul class="access-features"><li>Votre profil et l’annuaire des membres</li><li>Projets, candidatures et échanges</li><li>Bibliothèque et MasterClass</li></ul>
-          <a class="button button-orange" href="rejoindre.html">Rejoindre gratuitement <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </article>
-        <article class="access-card" aria-labelledby="access-software-title">
-          <div class="access-heading"><h3 id="access-software-title">Logiciel d’opération</h3><span class="access-badge">Optionnel</span></div>
-          <p class="access-price">49 <span>€ HT <small>/ mois</small></span></p><p class="access-term">58,80 € TTC / mois par membre · Sans engagement.</p>
-          <ul class="access-features"><li>Simulation du bilan financier</li><li>Dossier d’opération et suivi des phases</li><li>Outils d’aide à la décision avec l’IA</li></ul>
-          <a class="button button-ink" href="demo-logiciel.html" target="_blank" rel="noopener" data-demo-launch="logiciel" aria-haspopup="dialog">Découvrir le logiciel <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-        </article>
+      <div class="ch ch-step" data-chapter="3" data-a="0.36" data-b="0.47">
+        <p class="kicker">03 — Le tour de table</p>
+        <h2>Des co-opérateurs<br><em>s’associent.</em></h2>
+        <p>Apports, rôles, engagements : l’opération se structure entre professionnels.</p>
       </div>
-<div class="mission-price"><div><h3>Accompagnement d’opération <span>· Sur devis</span></h3><p>Une mission humaine et facultative, définie selon votre dossier. Ses honoraires sont distincts du logiciel et des commissions de mise en relation.</p></div><a class="text-link" href="accompagnement.html">Découvrir l’accompagnement <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div>
-      <div class="commission-heading"><h3>Et lorsqu’une collaboration se concrétise&nbsp;?</h3><p>Trois cas, selon la mise en relation réalisée par AOI.</p></div>
-      <div class="commission-cards">
-        <article class="commission-card" aria-labelledby="commission-sep-title">
-          <p class="commission-case">Vous réunissez des associés</p><h4 id="commission-sep-title">Co-opération en SEP</h4>
-          <p class="commission-rate">4,5 <span>% HT</span></p><p class="commission-basis">de l’apport de chaque partenaire<br>mis en relation par AOI.</p>
-          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Porteur du projet</dd></div><div><dt>Déclenchement</dt><dd>Tour de table complété</dd></div><div><dt>Minimum</dt><dd>5 000 € HT / partenariat</dd></div></dl>
-        </article>
-        <article class="commission-card" aria-labelledby="commission-cession-title">
-          <p class="commission-case">Vous cédez une opération</p><h4 id="commission-cession-title">Cession d’opération</h4>
-          <p class="commission-rate">4,5 <span>% HT</span></p><p class="commission-basis">du prix de cession entre membres<br>mis en relation par AOI.</p>
-          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Cédant</dd></div><div><dt>Déclenchement</dt><dd>Signature de l’acte de cession</dd></div><div><dt>Minimum</dt><dd>5 000 € HT / cession</dd></div></dl>
-        </article>
-        <article class="commission-card" aria-labelledby="commission-mission-title">
-          <p class="commission-case">Vous remportez une mission</p><h4 id="commission-mission-title">Prestation ou travaux</h4>
-          <p class="commission-rate">10 <span>% HT</span></p><p class="commission-basis">du montant HT du devis retenu<br>lors de l’attribution. Hors professions réglementées définies ci-dessous.</p>
-          <dl><div class="commission-payer"><dt>À la charge du</dt><dd>Prestataire retenu</dd></div><div><dt>Déclenchement</dt><dd>Acceptation du devis</dd></div><div><dt>Minimum</dt><dd>Aucun minimum</dd></div></dl>
-        </article>
+      <div class="ch ch-step" data-chapter="4" data-a="0.5" data-b="0.62">
+        <p class="kicker">04 — La conception</p>
+        <h2>Du plan<br><em>au bâtiment.</em></h2>
+        <p>Les études avancent, le permis se prépare, le projet prend sa forme définitive.</p>
       </div>
-      <div class="commission-exempt"><span class="exempt-mark" aria-hidden="true">0 %</span><p><strong>Professions réglementées : aucune commission sur vos missions.</strong><br>Notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes. Professions définies dans les <a href="cgv.html#sec-6">CGV</a>.</p></div>
-      <div class="pricing-footer"><p>Dates d’exigibilité, modalités de paiement et révisions d’assiette : les conditions de chaque commission sont détaillées dans les CGV.</p><a class="text-link" href="cgv.html">Consulter les conditions <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div>
+      <div class="ch ch-step" data-chapter="5" data-a="0.65" data-b="0.79">
+        <p class="kicker">05 — Le chantier</p>
+        <h2>L’entreprise de travaux<br><em>entre en scène.</em></h2>
+        <p>Gros œuvre, lots techniques, finitions : l’équipe réunie sur AOI livre l’opération.</p>
+      </div>
+      <div class="ch ch-bilan" data-chapter="6" data-a="0.81" data-b="0.9">
+        <div class="ch-bilan-copy" data-zone="1">
+          <p class="kicker">06 — Le bilan</p>
+          <h2>Chaque décision<br><em>est chiffrée.</em></h2>
+          <p>Le logiciel AOI simule le bilan, suit les phases et partage le dossier avec l’équipe.</p>
+        </div>
+        <div class="hud" data-hud="1">
+          <div class="hud-head"><span>Bilan prévisionnel</span><span class="hud-tag">Simulation illustrative</span></div>
+          <dl class="hud-rows">
+            <div><dt>Acquisition</dt><dd><span data-count="1180000" data-a="0.815" data-b="0.86">0</span> €</dd></div>
+            <div><dt>Travaux</dt><dd><span data-count="640000" data-a="0.82" data-b="0.865">0</span> €</dd></div>
+            <div><dt>Honoraires et frais</dt><dd><span data-count="214000" data-a="0.825" data-b="0.87">0</span> €</dd></div>
+            <div class="hud-sep" aria-hidden="true"></div>
+            <div><dt>Prix de revient</dt><dd class="strong"><span data-count="2034000" data-a="0.825" data-b="0.87">0</span> €</dd></div>
+            <div><dt>Chiffre d’affaires · 6 lots</dt><dd class="strong"><span data-count="2450000" data-a="0.83" data-b="0.875">0</span> €</dd></div>
+          </dl>
+          <div class="hud-bar" aria-hidden="true"><div data-bar="1" data-a="0.83" data-b="0.875"><span style="width:48.2%"></span><span style="width:26.1%"></span><span style="width:8.7%"></span><span style="width:17%"></span></div></div>
+          <div class="hud-margin"><span>Marge prévisionnelle</span><strong><span data-count="416000" data-a="0.835" data-b="0.88">0</span> €</strong></div>
+          <p class="hud-pct">17,0 % du chiffre d’affaires</p>
+        </div>
+      </div>
+      <div class="ch ch-final" data-chapter="7" data-a="0.92" data-b="1">
+        <div class="ch-final-halo" aria-hidden="true"></div>
+        <p class="kicker">07 — Le réseau</p>
+        <h2>Une opération<br><em>en appelle d’autres.</em></h2>
+        <p>Chaque collaboration ouvre la suivante. Le réseau grandit avec ses premiers membres.</p>
+        <a class="btn btn-lg" href="#votre-place">Trouver ma place dans le réseau →</a>
+      </div>
+
+      <div class="rail">
+        <span class="rail-num" data-chapter-num="1">00</span>
+        <div class="rail-track">
+          <div class="rail-line"><div data-rail="1"></div></div>
+          <button type="button" data-goto="0" aria-label="Ouverture" title="Ouverture" style="top:0%"><span></span></button>
+          <button type="button" data-goto="0.11" aria-label="Une opportunité" title="Une opportunité" style="top:11%"><span></span></button>
+          <button type="button" data-goto="0.26" aria-label="Les compétences" title="Les compétences" style="top:26%"><span></span></button>
+          <button type="button" data-goto="0.42" aria-label="Le tour de table" title="Le tour de table" style="top:42%"><span></span></button>
+          <button type="button" data-goto="0.56" aria-label="La conception" title="La conception" style="top:56%"><span></span></button>
+          <button type="button" data-goto="0.71" aria-label="Le chantier" title="Le chantier" style="top:71%"><span></span></button>
+          <button type="button" data-goto="0.85" aria-label="Le bilan" title="Le bilan" style="top:85%"><span></span></button>
+          <button type="button" data-goto="0.97" aria-label="Le réseau" title="Le réseau" style="top:97%"><span></span></button>
+        </div>
+        <span class="rail-end">07</span>
+      </div>
+      <p class="film-note">Scène illustrative · Opération et personnages fictifs</p>
     </div>
-  </section>
-  <section class="faq section-light" aria-labelledby="faq-title"><div class="wrap faq-grid"><div><p class="eyebrow" data-reveal>Les questions de départ</p><h2 id="faq-title" data-reveal>Faisons<br><em>connaissance.</em></h2><a href="mailto:contact@aoi-network.com" class="text-link">Une autre question ? <svg class="icon"><use href="#arrow"/></svg></a></div><div class="faq-list">
-    <details><summary>Le réseau démarre. Pourquoi le rejoindre maintenant ?<span>+</span></summary><p>Pour nouer les premières relations, faire connaître vos compétences et partager vos besoins dès la construction du réseau. Le nombre d’opportunités dépend des dossiers apportés par les membres et se développe progressivement.</p></details>
-    <details><summary>Qui peut rejoindre AOI ?<span>+</span></summary><p>AOI s’adresse aux professionnels de l’immobilier : opérateurs, co-opérateurs, prestataires et partenaires. Choisissez votre profil lors de l’adhésion et présentez votre activité. Pour une collaboration entre structures, contactez directement l’équipe.</p></details>
-    <details><summary>Y a-t-il déjà des projets dans ma région ?<span>+</span></summary><p>Le réseau et les dossiers se constituent progressivement. Indiquez votre zone d’activité lors de votre inscription, ou échangez avec l’équipe pour connaître les besoins et les projets actuellement partagés.</p></details>
-    <details><summary>Dois-je prendre le logiciel pour rejoindre le réseau ?<span>+</span></summary><p>Non. L’extranet et le socle de l’adhésion sont gratuits. Le logiciel de simulation et de pilotage d’opération est une option payante distincte. Vous pouvez rejoindre le réseau sans souscrire cette option.</p></details>
-    <details><summary>Les professions réglementées paient-elles une commission ?<span>+</span></summary><p>Non. Les missions confiées aux notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes ne donnent lieu à aucune commission au profit d’AOI. Cette liste correspond aux professions réglementées définies dans les <a href="cgv.html#sec-6">CGV</a>. Ces professionnels restent membres à part entière du réseau.</p></details>
-    <details><summary>Comment fonctionnent les coopérations ?<span>+</span></summary><p>Les professionnels échangent sur le dossier et définissent entre eux leurs apports, leurs rôles et leurs engagements, avec les conseils appropriés. AOI facilite la mise en relation et les échanges. Les décisions et les opérations restent sous la responsabilité des participants.</p></details>
-    <details><summary>Pouvez-vous m’aider à examiner mon dossier ?<span>+</span></summary><p>Oui. Une mission d’<a href="accompagnement.html">accompagnement AOI</a> peut être définie sur devis : lecture des pièces convenues, cohérence du budget et prochaines vérifications. Elle est facultative et distincte de l’adhésion et du logiciel.</p></details>
-<details><summary>Une opération présentée sur AOI est-elle automatiquement vérifiée ?<span>+</span></summary><p>Non. Le partage d’un dossier sur le réseau ne vaut ni revue, ni validation. Une éventuelle mission porte uniquement sur les diligences commandées. L’accompagnement AOI ne constitue pas une revue indépendante PAA.</p></details>
-<details><summary>Quel lien entre AOI et Pièces à l’appui ?<span>+</span></summary><p>Pièces à l’appui est une marque d’AOI Network, accessible sans adhésion aux investisseurs et à leurs conseils, aux opérateurs et aux financeurs. Elle analyse les pièces avant financement, suit les évolutions et examine les options face à un aléa ou un retard. Ses honoraires rémunèrent le travail convenu, sans dépendre du financement ou du résultat. L’indépendance est examinée pour chaque dossier : un intérêt économique du groupe dans son issue, notamment une commission liée à sa réalisation, ou l’analyse de ses propres travaux exclut la revue indépendante PAA. <a href="pieces-a-lappui.html">Comprendre les missions et leur cadre.</a> <a data-paa-link="site" href="https://piecesalappui.fr">Découvrir le site Pièces à l’appui.</a></p></details>
-<details><summary>Puis-je échanger avec vous avant de m’inscrire ?<span>+</span></summary><p>Bien sûr. Écrivez à <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a> ou <a href="https://wa.me/33763782041" target="_blank" rel="noopener">contactez-nous sur WhatsApp</a>. Nous pourrons parler de votre activité et de ce que vous recherchez.</p></details>
-  </div></div></section>
-  <section class="closing section-dark" id="premiers-membres" aria-labelledby="closing-title"><div class="closing-orbits" aria-hidden="true"><span></span><span></span><span></span><i>AOI</i></div><div class="wrap closing-content"><p class="eyebrow copper" data-reveal>Les premières rencontres écrivent la suite.</p><h2 id="closing-title" data-reveal>Le réseau prend forme.<br><em>Prenez-y votre place.</em></h2><p data-reveal>Votre prochain partenaire, votre prochaine équipe,<br>votre prochaine opération. La rencontre peut commencer ici.</p><div class="closing-actions"><a class="button button-orange" href="rejoindre.html">Rejoindre les premiers membres <svg class="icon"><use href="#arrow"/></svg></a><a class="text-link light" href="https://wa.me/33763782041" target="_blank" rel="noopener">Échangeons d’abord <svg class="icon"><use href="#diagonal"/></svg></a></div><span class="closing-note">Adhésion gratuite · Professionnels de l’immobilier</span></div></section>
+  </div>
+</section>
+
+<!-- ═════════ Bande des métiers ═════════ -->
+<section class="trades" aria-label="Les métiers du réseau">
+  <div class="trades-row" data-marquee="-1"><span>Marchands de biens<i>·</i>Promoteurs<i>·</i>Aménageurs<i>·</i>Architectes<i>·</i>Notaires<i>·</i>Géomètres<i>·</i></span><span aria-hidden="true">Marchands de biens<i>·</i>Promoteurs<i>·</i>Aménageurs<i>·</i>Architectes<i>·</i>Notaires<i>·</i>Géomètres<i>·</i></span></div>
+  <div class="trades-row trades-row-alt" data-marquee="1"><span>Bureaux d’études<i>·</i>Courtiers<i>·</i>Agents immobiliers<i>·</i>Co-opérateurs<i>·</i>Entreprises de travaux<i>·</i>Avocats<i>·</i></span><span aria-hidden="true">Bureaux d’études<i>·</i>Courtiers<i>·</i>Agents immobiliers<i>·</i>Co-opérateurs<i>·</i>Entreprises de travaux<i>·</i>Avocats<i>·</i></span></div>
+</section>
+
+<!-- ═════════ À chacun sa place ═════════ -->
+<section class="sec sec-light place" id="votre-place" aria-labelledby="place-title">
+  <span id="rejoindre" class="anchor"></span>
+  <div class="sec-in">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">À chacun sa place</p>
+        <h2 class="h-sec" id="place-title" data-reveal>Vous avez quelque chose<br><em>à faire grandir.</em></h2>
+      </div>
+      <p class="sec-aside">Un projet, une expertise, une envie de vous associer. Le réseau commence avec ce que vous apportez.</p>
+    </div>
+    <div class="place-grid">
+      <div class="place-cell" data-reveal>
+        <a class="place-card" href="rejoindre.html?profil=operateur">
+          <div class="place-top"><span>01</span><span>Opérateur</span></div>
+          <h3>Je porte<br><em>un projet.</em></h3>
+          <ul>
+            <li>Publier un projet et ses besoins</li>
+            <li>Recevoir les candidatures de professionnels</li>
+            <li>Réunir un tour de table en SEP</li>
+          </ul>
+          <div class="place-foot"><span>Marchands de biens, promoteurs, aménageurs.</span><strong>Créer mon compte →</strong></div>
+        </a>
+      </div>
+      <div class="place-cell" data-reveal>
+        <a class="place-card" href="rejoindre.html?profil=co-operateur">
+          <div class="place-top"><span>02</span><span>Co-opérateur</span></div>
+          <h3>Je souhaite<br><em>m’associer.</em></h3>
+          <ul>
+            <li>Accéder aux dossiers partagés</li>
+            <li>Échanger directement avec les porteurs</li>
+            <li>Prendre part à une opération</li>
+          </ul>
+          <div class="place-foot"><span>Professionnels souhaitant s’associer à une opération.</span><strong>Créer mon compte →</strong></div>
+        </a>
+      </div>
+      <div class="place-cell" data-reveal>
+        <a class="place-card" href="rejoindre.html?profil=prestataire">
+          <div class="place-top"><span>03</span><span>Prestataire &amp; partenaire</span></div>
+          <h3>Je propose<br><em>mon savoir-faire.</em></h3>
+          <ul>
+            <li>Un profil visible des opérateurs</li>
+            <li>Répondre aux consultations de votre métier</li>
+            <li>Professions réglementées : 0 % de commission</li>
+          </ul>
+          <div class="place-foot"><span>Architectes, notaires, bureaux d’études, courtiers, entreprises de travaux…</span><strong>Créer mon compte →</strong></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ La plateforme ═════════ -->
+<section class="sec sec-dark platform" id="plateforme" aria-labelledby="platform-title">
+  <div class="platform-glow" aria-hidden="true"></div>
+  <div class="sec-in">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">La plateforme</p>
+        <h2 class="h-sec h-platform" id="platform-title" data-reveal>La rencontre est humaine.<br><em>La suite est connectée.</em></h2>
+      </div>
+      <p class="sec-aside">L’extranet pour vous rencontrer. Le logiciel pour piloter vos opérations. Deux outils, deux démos en direct.</p>
+    </div>
+    <div class="demos" id="demos">
+      <article class="demo">
+        <div class="demo-top"><span>01 / Se rencontrer</span><span class="tag">Accès gratuit</span></div>
+        <div class="demo-screen demo-screen-extranet">
+          <iframe data-demo-frame src="demo-extranet.html" loading="lazy" title="Démonstration de l’extranet AOI" tabindex="-1" aria-hidden="true"></iframe>
+          <a class="demo-hit" href="demo-extranet.html" target="_blank" rel="noopener" aria-label="Ouvrir la démonstration : L’extranet (nouvel onglet)"></a>
+        </div>
+        <div class="demo-copy">
+          <div>
+            <h3>L’extranet</h3>
+            <p>Publiez vos projets et vos besoins, présentez vos compétences et répondez aux consultations entre professionnels.</p>
+          </div>
+          <a class="demo-open" href="demo-extranet.html" target="_blank" rel="noopener">Ouvrir en grand ↗</a>
+        </div>
+      </article>
+      <article class="demo">
+        <div class="demo-top"><span>02 / Piloter</span><span class="tag tag-orange">Option · 49 € HT / mois</span></div>
+        <div class="demo-screen demo-screen-logiciel">
+          <iframe data-demo-frame src="demo-logiciel.html" loading="lazy" title="Démonstration du logiciel d’opération AOI" tabindex="-1" aria-hidden="true"></iframe>
+          <a class="demo-hit" href="demo-logiciel.html" target="_blank" rel="noopener" aria-label="Ouvrir la démonstration : Le logiciel d’opération (nouvel onglet)"></a>
+        </div>
+        <div class="demo-copy">
+          <div>
+            <h3>Le logiciel d’opération</h3>
+            <p>Simulez votre bilan financier, préparez votre dossier et suivez chaque étape du projet.</p>
+          </div>
+          <a class="demo-open" href="demo-logiciel.html" target="_blank" rel="noopener">Ouvrir en grand ↗</a>
+        </div>
+      </article>
+    </div>
+    <p class="fine">Démonstrations animées des interfaces · Données illustratives</p>
+  </div>
+</section>
+
+<!-- ═════════ Notre histoire ═════════ -->
+<section class="sec origin" id="origine" aria-labelledby="origin-title">
+  <div class="sec-in">
+    <div class="origin-grid">
+      <figure class="origin-fig" data-reveal>
+        <div class="origin-photo" data-reveal="clip"><img src="assets/guillaume.jpg" alt="Guillaume Rychner, fondateur d’AOI Network" loading="lazy" decoding="async"></div>
+        <figcaption><span>Guillaume Rychner</span><span>Fondateur — AOI Network</span></figcaption>
+      </figure>
+      <div class="origin-copy">
+        <p class="kicker">Une conviction née sur le terrain</p>
+        <h2 class="h-sec" id="origin-title" data-reveal>L’immobilier est une histoire<br><em>de personnes.</em></h2>
+        <p class="origin-lead">AOI est né d’une expérience d’opérateur : un bon projet avance lorsque les bonnes personnes travaillent ensemble.</p>
+        <p class="origin-body">Paiement à terme, société en participation, co-production avec les vendeurs… Les méthodes explorées par les fondateurs nourrissent aujourd’hui les ressources et les échanges du réseau. Nous ouvrons cet espace aux professionnels qui veulent partager leur pratique, rencontrer des partenaires et faire aboutir leurs projets.</p>
+        <a class="link-orange" href="https://wa.me/33763782041?text=Bonjour%20Guillaume%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20AOI%20Network." target="_blank" rel="noopener">Échanger avec Guillaume ↗</a>
+        <p class="fine origin-note">L’expérience présentée est celle des fondateurs. AOI Network est un réseau en développement.</p>
+      </div>
+    </div>
+    <div class="methods">
+      <a href="article.html?a=paiement-a-terme"><span>01 / Structurer</span><strong>Le paiement à terme ↗</strong></a>
+      <a href="article.html?a=sep-immobiliere"><span>02 / S’associer</span><strong>La société en participation ↗</strong></a>
+      <a href="article.html?a=pourquoi-un-reseau"><span>03 / Coopérer</span><strong>La force d’un réseau ↗</strong></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Le modèle ═════════ -->
+<section class="sec sec-light model" id="modele" aria-labelledby="model-title">
+  <span id="accompagnement" class="anchor"></span>
+  <div class="sec-in model-grid">
+    <div data-reveal>
+      <p class="kicker">Le modèle</p>
+      <div class="model-zero" aria-hidden="true">0 €</div>
+      <h2 id="model-title"><span class="sr-only">0 € : </span>Rejoindre AOI est gratuit.<br><em>Sans abonnement.</em></h2>
+      <p class="model-lead">Profil, annuaire des membres, projets, candidatures, bibliothèque et MasterClass : tout l’extranet est inclus.</p>
+      <a class="btn btn-ink btn-xl" href="rejoindre.html">Rejoindre gratuitement →</a>
+    </div>
+    <div class="model-lines" data-reveal>
+      <div class="model-line model-line-first">
+        <span class="model-label">En option</span>
+        <div>
+          <div class="model-row"><span class="model-name">Le logiciel d’opération</span><span class="model-price">49 € HT / mois</span></div>
+          <p>Bilan, dossier, suivi des phases. Sans engagement, seulement si vous en avez besoin.</p>
+        </div>
+      </div>
+      <div class="model-line">
+        <span class="model-label">Si un deal se fait</span>
+        <div>
+          <div class="model-row"><span class="model-name">Une commission au succès</span><span class="model-price">4,5 % ou 10 % HT</span></div>
+          <p>Uniquement quand une collaboration née sur AOI aboutit. Professions réglementées : aucune commission.</p>
+        </div>
+      </div>
+      <div class="model-links">
+        <a href="cgv.html">Le détail des commissions →</a>
+        <a href="accompagnement.html">Accompagnement sur devis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ FAQ ═════════ -->
+<section class="sec sec-light faq" id="faq" aria-labelledby="faq-title">
+  <div class="sec-in faq-grid">
+    <div class="faq-side">
+      <p class="kicker">Les questions de départ</p>
+      <h2 class="h-sec" id="faq-title" data-reveal>Faisons<br><em>connaissance.</em></h2>
+      <div class="faq-contact">
+        <a href="mailto:contact@aoi-network.com">Une autre question ? →</a>
+        <a href="https://wa.me/33763782041" target="_blank" rel="noopener">WhatsApp ↗</a>
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <h3><button type="button" aria-expanded="true" aria-controls="faq-a1" id="faq-q1"><span>Le réseau démarre. Pourquoi le rejoindre maintenant ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div><p>Pour nouer les premières relations, faire connaître vos compétences et partager vos besoins dès la construction du réseau. Le nombre d’opportunités dépend des dossiers apportés par les membres et se développe progressivement.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>Qui peut rejoindre AOI ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div><p>AOI s’adresse aux professionnels de l’immobilier : opérateurs, co-opérateurs, prestataires et partenaires. Choisissez votre profil lors de l’adhésion et présentez votre activité. Pour une collaboration entre structures, contactez directement l’équipe.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>Y a-t-il déjà des projets dans ma région ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div><p>Le réseau et les dossiers se constituent progressivement. Indiquez votre zone d’activité lors de votre inscription, ou échangez avec l’équipe pour connaître les besoins et les projets actuellement partagés.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>Dois-je prendre le logiciel pour rejoindre le réseau ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div><p>Non. L’extranet et le socle de l’adhésion sont gratuits. Le logiciel de simulation et de pilotage d’opération est une option payante distincte. Vous pouvez rejoindre le réseau sans souscrire cette option.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>Les professions réglementées paient-elles une commission ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div><p>Non. Les missions confiées aux notaires, avocats, commissaires de justice, experts-comptables, fiscalistes et commissaires aux comptes ne donnent lieu à aucune commission au profit d’AOI. Cette liste correspond aux professions réglementées définies dans les <a href="cgv.html#sec-6">CGV</a>. Ces professionnels restent membres à part entière du réseau.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>Comment fonctionnent les coopérations ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div><p>Les professionnels échangent sur le dossier et définissent entre eux leurs apports, leurs rôles et leurs engagements, avec les conseils appropriés. AOI facilite la mise en relation et les échanges. Les décisions et les opérations restent sous la responsabilité des participants.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7"><span>Pouvez-vous m’aider à examiner mon dossier ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div><p>Oui. Une mission d’<a href="accompagnement.html">accompagnement AOI</a> peut être définie sur devis : lecture des pièces convenues, cohérence du budget et prochaines vérifications. Elle est facultative et distincte de l’adhésion et du logiciel.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8"><span>Une opération présentée sur AOI est-elle automatiquement vérifiée ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div><p>Non. Le partage d’un dossier sur le réseau ne vaut ni revue, ni validation. Une éventuelle mission porte uniquement sur les diligences commandées. L’accompagnement AOI ne constitue pas une revue indépendante PAA.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a9" id="faq-q9"><span>Quel lien entre AOI et Pièces à l’appui ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a9" role="region" aria-labelledby="faq-q9"><div><p>Pièces à l’appui est une marque d’AOI Network, accessible sans adhésion aux investisseurs et à leurs conseils, aux opérateurs et aux financeurs. Elle analyse les pièces avant financement, suit les évolutions et examine les options face à un aléa ou un retard. Ses honoraires rémunèrent le travail convenu, sans dépendre du financement ou du résultat. L’indépendance est examinée pour chaque dossier : un intérêt économique du groupe dans son issue, notamment une commission liée à sa réalisation, ou l’analyse de ses propres travaux exclut la revue indépendante PAA. <a href="pieces-a-lappui.html">Comprendre les missions et leur cadre.</a> <a data-paa-link="site" href="https://piecesalappui.fr">Découvrir le site Pièces à l’appui.</a></p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button type="button" aria-expanded="false" aria-controls="faq-a10" id="faq-q10"><span>Puis-je échanger avec vous avant de m’inscrire ?</span><i aria-hidden="true"></i></button></h3>
+        <div class="faq-a" id="faq-a10" role="region" aria-labelledby="faq-q10"><div><p>Bien sûr. Écrivez à <a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a> ou <a href="https://wa.me/33763782041" target="_blank" rel="noopener">contactez-nous sur WhatsApp</a>. Nous pourrons parler de votre activité et de ce que vous recherchez.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ Appel final ═════════ -->
+<section class="closing" id="premiers-membres" aria-labelledby="closing-title">
+  <img class="closing-bg" src="assets/blog-plans-principe-execution.webp" alt="" loading="lazy" decoding="async">
+  <div class="closing-veil" aria-hidden="true"></div>
+  <div class="closing-in">
+    <p class="kicker">Les premières rencontres écrivent la suite</p>
+    <h2 id="closing-title" data-reveal>Le réseau prend forme.<br><em>Prenez-y votre place.</em></h2>
+    <div class="closing-cta">
+      <a class="btn btn-xl" href="rejoindre.html">Rejoindre les premiers membres →</a>
+      <a class="closing-wa" href="https://wa.me/33763782041" target="_blank" rel="noopener">Échangeons d’abord ↗</a>
+    </div>
+    <p class="closing-note">Adhésion gratuite · Professionnels de l’immobilier</p>
+  </div>
+</section>
+
 </main>
-<footer class="site-footer section-dark"><div class="wrap"><div class="footer-top"><a class="brand" href="#top"><span class="brand-mark">AOI</span><span>Network<span class="brand-dot">.</span></span></a><p>Alliance des Opérateurs Immobiliers</p><a href="mailto:contact@aoi-network.com">contact@aoi-network.com <svg class="icon"><use href="#diagonal"/></svg></a></div><div class="footer-bottom"><span>© 2026 AOI Network</span><div><a href="accompagnement.html">Accompagnement</a><a href="pieces-a-lappui.html">Pièces à l’appui</a><a href="ressources.html">Ressources</a><a href="mentions-legales.html">Mentions légales</a><a href="cgv.html">Conditions générales</a><button id="cookie-settings" type="button">Cookies</button></div><a href="#top" class="back-to-top">Retour en haut ↑</a></div></div></footer>
+
+<footer class="ft">
+  <div class="ft-in">
+    <div class="ft-brand">
+      <span class="logo-aoi">AOI</span><span class="logo-sq" aria-hidden="true"></span><span class="logo-net">Network</span>
+      <span class="ft-tag">Alliance des Opérateurs Immobiliers</span>
+    </div>
+    <div class="ft-links">
+      <a href="accompagnement.html">Accompagnement</a>
+      <a href="pieces-a-lappui.html">Pièces à l’appui</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv.html">Conditions générales</a>
+      <button type="button" id="cookie-settings">Cookies</button>
+      <a class="ft-mail" href="mailto:contact@aoi-network.com">contact@aoi-network.com</a>
+    </div>
+  </div>
+</footer>
+
 <aside class="cookie-banner" id="cookie-banner" aria-label="Choix des cookies" hidden><div><strong>Votre visite, votre choix.</strong><p>Avec votre accord, des cookies nous aident à mesurer l’audience et nos campagnes. <a href="mentions-legales.html#cookies">En savoir plus</a></p></div><div class="cookie-actions"><button type="button" id="cookies-reject">Refuser</button><button type="button" id="cookies-accept">Accepter</button></div></aside>
-<noscript><style>.film-control,.film-cue{display:none}.film-expert,.film-associates,.film-documents,.film-builder{display:none}.scene-fallback{opacity:1}.scene-label{opacity:.6}[data-reveal]{opacity:1;transform:none}.demo-viewer{display:none}.desktop-nav{display:flex!important;flex-wrap:wrap}.menu-toggle{display:none}</style></noscript>
 </body>
 </html>

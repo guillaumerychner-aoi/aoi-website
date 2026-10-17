@@ -1,7 +1,7 @@
 {
   "name": "AOI Network",
   "short_name": "AOI",
-  "description": "Alliance des Opérateurs Immobiliers - Structurez vos opérations sans banque",
+  "description": "Alliance des Opérateurs Immobiliers — le réseau des professionnels de l’immobilier",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -14,8 +14,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#E4571B",
-  "background_color": "#FAF7F2",
+  "theme_color": "#050506",
+  "background_color": "#050506",
   "display": "standalone",
   "start_url": "/"
 }

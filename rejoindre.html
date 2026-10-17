@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#111715">
+    <meta name="theme-color" content="#050506">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -183,7 +183,7 @@ class Component extends DCLogic {
       errDetail: err === 'api' ? (this.state.apiError || 'Réessayez, ou écrivez-nous sur WhatsApp.') : err === 'cgv' ? "Cochez l'acceptation des Conditions Générales pour envoyer votre demande." : (err ? 'Renseignez ' + (labels[err] || 'ce champ') + ' pour envoyer votre demande.' : ''),
       sending: this.state.sending,
       btnLabel: this.state.sending ? 'Création de votre compte…' : 'Rejoindre AOI Network →',
-      btnBg: this.state.sending ? '#B9B2A7' : '#ed6e36',
+      btnBg: this.state.sending ? '#B9B2A7' : '#f0703a',
       btnCursor: this.state.sending ? 'progress' : 'pointer',
       onEmailBlur: e => {
         const email = String(e.target.value || '').trim();
@@ -278,9 +278,9 @@ class Component extends DCLogic {
       profiles: defs.map(([v, title, tagline]) => {
         const on = sel === v;
         return { title, tagline, value: v, selected: on, pick: () => this.setState({ profile: v, err: null }),
-          border: on ? '#ed6e36' : (err === 'profile' ? 'rgba(180,35,30,.35)' : 'rgba(20,18,16,.16)'),
+          border: on ? '#f0703a' : (err === 'profile' ? 'rgba(180,35,30,.35)' : 'rgba(20,18,16,.16)'),
           bg: on ? 'rgba(228,87,27,.05)' : '#fcfbf7',
-          dotBorder: on ? '#ed6e36' : 'rgba(20,18,16,.3)',
+          dotBorder: on ? '#f0703a' : 'rgba(20,18,16,.3)',
           dotO: on ? 1 : 0, dotS: on ? 1 : 0.4 };
       }),
     };
