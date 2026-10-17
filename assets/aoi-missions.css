@@ -80,3 +80,9 @@
 .surface,.contact-card,.guide-card,.prose-card,.author-card,.related-card,.mission-card,.profile-card,.access-card,.commission-card{background:#faf8f4;border-color:rgba(20,20,22,.12)}
 .access-card-free{background:#141416;border-color:#141416}
 .commission-exempt{background:#e9e4db;border-color:rgba(20,20,22,.12)}
+
+/* Règles typographiques v3 : l’italique est réservé à l’accueil ; sur les pages intérieures,
+   les mots mis en avant gardent leur couleur mais restent droits. */
+.aoi-inner em,.aoi-inner i{font-style:normal}
+/* Les chiffres passent en Manrope gras. */
+.hero-free strong,.library-count strong,.operation-metrics strong,.result-kpis strong,.score-grid strong,.not-found-number,.access-price,.commission-rate,.exempt-mark{font-family:var(--sans);font-weight:700;letter-spacing:-.05em}

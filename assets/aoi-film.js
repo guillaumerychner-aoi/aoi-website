@@ -529,14 +529,52 @@ export async function createFilm({ host, section, overlay, getProps }) {
     const hb = host.getBoundingClientRect();
     const zones = chapters.filter(c => c.last > 0.3 && c.zone !== c.el).map(c => c.zone.getBoundingClientRect())
       .concat(chapters.filter(c => c.last > 0.3 && c.zone === c.el).map(c => c.el.getBoundingClientRect()));
+    const items = [];
     for (const el of labelEls()) {
       const d = LABELS[el.dataset.label]; if (!d) continue;
       let o = fade(p, d.a, d.b, 0.02) * d.phase();
       tmp.copy(d.pos).project(camera); if (tmp.z > 1) o = 0;
-      const lx = (tmp.x * 0.5 + 0.5) * w, ly = (-tmp.y * 0.5 + 0.5) * h;
-      for (const z of zones) { const zx0 = z.left - hb.left - 120, zx1 = z.right - hb.left + 120, zy0 = z.top - hb.top - 10, zy1 = z.bottom - hb.top + 70; if (lx > zx0 && lx < zx1 && ly > zy0 && ly < zy1) { o *= 0.08; break; } }
-      el.style.opacity = o.toFixed(3);
-      if (o > 0) el.style.transform = `translate3d(${((tmp.x * 0.5 + 0.5) * w).toFixed(1)}px, ${((-tmp.y * 0.5 + 0.5) * h).toFixed(1)}px, 0) scale(${portrait ? 0.78 : 1}) translate(-50%, -100%)`;
+      let lx = (tmp.x * 0.5 + 0.5) * w, ly = (-tmp.y * 0.5 + 0.5) * h, moved = false;
+      const k = portrait ? 0.78 : 1;
+      const bw = el.offsetWidth * k, bh = el.offsetHeight * k;
+      if (portrait && o > 0) {
+        const nx = Math.min(w - bw / 2 - 10, Math.max(bw / 2 + 10, lx)), ny = Math.min(h - 150, Math.max(140, ly));
+        moved = Math.abs(nx - lx) > 1 || Math.abs(ny - ly) > 1; lx = nx; ly = ny;
+      }
+      items.push({ el, o, lx, ly, bw, bh, moved, k });
+    }
+    if (portrait) {
+      const vis = items.filter(it => it.o > 0.05).sort((p1, p2) => p1.ly - p2.ly);
+      for (let pass = 0; pass < 3; pass++) {
+        for (let i = 1; i < vis.length; i++) for (let j = 0; j < i; j++) {
+          const A = vis[j], Bi = vis[i];
+          if (Math.abs(A.lx - Bi.lx) < (A.bw + Bi.bw) / 2 + 4 && Math.abs(A.ly - Bi.ly) < (A.bh + Bi.bh) / 2 + 6) {
+            Bi.ly = A.ly + (A.bh + Bi.bh) / 2 + 6; Bi.moved = true;
+          }
+        }
+        vis.sort((p1, p2) => p1.ly - p2.ly);
+      }
+      const down = vis.slice().sort((p1, p2) => p2.ly - p1.ly);
+      for (let i = 0; i < down.length; i++) {
+        const cur = down[i];
+        if (i === 0) { if (cur.ly > h - 110) { cur.ly = h - 110; cur.moved = true; } continue; }
+        for (let j = 0; j < i; j++) {
+          const lower = down[j];
+          if (Math.abs(cur.lx - lower.lx) < (cur.bw + lower.bw) / 2 + 4) {
+            const lim = lower.ly - (cur.bh + lower.bh) / 2 - 6;
+            if (cur.ly > lim) { cur.ly = lim; cur.moved = true; }
+          }
+        }
+        if (cur.ly > h - 110) { cur.ly = h - 110; cur.moved = true; }
+      }
+      for (const it of vis) if (it.ly < 96) it.ly = 96;
+    }
+    for (const it of items) {
+      let o = it.o;
+      for (const z of zones) { const zx0 = z.left - hb.left - 120, zx1 = z.right - hb.left + 120, zy0 = z.top - hb.top - 10, zy1 = z.bottom - hb.top + 70; if (it.lx > zx0 && it.lx < zx1 && it.ly > zy0 && it.ly < zy1) { o *= 0.08; break; } }
+      const stem = it.el.lastElementChild; if (stem) stem.style.opacity = it.moved ? '0' : '1';
+      it.el.style.opacity = o.toFixed(3);
+      if (o > 0) it.el.style.transform = `translate3d(${it.lx.toFixed(1)}px, ${it.ly.toFixed(1)}px, 0) scale(${it.k}) translate(-50%, -100%)`;
     }
     for (const c of counters) { const v = c.v * eOut(seg(p, c.a, c.b)); if (v === c.last) continue; c.last = v; c.el.textContent = fmt(v); }
     for (const b of bars) b.el.style.transform = `scaleX(${eOut(seg(p, b.a, b.b)).toFixed(3)})`;
