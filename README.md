@@ -72,6 +72,29 @@ repository**, puis **Publish repository**. Relier ensuite ce dépôt au projet V
 - **Logotype** : « AOI » en Instrument Serif, un carré orange, puis « NETWORK » en
   Manrope 600 capitales avec un interlettrage de 0,24 em.
 
+## Icônes et image de partage
+
+- **Fichiers** :
+  - `favicon.ico`, `favicon-16x16.png` et `favicon-32x32.png` (onglet) ;
+  - `apple-touch-icon.png` (écran d’accueil iPhone et iPad) ;
+  - `android-chrome-192x192.png` et `android-chrome-512x512.png` (Android, appli installée) ;
+  - `og-image.png` (aperçu sur LinkedIn, WhatsApp, Facebook…).
+- **Déclaration** : chaque page déclare les mêmes cinq balises en chemins absolus,
+  avec un numéro de version (`?v=2`). Les navigateurs gardent les favicons en cache
+  très longtemps, et ce numéro les oblige à recharger les nouvelles icônes.
+- **Pour changer d’icône plus tard** :
+  1. Remplacer les fichiers, en gardant les mêmes noms.
+  2. Passer `?v=2` à `?v=3` dans toutes les pages (rechercher/remplacer `?v=2"`) et
+     dans `site.webmanifest`.
+  3. Relancer `node tools/build-guides.mjs`.
+- **Aperçus sur les réseaux sociaux** : LinkedIn et Facebook gardent l’ancienne image
+  en cache. Après la mise en ligne, demander une nouvelle lecture de
+  `https://www.aoi-network.com/` dans le Post Inspector de LinkedIn et dans le
+  Sharing Debugger de Facebook.
+- **Résultats Google** : Google met à jour l’icône affichée lors de son prochain passage,
+  après quelques jours ou quelques semaines. Une demande d’indexation de l’accueil
+  dans la Search Console accélère la mise à jour.
+
 ## Vérifier en local
 
 Depuis la racine du dépôt :
