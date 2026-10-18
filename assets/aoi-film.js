@@ -434,7 +434,11 @@ export async function createFilm({ host, section, overlay, getProps }) {
   const LABELS = {
     operateur: { pos: V(HX + 0.4, 0.6, -HZ - 0.4), a: 0.07, b: 0.5, phase: () => plinthP },
   };
-  nodes.forEach(n => { const win = (n.id === 'builder' || n.id === 'constructeur') ? [0.585, 0.8] : n.id.startsWith('coop') ? [0.355, 0.56] : [0.165, 0.5]; LABELS[n.id] = { pos: n.anchor, a: win[0], b: win[1], phase: () => eOut(seg(prog, n.r0, n.r0 + 0.04)) }; });
+  const WORK_ANCHOR = { builder: V(HX + 1.6, 3.0, HZ - 1.5), constructeur: V(-HX - 1.6, 3.0, HZ - 1.5) };
+  nodes.forEach(n => { if (WORK_ANCHOR[n.id]) n.anchor = WORK_ANCHOR[n.id]; const win = (n.id === 'builder' || n.id === 'constructeur') ? [0.6, 0.705] : n.id.startsWith('coop') ? [0.355, 0.56] : [0.165, 0.5]; LABELS[n.id] = { pos: n.anchor, a: win[0], b: win[1], phase: () => eOut(seg(prog, n.r0, n.r0 + 0.04)) }; });
+  // portrait: work trades sit low on the plinth corners so the rising building stays clear
+  if (LABELS.builder) LABELS.builder.posP = V(HX - 0.6, 0.4, HZ - 0.3);
+  if (LABELS.constructeur) LABELS.constructeur.posP = V(-HX + 0.6, 0.4, HZ - 0.3);
   const fmt = (n) => Math.round(n).toLocaleString('fr-FR');
 
   // Loop
@@ -533,45 +537,31 @@ export async function createFilm({ host, section, overlay, getProps }) {
     for (const el of labelEls()) {
       const d = LABELS[el.dataset.label]; if (!d) continue;
       let o = fade(p, d.a, d.b, 0.02) * d.phase();
-      tmp.copy(d.pos).project(camera); if (tmp.z > 1) o = 0;
-      let lx = (tmp.x * 0.5 + 0.5) * w, ly = (-tmp.y * 0.5 + 0.5) * h, moved = false;
+      tmp.copy((portrait && d.posP) || d.pos).project(camera); if (tmp.z > 1) o = 0;
+      let lx = (tmp.x * 0.5 + 0.5) * w; const ly0 = (-tmp.y * 0.5 + 0.5) * h;
       const k = portrait ? 0.78 : 1;
       const bw = el.offsetWidth * k, bh = el.offsetHeight * k;
-      if (portrait && o > 0) {
-        const nx = Math.min(w - bw / 2 - 10, Math.max(bw / 2 + 10, lx)), ny = Math.min(h - 150, Math.max(140, ly));
-        moved = Math.abs(nx - lx) > 1 || Math.abs(ny - ly) > 1; lx = nx; ly = ny;
+      if (portrait) {
+        // soft horizontal inset: overflow is compressed smoothly (tanh), never snapped
+        const lo = bw / 2 + 8, hi = w - bw / 2 - 8, soft = bw * 0.9;
+        if (lx < lo + soft) { const t = (lo + soft - lx) / soft; lx = lo + soft - soft * Math.tanh(t); }
+        else if (lx > hi - soft) { const t = (lx - (hi - soft)) / soft; lx = hi - soft + soft * Math.tanh(t); }
       }
-      items.push({ el, o, lx, ly, bw, bh, moved, k });
+      items.push({ el, o, lx, ly0, ly: ly0, bw, bh, k });
     }
-    if (portrait) {
-      const vis = items.filter(it => it.o > 0.05).sort((p1, p2) => p1.ly - p2.ly);
-      for (let pass = 0; pass < 3; pass++) {
-        for (let i = 1; i < vis.length; i++) for (let j = 0; j < i; j++) {
-          const A = vis[j], Bi = vis[i];
-          if (Math.abs(A.lx - Bi.lx) < (A.bw + Bi.bw) / 2 + 4 && Math.abs(A.ly - Bi.ly) < (A.bh + Bi.bh) / 2 + 6) {
-            Bi.ly = A.ly + (A.bh + Bi.bh) / 2 + 6; Bi.moved = true;
-          }
-        }
-        vis.sort((p1, p2) => p1.ly - p2.ly);
-      }
-      const down = vis.slice().sort((p1, p2) => p2.ly - p1.ly);
-      for (let i = 0; i < down.length; i++) {
-        const cur = down[i];
-        if (i === 0) { if (cur.ly > h - 110) { cur.ly = h - 110; cur.moved = true; } continue; }
-        for (let j = 0; j < i; j++) {
-          const lower = down[j];
-          if (Math.abs(cur.lx - lower.lx) < (cur.bw + lower.bw) / 2 + 4) {
-            const lim = lower.ly - (cur.bh + lower.bh) / 2 - 6;
-            if (cur.ly > lim) { cur.ly = lim; cur.moved = true; }
-          }
-        }
-        if (cur.ly > h - 110) { cur.ly = h - 110; cur.moved = true; }
-      }
-      for (const it of vis) if (it.ly < 96) it.ly = 96;
+    const vis = items.filter(it => it.o > 0.05 && it.lx > -it.bw && it.lx < w + it.bw && it.ly0 > -60 && it.ly0 < h + 120).sort((p1, p2) => p1.ly0 - p2.ly0);
+    for (let i = 1; i < vis.length; i++) for (let j = 0; j < i; j++) {
+      const A = vis[j], Bi = vis[i];
+      if (Math.abs(A.lx - Bi.lx) < (A.bw + Bi.bw) / 2 + 4 && Math.abs(A.ly - Bi.ly) < (A.bh + Bi.bh) / 2 + 6) Bi.ly = A.ly + (A.bh + Bi.bh) / 2 + 6;
+    }
+    for (const it of items) {
+      const tgt = it.ly - it.ly0, cur = +(it.el.dataset.dy || 0);
+      const dy = Math.abs(tgt - cur) < 0.5 ? tgt : cur + (tgt - cur) * 0.12;
+      it.el.dataset.dy = dy.toFixed(2); it.ly = it.ly0 + dy; it.moved = Math.abs(dy) > 4;
     }
     for (const it of items) {
       let o = it.o;
-      for (const z of zones) { const zx0 = z.left - hb.left - 120, zx1 = z.right - hb.left + 120, zy0 = z.top - hb.top - 10, zy1 = z.bottom - hb.top + 70; if (it.lx > zx0 && it.lx < zx1 && it.ly > zy0 && it.ly < zy1) { o *= 0.08; break; } }
+      for (const z of zones) { const zx0 = z.left - hb.left - 40, zx1 = z.right - hb.left + 40, zy0 = z.top - hb.top - 10, zy1 = z.bottom - hb.top + 70; if (it.lx > zx0 && it.lx < zx1 && it.ly > zy0 && it.ly < zy1) { o *= 0.08; break; } }
       const stem = it.el.lastElementChild; if (stem) stem.style.opacity = it.moved ? '0' : '1';
       it.el.style.opacity = o.toFixed(3);
       if (o > 0) it.el.style.transform = `translate3d(${it.lx.toFixed(1)}px, ${it.ly.toFixed(1)}px, 0) scale(${it.k}) translate(-50%, -100%)`;
