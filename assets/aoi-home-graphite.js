@@ -71,39 +71,19 @@ safe('smooth', () => {
   }, { passive: true });
 });
 
-/* ── Bande des métiers + entrée en perspective des démos ── */
-safe('marquee', () => {
-  const rows = $$('[data-marquee]').map(el => ({ el, dir: +el.dataset.marquee, x: 0 }));
+/* ── Entrée en perspective des démos ── */
+safe('tilt', () => {
   const demos = $('#demos');
-  let vel = 0, lastScroll = window.scrollY, last = performance.now(), visible = true;
+  if (!demos || reduce) return;
   const tilt = () => {
-    if (!demos || reduce) return;
     const vh = window.innerHeight, r = demos.getBoundingClientRect();
     const t = Math.min(1, Math.max(0, (vh - r.top) / (vh * 0.85)));
     const k = 1 - Math.pow(1 - t, 3);
     demos.style.transform = `perspective(1800px) rotateX(${((1 - k) * 18).toFixed(2)}deg) rotateY(${((1 - k) * -12).toFixed(2)}deg) translateY(${((1 - k) * 60).toFixed(1)}px) scale(${(0.92 + 0.08 * k).toFixed(4)})`;
   };
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY; vel += Math.min(60, Math.abs(y - lastScroll)); lastScroll = y; tilt();
-  }, { passive: true });
+  window.addEventListener('scroll', tilt, { passive: true });
   window.addEventListener('resize', tilt);
   tilt();
-  const strip = $('.trades');
-  if (strip) new IntersectionObserver(([en]) => { visible = en.isIntersecting; }, { rootMargin: '200px 0px' }).observe(strip);
-  const tick = now => {
-    requestAnimationFrame(tick);
-    const dt = Math.min(0.05, (now - last) / 1000); last = now;
-    vel *= Math.exp(-dt * 4);
-    if (!visible) return;
-    const speed = reduce ? 0 : 38 + vel * 2.2;
-    for (const r of rows) {
-      const half = r.el.scrollWidth / 2; if (!half) continue;
-      r.x = (r.x + r.dir * speed * dt) % half;
-      const x = r.dir < 0 ? r.x : r.x - half;
-      r.el.style.transform = `translate3d(${x.toFixed(1)}px,0,0)`;
-    }
-  };
-  requestAnimationFrame(tick);
 });
 
 /* ── Démos : iframes 1000 × 610 mises à l'échelle de leur carte ── */

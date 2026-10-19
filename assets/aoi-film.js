@@ -469,7 +469,7 @@ export async function createFilm({ host, section, overlay, getProps }) {
       N.endMat.color.copy(ORANGE).multiplyScalar(7 * (pp >= 1 ? 1 : 0));
       N.cube.rotation.y = t * 0.5 + N.seed; N.cube.rotation.x = Math.sin(t * 0.4 + N.seed) * 0.25; N.cube.position.y = 1.35 + Math.sin(t * 1.2 + N.seed) * 0.08;
       const connected = pp >= 1;
-      N.pulses.forEach((pu, k) => { pu.visible = connected; if (connected) { const u = (((t * N.speed + k / 3 + N.seed) % 1) + 1) % 1; pu.position.copy(N.pts[Math.floor(u * (N.pts.length - 1))]); } });
+      N.pulses.forEach((pu, k) => { pu.visible = connected; if (connected) { const u = (t * N.speed + k / 3 + N.seed) % 1; pu.position.copy(N.pts[Math.floor(u * (N.pts.length - 1))]); } });
     }
 
     const planP = seg(p, 0.47, 0.55), planK = 4 * (1 - 0.8 * seg(p, 0.72, 0.8));
@@ -602,7 +602,8 @@ export async function createFilm({ host, section, overlay, getProps }) {
   }
   function frame(now) {
     raf = requestAnimationFrame(frame);
-    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now; time += dt; // jamais négatif : le premier horodatage rAF peut précéder `last`
+    // rAF timestamps can precede the performance.now() taken at init: clamp so dt is never negative
+    const dt = Math.min(0.05, Math.max(0, (now - last) / 1000)); last = Math.max(last, now); time += dt;
     const { rect, p } = readProgress(); target = forced ?? p;
     if (forced == null && (rect.bottom < -40 || rect.top > window.innerHeight + 40)) return;
     prog = reduce ? target : prog + (target - prog) * (1 - Math.exp(-dt * 3.4));

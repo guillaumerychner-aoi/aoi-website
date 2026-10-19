@@ -158,12 +158,6 @@ html:not(.js) .ch:not(.ch-open),.film.is-fallback .ch:not(.ch-open){display:none
 .rail-track button span{width:7px;height:7px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:var(--deep);transition:background .3s,border-color .3s}
 .film-note{position:absolute;right:clamp(14px,2.4vw,38px);bottom:4vh;margin:0;font:500 10px/1 var(--sans);letter-spacing:.06em;color:var(--t-6)}
 
-/* ── Bande des métiers ── */
-.trades{background:var(--dark);padding:clamp(64px,8vw,120px) 0;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)}
-.trades-row{display:flex;width:max-content;white-space:nowrap;font-family:var(--serif);font-size:clamp(30px,4.4vw,80px);line-height:1.2;letter-spacing:-.025em;will-change:transform;color:var(--t-title)}
-.trades-row-alt{color:var(--copper)}
-.trades-row i{color:var(--orange);padding:0 .35em;font-style:normal}
-
 /* ── Sections ── */
 .sec{position:relative;padding:clamp(96px,11vw,168px) var(--gutter)}
 .sec-light{background:var(--paper);color:var(--ink)}
