@@ -1,6 +1,6 @@
 # AOI Network — site vitrine
 
-Refonte « graphite » (v3, version finale du 17 octobre) · octobre 2026 · Pièces à l’appui v2.1 · CGV v5.5
+Refonte « graphite » (v3, version finale du 17 octobre) · octobre 2026 · Pièces à l’appui v2.1 · CGV v6 (18 novembre 2026)
 
 Site statique en français, sans compilation, hébergé sur Vercel. Toutes les pages
 partagent la charte **graphite** : noir graphite, ivoire et orange, avec Instrument
@@ -183,7 +183,7 @@ Voir `docs/ALIGNEMENT-PAA-V2.1.md` et `docs/MISE-A-JOUR-AOI-PAA-2026-09-27.md`.
 
 ## Professions exemptées de commission
 
-`legal-data.js` affiche les **CGV v5.5**. La liste utilisée par le site et le formulaire
+`legal-data.js` affiche les **CGV v6** (`docs.cgv`) ; la v5.5 reste en archive (`docs.cgv_v55`, page `cgv-v5.html`) jusqu’au 19 décembre 2026. La liste utilisée par le site et le formulaire
 est celle des CGV :
 - notaires ;
 - avocats ;
