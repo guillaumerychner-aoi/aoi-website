@@ -103,7 +103,7 @@
       </div>
       <div class="form-heading"><span>03</span><h2>Quelques mots sur vous</h2><small>Facultatif</small></div>
       <label class="field-label" for="message">Votre activité, vos projets, vos attentes</label><textarea id="message" name="message" rows="4" placeholder="Ce que vous faites et ce que vous aimeriez construire avec le réseau…"></textarea>
-      <label class="field-label" for="code_prescripteur" style="display:block;margin-top:16px">Code prescripteur <small>(facultatif)</small></label><input id="code_prescripteur" name="code_prescripteur" placeholder="Si quelqu’un vous a recommandé AOI : son code (ex. ABC234)" autocomplete="off" maxlength="20" style="text-transform:uppercase">
+      <label class="field-label" for="code_prescripteur" style="display:block;margin-top:16px">Code prescripteur <small>(facultatif)</small></label><input id="code_prescripteur" name="code_prescripteur" placeholder="Si quelqu’un vous a recommandé AOI : son code (ex. ABC234)" autocomplete="off" maxlength="20" style="text-transform:uppercase"><p id="code_prescripteur_info" role="status" aria-live="polite" style="display:none;margin:8px 0 0;font-size:13px;line-height:1.5"></p>
       <div class="join-terms"><p>L’adhésion est gratuite. Le logiciel et l’<a href="accompagnement.html">accompagnement sur devis</a> sont facultatifs. Les commissions de collaboration sont détaillées dans <a href="index.html#modele">notre modèle</a>.</p><div class="exemption-note"><span class="exemption-zero" aria-hidden="true">0 %</span><div><strong>Professions réglementées : aucune commission sur vos missions.</strong><p>Notaires, avocats, commissaires de justice, experts-comptables, fiscalistes, commissaires aux comptes, courtiers en assurance et agents immobiliers. Les professions concernées sont définies dans les <a href="cgv.html#sec-6">CGV</a>.</p></div></div></div>
       <div class="consent-block" style="border-color:{{ cgvBorder }}; background:{{ cgvBg }}"><label class="consent-check"><input type="checkbox" name="accept_cgv" onChange="{{ onCgv }}"><span>J’accepte les Conditions générales et la Politique de confidentialité d’AOI. *</span></label><label class="consent-check" style="margin-top:10px"><input type="checkbox" name="pouvoir_engager" onChange="{{ onPouvoir }}"><span>Je certifie sur l’honneur disposer du pouvoir d’engager la société pour laquelle je crée ce compte (CGV, article 3.1). *</span></label><p class="consent-links">Lire : <a href="cgv.html" target="_blank" rel="noopener">Conditions générales</a> · <a href="mentions-legales.html" target="_blank" rel="noopener">Politique de confidentialité</a></p></div>
       <sc-if value="{{ errSummary }}" hint-placeholder-val="{{ false }}"><div class="form-error" role="alert"><strong>{{ errTitle }}</strong><p>{{ errDetail }}</p></div></sc-if>
@@ -319,6 +319,19 @@ if(!sessionStorage.getItem('aoi_src')&&(Object.keys(s).length||r)){s.landing=loc
 (function(){try{var ref=new URLSearchParams(location.search).get('ref');if(!ref){var src=JSON.parse(sessionStorage.getItem('aoi_src')||'null');ref=src&&src.ref;}
 if(!ref)return;ref=String(ref).toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,20);var n=0,t=setInterval(function(){var el=document.getElementById('code_prescripteur');
 if(el){if(!el.value)el.value=ref;clearInterval(t);}else if(++n>50)clearInterval(t);},100);}catch(e){}})();
+</script>
+<script>
+// Information du futur membre AVANT l'inscription (convention prescripteurs v2.0, art. 2 et 8) :
+// qui le recommande et ce qui sera communiqué à ce partenaire. Le champ reste facultatif et modifiable.
+(function(){var n=0,t=setInterval(function(){var el=document.getElementById('code_prescripteur'),info=document.getElementById('code_prescripteur_info');
+if(!el||!info){if(++n>50)clearInterval(t);return;}clearInterval(t);var minuterie,dernier='';
+function esc(x){return String(x).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function verifier(){var c=String(el.value||'').toUpperCase().replace(/[^A-Z0-9]/g,'');if(c===dernier)return;dernier=c;
+if(!c){info.style.display='none';info.innerHTML='';return;}
+fetch('https://extranet.aoi-network.com/api/prescripteur/code?c='+encodeURIComponent(c)).then(function(r){return r.json();}).then(function(d){if(c!==dernier)return;info.style.display='block';
+if(d&&d.valide){info.style.color='';info.innerHTML='Vous vous inscrivez sur recommandation de <strong>'+esc(d.nom)+'</strong>. Ce partenaire indépendant peut recevoir une rémunération d’AOI liée à certaines commissions qu’AOI encaissera sur vos affaires. Pour lui permettre de suivre ses droits, AOI lui communique votre identité professionnelle, la date et le statut de votre rattachement, les commissions AOI retenues pour le calcul et sa rémunération. Il n’accède pas à vos annonces, messages, devis ou autres documents. <a href="mentions-legales.html" target="_blank" rel="noopener">Politique de confidentialité</a>. Vous pouvez corriger ou effacer ce code avant de valider.';}
+else{info.style.color='#b4471a';info.textContent='Code non reconnu : vérifiez-le, ou laissez le champ vide.';}}).catch(function(){info.style.display='none';});}
+el.addEventListener('input',function(){clearTimeout(minuterie);minuterie=setTimeout(verifier,400);});setTimeout(verifier,300);setTimeout(verifier,1500);},100);})();
 </script>
 </body>
 </html>
