@@ -418,5 +418,13 @@
 </footer>
 
 <aside class="cookie-banner" id="cookie-banner" aria-label="Choix des cookies" hidden><div><strong>Votre visite, votre choix.</strong><p>Avec votre accord, des cookies nous aident à mesurer l’audience et nos campagnes. <a href="mentions-legales.html#cookies">En savoir plus</a></p></div><div class="cookie-actions"><button type="button" id="cookies-reject">Refuser</button><button type="button" id="cookies-accept">Accepter</button></div></aside>
+<script>
+// Provenance des inscriptions (19/11/2026) : première page d'arrivée de la visite (ref, utm_*, site d'origine),
+// transmise à l'extranet à l'inscription. Rien n'est envoyé ailleurs.
+(function(){try{var p=new URLSearchParams(location.search),s={};['ref','utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){var v=p.get(k);if(v)s[k]=v.slice(0,200);});
+var r='';try{r=document.referrer?new URL(document.referrer).hostname:'';}catch(e){}
+if(r&&r!==location.hostname)s.referrer=r;
+if(!sessionStorage.getItem('aoi_src')&&(Object.keys(s).length||r)){s.landing=location.pathname;sessionStorage.setItem('aoi_src',JSON.stringify(s));}}catch(e){}})();
+</script>
 </body>
 </html>
