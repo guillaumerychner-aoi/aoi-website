@@ -180,7 +180,7 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
   <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-logo"><div class="logo-box">AOI</div><span class="logo-text">Network</span></div>
-    <div class="sidebar-user"><div style="display:flex;align-items:center;gap:8px"><div class="avatar" id="sb-avatar">MR</div><div><div class="name" id="sb-name">Marc R.</div><div class="level" id="sb-level">Co-Opérateur · Niveau 3</div></div></div></div>
+    <div class="sidebar-user"><div style="display:flex;align-items:center;gap:8px"><div class="avatar" id="sb-avatar">MR</div><div><div class="name" id="sb-name">Marc R.</div><div class="level" id="sb-level">Opérateur · Niveau 3</div></div></div></div>
     <nav class="sidebar-nav" id="sidebar-nav">
       <a href="#" id="nav-home"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Accueil</a>
       <a href="#" id="nav-profil"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Mon Profil</a>
@@ -190,7 +190,7 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
       <a href="#" id="nav-masterclass"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>MasterClass</a>
       <a href="#" id="nav-annuaire"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Annuaire</a>
       <a href="#" id="nav-opp"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Mes Opportunités<span class="badge" id="opp-badge" style="display:none">3</span></a>
-      <a href="#" id="nav-sep" class="active"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Projets SEP</a>
+      <a href="#" id="nav-sep" style="display:none"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Projets SEP</a>
       <a href="#" id="nav-operations"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>Mes Opérations</a>
       <a href="#" id="nav-partenariats"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Mes Partenariats</a>
       <a href="#" id="nav-candidatures" style="display:none"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Mes Candidatures</a>
@@ -219,135 +219,128 @@ body{font-family:'Inter',sans-serif;background:#111827;display:flex;align-items:
   <!-- TRANSITION -->
   <div class="transition-overlay" id="transOverlay"><div class="transition-text"><h2 id="transTitle"></h2><p id="transDesc"></p></div></div>
 
-  <!-- ═══ SCENE 1 — OPÉRATEUR CRÉE UN PROJET SEP ═══ -->
+  <!-- ═══ SCENE 1 — L'OPÉRATEUR PUBLIE UNE CONSULTATION ═══ -->
   <div class="scene active" id="scene1">
-    <div class="page-header"><h1>Nouveau projet SEP</h1><p>Publiez votre opération et trouvez des associés</p></div>
+    <div class="page-header"><h1>Nouvelle consultation</h1><p>Publiez votre besoin : les professionnels du métier sont alertés</p></div>
     <div class="page-content">
       <div class="card">
-        <div class="card-title">Informations du projet</div>
-        <div class="form-group"><label class="form-label">Titre du projet</label><input class="form-input" id="f-title" placeholder="Ex: Division 4 lots — Lyon 3e"></div>
+        <div class="card-title">Votre consultation</div>
+        <div class="form-group"><label class="form-label">Titre</label><input class="form-input" id="f-title" placeholder="Ex : Rénovation complète d’une maison"></div>
         <div class="form-row">
           <div><label class="form-label">Ville</label><input class="form-input" id="f-city" placeholder="Ville"></div>
-          <div><label class="form-label">Budget total</label><input class="form-input" id="f-budget" placeholder="000 000 €"></div>
+          <div><label class="form-label">Réponses jusqu’au</label><input class="form-input" id="f-deadline" placeholder="jj/mm"></div>
         </div>
         <div class="form-row">
-          <div><label class="form-label">Marge brute estimée</label><input class="form-input" id="f-marge" placeholder="000 000 €"></div>
-          <div><label class="form-label">Taux de marge</label><input class="form-input" id="f-renta" placeholder="00 %"></div>
+          <div><label class="form-label">Publiée pour</label><input class="form-input" id="f-pour" placeholder="Mon opération ou un client"></div>
+          <div><label class="form-label">Visite sur place</label><input class="form-input" id="f-visite" placeholder="Sur rendez-vous"></div>
         </div>
-        <div class="form-row">
-          <div><label class="form-label">Apport du porteur</label><input class="form-input" id="f-apport" placeholder="000 000 €"></div>
-          <div><label class="form-label">Montant recherché</label><input class="form-input" id="f-recherche" placeholder="000 000 €" style="border-color:var(--accent);background:rgba(194,112,62,.04)"></div>
-        </div>
-        <div class="form-group"><label class="form-label">Description</label><textarea class="form-input form-textarea" id="f-desc" placeholder="Décrivez le projet, la stratégie et le montage envisagé..."></textarea></div>
-        <div class="form-group"><label class="form-label">Profils recherchés</label><div id="chips-container" style="display:flex;flex-wrap:wrap;gap:2px;min-height:22px"></div></div>
-        <div class="form-group"><label class="form-label">Photos & documents</label><div class="upload-area" id="upload-area"></div></div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-input form-textarea" id="f-desc" placeholder="Décrivez les travaux, les lots et vos attentes..."></textarea></div>
+        <div class="form-group"><label class="form-label">Métiers consultés</label><div id="chips-container" style="display:flex;flex-wrap:wrap;gap:2px;min-height:22px"></div></div>
+        <div class="form-group"><label class="form-label">Dossier de consultation</label><div class="upload-area" id="upload-area"></div></div>
       </div>
       <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px">
         <button class="btn btn-outline">Annuler</button>
-        <button class="btn btn-accent" id="btn-publish" style="opacity:.5">Publier le projet SEP</button>
+        <button class="btn btn-accent" id="btn-publish" style="opacity:.5">Publier la consultation</button>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SCENE 2 — OPÉRATEUR CRÉE LES OPPORTUNITÉS ═══ -->
+  <!-- ═══ SCENE 2 — L'OPÉRATEUR COMPARE LES DEVIS ═══ -->
   <div class="scene" id="scene2">
-    <div class="page-header"><h1>Mes Opportunités</h1><p>Consultations et appels d'offres que vous avez publiés</p></div>
+    <div class="page-header"><h1>Mes consultations</h1><p>Les devis reçus, au même format, d’entreprises au SIRET vérifié</p></div>
     <div class="page-content">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <div style="font-size:10px;color:var(--text-muted)">Liées au projet : <strong style="color:var(--accent)">Division terrain — Lyon 3e</strong></div>
-        <button class="btn btn-accent" id="btn-new-opp">+ Nouvelle opportunité</button>
+        <div style="font-size:10px;color:var(--text-muted)">Consultation : <strong style="color:var(--accent)">Rénovation complète d’une maison — Rueil-Malmaison</strong></div>
+        <span class="opp-badge" style="background:var(--emerald-light);color:var(--emerald)">Ouverte · 9 j</span>
       </div>
-      <div id="opp-list">
-        <div class="opp-card" id="opp-archi" style="opacity:0">
+      <div id="rep-list">
+        <div class="opp-card" id="rep1" style="opacity:0">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <div><div class="opp-title">Architecte DPLG — Esquisse & PA</div><div class="opp-meta"><span>📍 Lyon 3e</span><span>Budget : 8 000 – 12 000 €</span><span>⏱ Clôture dans 10j</span></div></div>
-            <span class="opp-badge" style="background:var(--emerald-light);color:var(--emerald)">Ouverte</span>
+            <div><div class="opp-title">Karim B. — Bâtir &amp; Rénover</div><div class="opp-meta"><span style="color:var(--emerald)">✓ SIRET vérifié</span><span>Entreprise TCE</span><span>Démarrage : sous 3 semaines</span></div></div>
+            <div style="text-align:right"><div style="font-size:12px;font-weight:700;color:var(--text)">186 400 € HT</div><div style="font-size:8px;color:var(--text-muted)">forfait</div></div>
           </div>
-          <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">Plans_cadastraux_Lyon3.pdf</span><span class="file-size">1.4 Mo</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div class="file-row" style="margin:0"><span class="file-icon">📎</span><span class="file-name">Devis_TCE_BatirRenover.pdf</span><span class="file-size">410 Ko</span></div><button class="btn btn-accent" id="btn-retenir" style="padding:4px 10px;font-size:9px">Retenir ce devis</button></div>
         </div>
-        <div class="opp-card" id="opp-geo" style="opacity:0">
+        <div class="opp-card" id="rep2" style="opacity:0">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <div><div class="opp-title">Géomètre-expert — Bornage & division</div><div class="opp-meta"><span>📍 Lyon 3e</span><span>Budget : 3 500 – 5 500 €</span><span>⏱ Clôture dans 10j</span></div></div>
-            <span class="opp-badge" style="background:var(--emerald-light);color:var(--emerald)">Ouverte</span>
+            <div><div class="opp-title">Atelier Lemoine Rénovation</div><div class="opp-meta"><span style="color:var(--emerald)">✓ SIRET vérifié</span><span>Entreprise générale</span><span>Démarrage : janvier</span></div></div>
+            <div style="text-align:right"><div style="font-size:12px;font-weight:700;color:var(--text)">201 900 € HT</div><div style="font-size:8px;color:var(--text-muted)">forfait</div></div>
           </div>
-          <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">Plan_masse_parcelle.pdf</span><span class="file-size">820 Ko</span></div>
+          <div class="file-row" style="margin-top:6px"><span class="file-icon">📎</span><span class="file-name">Devis_Lemoine_Rueil.pdf</span><span class="file-size">380 Ko</span></div>
         </div>
-        <div class="opp-card" id="opp-constructeur" style="opacity:0">
+        <div class="opp-card" id="rep3" style="opacity:0">
           <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <div><div class="opp-title">Constructeur — Maisons individuelles ×4</div><div class="opp-meta"><span>📍 Lyon 3e</span><span>Budget : 480 000 – 560 000 €</span><span>⏱ Clôture dans 14j</span></div></div>
-            <span class="opp-badge" style="background:var(--emerald-light);color:var(--emerald)">Ouverte</span>
+            <div><div class="opp-title">Duval Bâtiment</div><div class="opp-meta"><span style="color:var(--emerald)">✓ SIRET vérifié</span><span>Entreprise TCE</span><span>Visite demandée</span></div></div>
+            <div style="text-align:right"><div style="font-size:12px;font-weight:700;color:var(--text)">174 000 € HT</div><div style="font-size:8px;color:var(--text-muted)">estimatif</div></div>
           </div>
-          <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">CCTP_construction_4lots.pdf</span><span class="file-size">2.1 Mo</span></div>
+          <div class="file-row" style="margin-top:6px"><span class="file-icon">📎</span><span class="file-name">Estimation_DuvalBatiment.pdf</span><span class="file-size">260 Ko</span></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SCENE 3 — PRESTATAIRE ARCHITECTE : PORTFOLIO + CANDIDATURE ═══ -->
+  <!-- ═══ SCENE 3 — LE PROFESSIONNEL : SON PORTFOLIO ═══ -->
   <div class="scene" id="scene3">
-    <div class="page-header"><h1>Mon Portfolio</h1><p>Vos réalisations visibles par les opérateurs du réseau</p></div>
+    <div class="page-header"><h1>Mon Portfolio</h1><p>Vos réalisations, visibles de ceux qui publient</p></div>
     <div class="page-content" id="scene3-content">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" id="portfolio-grid">
         <div class="portfolio-card">
           <div class="portfolio-img" style="background:linear-gradient(135deg,#F5E6D8,#E8EFF7)"></div>
-          <div class="portfolio-body"><h3>Extension R+1 — Bordeaux</h3><p>Architecture + suivi chantier</p><div class="portfolio-stats"><span>📐 <strong>180 m²</strong></span><span>💰 <strong>38 000 €</strong></span></div></div>
+          <div class="portfolio-body"><h3>Rénovation d’une maison — Suresnes</h3><p>Tous corps d’état, 9 lots</p><div class="portfolio-stats"><span>📐 <strong>140 m²</strong></span><span>⏱ <strong>5 mois</strong></span></div></div>
         </div>
         <div class="portfolio-card">
           <div class="portfolio-img" style="background:linear-gradient(135deg,#E6F2EC,#EFEBF7)"></div>
-          <div class="portfolio-body"><h3>Division parcellaire — Nantes</h3><p>PA + suivi travaux VRD</p><div class="portfolio-stats"><span>📐 <strong>450 m²</strong></span><span>💰 <strong>52 000 €</strong></span></div></div>
+          <div class="portfolio-body"><h3>Plateau de bureaux — Paris 15e</h3><p>Cloisons, électricité, sols, peinture</p><div class="portfolio-stats"><span>📐 <strong>120 m²</strong></span><span>⏱ <strong>7 semaines</strong></span></div></div>
         </div>
         <div class="portfolio-card">
           <div class="portfolio-img" style="background:linear-gradient(135deg,#E8EFF7,#FBF3E4)"></div>
-          <div class="portfolio-body"><h3>Réhabilitation immeuble — Toulouse</h3><p>Conception + PC + direction travaux</p><div class="portfolio-stats"><span>📐 <strong>620 m²</strong></span><span>💰 <strong>85 000 €</strong></span></div></div>
+          <div class="portfolio-body"><h3>Extension et surélévation — Nanterre</h3><p>Gros œuvre, charpente, couverture</p><div class="portfolio-stats"><span>📐 <strong>45 m²</strong></span><span>⏱ <strong>4 mois</strong></span></div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SCENE 4 — ARCHITECTE POSTULE ═══ -->
+  <!-- ═══ SCENE 4 — LE PROFESSIONNEL RÉPOND ═══ -->
   <div class="scene" id="scene4">
-    <div class="page-header"><h1>Opportunités disponibles</h1><p>Missions publiées par les opérateurs du réseau</p></div>
+    <div class="page-header"><h1>Appels d’offres</h1><p>Les consultations de votre métier et de vos départements</p></div>
     <div class="page-content">
-      <div class="opp-card highlight" id="opp-archi-detail">
+      <div class="opp-card highlight" id="opp-detail">
         <div style="display:flex;justify-content:space-between;align-items:flex-start">
-          <div><div class="opp-title">Architecte DPLG — Esquisse & PA</div><div class="opp-meta"><span>📍 Lyon 3e</span><span>Budget : 8 000 – 12 000 €</span><span>👤 Marc R.</span></div></div>
-          <span class="opp-badge" style="background:var(--accent-light);color:var(--accent)">Postuler</span>
+          <div><div class="opp-title">Rénovation complète d’une maison — 150 m²</div><div class="opp-meta"><span>📍 Rueil-Malmaison</span><span>⏱ Clôture dans 9 j</span><span>👤 Marc R.</span></div></div>
+          <span class="opp-badge" style="background:var(--accent-light);color:var(--accent)">Répondre</span>
         </div>
-        <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">Plans_cadastraux_Lyon3.pdf</span><span class="file-size">1.4 Mo</span></div>
+        <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">Dossier_consultation_Rueil.pdf</span><span class="file-size">3,2 Mo</span></div>
       </div>
       <div class="card" id="candidature-form" style="margin-top:8px">
-        <div class="card-title">Ma candidature</div>
-        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input form-textarea" id="c-msg" placeholder="Présentez-vous et votre approche..." style="height:44px"></textarea></div>
+        <div class="card-title">Ma réponse <span style="font-size:8.5px;font-weight:600;color:var(--emerald);margin-left:6px">✓ SIRET vérifié</span></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input form-textarea" id="c-msg" placeholder="Présentez votre approche..." style="height:44px"></textarea></div>
         <div class="form-row">
-          <div><label class="form-label">Mon tarif</label><input class="form-input" id="c-prix" placeholder="00 000 € HT"></div>
-          <div><label class="form-label">Disponibilité</label><input class="form-input" id="c-dispo" placeholder="Immédiate, sous 2 semaines..."></div>
+          <div><label class="form-label">Mon prix</label><input class="form-input" id="c-prix" placeholder="000 000 € HT"></div>
+          <div><label class="form-label">Démarrage</label><input class="form-input" id="c-dispo" placeholder="Immédiat, sous 3 semaines..."></div>
         </div>
         <div class="form-group"><label class="form-label">Devis joint</label><div id="c-devis" style="min-height:20px"></div></div>
-        <div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="btn btn-accent" id="btn-postuler1" style="opacity:.5">Envoyer ma candidature</button></div>
+        <div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="btn btn-accent" id="btn-postuler1" style="opacity:.5">Envoyer ma réponse</button></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ SCENE 5 — GÉOMÈTRE POSTULE ═══ -->
+  <!-- ═══ SCENE 5 — UN MAÎTRE D'ŒUVRE PUBLIE POUR SON CLIENT ═══ -->
   <div class="scene" id="scene5">
-    <div class="page-header"><h1>Opportunités disponibles</h1><p>Missions publiées par les opérateurs du réseau</p></div>
+    <div class="page-header"><h1>Nouvelle consultation</h1><p>Pour un client : il accepte le devis en ligne, sans créer de compte</p></div>
     <div class="page-content">
-      <div class="opp-card highlight">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start">
-          <div><div class="opp-title">Géomètre-expert — Bornage & division</div><div class="opp-meta"><span>📍 Lyon 3e</span><span>Budget : 3 500 – 5 500 €</span><span>👤 Marc R.</span></div></div>
-          <span class="opp-badge" style="background:var(--accent-light);color:var(--accent)">Postuler</span>
-        </div>
-        <div class="file-row" style="margin-top:6px"><span class="file-icon">📄</span><span class="file-name">Plan_masse_parcelle.pdf</span><span class="file-size">820 Ko</span></div>
-      </div>
-      <div class="card" id="candidature-form2" style="margin-top:8px">
-        <div class="card-title">Ma candidature</div>
-        <div class="form-group"><label class="form-label">Message</label><textarea class="form-input form-textarea" id="c2-msg" placeholder="Présentez-vous et votre approche..." style="height:44px"></textarea></div>
+      <div class="card">
+        <div class="card-title">Consultation pour un client</div>
+        <div class="form-group"><label class="form-label">Titre</label><input class="form-input" id="m-title" placeholder="Ex : Bureau d’études structure"></div>
         <div class="form-row">
-          <div><label class="form-label">Mon tarif</label><input class="form-input" id="c2-prix" placeholder="00 000 € HT"></div>
-          <div><label class="form-label">Disponibilité</label><input class="form-input" id="c2-dispo" placeholder="Immédiate, sous 2 semaines..."></div>
+          <div><label class="form-label">Ville</label><input class="form-input" id="m-city" placeholder="Ville"></div>
+          <div><label class="form-label">Publiée pour</label><input class="form-input" id="m-pour" placeholder="Mon client"></div>
         </div>
-        <div class="form-group"><label class="form-label">Devis joint</label><div id="c2-devis" style="min-height:20px"></div></div>
-        <div style="display:flex;justify-content:flex-end;margin-top:6px"><button class="btn btn-accent" id="btn-postuler2" style="opacity:.5">Envoyer ma candidature</button></div>
+        <div class="form-group"><label class="form-label">Métiers consultés</label><div id="m-chips" style="display:flex;flex-wrap:wrap;gap:2px;min-height:22px"></div></div>
+        <div class="form-group"><label class="form-label">Dossier de consultation</label><div class="upload-area" id="m-upload"></div></div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px">
+        <button class="btn btn-outline">Annuler</button>
+        <button class="btn btn-accent" id="btn-publish2" style="opacity:.5">Publier pour mon client</button>
       </div>
     </div>
   </div>
@@ -442,10 +435,9 @@ function switchToPrestataire(name,initials,level,levelText){
 function switchToOperateur(){
   $('sb-name').textContent='Marc R.';
   $('sb-avatar').textContent='MR';
-  $('sb-level').textContent='Co-Opérateur · Niveau 3';
+  $('sb-level').textContent='Opérateur · Niveau 3';
   $('nav-annuaire').style.display='';
   $('nav-opp').innerHTML='<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>Mes Opportunités';
-  $('nav-sep').style.display='';
   $('nav-operations').style.display='';
   $('nav-portfolio').style.display='none';
   $('nav-candidatures').style.display='none';
@@ -457,150 +449,109 @@ function switchToOperateur(){
 // ═════════════════════════════════════════
 async function runDemo(){
 
-  // ──── SCÈNE 1 : Opérateur crée un projet SEP ────
-  await showLabel('Scène 1 · Opérateur','Marc crée un projet SEP et recherche des associés');
-  setActiveNav('nav-sep');
+  // ──── SCÈNE 1 : l'opérateur publie une consultation ────
+  await showLabel('Scène 1 · Opérateur','Marc publie une consultation de travaux');
+  setActiveNav('nav-opp');
 
   moveCursor(520,130);await sleep(500);click();await sleep(250);
-  await typeText($('f-title'),'Division terrain — Lyon 3e',35);
-
+  await typeText($('f-title'),'Rénovation complète d’une maison — 150 m²',30);
   moveCursor(390,185);await sleep(300);click();
-  await typeText($('f-city'),'Lyon 3e',50);
-
+  await typeText($('f-city'),'Rueil-Malmaison',45);
   moveCursor(600,185);await sleep(200);click();
-  await typeText($('f-budget'),'720 000 €',45);
-
+  await typeText($('f-deadline'),'12/03',60);
   moveCursor(390,230);await sleep(200);click();
-  await typeText($('f-marge'),'285 000 €',45);
-
+  await typeText($('f-pour'),'Mon opération',45);
   moveCursor(600,230);await sleep(200);click();
-  await typeText($('f-renta'),'39,6 %',60);
-
-  moveCursor(390,275);await sleep(200);click();
-  await typeText($('f-apport'),'220 000 €',45);
-
-  moveCursor(600,275);await sleep(200);click();
-  await typeText($('f-recherche'),'180 000 €',45);
-
-  moveCursor(520,325);await sleep(250);click();
-  await typeTextarea($('f-desc'),'Terrain 800 m² en zone UB. Permis purgé. Division en 4 lots + VRD. Paiement différé négocié à 6 mois.',18);
+  await typeText($('f-visite'),'Sur rendez-vous',45);
+  moveCursor(520,280);await sleep(250);click();
+  await typeTextarea($('f-desc'),'Maison de 1930, rénovation tous corps d’état : redistribution, lots techniques, finitions. Études d’exécution à inclure.',16);
 
   await sleep(300);
   const chips=$('chips-container');
-  const profiles=[['Associé SEP','chip-accent'],['Architecte','chip-blue'],['Géomètre','chip-blue'],['Constructeur','chip-blue']];
-  for(const [p,cls] of profiles){moveCursor(380+Math.random()*80,385);await sleep(200);click();addChip(chips,p,cls);await sleep(150)}
-
+  for(const [p,cls] of [['Entreprise TCE','chip-accent'],['Entreprise générale','chip-blue']]){moveCursor(380+Math.random()*80,345);await sleep(200);click();addChip(chips,p,cls);await sleep(150)}
   const ul=$('upload-area');
-  moveCursor(450,420);await sleep(200);click();addUpload(ul,'photo');await sleep(150);
-  addUpload(ul,'photo');await sleep(150);addUpload(ul,'doc','PDF');await sleep(300);
+  moveCursor(450,380);await sleep(200);click();addUpload(ul,'doc','PDF');await sleep(150);
+  addUpload(ul,'doc','DWG');await sleep(150);addUpload(ul,'photo');await sleep(300);
 
   const btn=$('btn-publish');btn.style.opacity='1';
-  moveCursor(700,470);await sleep(350);click();await sleep(300);
-  btn.textContent='✓ Projet publié';btn.style.background='var(--emerald)';
+  moveCursor(700,430);await sleep(350);click();await sleep(300);
+  btn.textContent='✓ Consultation publiée';btn.style.background='var(--emerald)';
+  await showToast('Consultation publiée','Les entreprises du métier sont alertées');
+  await sleep(900);
 
-  await showToast('Projet SEP publié','3 opportunités créées automatiquement');
-  await sleep(1200);
-
-  // ──── SCÈNE 2 : Opérateur voit ses opportunités ────
-  await sceneTransition('Opportunités créées','Marc retrouve les 3 missions liées à son projet');
-  showScene(2);setActiveNav('nav-opp');
-  $('opp-badge').style.display='';
-
-  await sleep(600);
-  const opps=['opp-archi','opp-geo','opp-constructeur'];
-  for(const id of opps){$(id).style.opacity='1';$(id).style.transition='opacity .5s';await sleep(800)}
-
+  // ──── SCÈNE 2 : le professionnel et son portfolio ────
+  await sceneTransition('👤 Changement de vue','Karim, entreprise TCE — Professionnel');
+  switchToPrestataire('Karim B.','KB',2,'Professionnel · Niveau 2');
+  showScene(3);setActiveNav('nav-portfolio');
   await sleep(3500);
 
-  // ──── SCÈNE 3 : Architecte consulte son portfolio ────
-  await sceneTransition('👤 Changement de vue','Claire, architecte DPLG — Partenaire Métier');
-  switchToPrestataire('Claire D.','CD',2,'Partenaire · Niveau 2');
-  showScene(3);setActiveNav('nav-portfolio');
-
-  await sleep(4000);
-
-  // ──── SCÈNE 4 : Architecte postule avec devis ────
-  await sceneTransition('🎯 Candidature','Claire découvre l\'opportunité et postule');
+  // ──── SCÈNE 3 : il répond avec son prix ────
+  await sceneTransition('🎯 Réponse','Karim ouvre le dossier et répond avec son prix');
   showScene(4);setActiveNav('nav-opp');
-
   await sleep(600);
   moveCursor(520,230);await sleep(400);click();await sleep(250);
-  await typeTextarea($('c-msg'),'Bonjour Marc, architecte DPLG spécialisée en division parcellaire. J\'ai réalisé 12 projets similaires en Auvergne-Rhône-Alpes. Esquisse + dépôt PA sous 5 semaines.',16);
-
+  await typeTextarea($('c-msg'),'Bonjour Marc, entreprise TCE à Suresnes, 15 maisons rénovées ces trois dernières années. Visite possible cette semaine.',16);
   moveCursor(390,305);await sleep(200);click();
-  await typeText($('c-prix'),'9 800 € HT',50);
-
+  await typeText($('c-prix'),'186 400 € HT',50);
   moveCursor(600,305);await sleep(200);click();
-  await typeText($('c-dispo'),'Sous 2 semaines',40);
-
+  await typeText($('c-dispo'),'Sous 3 semaines',40);
   moveCursor(450,345);await sleep(250);click();
-  addFileRow($('c-devis'),'Devis_Architecture_Lyon3_ClaireDuval.pdf','340 Ko');
+  addFileRow($('c-devis'),'Devis_TCE_BatirRenover.pdf','410 Ko');
   await sleep(400);
-
   const bp1=$('btn-postuler1');bp1.style.opacity='1';
   moveCursor(680,390);await sleep(350);click();await sleep(300);
-  bp1.textContent='✓ Candidature envoyée';bp1.style.background='var(--emerald)';
+  bp1.textContent='✓ Réponse envoyée';bp1.style.background='var(--emerald)';
+  await showToast('Réponse envoyée','Marc R. est prévenu par e-mail','var(--blue-light)','var(--blue)');
+  await sleep(900);
 
-  await showToast('Candidature envoyée','Marc R. sera notifié par email',
-    'var(--blue-light)','var(--blue)');
+  // ──── SCÈNE 4 : l'opérateur compare et retient ────
+  await sceneTransition('👤 Retour à l’opérateur','Marc compare les devis reçus');
+  switchToOperateur();
+  showScene(2);setActiveNav('nav-opp');
+  await sleep(500);
+  for(const id of ['rep1','rep2','rep3']){$(id).style.transition='opacity .5s';$(id).style.opacity='1';await sleep(700)}
+  await sleep(1200);
+  moveCursor(700,140);await sleep(500);click();await sleep(300);
+  const br=$('btn-retenir');br.textContent='✓ Devis retenu';br.style.background='var(--emerald)';
+  await showToast('Devis retenu','Karim est prévenu. Échéancier et paiement passent par AOI');
+  await sleep(1000);
+
+  // ──── SCÈNE 5 : un maître d'œuvre publie pour son client ────
+  await sceneTransition('👤 Et chacun publie','Claire, maître d’œuvre, consulte pour son client');
+  switchToPrestataire('Claire D.','CD',2,'Maître d’œuvre · Niveau 2');
+  showScene(5);setActiveNav('nav-opp');
+  await sleep(500);
+  moveCursor(520,130);await sleep(400);click();await sleep(250);
+  await typeText($('m-title'),'Bureau d’études structure — extension 30 m²',30);
+  moveCursor(390,185);await sleep(250);click();
+  await typeText($('m-city'),'Chatou',50);
+  moveCursor(600,185);await sleep(200);click();
+  await typeText($('m-pour'),'Un client : M. et Mme L.',40);
+  moveCursor(420,235);await sleep(250);click();addChip($('m-chips'),'Bureau d’études','chip-blue');await sleep(250);
+  moveCursor(450,275);await sleep(200);click();addUpload($('m-upload'),'doc','PDF');await sleep(150);addUpload($('m-upload'),'photo');await sleep(300);
+  const bp2=$('btn-publish2');bp2.style.opacity='1';
+  moveCursor(700,330);await sleep(350);click();await sleep(300);
+  bp2.textContent='✓ Consultation publiée';bp2.style.background='var(--emerald)';
+  await showToast('Consultation publiée','Le client acceptera le devis en ligne, sans compte');
   await sleep(1500);
 
-  // ──── SCÈNE 5 : Géomètre postule ────
-  await sceneTransition('👤 Autre prestataire','Philippe, géomètre-expert — Partenaire Métier');
-  switchToPrestataire('Philippe B.','PB',2,'Partenaire · Niveau 2');
-  showScene(5);setActiveNav('nav-opp');
-
-  await sleep(600);
-  moveCursor(520,230);await sleep(400);click();await sleep(250);
-  await typeTextarea($('c2-msg'),'Marc, géomètre-expert inscrit OGE. Bornage + plan de division + dépôt DP. Intervention rapide sur le secteur lyonnais.',16);
-
-  moveCursor(390,305);await sleep(200);click();
-  await typeText($('c2-prix'),'4 200 € HT',50);
-
-  moveCursor(600,305);await sleep(200);click();
-  await typeText($('c2-dispo'),'Immédiate',50);
-
-  moveCursor(450,345);await sleep(250);click();
-  addFileRow($('c2-devis'),'Devis_Geometre_Bornage_PhilippeBlanc.pdf','180 Ko');
-  await sleep(400);
-
-  const bp2=$('btn-postuler2');bp2.style.opacity='1';
-  moveCursor(680,390);await sleep(350);click();await sleep(300);
-  bp2.textContent='✓ Candidature envoyée';bp2.style.background='var(--emerald)';
-
-  await showToast('Candidature envoyée','Marc R. sera notifié par email',
-    'var(--blue-light)','var(--blue)');
-  await sleep(1800);
-
-  // ──── FIN / LOOP ────
-  await sceneTransition('AOI Network','L\'extranet des opérateurs et prestataires immobiliers');
+  // ──── FIN / BOUCLE ────
+  await sceneTransition('AOI Network','Chacun publie, chacun répond');
   await sleep(800);
   resetDemo();
   runDemo();
 }
 
 function resetDemo(){
-  // Scene 1
-  ['f-title','f-city','f-budget','f-marge','f-renta','f-apport','f-recherche','f-desc'].forEach(id=>{$(id).value='';$(id).classList.remove('filled')});
-  $('chips-container').innerHTML='';$('upload-area').innerHTML='';
-  $('btn-publish').textContent='Publier le projet SEP';$('btn-publish').style.background='var(--accent)';$('btn-publish').style.opacity='.5';
-
-  // Scene 2
-  ['opp-archi','opp-geo','opp-constructeur'].forEach(id=>{$(id).style.opacity='0';$(id).style.transition='none'});
-  $('opp-badge').style.display='none';
-
-  // Scene 4
-  ['c-msg','c-prix','c-dispo'].forEach(id=>{$(id).value='';$(id).classList.remove('filled')});
-  $('c-devis').innerHTML='';
-  $('btn-postuler1').textContent='Envoyer ma candidature';$('btn-postuler1').style.background='var(--accent)';$('btn-postuler1').style.opacity='.5';
-
-  // Scene 5
-  ['c2-msg','c2-prix','c2-dispo'].forEach(id=>{$(id).value='';$(id).classList.remove('filled')});
-  $('c2-devis').innerHTML='';
-  $('btn-postuler2').textContent='Envoyer ma candidature';$('btn-postuler2').style.background='var(--accent)';$('btn-postuler2').style.opacity='.5';
-
+  ['f-title','f-city','f-deadline','f-pour','f-visite','f-desc','c-msg','c-prix','c-dispo','m-title','m-city','m-pour'].forEach(id=>{$(id).value='';$(id).classList.remove('filled')});
+  $('chips-container').innerHTML='';$('upload-area').innerHTML='';$('m-chips').innerHTML='';$('m-upload').innerHTML='';$('c-devis').innerHTML='';
+  $('btn-publish').textContent='Publier la consultation';$('btn-publish').style.background='var(--accent)';$('btn-publish').style.opacity='.5';
+  $('btn-postuler1').textContent='Envoyer ma réponse';$('btn-postuler1').style.background='var(--accent)';$('btn-postuler1').style.opacity='.5';
+  $('btn-publish2').textContent='Publier pour mon client';$('btn-publish2').style.background='var(--accent)';$('btn-publish2').style.opacity='.5';
+  $('btn-retenir').textContent='Retenir ce devis';$('btn-retenir').style.background='var(--accent)';
+  ['rep1','rep2','rep3'].forEach(id=>{$(id).style.transition='none';$(id).style.opacity='0'});
   switchToOperateur();
-  showScene(1);setActiveNav('nav-sep');
+  showScene(1);setActiveNav('nav-opp');
   hideCursor();
 }
 

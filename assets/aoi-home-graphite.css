@@ -331,3 +331,55 @@ html:not(.js) .demos{transform:none}
   .hd,.film-stage{transition:none}
 }
 @media print{.hd,.mnav,.cookie-banner,.rail,.film-stage{display:none!important}.js .film{height:auto}.film-sticky{position:static;height:auto}.js .ch:not(.ch-open){display:none}}
+
+/* ── Refonte du 22/11/2026 : consultations et appels d'offres ── */
+.ch-open-cta{row-gap:16px}
+.ch-open-alt{font:600 14px/1.2 var(--sans);color:var(--t-1);border-bottom:1px solid rgba(234,176,138,.45);padding-bottom:3px;transition:color .25s,border-color .25s}
+.ch-open-alt:hover,.ch-open-alt:focus-visible{color:var(--orange);border-color:var(--orange)}
+.ch-open-free{margin:18px 0 0;font:500 12px/1.4 var(--sans);letter-spacing:.02em;color:var(--t-5)}
+
+.place-grid-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+
+.who{margin-top:clamp(56px,7vw,96px)}
+.who-kicker{margin-bottom:18px}
+.who-list{margin:0;border-top:1px solid var(--ink)}
+.who-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,3vw,48px);padding:22px 0;border-bottom:1px solid rgba(20,20,22,.14)}
+.who-row dt{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.3vw,32px);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+.who-row dt em{color:var(--rust)}
+.who-row dd{margin:0;align-self:center;font:500 15px/1.6 var(--sans);color:#4a4741}
+@media (max-width:719.98px){.who-row{grid-template-columns:minmax(0,1fr);gap:8px;padding:18px 0}}
+
+.proof{overflow:hidden}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid var(--ink)}
+.proof-item{display:flex;flex-direction:column;gap:16px;padding:34px 28px 36px 0;border-bottom:1px solid rgba(20,20,22,.14)}
+.proof-item strong{font-family:var(--serif);font-weight:400;font-size:clamp(72px,8vw,128px);line-height:.86;letter-spacing:-.04em;color:var(--ink)}
+.proof-item span{max-width:300px;font:500 15px/1.55 var(--sans);color:var(--l-3)}
+.nobr{white-space:nowrap;hyphens:none;-webkit-hyphens:none}
+
+/* ── Le réseau, à ce jour : compteur alimenté par la plateforme (22/11/2026). Section claire, entre la plateforme et l'histoire. ── */
+.reseau{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,6vw,96px);align-items:start;padding:clamp(40px,5vw,64px) 0 clamp(48px,6vw,80px);border-top:1px solid var(--ink)}
+.reseau-total strong{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(120px,15vw,240px);line-height:.8;letter-spacing:-.05em;color:var(--rust);font-variant-numeric:tabular-nums}
+.reseau-total-txt{margin:28px 0 0;max-width:360px;font:400 18px/1.55 var(--sans);color:var(--l-2);text-wrap:pretty}
+.reseau-total-txt b{font-weight:600;color:var(--ink)}
+.reseau-titre{margin:0 0 6px;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--l-4)}
+.reseau-metiers{list-style:none;margin:0;padding:0}
+.reseau-metiers li{display:grid;grid-template-columns:minmax(0,1fr) minmax(80px,36%) 3.4em;gap:22px;align-items:center;padding:17px 0;border-bottom:1px solid rgba(20,20,22,.12);transition:background-color .2s}
+.reseau-metiers li:hover{background-color:rgba(20,20,22,.03)}
+.rm-label{font:500 15px/1.35 var(--sans);color:var(--ink)}
+.rm-label small{display:block;margin-top:5px;font:400 12.5px/1.45 var(--sans);color:var(--l-4)}
+.rm-barre{position:relative;height:6px;border-radius:3px;background:rgba(20,20,22,.08);overflow:hidden}
+.rm-barre i{position:absolute;top:0;bottom:0;left:0;width:calc(var(--p,0) * 100%);min-width:6px;border-radius:3px;background:var(--rust);transform-origin:left center;transition:transform 1.3s cubic-bezier(.2,.7,.2,1)}
+.js .reseau:not(.is-vu) .rm-barre i{transform:scaleX(0)}
+.reseau-metiers b{font:400 28px/1 var(--serif);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.rm-bientot .rm-label{color:var(--l-4)}
+.rm-bientot .rm-barre{height:0;border-radius:0;background:none;border-top:1px dashed rgba(196,82,31,.55)}
+.rm-bientot b{font:600 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rust-label)}
+.reseau-maj{margin:16px 0 0;font:500 12px/1.4 var(--sans);color:var(--l-4)}
+.reseau-maj.is-direct::before{content:"";display:inline-block;width:7px;height:7px;margin-right:9px;border-radius:50%;background:#2f9e5b;vertical-align:1px;animation:reseau-pouls 2.2s ease-out infinite}
+@keyframes reseau-pouls{0%{box-shadow:0 0 0 0 rgba(47,158,91,.5)}70%,100%{box-shadow:0 0 0 8px rgba(47,158,91,0)}}
+@media (max-width:860px){
+  .reseau{grid-template-columns:1fr}
+  .reseau-metiers li{grid-template-columns:minmax(0,1fr) auto;row-gap:12px}
+  .rm-barre{grid-column:1 / -1;grid-row:2}
+}
+@media (prefers-reduced-motion:reduce){.rm-barre i{transition:none}.reseau-maj.is-direct::before{animation:none}}
