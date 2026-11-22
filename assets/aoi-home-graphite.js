@@ -172,8 +172,6 @@ safe('reseau', () => {
   if (!bloc || !secours) return;
   const section = bloc.closest('section');
   const SOURCE = 'https://extranet.aoi-network.com/api/public/reseau';
-  // En dessous de ce seuil, le nombre d'opérateurs dessert plus qu'il ne rassure : on ne l'affiche pas.
-  const OPERATEURS_VISIBLES_DES = 10;
   const SOUS_TITRES = { entreprises: 'TCE, rénovation intérieure, gros œuvre, CVC, contractants généraux' };
   const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nf = new Intl.NumberFormat('fr-FR');
@@ -217,10 +215,8 @@ safe('reseau', () => {
       li.innerHTML = '<span class="rm-label">Notaires et avocats</span><span class="rm-barre" aria-hidden="true"></span><b>Bientôt</b>';
       liste.append(li);
     }
+    compter($('[data-compte="membres"]', bloc), d.membres || (d.professionnels + (d.operateurs || 0)));
     compter($('[data-compte="professionnels"]', bloc), d.professionnels);
-    const op = $('[data-operateurs]', bloc);
-    op.hidden = !(d.operateurs >= OPERATEURS_VISIBLES_DES);
-    compter($('[data-compte="operateurs"]', bloc), d.operateurs);
 
     const c = d.consultations || {};
     const devisEl = $('[data-compte="devis"]', section);
