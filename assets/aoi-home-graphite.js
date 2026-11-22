@@ -180,11 +180,14 @@ safe('reseau', () => {
   const delai = m => m < 60 ? `${Math.max(1, m)} min` : m < 2880 ? `${Math.round(m / 60)} h` : `${Math.round(m / 1440)} j`;
   const pluriel = (n, un, plusieurs) => (n > 1 ? plusieurs : un);
 
-  const compter = (el, cible) => {
+  // Le vrai chiffre est toujours affiché ; l'animation part de 0 seulement quand la section
+  // apparaît à l'écran, et jamais dans un onglet caché (où elle resterait figée).
+  const compter = (el, cible, depuis) => {
+    if (!el) return;
     el.dataset.cible = cible;
-    if (calme) { el.textContent = nf.format(cible); return; }
-    if (!vu) { el.textContent = '0'; return; }
-    const depart = parseInt((el.textContent || '0').replace(/\D/g, ''), 10) || 0;
+    if (calme || !vu || document.hidden) { el.textContent = nf.format(cible); return; }
+    const depart = depuis ?? (parseInt((el.textContent || '0').replace(/\D/g, ''), 10) || 0);
+    if (depart === cible) { el.textContent = nf.format(cible); return; }
     const t0 = performance.now(), duree = 1400;
     const pas = t => {
       const k = Math.min(1, (t - t0) / duree), e = 1 - Math.pow(1 - k, 3);
@@ -192,6 +195,7 @@ safe('reseau', () => {
       if (k < 1) requestAnimationFrame(pas);
     };
     requestAnimationFrame(pas);
+    setTimeout(() => { el.textContent = nf.format(Number(el.dataset.cible)); }, duree + 200);
   };
 
   const ligne = (label, n, max, sousTitre) => {
@@ -240,7 +244,7 @@ safe('reseau', () => {
     if (!entries.some(en => en.isIntersecting)) return;
     vu = true; io.disconnect();
     bloc.classList.add('is-vu');
-    $$('[data-compte]', section).forEach(el => compter(el, Number(el.dataset.cible || 0)));
+    $$('[data-compte]', section).forEach(el => compter(el, Number(el.dataset.cible || 0), 0));
   }, { threshold: 0.25 });
   io.observe(bloc);
 
