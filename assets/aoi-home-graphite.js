@@ -233,9 +233,6 @@ safe('reseau', () => {
     const court = montant >= 1e6 ? `${nf.format(Math.floor(montant / 1e5) / 10)} M€` : `${nf.format(Math.floor(montant / 1000))} k€`;
     const montantEl = $('[data-montant-court]', section);
     if (montantEl && montant > 0) montantEl.textContent = court;
-    const liveMembres = $('[data-live-membres]'), liveMontant = $('[data-live-montant]');
-    if (liveMembres) liveMembres.textContent = nf.format(d.membres || (d.professionnels + (d.operateurs || 0)));
-    if (liveMontant && montant > 0) liveMontant.textContent = nf.format(Math.floor(montant / 1000) * 1000);
 
     const delaiEl = $('[data-delai]', section);
     if (delaiEl && c.premierDevisMinutes != null) delaiEl.textContent = delai(c.premierDevisMinutes);
