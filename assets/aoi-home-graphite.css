@@ -383,3 +383,8 @@ html:not(.js) .demos{transform:none}
   .rm-barre{grid-column:1 / -1;grid-row:2}
 }
 @media (prefers-reduced-motion:reduce){.rm-barre i{transition:none}.reseau-maj.is-direct::before{animation:none}}
+
+/* Ligne en direct sous les boutons du haut (22/11/2026) */
+.ch-open-live{margin:10px 0 0;display:flex;align-items:center;gap:9px;font:600 12.5px/1.4 var(--sans);letter-spacing:.01em;color:var(--t-2)}
+.ch-live-dot{width:7px;height:7px;border-radius:50%;background:#7fd19b;flex:none;animation:reseau-pouls 2.2s ease-out infinite}
+@media (prefers-reduced-motion:reduce){.ch-live-dot{animation:none}}

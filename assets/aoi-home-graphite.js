@@ -228,6 +228,15 @@ safe('reseau', () => {
     const txt = $('[data-devis-texte]', section);
     if (txt) txt.textContent = `${pluriel(c.devis, 'devis reçu', 'devis reçus')} sur ${nf.format(c.publiees)} ${pluriel(c.publiees, 'consultation publiée', 'consultations publiées')}`
       + (c.publiees > 1 && c.avecDevis === c.publiees ? ' : chacune a reçu les siens' : '');
+    // Montant déjà chiffré (€ HT), toujours arrondi vers le bas pour ne jamais surestimer.
+    const montant = Number(c.montantChiffre) || 0;
+    const court = montant >= 1e6 ? `${nf.format(Math.floor(montant / 1e5) / 10)} M€` : `${nf.format(Math.floor(montant / 1000))} k€`;
+    const montantEl = $('[data-montant-court]', section);
+    if (montantEl && montant > 0) montantEl.textContent = court;
+    const liveMembres = $('[data-live-membres]'), liveMontant = $('[data-live-montant]');
+    if (liveMembres) liveMembres.textContent = nf.format(d.membres || (d.professionnels + (d.operateurs || 0)));
+    if (liveMontant && montant > 0) liveMontant.textContent = nf.format(Math.floor(montant / 1000) * 1000);
+
     const delaiEl = $('[data-delai]', section);
     if (delaiEl && c.premierDevisMinutes != null) delaiEl.textContent = delai(c.premierDevisMinutes);
 
