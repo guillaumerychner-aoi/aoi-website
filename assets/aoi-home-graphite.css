@@ -331,3 +331,34 @@ html:not(.js) .demos{transform:none}
   .hd,.film-stage{transition:none}
 }
 @media print{.hd,.mnav,.cookie-banner,.rail,.film-stage{display:none!important}.js .film{height:auto}.film-sticky{position:static;height:auto}.js .ch:not(.ch-open){display:none}}
+
+/* ── Refonte du 22/11/2026 : consultations et appels d'offres ── */
+.ch-open-cta{row-gap:16px}
+.ch-open-alt{font:600 14px/1.2 var(--sans);color:var(--t-1);border-bottom:1px solid rgba(234,176,138,.45);padding-bottom:3px;transition:color .25s,border-color .25s}
+.ch-open-alt:hover,.ch-open-alt:focus-visible{color:var(--orange);border-color:var(--orange)}
+.ch-open-free{margin:18px 0 0;font:500 12px/1.4 var(--sans);letter-spacing:.02em;color:var(--t-5)}
+
+.place-grid-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+
+.who{margin-top:clamp(56px,7vw,96px)}
+.who-kicker{margin-bottom:18px}
+.who-list{margin:0;border-top:1px solid var(--ink)}
+.who-row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,3vw,48px);padding:22px 0;border-bottom:1px solid rgba(20,20,22,.14)}
+.who-row dt{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.3vw,32px);line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+.who-row dt em{color:var(--rust)}
+.who-row dd{margin:0;align-self:center;font:500 15px/1.6 var(--sans);color:#4a4741}
+@media (max-width:719.98px){.who-row{grid-template-columns:minmax(0,1fr);gap:8px;padding:18px 0}}
+
+.proof{overflow:hidden}
+.proof .platform-glow{top:40%}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));border-top:1px solid rgba(255,255,255,.16)}
+.proof-item{display:flex;flex-direction:column;gap:16px;padding:34px 28px 36px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.proof-item strong{font-family:var(--serif);font-weight:400;font-size:clamp(72px,8vw,128px);line-height:.86;letter-spacing:-.04em;color:var(--t-title)}
+.proof-item:first-child strong{color:var(--copper)}
+.proof-item span{max-width:300px;font:500 15px/1.55 var(--sans);color:var(--t-3)}
+.proof-trades{margin-top:clamp(44px,5vw,72px)}
+.proof-trades p{margin:0 0 18px;font:600 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--t-5)}
+.proof-trades ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.proof-trades li{padding:10px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;font:500 14px/1 var(--sans);color:var(--t-1)}
+.proof-trades li.proof-soon{border-style:dashed;color:var(--copper)}
+.nobr{white-space:nowrap;hyphens:none;-webkit-hyphens:none}

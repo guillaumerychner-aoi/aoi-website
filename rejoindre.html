@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
     <title>Rejoindre AOI Network — Adhésion gratuite</title>
-    <meta name="description" content="Opérateurs, co-opérateurs, prestataires et partenaires : rejoignez AOI gratuitement. Aucune commission sur les missions des professions réglementées définies aux CGV.">
+    <meta name="description" content="Opérateurs et professionnels de l’immobilier et du bâtiment : rejoignez AOI gratuitement pour publier vos consultations ou répondre aux appels d’offres. Professions réglementées : 0 % de commission.">
     <link rel="canonical" href="https://www.aoi-network.com/rejoindre.html">
     <link rel="icon" href="/favicon.ico?v=2" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
@@ -18,7 +18,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.aoi-network.com/rejoindre.html">
     <meta property="og:title" content="Rejoindre AOI Network">
-    <meta property="og:description" content="Opérateurs, co-opérateurs, prestataires et partenaires : rejoignez AOI gratuitement. Aucune commission sur les missions des professions réglementées définies aux CGV.">
+    <meta property="og:description" content="Opérateurs et professionnels de l’immobilier et du bâtiment : rejoignez AOI gratuitement pour publier vos consultations ou répondre aux appels d’offres. Professions réglementées : 0 % de commission.">
     <meta property="og:image" content="https://www.aoi-network.com/og-image.png?v=2">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:site_name" content="AOI Network">
@@ -26,7 +26,7 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Rejoindre AOI Network">
-    <meta name="twitter:description" content="Opérateurs, co-opérateurs, prestataires et partenaires : rejoignez AOI gratuitement. Aucune commission sur les missions des professions réglementées définies aux CGV.">
+    <meta name="twitter:description" content="Opérateurs et professionnels de l’immobilier et du bâtiment : rejoignez AOI gratuitement pour publier vos consultations ou répondre aux appels d’offres. Professions réglementées : 0 % de commission.">
     <meta name="twitter:image" content="https://www.aoi-network.com/og-image.png?v=2">
 
     <!-- Vercel Analytics -->
@@ -53,7 +53,7 @@
     <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
     <form class="join-form surface" ref="{{ formRef }}" onSubmit="{{ onSubmit }}">
       <div class="form-heading"><span>01</span><h2>Vous êtes…</h2><small>Un seul profil pour commencer</small></div>
-      <fieldset class="profile-choices"><legend class="sr-only">Choisissez votre profil</legend><sc-for list="{{ profiles }}" as="p" hint-placeholder-count="3"><label class="profile-choice"><input type="radio" name="profile_choice" value="{{ p.value }}" checked="{{ p.selected }}" onChange="{{ p.pick }}"><span><strong>{{ p.title }}</strong><span>{{ p.tagline }}</span></span></label></sc-for></fieldset>
+      <fieldset class="profile-choices"><legend class="sr-only">Choisissez votre profil</legend><sc-for list="{{ profiles }}" as="p" hint-placeholder-count="2"><label class="profile-choice"><input type="radio" name="profile_choice" value="{{ p.value }}" checked="{{ p.selected }}" onChange="{{ p.pick }}"><span><strong>{{ p.title }}</strong><span>{{ p.tagline }}</span></span></label></sc-for></fieldset>
       <sc-if value="{{ errProfile }}" hint-placeholder-val="{{ false }}"><p class="field-error" role="alert">Choisissez un profil pour continuer.</p></sc-if>
       <input type="hidden" name="profile_type" value="{{ profile }}">
       <sc-if value="{{ isPrestataire }}" hint-placeholder-val="{{ false }}"><div class="trade-fields"><label class="field-label" for="metier">Votre métier <span aria-hidden="true">*</span></label><select id="metier" name="metier" value="{{ metier }}" onChange="{{ onMetier }}">
@@ -114,7 +114,7 @@
   </div>
   <aside class="join-aside">
     <div class="join-promise"><p class="eyebrow">Tout commence ici</p><h2>Des personnes.<br> Des compétences.<br> <em>Des possibilités.</em></h2><p>Le réseau se construit avec ses premiers membres. Votre expérience et vos projets lui donnent sa force.</p></div>
-    <div class="benefit-list"><div><span>01</span><p><strong>Faites-vous connaître.</strong>Un profil et un annuaire pour présenter votre activité.</p></div><div><span>02</span><p><strong>Rencontrez les bons métiers.</strong>Des projets, des missions et des échanges entre professionnels.</p></div><div><span>03</span><p><strong>Partagez les méthodes.</strong>Une bibliothèque et des MasterClass pour avancer ensemble.</p></div></div>
+    <div class="benefit-list"><div><span>01</span><p><strong>Publiez vos consultations.</strong>Gratuitement, pour vos opérations ou pour vos clients.</p></div><div><span>02</span><p><strong>Répondez aux appels d’offres.</strong>Ceux de votre métier et de vos départements, dès leur publication.</p></div><div><span>03</span><p><strong>Partagez les méthodes.</strong>Une bibliothèque et des MasterClass pour avancer ensemble.</p></div></div>
     <div class="contact-card"><p class="eyebrow copper">Une question avant de vous lancer ?</p><h3>Parlons-en.</h3><p>Échangez directement avec l’équipe AOI.</p><a class="text-link light" href="https://wa.me/33763782041" target="_blank" rel="noopener">Nous écrire sur WhatsApp <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a><a href="mailto:contact@aoi-network.com">contact@aoi-network.com</a></div>
   </aside>
 </div></section>
@@ -133,7 +133,7 @@ class Component extends DCLogic {
     this._navMq.addEventListener('change', this._onNavMq);
     this.setState({ navNarrow: this._navMq.matches });
     const q = new URLSearchParams(location.search).get('profil');
-    const map = { 'operateur': 'operateur', 'co-operateur': 'co_operateur', 'co_operateur': 'co_operateur', 'prestataire': 'prestataire' };
+    const map = { 'operateur': 'operateur', 'co-operateur': 'operateur', 'co_operateur': 'operateur', 'prestataire': 'prestataire' };
     if (q && map[q]) this.setState({ profile: map[q] });
     const els = Array.from(document.querySelectorAll('[data-reveal]'));
     els.forEach(e => { e.style.opacity = '0'; e.style.transform = 'translateY(22px)'; e.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.22,.61,.36,1)'; });
@@ -147,15 +147,13 @@ class Component extends DCLogic {
     const sel = this.state.profile;
     const err = this.state.err;
     const journey = ({
-      operateur: {joinEyebrow:'Votre parcours opérateur', joinTitle:'Votre projet.', joinEmphasis:'Les bonnes rencontres.', joinLead:'Créez votre compte gratuit, puis présentez vos besoins depuis votre espace membre pour rencontrer les professionnels ou associés utiles à votre opération.'},
-      co_operateur: {joinEyebrow:'Votre parcours co-opérateur', joinTitle:'Des projets à découvrir.', joinEmphasis:'Un compte pour commencer.', joinLead:'Créez votre compte gratuit, puis consultez les dossiers partagés par les membres et échangez avec leurs porteurs depuis votre espace membre.'},
-      prestataire: {joinEyebrow:'Votre parcours prestataire & partenaire', joinTitle:'Votre savoir-faire.', joinEmphasis:'Visible dans le réseau.', joinLead:'Créez votre compte gratuit, puis complétez votre profil métier pour présenter votre activité et répondre aux consultations du réseau.'}
-    })[sel] || {joinEyebrow:'Votre place dans le réseau', joinTitle:'La prochaine rencontre', joinEmphasis:'commence avec vous.', joinLead:'Créez votre compte gratuit pour présenter vos projets, proposer vos compétences ou découvrir les dossiers partagés par les membres.'};
+      operateur: {joinEyebrow:'Votre parcours opérateur', joinTitle:'Votre consultation.', joinEmphasis:'Des devis comparables.', joinLead:'Créez votre compte gratuit, puis publiez votre première consultation : le dossier, les lots, la date limite. Les professionnels du métier sont alertés.'},
+      prestataire: {joinEyebrow:'Votre parcours professionnel', joinTitle:'Votre métier.', joinEmphasis:'Les bons appels d’offres.', joinLead:'Créez votre compte gratuit, choisissez votre métier et vos départements : vous recevez les consultations qui vous correspondent, et vous pouvez publier les vôtres.'}
+    })[sel] || {joinEyebrow:'Votre place dans le réseau', joinTitle:'Un besoin, des devis.', joinEmphasis:'Une mission.', joinLead:'Créez votre compte gratuit pour publier vos consultations ou répondre aux appels d’offres de votre métier.'};
 
     const defs = [
-      ['operateur', "Je porte un projet", 'Opérateur : marchand de biens, promoteur, lotisseur ou aménageur.'],
-      ['co_operateur', "Je souhaite m’associer", 'Co-opérateur : vous étudiez les dossiers et échangez avec leurs porteurs.'],
-      ['prestataire', 'Je propose mon savoir-faire', "Prestataire ou partenaire : tous les métiers utiles à l’opération."],
+      ['operateur', "Je porte des opérations", 'Opérateur : promoteur, marchand de biens, lotisseur, foncière, aménageur. Vous publiez vos consultations et recevez des devis.'],
+      ['prestataire', "J’exerce un métier de l’immobilier ou du bâtiment", "Professionnel : vous répondez aux appels d’offres de votre métier, et vous publiez les vôtres, pour vos clients ou pour vous."],
     ];
     const labels = { prenom: 'votre prénom', nom: 'votre nom', email: 'votre email professionnel', telephone: 'votre téléphone', localisation: 'votre ville ou département', metier: 'votre métier', metier_autre: 'la précision de votre métier' };
     return {
