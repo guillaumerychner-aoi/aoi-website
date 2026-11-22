@@ -164,3 +164,94 @@ safe('cookies', () => {
     }
   });
 });
+
+/* ── Le réseau, à ce jour : chiffres en direct de la plateforme, chiffres de secours sinon ── */
+safe('reseau', () => {
+  const bloc = $('[data-reseau]');
+  const secours = $('#reseau-secours');
+  if (!bloc || !secours) return;
+  const section = bloc.closest('section');
+  const SOURCE = 'https://extranet.aoi-network.com/api/public/reseau';
+  // En dessous de ce seuil, le nombre d'opérateurs dessert plus qu'il ne rassure : on ne l'affiche pas.
+  const OPERATEURS_VISIBLES_DES = 10;
+  const SOUS_TITRES = { entreprises: 'TCE, rénovation intérieure, gros œuvre, CVC, contractants généraux' };
+  const calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nf = new Intl.NumberFormat('fr-FR');
+  let vu = false;
+
+  const delai = m => m < 60 ? `${Math.max(1, m)} min` : m < 2880 ? `${Math.round(m / 60)} h` : `${Math.round(m / 1440)} j`;
+  const pluriel = (n, un, plusieurs) => (n > 1 ? plusieurs : un);
+
+  const compter = (el, cible) => {
+    el.dataset.cible = cible;
+    if (calme) { el.textContent = nf.format(cible); return; }
+    if (!vu) { el.textContent = '0'; return; }
+    const depart = parseInt((el.textContent || '0').replace(/\D/g, ''), 10) || 0;
+    const t0 = performance.now(), duree = 1400;
+    const pas = t => {
+      const k = Math.min(1, (t - t0) / duree), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = nf.format(Math.round(depart + (cible - depart) * e));
+      if (k < 1) requestAnimationFrame(pas);
+    };
+    requestAnimationFrame(pas);
+  };
+
+  const ligne = (label, n, max, sousTitre) => {
+    const li = document.createElement('li');
+    const lab = document.createElement('span'); lab.className = 'rm-label'; lab.textContent = label;
+    if (sousTitre) { const s = document.createElement('small'); s.textContent = sousTitre; lab.append(s); }
+    const barre = document.createElement('span'); barre.className = 'rm-barre'; barre.setAttribute('aria-hidden', 'true');
+    const i = document.createElement('i'); i.style.setProperty('--p', (n / max).toFixed(3)); barre.append(i);
+    const b = document.createElement('b'); b.textContent = nf.format(n);
+    li.append(lab, barre, b);
+    return li;
+  };
+
+  const afficher = (d, direct) => {
+    const metiers = (d.metiers || []).filter(m => m.n > 0);
+    const max = Math.max(1, ...metiers.map(m => m.n));
+    const liste = $('[data-metiers]', bloc);
+    liste.replaceChildren(...metiers.map(m => ligne(m.label, m.n, max, SOUS_TITRES[m.cle])));
+    if (!metiers.some(m => m.cle === 'juridique')) {
+      const li = document.createElement('li'); li.className = 'rm-bientot';
+      li.innerHTML = '<span class="rm-label">Notaires et avocats</span><span class="rm-barre" aria-hidden="true"></span><b>Bientôt</b>';
+      liste.append(li);
+    }
+    compter($('[data-compte="professionnels"]', bloc), d.professionnels);
+    const op = $('[data-operateurs]', bloc);
+    op.hidden = !(d.operateurs >= OPERATEURS_VISIBLES_DES);
+    compter($('[data-compte="operateurs"]', bloc), d.operateurs);
+
+    const c = d.consultations || {};
+    const devisEl = $('[data-compte="devis"]', section);
+    if (devisEl) compter(devisEl, c.devis);
+    const txt = $('[data-devis-texte]', section);
+    if (txt) txt.textContent = `${pluriel(c.devis, 'devis reçu', 'devis reçus')} sur ${nf.format(c.publiees)} ${pluriel(c.publiees, 'consultation publiée', 'consultations publiées')}`
+      + (c.publiees > 1 && c.avecDevis === c.publiees ? ' : chacune a reçu les siens' : '');
+    const delaiEl = $('[data-delai]', section);
+    if (delaiEl && c.premierDevisMinutes != null) delaiEl.textContent = delai(c.premierDevisMinutes);
+
+    const maj = $('[data-maj]', bloc);
+    maj.classList.toggle('is-direct', direct);
+    maj.textContent = direct ? 'Chiffres en direct de la plateforme.'
+      : `Chiffres de la plateforme au ${new Date(d.aJour).toLocaleDateString('fr-FR')}.`;
+  };
+
+  afficher(JSON.parse(secours.textContent), false);
+
+  // Les compteurs démarrent quand la section entre à l'écran.
+  const io = new IntersectionObserver(entries => {
+    if (!entries.some(en => en.isIntersecting)) return;
+    vu = true; io.disconnect();
+    bloc.classList.add('is-vu');
+    $$('[data-compte]', section).forEach(el => compter(el, Number(el.dataset.cible || 0)));
+  }, { threshold: 0.25 });
+  io.observe(bloc);
+
+  const ctrl = new AbortController();
+  setTimeout(() => ctrl.abort(), 5000);
+  fetch(SOURCE, { signal: ctrl.signal, credentials: 'omit' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => { if (d && d.professionnels > 0 && Array.isArray(d.metiers)) afficher(d, true); })
+    .catch(err => { if (err && err.name !== 'AbortError' && !(err instanceof TypeError)) console.warn('[AOI] reseau', err); });
+});

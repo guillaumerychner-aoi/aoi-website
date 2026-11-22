@@ -230,23 +230,38 @@
   <div class="sec-in">
     <div class="sec-head">
       <div>
-        <p class="kicker">Ouvert à tous les pros depuis novembre 2026</p>
+        <p class="kicker">Le réseau, à ce jour</p>
         <h2 class="h-sec" id="proof-title" data-reveal>Nouveau,<br><em>et déjà efficace.</em></h2>
       </div>
-      <p class="sec-aside">Les consultations publiées en novembre ont reçu leurs premiers devis dans les jours qui ont suivi, dossier en main.</p>
+      <p class="sec-aside">Les premiers devis arrivent en quelques heures, les suivants dans les jours qui suivent, dossier en main.</p>
+    </div>
+    <div class="reseau" data-reseau data-reveal>
+      <div class="reseau-total">
+        <strong data-compte="professionnels">30</strong>
+        <p class="reseau-total-txt">professionnels de l’immobilier et du bâtiment inscrits sur la plateforme<span data-operateurs hidden>, aux côtés de <b data-compte="operateurs">4</b> opérateurs qui publient</span>.</p>
+        <p class="reseau-siret">SIRET contrôlé auprès du répertoire Sirene avant chaque devis.</p>
+      </div>
+      <div class="reseau-detail">
+        <p class="reseau-titre" id="reseau-titre">Qui est déjà là</p>
+        <ul class="reseau-metiers" data-metiers aria-labelledby="reseau-titre">
+          <li><span class="rm-label">Entreprises de travaux<small>TCE, rénovation intérieure, gros œuvre, CVC, contractants généraux</small></span><span class="rm-barre" aria-hidden="true"><i style="--p:1"></i></span><b>20</b></li>
+          <li><span class="rm-label">Bureaux d’études</span><span class="rm-barre" aria-hidden="true"><i style="--p:.15"></i></span><b>3</b></li>
+          <li><span class="rm-label">Agents immobiliers et commercialisateurs</span><span class="rm-barre" aria-hidden="true"><i style="--p:.15"></i></span><b>3</b></li>
+          <li><span class="rm-label">Architectes et architectes d’intérieur</span><span class="rm-barre" aria-hidden="true"><i style="--p:.1"></i></span><b>2</b></li>
+          <li><span class="rm-label">Décorateurs et designers</span><span class="rm-barre" aria-hidden="true"><i style="--p:.05"></i></span><b>1</b></li>
+          <li><span class="rm-label">Courtiers et experts-comptables</span><span class="rm-barre" aria-hidden="true"><i style="--p:.05"></i></span><b>1</b></li>
+          <li class="rm-bientot"><span class="rm-label">Notaires et avocats</span><span class="rm-barre" aria-hidden="true"></span><b>Bientôt</b></li>
+        </ul>
+        <p class="reseau-maj" data-maj>Chiffres de la plateforme au 22/11/2026.</p>
+      </div>
     </div>
     <div class="proof-grid" data-reveal>
-      <div class="proof-item"><strong>6</strong><span>devis reçus en 3 jours sur les consultations de novembre</span></div>
-      <div class="proof-item"><strong>0 €</strong><span>pour publier une consultation, quel que soit son montant</span></div>
-      <div class="proof-item"><strong>SIRET</strong><span>contrôlé avant chaque devis, auprès du répertoire Sirene</span></div>
-    </div>
-    <div class="proof-trades" data-reveal>
-      <p>Ils ont déjà rejoint le réseau</p>
-      <ul>
-        <li>Entreprises générales</li><li>Entreprises TCE</li><li>Couvreurs</li><li>Constructeurs</li><li>Architectes</li><li>Architectes d’intérieur</li><li>Maîtres d’œuvre</li><li>Bureaux d’études</li><li>Designers 3D</li><li>Courtiers en assurance</li><li class="proof-soon">Bientôt : notaires et avocats</li>
-      </ul>
+      <div class="proof-item"><strong data-compte="devis">9</strong><span data-devis-texte>devis reçus sur 7 consultations publiées : chacune a reçu les siens</span></div>
+      <div class="proof-item"><strong data-delai>2 h</strong><span>pour le premier devis le plus rapide, après publication</span></div>
+      <div class="proof-item"><strong>0 €</strong><span>pour publier une consultation comme pour y répondre</span></div>
     </div>
   </div>
+  <script type="application/json" id="reseau-secours">{"aJour":"2026-11-22","operateurs":4,"professionnels":30,"metiers":[{"cle":"entreprises","label":"Entreprises de travaux","n":20},{"cle":"bureaux_etudes","label":"Bureaux d’études","n":3},{"cle":"commercial","label":"Agents immobiliers et commercialisateurs","n":3},{"cle":"architectes","label":"Architectes et architectes d’intérieur","n":2},{"cle":"design","label":"Décorateurs et designers","n":1},{"cle":"finance","label":"Courtiers et experts-comptables","n":1}],"consultations":{"publiees":7,"avecDevis":7,"devis":9,"premierDevisMinutes":123}}</script>
 </section>
 
 <!-- ═════════ La plateforme ═════════ -->
