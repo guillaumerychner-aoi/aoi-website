@@ -98,7 +98,7 @@
       <div class="field-grid">
         <div><label class="field-label" for="prenom">Prénom *</label><input id="prenom" name="prenom" autocomplete="given-name" placeholder="Votre prénom" required onInput="{{ clearErr }}"></div>
         <div><label class="field-label" for="nom">Nom *</label><input id="nom" name="nom" autocomplete="family-name" placeholder="Votre nom" required onInput="{{ clearErr }}"></div>
-        <div><label class="field-label" for="email">Email professionnel *</label><input id="email" type="email" name="email" autocomplete="email" placeholder="vous@entreprise.com" required onInput="{{ clearErr }}" onBlur="{{ onEmailBlur }}"></div>
+        <div><label class="field-label" for="email">Email professionnel *</label><input id="email" type="email" name="email" autocomplete="email" placeholder="vous@entreprise.com" required onInput="{{ clearErr }}" onBlur="{{ onEmailBlur }}"><p id="email_info" role="status" aria-live="polite" style="display:none;margin:8px 0 0;font-size:13px;line-height:1.5;color:#8a4b14"></p></div>
         <div><label class="field-label" for="telephone">Téléphone *</label><input id="telephone" type="tel" name="telephone" autocomplete="tel" placeholder="06 00 00 00 00" required onInput="{{ clearErr }}"></div>
         <div><label class="field-label" for="societe">Société <small>(facultatif)</small></label><input id="societe" name="societe" autocomplete="organization" placeholder="Votre structure" onInput="{{ clearErr }}"></div>
         <div><label class="field-label" for="localisation">Ville ou département *</label><input id="localisation" name="localisation" autocomplete="address-level2" placeholder="Clamart, Lyon, Gironde…" required onInput="{{ clearErr }}"></div>
@@ -332,6 +332,21 @@ fetch('https://extranet.aoi-network.com/api/prescripteur/code?c='+encodeURICompo
 if(d&&d.valide){info.style.color='';info.innerHTML='Vous vous inscrivez sur recommandation de <strong>'+esc(d.nom)+'</strong>. Ce partenaire indépendant peut recevoir une rémunération d’AOI liée à certaines commissions qu’AOI encaissera sur vos affaires. Pour lui permettre de suivre ses droits, AOI lui communique votre identité professionnelle, la date et le statut de votre rattachement, les commissions AOI retenues pour le calcul et sa rémunération. Il n’accède pas à vos annonces, messages, devis ou autres documents. AOI Network utilise ces données pour gérer et justifier les rémunérations de ses partenaires, sur le fondement de son intérêt légitime. Les durées, destinataires et modalités d’exercice de vos droits, dont l’opposition dans les conditions du RGPD, figurent dans la <a href="mentions-legales.html" target="_blank" rel="noopener">politique de confidentialité</a>. Contact : contact@aoi-network.com. Vous pouvez corriger ou effacer ce code avant de valider.';}
 else{info.style.color='#b4471a';info.textContent='Code non reconnu : vérifiez-le, ou laissez le champ vide.';}}).catch(function(){info.style.display='none';});}
 el.addEventListener('input',function(){clearTimeout(minuterie);minuterie=setTimeout(verifier,400);});setTimeout(verifier,300);setTimeout(verifier,1500);},100);})();
+</script>
+<script>
+// « Vérifiez votre adresse » (23/11/2026) : avertissement sous le champ e-mail quand l'adresse paraît mal saisie
+// (accent dans le domaine, faute de frappe, adresse générique, domaine inexistant). Jamais bloquant.
+(function(){var n=0,t=setInterval(function(){var el=document.getElementById('email'),info=document.getElementById('email_info');
+if(!el||!info){if(++n>50)clearInterval(t);return;}clearInterval(t);var derniere='';
+function esc(x){return String(x).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function masquer(){info.style.display='none';info.innerHTML='';}
+function verifier(){var e=String(el.value||'').trim();if(e===derniere)return;derniere=e;if(e.indexOf('@')<1){masquer();return;}
+fetch('https://extranet.aoi-network.com/api/verifier-email?e='+encodeURIComponent(e)).then(function(r){return r.json();}).then(function(d){
+if(String(el.value||'').trim()!==e)return;if(!d||!d.avertissement){masquer();return;}
+info.style.display='block';info.innerHTML=esc(d.avertissement)+(d.suggestion?' <button type="button" id="email_corriger" style="border:0;background:none;padding:0;color:#b4471a;font:inherit;font-weight:600;text-decoration:underline;cursor:pointer">Corriger en '+esc(d.suggestion)+'</button>':'')+'<br><span style="color:#8a7f72">Si votre adresse est correcte, ignorez ce message.</span>';
+var b=document.getElementById('email_corriger');if(b)b.addEventListener('click',function(){el.value=d.suggestion;derniere=d.suggestion;masquer();el.dispatchEvent(new Event('input',{bubbles:true}));});
+}).catch(masquer);}
+el.addEventListener('blur',verifier);el.addEventListener('input',function(){if(String(el.value||'').trim()!==derniere)masquer();});},100);})();
 </script>
 </body>
 </html>
