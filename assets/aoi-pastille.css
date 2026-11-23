@@ -13,3 +13,7 @@
 @media (min-width:1080px) and (max-width:1279.98px){.hd-nav{gap:14px}.hd-actions{gap:14px}}
 @media (max-width:399.98px){.pastille-mot{display:none}.hd-actions,.header-actions{gap:10px}}
 @media (min-width:1080px) and (max-width:1199.98px){.pastille-mot{display:none}.hd-nav{gap:12px}.hd-actions{gap:12px}}
+/* 23/11/2026 : chiffres masqués jusqu'aux vrais chiffres (ou 2,5 s au plus, même sans JavaScript). */
+.pastille b[data-pastille-membres],.pastille b[data-pastille-montant]{visibility:hidden;animation:pastille-revele 0s 2.5s forwards}
+.pastille.is-pret b[data-pastille-membres],.pastille.is-pret b[data-pastille-montant]{visibility:visible;animation:none}
+@keyframes pastille-revele{to{visibility:visible}}

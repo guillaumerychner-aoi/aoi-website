@@ -243,7 +243,13 @@ safe('reseau', () => {
       : `Chiffres de la plateforme au ${new Date(d.aJour).toLocaleDateString('fr-FR')}.`;
   };
 
-  afficher(JSON.parse(secours.textContent), false);
+  // 23/11/2026 : derniers chiffres reçus gardés dans le navigateur (même clé que la pastille), pour ne
+  // pas réafficher un ancien chiffre à chaque chargement avant la réponse de la plateforme.
+  const CLE = 'aoi-reseau-v1';
+  const lireCache = () => { try { const c = JSON.parse(localStorage.getItem(CLE) || 'null'); return c && Date.now() - c.t < 7 * 864e5 && Array.isArray(c.d?.metiers) ? c.d : null; } catch { return null; } };
+  const ecrireCache = d => { try { localStorage.setItem(CLE, JSON.stringify({ t: Date.now(), d })); } catch { /* navigation privée */ } };
+  const cache = lireCache();
+  afficher(cache || JSON.parse(secours.textContent), !!cache);
 
   // Les compteurs démarrent quand la section entre à l'écran.
   const io = new IntersectionObserver(entries => {
@@ -258,6 +264,6 @@ safe('reseau', () => {
   setTimeout(() => ctrl.abort(), 5000);
   fetch(SOURCE, { signal: ctrl.signal, credentials: 'omit' })
     .then(r => (r.ok ? r.json() : null))
-    .then(d => { if (d && d.professionnels > 0 && Array.isArray(d.metiers)) afficher(d, true); })
+    .then(d => { if (d && d.professionnels > 0 && Array.isArray(d.metiers)) { ecrireCache(d); afficher(d, true); } })
     .catch(err => { if (err && err.name !== 'AbortError' && !(err instanceof TypeError)) console.warn('[AOI] reseau', err); });
 });
