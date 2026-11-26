@@ -441,6 +441,35 @@
 
 </main>
 
+<!-- 26/11/2026 : avant-première de l'opération du 92 (affichée jusqu'au 9 décembre). -->
+<a class="avp" id="avant-premiere" href="operation-92.html" hidden>
+  <span class="avp-point" aria-hidden="true"></span>
+  <span class="avp-txt"><b>Avant-première</b> · une opération à monter dans le 92 · <span class="avp-date">dossier le 2 décembre</span></span>
+  <span class="avp-fl" aria-hidden="true">→</span>
+</a>
+<style>
+.avp{position:fixed;left:50%;bottom:clamp(14px,3vh,26px);transform:translate(-50%,12px);z-index:45;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 28px);padding:10px 16px 10px 14px;border-radius:999px;background:rgba(14,14,16,.86);border:1px solid rgba(234,176,138,.35);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#e9e4dc;font:500 13px/1.3 var(--sans);text-decoration:none;opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease),border-color .25s}
+.avp.is-visible{opacity:1;transform:translate(-50%,0)}
+.avp:hover{border-color:rgba(234,176,138,.8)}
+.avp b{color:#eab08a;font-weight:700}
+.avp-point{width:7px;height:7px;border-radius:50%;background:#eab08a;flex:none;animation:avp-pouls 2.2s ease-out infinite}
+.avp-fl{color:#eab08a;font-weight:700}
+@keyframes avp-pouls{0%{box-shadow:0 0 0 0 rgba(234,176,138,.55)}70%,100%{box-shadow:0 0 0 7px rgba(234,176,138,0)}}
+@media (max-width:479.98px){.avp{font-size:12px;padding:9px 13px}.avp-date{display:none}}
+@media (prefers-reduced-motion:reduce){.avp,.avp-point{transition:none;animation:none}}
+</style>
+<script>
+(function () {
+  var fin = new Date('2026-12-09T23:59:00+01:00'), ouverture = new Date('2026-12-02T09:00:00+01:00');
+  var a = document.getElementById('avant-premiere');
+  if (!a || new Date() > fin) return;
+  if (new Date() >= ouverture) a.querySelector('.avp-date').textContent = 'dossier ouvert aux opérateurs inscrits';
+  a.hidden = false;
+  setTimeout(function () { a.classList.add('is-visible'); }, 1200);
+})();
+</script>
+
+
 <footer class="ft">
   <div class="ft-in">
     <div class="ft-brand">
