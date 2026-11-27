@@ -449,14 +449,14 @@
 
 <style>
 /* 26/11/2026 : avant-première du 92, dans le bloc d'ouverture. */
-.ch-open-avp{margin-top:16px;display:inline-flex;align-items:center;gap:10px;max-width:100%;padding:10px 16px 10px 14px;border-radius:999px;background:rgba(14,14,16,.72);border:1px solid rgba(234,176,138,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#e9e4dc;font:500 13px/1.35 var(--sans);text-decoration:none;transition:border-color .25s}
+.ch-open-avp{margin-top:16px;display:inline-flex;align-self:flex-start;width:fit-content;align-items:center;gap:10px;max-width:100%;padding:10px 16px 10px 14px;border-radius:999px;background:rgba(14,14,16,.72);border:1px solid rgba(234,176,138,.35);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:#e9e4dc;font:500 13px/1.35 var(--sans);text-decoration:none;transition:border-color .25s}
 .ch-open-avp[hidden]{display:none!important}
 .ch-open-avp:hover{border-color:rgba(234,176,138,.8)}
 .ch-open-avp b{color:#eab08a;font-weight:700}
 .ch-open-avp .avp-point{width:7px;height:7px;border-radius:50%;background:#eab08a;flex:none;animation:avp-pouls 2.2s ease-out infinite}
 .ch-open-avp .avp-fl{color:#eab08a;font-weight:700;margin-left:auto}
 @keyframes avp-pouls{0%{box-shadow:0 0 0 0 rgba(234,176,138,.55)}70%,100%{box-shadow:0 0 0 7px rgba(234,176,138,0)}}
-@media (max-width:767.98px){.ch-open-avp{display:flex;width:100%;box-sizing:border-box;padding:12px 16px;font-size:13px}}
+@media (max-width:767.98px){.ch-open-avp{display:flex;align-self:stretch;width:100%;box-sizing:border-box;padding:12px 16px;font-size:13px}}
 @media (prefers-reduced-motion:reduce){.ch-open-avp .avp-point{animation:none}}
 </style>
 <script>
